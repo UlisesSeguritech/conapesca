@@ -64,105 +64,107 @@ var contenedorC1 = document.getElementById("contenedorC1");
 $("#solictudI").click(function () {
   $("#formatoI").not($(this)).removeClass("btn-instalacion-active");
   $(this).addClass("btn-instalacion-active");
-  contenedorC1.innerHTML = `  <div class="  shadow card-nom ">
-    <h5>NOM-062 SAG/PESC-2014</h5>
-    <p><b>¿Qué necesito para solicitar la instalación de equipo transreceptor?</b></p>
-    <p>El trámite que deben realizan los permisionarios y/o concesionarios con derechos
-       vigentes y con embarcaciones pesqueras que se ubiquen dentro de las
-       características establecidas al apartado 1.2 de la <b>Norma Oficial Mexicana 
-       NOM-062-SAG/PESC-2014, para la utilización del Sistema de Localización y
-       Monitoreo satelital de embarcaciones pesqueras publicada en el Diario Oficial de
-       la Federación el 3 de julio de 2015,</b> que soliciten equipos transreceptores (VMS) es el
-       siguiente:
-    </p>
-    <div class="ms-5">
-    <p><b>1.</b> Presentar en original, escrito de solicitud de Instalación de equipo transreceptor
-       dirigido a la DIRECCIÓN GENERAL DE INSPECCIÓN Y VIGILANCIA DE LA COMISIÓN
-       NACIONAL DE ACUACULTURA Y PESCA (CONAPESCA), y ser presentado ante las
-       oficinas de la Dirección General de Inspección y Vigilancia de la CONAPESCA o en
-       Oficinas Federales de Pesca de la Secretaria de Agricultura y Desarrollo Rural de su
-       localidad (en caso de residir fuera de Mazatlán, Sinaloa). Mismos que serán sellados
-       de recibido y turnados de forma gratuita a la CONAPESCA, asimismo también podrá
-       acudir directamente a las oficinas de correo para envío mediante correo certificado.
-    </p>
-    <p><b>2.</b> Adjuntar Original debidamente llenado del FORMATO DE INSCRIPCIÓN AL
-       REGISTRO DEL PROGRAMA DE SISTEMA DE MONITOREO SATELITAL DE
-       EMBARCACIONES PESQUERAS 2013-2018. El formato puede ser descargado
-       en la siguiente liga: https://www.monitoreodeembarcaciones.com.mx/monitoreosatelital/Downloads/SolicitudProgramaMonitoreoSateltal.pdf
-    </p>
- </div>
-    <p><b>Adjuntar copia simple de los siguientes documentos:</b></p>
-    <div class="ms-5">
-    <b>1.</b> Identificación oficial del propietario de la embarcación (Persona física)<br>
-    <b>2.</b> En caso de tratarse de personas morales el trámite lo efectúa el representante legal,
-    acreditando la personalidad por medio de carta poder general notariada (Escritura
-    pública otorgando poder legal).<br>
-    <b>3.</b> Identificación oficial del representante legal.<br>
-    <b>4.</b> Comprobante de domicilio del permisionario (con vigencia no mayor a 3 meses).<br>
-    <b>5.</b> Permiso y/o concesión vigente.<br>
-    <b>6.</b> Certificado Nacional de Seguridad vigente (SCT).<br>
-    <b>7.</b> Certificado de Matrícula (Documentación complementaria requerida)<br>
-    <b>8.</b> Documento que acredite el carácter de propietario o posesionario de la
-    embarcación. (Documentación complementaria requerida)<br>
-    El trámite de solicitud debe ser acompañado de la documentación requerida,
-    para que este órgano Administrativo esté en posibilidades de iniciar el trámite
-    de solicitud.</p>
- </div>
-    <p><b>Nota Importante:</b>  Toda documentación presentada será verificada, por lo que en
-       caso de falsear información será turnada a las autoridades competentes para los
-       efectos legales correspondientes.
-    </p>
-    <p>Las solicitudes que cumplan con los requisitos serán atendidas por la CONAPESCA,
-       por medio de Seguritech Privada S.A. de C.V., que es la empresa encargada de prestar
-       los servicios de instalación y mantenimiento de los equipos de monitoreo satelital, y
-       que llevará a cabo la instalación de manera gratuita conforme al procedimiento
-       establecido, atendiendo el orden de prelación de solicitudes registradas así como la
-       disponibilidad de equipos satelitales.
-    </p>
-    <p>El único facultado para la realización del trámite de instalación del VMS es el titular
-       del permiso y/o concesión (persona física o moral) asignado a la embarcación
-       requirente.
-    </p>
-    <p>Ningún servidor público de la CONAPESCA está facultado para solicitar documentos
-       adicionales a los requisitos arriba señalados, ni para requerir pagos por la realización
-       del trámite, distintos a los establecidos en los ordenamientos legales aplicables. Para
-       cualquier duda o aclaración referente, comunicarse al Centro de Monitoreo
-       Satelital, de la Dirección General de Inspección y Vigilancia de la CONAPESCA al
-       teléfono (669) 9156900 extensiones 58311 y 58329, correo electrónico:
-       monitoreo.satelital@conapesca.gob.mx Se apercibe a los solicitantes que la
-       documentación que sea entregada en Oficinas Federales de Pesca de la Secretaría
-       de Agricultura y Desarrollo Rural, se recibe sólo para el efecto de ser turnada a la
-       Dirección General de Inspección y Vigilancia de CONAPESCA, quien acusará de
-       recibido como autoridad compete de su revisión, y determinará lo procedente a su
-       solicitud, dentro del plazo de cinco días hábiles.
-    </p>
- </div>
+  contenedorC1.innerHTML = `   <div class="  shadow card-nom p-5">
+  <h5>Requisitos para solicitar la instalación de un equipo transreceptor</h5>
+ 
+  <p>Los permisionarios y/o concesionarios con derechos vigentes y con embarcaciones
+     pesqueras que se ubiquen dentro de las características establecidas al apartado 1.2
+     de la  <b>Norma Oficial Mexicana NOM-062-SAG/PESC-2014, para la utilización del
+        Sistema de Localización y Monitoreo Satelital de Embarcaciones Pesqueras
+        publicada en el Diario Oficial de la Federación el 3 de julio del 2015,</b> deberán llevar
+        a cabo la gestión con los siguientes requisitos:
+  </p>
+  <div class="ms-5">
+  <p><b>1.</b> Presentar en original, escrito de solicitud de instalación de equipo transreceptor
+     dirigido a la DIRECCIÓN GENERAL DE INSPECCIÓN Y VIGILANCIA DE LA
+     COMISIÓN NACIONAL DE ACUACULTURA Y PESCA (CONAPESCA), y ser
+     presentado ante las Oficinas de Representación de la CONAPESCA en las
+     Entidades Federativas de la Secretaría de Agricultura y Desarrollo Rural de su
+     localidad (en caso de residir fuera de Mazatlán, Sinaloa), mismos que serán
+     sellados de recibido y turnados de forma gratuita a la CONAPESCA, así mismo
+     podrá acudir directamente a las oficinas de correo para envío mediante un
+     correo certificado.
+  </p>
+  <p><b>2.</b> Adjuntar original debidamente llenado del "FORMATO DE INSCRIPCIÓN AL
+     REGISTRO DEL PROGRAMA DE SISTEMA DE MONITOREO SATELITAL DE
+     EMBARCACIONES PESQUERAS 2013-2018".
+  </p>
+</div>
+  <p><b>Adjuntar copia simple de los siguientes documentos:</b></p>
+  <div class="ms-5">
+  <b>1.</b> Identificación oficial del propietario de la embarcación (Persona Física).<br>
+  <b>2.</b> En caso de tratarse de personas morales el trámite lo efectúa el representante
+  legal, acreditando la personalidad por medio de carta poder general notarial
+  (Escritura Pública otorgando poder legal).<br>
+  <b>3.</b> Identificación oficial del representante legal.<br>
+  <b>4.</b> Comprobante de domicilio del permisionario (con vigencia no mayor a 3
+  meses).<br>
+  <b>5.</b> Permiso y/o concesión vigente.<br>
+  <b>6.</b> Certificado Nacional de Seguridad vigente (UNICAPAM).<br>
+  <b>7.</b> Certificado de Matrícula (UNICAPAM). (Documentación complementaria requerida).<br>
+  <b>8.</b> Documento que acredite el carácter de propietario o posesionario de la
+  embarcación. (Documentación complementaria requerida). <br>
+  El trámite de solicitud debe ser acompañado de la documentación requerida, para
+  que este Órgano Administrativo esté en posibilidades de iniciar el trámite de solicitud.</p>
+</div>
+  <p><b>Nota Importante:</b>  Toda documentación presentada será verificada, por lo que en
+     caso de falsear información será turnada a las autoridades competentes para los
+     efectos legales correspondientes.
+  </p>
+  <p>La realización del presente trámite es necesario, por lo que la falta de un documento
+     solicitado, será considerado como falta de interés del solicitante para la continuidad
+     del mismo.</p>
 
- <div class="row m-3 mt-5">
-    <div class="col-4 mx-auto  text-center ">
-    <a href="assets/pdfs/requisitos_solicitar-instalacion-equipo-transreceptor.pdf" target="_blank"><button type="button" class="btn btn-outline-danger mx-auto w-100">Descargar Requisitos</button></a>
-    </div>
-    <div class="col-4"></div>
-    <div class="col-4"></div>
- </div>`;
+  <p>Las solicitudes que cumplan con los requisitos serán atendidas por la CONAPESCA,
+por medio de Seguritech Privada S.A. de C.V., que es la empresa encargada de prestar
+los servicios de instalación y mantenimiento de los equipos transreceptores, y que
+para el permisionario y/o concesionario se llevará a cabo la instalación de manera
+gratuita conforme al procedimiento establecido, atendiendo el orden de prelación de
+solicitudes registradas así como la disponibilidad de equipos transreceptores
+  </p>
+  <p>El único facultado para la realización del trámite de instalación del equipo transreceptor, es el titular del permiso y/o concesión (persona física o moral) asignado a la
+     embarcación requirente.
+  </p>
+  <p>Ningún servidor público de la CONAPESCA está facultado para solicitar documentos
+     adicionales a los requisitos antes señalados, ni para requerir pagos por la realización
+     del trámite, distintos a los establecidos en los ordenamientos legales aplicables. Para
+     cualquier duda o aclaración referente, comunicarse al Centro de Localización y
+     Monitoreo Satelital de Embarcaciones Pesqueras, de la Dirección General de
+     Inspección y Vigilancia de la CONAPESCA al teléfono (669) 9156900 extensiones 58311
+     y 58329, correo electrónico: monitoreo.satelital@conapesca.gob.mx
+  </p>
+  <p>Se requiere a los solicitantes que la documentación que sea entregada en las Oficinas
+     de Representación de la CONAPESCA en las Entidades Federativas de la Secretaría de
+     Agricultura y Desarrollo Rural, se recibe sólo para el efecto de ser turnada a la
+     Dirección General de Inspección y Vigilancia de CONAPESCA, quien acusará de
+     recibido como autoridad competente para su revisión, y determinará lo procedente a
+     su solicitud, dentro del plazo de cinco días hábiles.</p>
+</div>
+
+<div class="row m-3 mt-5">
+  <div class="col-4 mx-auto  text-center ">
+     <a href="assets/pdfs/requisitos_solicitar-instalacion-equipo-transreceptor.pdf" target="_blank"> <button type="button" class="btn btn-outline-danger mx-auto w-100 align-left">Descargar Requisitos</button></a>
+  </div>
+  <div class="col-md-4"></div>
+  <div class="col-md-4"></div>
+</div>`;
 });
 $("#formatoI").click(function () {
   $("#solictudI").not($(this)).removeClass("btn-instalacion-active");
   $(this).addClass("btn-instalacion-active");
-  contenedorC1.innerHTML = `<div class="shadow card-nom ">
+  contenedorC1.innerHTML = `<div class="shadow card-nom p-5">
                                 <h5 >Formato de instalacion</h5>
                                 <div class="row mt-5 ">
                         
                         <div class="col-3 mx-auto">
                         <div class="text-center">
                              <img src="./assets/Img/pdf.jpg" alt="">
+                             <p class="text-muted ms-3" style="font-size:10px">Solicitud de Instalación</p>
                              </div>
                          </div>
                          <div class="col-9 mx-auto">
                          <a href="assets/pdfs/requisitos_solicitar-instalacion-equipo-transreceptor.pdf" target="_blank"><button type="button" class="btn btn-outline-danger mb-2" style="width:60%;">Descarga</button></a>
-                           <p class="text-muted" style="font-size:10px">El formato puede ser descargado en la siguiente liga:
-                           https://www.monitoreodeembarcaciones.com.mx/monitoreosatelital/Downloads/Solicitud
-                           ProgramaMonitoreoSateltal.pdf </p>
+                           
 
                          </div>
                          
