@@ -1,71 +1,70 @@
 /*!
-* Start Bootstrap - Small Business v5.0.6 (https://startbootstrap.com/template/small-business)
-* Copyright 2013-2023 Start Bootstrap
-* Licensed under MIT (https://github.com/StartBootstrap/startbootstrap-small-business/blob/master/LICENSE)
-*/
+ * Start Bootstrap - Small Business v5.0.6 (https://startbootstrap.com/template/small-business)
+ * Copyright 2013-2023 Start Bootstrap
+ * Licensed under MIT (https://github.com/StartBootstrap/startbootstrap-small-business/blob/master/LICENSE)
+ */
 // This file is intentionally blank
 // Use this file to add JavaScript to your project
 
-$(document).ready(function() {
-    $('.btn-tab').click(function() {
-      // Desactivar botones inactivos
-      $('.btn-tab').not($(this)).removeClass('btn-tab-active');
-      // Activar botón actual
-      $(this).addClass('btn-tab-active');
-      // Obtener objetivo del botón
-      var target = $(this).attr('data-bs-target');
-      // Ocultar elementos no seleccionados
-      $('.collapse.show').not(target).removeClass('show');
-      // Mostrar el elemento seleccionado
-      $(target).addClass('show');
-      $('#contHide').show();
-      $('.btn-gren').removeClass('active-green');
-      
-    });
-    $('.btn-resp').click(function() {
-      // Desactivar botones inactivos
-      $('.btn-resp').not($(this)).removeClass('active');
-      // Activar botón actual
-      $(this).addClass('active');
-      // Obtener objetivo del botón
-      var target = $(this).attr('href');
-      // Ocultar elementos no seleccionados
-      $('.collapse.show').not(target).removeClass('show');
-      // Mostrar el elemento seleccionado
-      $(target).addClass('show');
-      $('#contHide').show();
-      $('.btn-gren').removeClass('active-green');
-    });
-   
-    $('.btn-gren').click(function() {
-      $('#contHide').hide();
-      // Desactivar botones inactivos
-      $('.btn-gren').not($(this)).removeClass('active-green');
-      // Activar botón actual
-      $(this).addClass('active-green');
-      // Obtener objetivo del botón
-      
-      var target = this.querySelector('a').getAttribute('href');
-      // Ocultar elementos no seleccionados
-      $('.collapse.collapseC.show').not(target).removeClass('show');
-      // Mostrar el elemento seleccionado
-      $(target).addClass('show');
-      
-      //console.log(this);
-      //console.log(target);
-   });
-   
-    const collapseElements = document.querySelectorAll('.collapse');
-    collapseElements.forEach(element => {
-      element.style.transition = 'none';
-    });
-   });
-   
-   var contenedorC1 = document.getElementById('contenedorC1');
-   $('#solictudI').click(function(){
-    $('#formatoI').not($(this)).removeClass('btn-instalacion-active');
-    $(this).addClass('btn-instalacion-active');
-    contenedorC1.innerHTML=`  <div class="  shadow card-nom ">
+$(document).ready(function () {
+  $(".btn-tab").click(function () {
+    // Desactivar botones inactivos
+    $(".btn-tab").not($(this)).removeClass("btn-tab-active");
+    // Activar botón actual
+    $(this).addClass("btn-tab-active");
+    // Obtener objetivo del botón
+    var target = $(this).attr("data-bs-target");
+    // Ocultar elementos no seleccionados
+    $(".collapse.show").not(target).removeClass("show");
+    // Mostrar el elemento seleccionado
+    $(target).addClass("show");
+    $("#contHide").show();
+    $(".btn-gren").removeClass("active-green");
+  });
+  $(".btn-resp").click(function () {
+    // Desactivar botones inactivos
+    $(".btn-resp").not($(this)).removeClass("active");
+    // Activar botón actual
+    $(this).addClass("active");
+    // Obtener objetivo del botón
+    var target = $(this).attr("href");
+    // Ocultar elementos no seleccionados
+    $(".collapse.show").not(target).removeClass("show");
+    // Mostrar el elemento seleccionado
+    $(target).addClass("show");
+    $("#contHide").show();
+    $(".btn-gren").removeClass("active-green");
+  });
+
+  $(".btn-gren").click(function () {
+    $("#contHide").hide();
+    // Desactivar botones inactivos
+    $(".btn-gren").not($(this)).removeClass("active-green");
+    // Activar botón actual
+    $(this).addClass("active-green");
+    // Obtener objetivo del botón
+
+    var target = this.querySelector("a").getAttribute("href");
+    // Ocultar elementos no seleccionados
+    $(".collapse.collapseC.show").not(target).removeClass("show");
+    // Mostrar el elemento seleccionado
+    $(target).addClass("show");
+
+    //console.log(this);
+    //console.log(target);
+  });
+
+  const collapseElements = document.querySelectorAll(".collapse");
+  collapseElements.forEach((element) => {
+    element.style.transition = "none";
+  });
+});
+
+var contenedorC1 = document.getElementById("contenedorC1");
+$("#solictudI").click(function () {
+  $("#formatoI").not($(this)).removeClass("btn-instalacion-active");
+  $(this).addClass("btn-instalacion-active");
+  contenedorC1.innerHTML = `  <div class="  shadow card-nom ">
     <h5>NOM-062 SAG/PESC-2014</h5>
     <p><b>¿Qué necesito para solicitar la instalación de equipo transreceptor?</b></p>
     <p>El trámite que deben realizan los permisionarios y/o concesionarios con derechos
@@ -141,19 +140,16 @@ $(document).ready(function() {
 
  <div class="row m-3 mt-5">
     <div class="col-4 mx-auto  text-center ">
-       <button type="button" class="btn btn-outline-danger mx-auto w-100">Descargar Requisitos</button>
-    </div>
-    <div class="col-4 mx-auto text-center ">
-       <button type="button" class="btn btn-outline-danger mx-auto w-100">Descargar Formato</button>
+    <a href="assets/pdfs/requisitos_solicitar-instalacion-equipo-transreceptor.pdf" target="_blank"><button type="button" class="btn btn-outline-danger mx-auto w-100">Descargar Requisitos</button></a>
     </div>
     <div class="col-4"></div>
+    <div class="col-4"></div>
  </div>`;
-                              
-   });
-   $('#formatoI').click(function(){
-    $('#solictudI').not($(this)).removeClass('btn-instalacion-active');
-    $(this).addClass('btn-instalacion-active');
-    contenedorC1.innerHTML=`<div class="shadow card-nom ">
+});
+$("#formatoI").click(function () {
+  $("#solictudI").not($(this)).removeClass("btn-instalacion-active");
+  $(this).addClass("btn-instalacion-active");
+  contenedorC1.innerHTML = `<div class="shadow card-nom ">
                                 <h5 >Formato de instalacion</h5>
                                 <div class="row mt-5 ">
                         
@@ -163,7 +159,7 @@ $(document).ready(function() {
                              </div>
                          </div>
                          <div class="col-9 mx-auto">
-                           <button type="button" class="btn btn-outline-danger mb-2" style="width:60%;">Descarga</button>
+                         <a href="assets/pdfs/requisitos_solicitar-instalacion-equipo-transreceptor.pdf" target="_blank"><button type="button" class="btn btn-outline-danger mb-2" style="width:60%;">Descarga</button></a>
                            <p class="text-muted" style="font-size:10px">El formato puede ser descargado en la siguiente liga:
                            https://www.monitoreodeembarcaciones.com.mx/monitoreosatelital/Downloads/Solicitud
                            ProgramaMonitoreoSateltal.pdf </p>
@@ -174,16 +170,12 @@ $(document).ready(function() {
                      </div>
                                 </div>
                               `;
-                              
-   });
-   
-   
-   collapse3 = document.getElementById('collapseC3');
-   btnAceptVerificacion = document.getElementById('aceptarVerificacion');
-   btnAceptVerificacion.addEventListener('click',()=>{
-      
-   
-      collapse3.innerHTML=`<div class="mx-5 py-4">
+});
+
+collapse3 = document.getElementById("collapseC3");
+btnAceptVerificacion = document.getElementById("aceptarVerificacion");
+btnAceptVerificacion.addEventListener("click", () => {
+  collapse3.innerHTML = `<div class="mx-5 py-4">
    <div class="card align-items-center shadow my-5 ubucacionEmb card-verifi">
    <div class="m-3 p-3">
       <h4>Ubicacion actual de la embarcacion</h4>
@@ -294,11 +286,11 @@ $(document).ready(function() {
       </div>
    </div>       
    </div>
-   `
+   `;
 
-      btnAceptVerificacion2 = document.getElementById('aceptarVerificacion2');
-      btnAceptVerificacion2.addEventListener('click',()=>{
-         collapse3.innerHTML=` 
+  btnAceptVerificacion2 = document.getElementById("aceptarVerificacion2");
+  btnAceptVerificacion2.addEventListener("click", () => {
+    collapse3.innerHTML = ` 
          <div class="card back-gray">
          <div class="container ">
             <div class="collapseGreen shadow card-nom p-5 my-3 mx-auto px-5 collapseGreen ">
@@ -361,10 +353,5 @@ $(document).ready(function() {
                </div>
             </div>
          </div>`;
-
-
-      });
-   });
-
-  
-   
+  });
+});
