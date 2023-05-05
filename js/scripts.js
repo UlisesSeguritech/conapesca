@@ -247,10 +247,12 @@ btnAceptVerificacion.addEventListener("click", () => {
       <h4>Datos de contacto</h4>
       <div class="row">
          <div class="col m-3">
-            <input class="form-control" type="text" placeholder="Fecha sugerida" >
+         <label  class="form-label">Fecha sugerida</label>
+            <input class="form-control" type="date" placeholder="Fecha sugerida" >
          </div>
          <div class="col m-3">
-            <input class="form-control" type="text" placeholder="Hora sugerida" >
+         <label  class="form-label">Hora sugerida</label>
+            <input class="form-control" type="time" placeholder="Hora sugerida" >
          </div>
          </div>
          <div class="row">
@@ -275,7 +277,7 @@ btnAceptVerificacion.addEventListener("click", () => {
             <div class="row mt-5">
             <div class="col"></div>
                <div class="col text-center">
-                  <button type="button" class="btn btn-outline-secondary mb-1 w-100">Cancelar</button>
+                  <button type="button" class="btn btn-outline-secondary mb-1 w-100" onclick="cancelarSolicitud()">Cancelar</button>
                </div>
                <div class="col text-center">
                  <button type="button" class="btn btn-outline-danger mb-1 w-100" id="aceptarVerificacion2">Aceptar</button>
@@ -338,7 +340,7 @@ btnAceptVerificacion.addEventListener("click", () => {
           <div class="row mt-5">
           <div class="col"></div>
              <div class="col text-center">
-                <button type="button" class="btn btn-outline-secondary mb-1 w-100">Cancelar</button>
+                <button type="button" class="btn btn-outline-secondary mb-1 w-100" onclick="cancelarSolicitud()"">Cancelar</button>
              </div>
              <div class="col text-center">
                <button type="button" class="btn btn-outline-danger mb-1 w-100" id="generarFolio">Generar Folio</button>
@@ -357,3 +359,209 @@ btnAceptVerificacion.addEventListener("click", () => {
          </div>`;
   });
 });
+let cancelarSolicitud =() =>{
+   
+   collapse3.innerHTML=`
+   <div class="card align-items-center shadow  back-gray">
+      <div class="card m-5 carSolic card-verifi shadow  ">
+         <div class="card-body">
+            <h5 class="text-center">Solicitud de Verificación del VMS</h5>
+            <div class="text-center"></div>
+            <label class="card-subtitle mb-2 text-muted mt-3 text-center">Proporcione el RNPA de su embarcación</label>
+            <input class="form-control" placeholder="RNPA de la embarcación"/>
+            <div class="row mt-5">
+               <div class="col text-center">
+                  <button type="button" class="btn btn-outline-secondary mb-1">Cancelar</button>
+               </div>
+               <div class="col text-center">
+                  <button type="button" class="btn btn-outline-danger mb-1" id="aceptarVerificacion">Aceptar</button>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>`
+   btnAceptVerificacion = document.getElementById("aceptarVerificacion");
+btnAceptVerificacion.addEventListener("click", () => {
+  collapse3.innerHTML = `<div class="mx-5 py-4">
+   <div class="card align-items-center shadow my-5 ubucacionEmb card-verifi">
+   <div class="m-3 p-3">
+      <h4>Ubicacion actual de la embarcacion</h4>
+      <div class="row">
+         <div class="col m-3">
+            <select class="form-select" aria-label="Default select example">
+               <option selected>Estado</option>
+               <option value="">Selecciona un estado con litoral</option>
+               <option value="Baja California Sur">Baja California Sur</option>
+               <option value="Baja California">Baja California</option>
+               <option value="Sonora">Sonora</option>
+               <option value="Sinaloa">Sinaloa</option>
+               <option value="Nayarit">Nayarit</option>
+               <option value="Jalisco">Jalisco</option>
+               <option value="Colima">Colima</option>
+               <option value="Michoacán">Michoacán</option>
+               <option value="Guerrero">Guerrero</option>
+               <option value="Oaxaca">Oaxaca</option>
+               <option value="Chiapas">Chiapas</option>
+               <option value="Quintana Roo">Quintana Roo</option>
+               <option value="Yucatán">Yucatán</option>
+               <option value="Campeche">Campeche</option>
+               <option value="Tabasco">Tabasco</option>
+               <option value="Veracruz">Veracruz</option>
+               <option value="Tamaulipas">Tamaulipas</option>
+             </select>
+         </div>
+         <div class="col m-3">
+            <select class="form-select" aria-label="Default select example">
+               <option selected>Localidad</option>
+               <option value="1">One</option>
+               <option value="2">Two</option>
+               <option value="3">Three</option>
+             </select>
+         </div>
+      </div>
+      <div class="row">
+         <div class="col m-3">
+            <select class="form-select" aria-label="Default select example">
+               <option selected>Muelle</option>
+               <option value="1">One</option>
+               <option value="2">Two</option>
+               <option value="3">Three</option>
+             </select>
+         </div>
+         <div class="col m-3">
+            <select class="form-select" aria-label="Default select example">
+               <option selected>Referencia</option>
+               <option value="1">One</option>
+               <option value="2">Two</option>
+               <option value="3">Three</option>
+             </select>
+         </div>
+      </div>
+      <div class="row">
+         <div class="col m-3">
+            <textarea class="form-control" placeholder="Descripción de la falla" rows="3"></textarea>
+         </div>
+      </div>
+   
+   </div>   
+         
+   </div>
+   
+   <div class="card align-items-center shadow my-5 ubucacionEmb card-verifi" >
+   <div class="m-3 p-3">
+      <h4>Datos de contacto</h4>
+      <div class="row">
+         <div class="col m-3">
+         <label  class="form-label">Fecha sugerida</label>
+            <input class="form-control" type="date" placeholder="Fecha sugerida" >
+         </div>
+         <div class="col m-3">
+         <label  class="form-label">Hora sugerida</label>
+            <input class="form-control" type="time" placeholder="Hora sugerida" >
+         </div>
+         </div>
+         <div class="row">
+            <div class="col m-3">
+               <input class="form-control" type="text" placeholder="Teléfono" >
+            </div>
+            <div class="col m-3">
+               <input class="form-control" type="text" placeholder="Persona de contacto" >
+            </div>
+
+         </div>
+         <div class="row">
+         <div class="col m-3">
+            <input class="form-control" type="email" placeholder="Correo electrónico" >
+         </div>
+         <div class="col m-3">
+            
+         </div>
+
+      </div>
+        
+            <div class="row mt-5">
+            <div class="col"></div>
+               <div class="col text-center">
+                  <button type="button" class="btn btn-outline-secondary mb-1 w-100" onclick="cancelarSolicitud()">Cancelar</button>
+               </div>
+               <div class="col text-center">
+                 <button type="button" class="btn btn-outline-danger mb-1 w-100" id="aceptarVerificacion2">Aceptar</button>
+               </div>
+               <div class="col"></div>
+               
+             
+          
+            </div>
+      </div>
+   </div>       
+   </div>
+   `;
+
+  btnAceptVerificacion2 = document.getElementById("aceptarVerificacion2");
+  btnAceptVerificacion2.addEventListener("click", () => {
+    collapse3.innerHTML = ` 
+         <div class="card back-gray">
+         <div class="container ">
+            <div class="collapseGreen shadow card-nom p-5 my-3 mx-auto px-5 collapseGreen ">
+            <div class="container">
+            <table class="table text-center">
+            <thead>
+              <tr class="table-secondary">
+                <th class="fw-normal">Tipo de solicitud</th>
+                <th class="fw-normal">RNPA de la embarcación</th>
+                <th class="fw-normal">Nombre de la Embarcación</th>
+                <th class="fw-normal">Matricula</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+               <td class="fw-bold">Solicitud</td>
+               <td class="fw-bold">09817162</td>
+               <td class="fw-bold">CAMILA</td>
+               <td class="fw-bold">00056549</td>
+              
+              </tr>
+             
+            </tbody>
+            <thead>
+            <tr class="table-secondary">
+            <th class="fw-normal">Puerto Base</th>
+            <th class="fw-normal">RNPA del propietario</th>
+            <th class="fw-normal">Razón Social</th>
+            <th class="fw-normal">Tipo de Falla</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+               <td class="fw-bold">Sinaloa</td>
+               <td class="fw-bold">89111262</td>
+               <td class="fw-bold">EMPRESA</td>
+               <td class="fw-bold">Falla</td>
+            
+            </tr>
+           
+          </tbody>
+          </table>
+          <div class="row mt-5">
+          <div class="col"></div>
+             <div class="col text-center">
+                <button type="button" class="btn btn-outline-secondary mb-1 w-100" onclick="cancelarSolicitud()"">Cancelar</button>
+             </div>
+             <div class="col text-center">
+               <button type="button" class="btn btn-outline-danger mb-1 w-100" id="generarFolio">Generar Folio</button>
+             </div>
+             <div class="col"></div>
+             
+           
+        
+          </div>
+          
+            </div>
+
+
+               </div>
+            </div>
+         </div>`;
+  });
+});
+}
