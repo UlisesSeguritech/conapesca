@@ -64,7 +64,7 @@ var contenedorC1 = document.getElementById("contenedorC1");
 $("#solictudI").click(function () {
   $("#formatoI").not($(this)).removeClass("btn-instalacion-active");
   $(this).addClass("btn-instalacion-active");
-  contenedorC1.innerHTML = `   <div class="  shadow card-nom p-5">
+  contenedorC1.innerHTML = `     <div class="  shadow card-nom p-5">
   <h5>Requisitos para solicitar la instalación de un equipo transreceptor</h5>
  
   <p>Los permisionarios y/o concesionarios con derechos vigentes y con embarcaciones
@@ -75,35 +75,28 @@ $("#solictudI").click(function () {
         a cabo la gestión con los siguientes requisitos:
   </p>
   <div class="ms-5">
-  <p><b>1.</b> Presentar en original, escrito de solicitud de instalación de equipo transreceptor
-     dirigido a la DIRECCIÓN GENERAL DE INSPECCIÓN Y VIGILANCIA DE LA
-     COMISIÓN NACIONAL DE ACUACULTURA Y PESCA (CONAPESCA), y ser
-     presentado ante las Oficinas de Representación de la CONAPESCA en las
-     Entidades Federativas de la Secretaría de Agricultura y Desarrollo Rural de su
-     localidad (en caso de residir fuera de Mazatlán, Sinaloa), mismos que serán
-     sellados de recibido y turnados de forma gratuita a la CONAPESCA, así mismo
-     podrá acudir directamente a las oficinas de correo para envío mediante un
-     correo certificado.
-  </p>
-  <p><b>2.</b> Adjuntar original debidamente llenado del "FORMATO DE INSCRIPCIÓN AL
-     REGISTRO DEL PROGRAMA DE SISTEMA DE MONITOREO SATELITAL DE
-     EMBARCACIONES PESQUERAS 2013-2018".
-  </p>
+  
+     <ol>
+        <li>Presentar en original, escrito de solicitud de instalación de equipo transreceptor dirigido a la DIRECCIÓN GENERAL DE INSPECCIÓN Y VIGILANCIA DE LA COMISIÓN NACIONAL DE ACUACULTURA Y PESCA (CONAPESCA), y ser presentado ante las Oficinas de Representación de la CONAPESCA en las Entidades Federativas de la Secretaría de Agricultura y Desarrollo Rural de su localidad (en caso de residir fuera de Mazatlán, Sinaloa), mismos que serán sellados de recibido y turnados de forma gratuita a la CONAPESCA, así mismo podrá acudir directamente a las oficinas de correo para envío mediante un correo certificado.</li>
+        <li>Adjuntar original debidamente llenado del "FORMATO DE INSCRIPCIÓN AL REGISTRO DEL PROGRAMA DE SISTEMA DE MONITOREO SATELITAL DE EMBARCACIONES PESQUERAS 2013-2018".</li>
+     </ol>
 </div>
   <p><b>Adjuntar copia simple de los siguientes documentos:</b></p>
   <div class="ms-5">
-  <b>1.</b> Identificación oficial del propietario de la embarcación (Persona Física).<br>
-  <b>2.</b> En caso de tratarse de personas morales el trámite lo efectúa el representante
-  legal, acreditando la personalidad por medio de carta poder general notarial
-  (Escritura Pública otorgando poder legal).<br>
-  <b>3.</b> Identificación oficial del representante legal.<br>
-  <b>4.</b> Comprobante de domicilio del permisionario (con vigencia no mayor a 3
-  meses).<br>
-  <b>5.</b> Permiso y/o concesión vigente.<br>
-  <b>6.</b> Certificado Nacional de Seguridad vigente (UNICAPAM).<br>
-  <b>7.</b> Certificado de Matrícula (UNICAPAM). (Documentación complementaria requerida).<br>
-  <b>8.</b> Documento que acredite el carácter de propietario o posesionario de la
-  embarcación. (Documentación complementaria requerida). <br>
+     <ol>
+        <li>Identificación oficial del propietario de la embarcación (Persona Física).</li>
+        <li>En caso de tratarse de personas morales el trámite lo efectúa el representante legal, acreditando la personalidad por medio de carta poder general notarial (Escritura Pública otorgando poder legal).</li>
+        <li>Identificación oficial del representante legal.</li>
+        <li>Comprobante de domicilio del permisionario (con vigencia no mayor a 3 meses).</li>
+        <li>Permiso y/o concesión vigente.</li>
+        <li>Certificado Nacional de Seguridad vigente (UNICAPAM).</li>
+        <li>Certificado de Matrícula (UNICAPAM). (Documentación complementaria requerida).</li>
+        <li>Documento que acredite el carácter de propietario o posesionario de la embarcación. (Documentación complementaria requerida).</li>
+     </ol>
+     
+     
+<p>
+     
   El trámite de solicitud debe ser acompañado de la documentación requerida, para
   que este Órgano Administrativo esté en posibilidades de iniciar el trámite de solicitud.</p>
 </div>
