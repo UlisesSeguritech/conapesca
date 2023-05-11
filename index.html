@@ -16,50 +16,41 @@
    </head>
    <body>
       <nav class="navbar navbar-expand-lg nav shadow-sm py-3">
-         <div class="container-xxl ">
-            <div class="d-flex flex-grow-1 align-items-center">
-               <ul class="navbar-nav me-auto nav-img d-flex flex-row d-flex align-items-center" style="white-space: nowrap; overflow-x: auto;">
-                  <li class="nav-item ms-auto">
-                     <a class="nav-link pad-0 " href="#">
-                     <img src="assets/Img/logotipo_agricultura.jpg" alt="Imagen 1" height="100" class="d-inline-block align-top img-fluid  mt-1 imgAgric">
-                     </a>
-                  </li>
-                  <li class="nav-item ms-auto img-escudo">
-                     <a class="nav-link pad-0" href="#">
-                     <img src="assets/Img/logotipo_conapesca.png" alt="Imagen 2" height="100" class="d-inline-block align-top img-fluid mx-2 imgCona">
-                     </a>
-                  </li>
-                  <!--
-                     <li class="nav-item ms-auto">
-                        <a class="nav-link pad-0" href="#">
-                           <div class="text-center">
-                              <img src="assets/Img/conapescag.png" alt="Imagen 3" height="100" class="d-inline-block align-top img-fluid mx-2">
-                           </div>
-                        </a>
-                     </li>
-                     -->
-               </ul>
-               <span class="navbar-text ms-auto mr-3 nav-text d-flex align-items-center">
-               Conapesca.gob.mx
-               </span>
-            </div>
+         <div class="container-xxl">
+           <div class="d-flex flex-grow-1 align-items-center ">
+             <div class="navbar-brand border-rig pe-3">
+               <img src="assets/Img/logotipo_agricultura.jpg" alt="Imagen 1" height="100" class="d-inline-block align-top img-fluid mt-1 imgAgric ">
+             </div>
+             
+             <div class="navbar-brand ps-1">
+               <img src="assets/Img/logotipo_conapesca.png" alt="Imagen 2" height="100" class="d-inline-block align-top img-fluid mx-2 imgCona">
+             </div>
+             <div class="navbar-text ms-auto mx-3 nav-text  align-items-center" id="spanNav">
+               <span  >
+                  Conapesca.gob.mx
+                </span>
+             </div>
+             
+           </div>
          </div>
-      </nav>
+       </nav>
+       
       <!-- Page Content-->
       <div class="container-xxl">
       <div class="row gx-4 gx-lg-5 align-items-center my-5 d-flex">
-         <div class=" col-sm-12 col-md-auto">
-            <h1 class="title">Sistema de Monitoreo Satélital de Embarcaciones Pesqueras</h1>
+         <div class=" col-sm-12 col-md-auto" id="tituloHead">
+            <h1 class="title tituloHead" >Sistema de Monitoreo Satélital de Embarcaciones Pesqueras</h1>
          </div>
       </div>
       <div class="cont-collapseH">
          <div class="row align-items-center my-5">
             <div class="dropdown-conapesca">
                <div class="" role="group">
-                  <button type="button" class="btn btn-dropdown dropdown-toggle w-100" data-bs-toggle="dropdown" aria-expanded="false">
-                  Conapesca
-                  </button>
-                  <ul class="dropdown-menu dropdown-menu-right">
+                  <button type="button" class="btn btn-dropdown text-center dropdown-toggle-no-caret w-100" data-bs-toggle="dropdown" aria-expanded="false">
+                     Conapesca 
+                     <img src="./assets/Img/menu-hamburgesa.png" alt="">
+                 </button>
+                  <ul class="dropdown-menu dropdown-menu-end">
                      <a class="dropdown-item btn-resp" href="#collapse1" data-bs-toggle="collapse">Conapesca</a>
                      <a class="dropdown-item btn-resp" href="#collapse2" data-bs-toggle="collapse">Satélite</a>
                     
@@ -71,6 +62,7 @@
                   </ul>
                </div>
             </div>
+            
             <div class="col-lg-12 d-flex justify-content-between btn-head">
                <button type="button" class="btn flex-grow-1 btn-tab btn-tab-active" data-bs-toggle="collapse" data-bs-target="#collapse1" aria-expanded="false">Conapesca</button>
                <button type="button" class="btn flex-grow-1 btn-tab" data-bs-toggle="collapse" data-bs-target="#collapse2" aria-expanded="false">Satelite</button>
@@ -84,12 +76,12 @@
             <div class="col-lg-12 conteColl" data-bs-parent="#conteColl">
                <div class="collapse collHead show"  id="collapse1">
                   <div class="card card-head ">
-                     <img class="img-fluid " src="assets/Img/edificios.jpg" alt="..." />
+                     <img class="img-fluid " src="assets/Img/edificios.jpg" alt="..." id="imgConapesca"/>
                   </div>
                </div>
                <div class="collapse collHead"  id="collapse2">
                   <div class="card card-head ">
-                     <img class="img-fluid " src="assets/Img/satelite.jpg" alt="..." />
+                     <img class="img-fluid " src="assets/Img/satelite.jpg" alt="..." id="imgSatelite"/>
                      <div class="mx-5">
                         <h5 class="mt-1">Equipos transreceptores (VMS)</h5>
                         <p>
@@ -118,7 +110,7 @@
               
                <div class="collapse collHead"   id="collapse4">
                   <div class="card card-head ">
-                     <img class="img-fluid " src="assets/Img/embarcaciones.jpg" alt="..." />
+                     <img class="img-fluid " src="assets/Img/embarcaciones.jpg" alt="..." id="imgEmbarcaciones"/>
                      <div class="mx-5">
                         <h5 class="mt-1">EMBARCACIONES PESQUERAS</h5>
                         <p>
@@ -149,7 +141,7 @@
                
                <div class="collapse collHead"   id="collapse6">
                   <div class="card card-head ">
-                     <img class="img-fluid " src="assets/Img/monitoreo.jpg" alt="..." />
+                     <img class="img-fluid " src="assets/Img/monitoreo.jpg" alt="..." id="imgCms"/>
                      <div class="row">
                         <div class="col">
                            <div class="mx-5">
@@ -168,8 +160,8 @@
                               </div>
                            </div>
                         </div>
-                        <div class="col-4 text-center">
-                           <img class="mt-5 img-monitoreo" src="assets/Img/monitoreo2.png" alt="">
+                        <div class="col-sm-4 text-center">
+                           <img class="mt-5 mb-3 img-monitoreo" src="assets/Img/monitoreo2.png" alt="">
                         </div>
                      </div>
                   </div>
@@ -177,18 +169,383 @@
              
                <div class="collapse collHead"   id="collapse8">
                   <div class="card card-head ">
-                    <a href="https://20.225.146.99/Tuna/Account/Login" > <img src="assets/Img/consulta.jpg" width="100%" height="100%" alt="..." /></a>
+                    <a href="https://20.225.146.99/Tuna/Account/Login" > <img src="assets/Img/consulta.jpg" width="100%" height="100%" alt="..." id="imgConsulta"/></a>
                   </div>
                </div>
             </div> 
          </div>
       </div>
-      <div class="row gx-4 gx-lg-5 align-items-center my-5" style="min-height: 60px;">
+      <div class="row align-items-center my-3" style="min-height: 60px;">
          
-         <div class="col-auto ">
-            <h1 class="title">Trámites</h1>
+         <div class="col-12 " id="tituloSub">
+            <h1 class="title tituloSub">Trámites</h1>
          </div>
       </div>
+   </div>
+      <!-- Contenido para resoluciones menores o iguales a 768px -->
+      <div id="contenido-mobile">
+         <div class="backG py-3">
+            <div class="container-xxl text-center">
+               <div class="accordion accordion-flush my-3" id="accordionExample">
+                  <h2 class="accordion-header m-2" id="headingOne">
+                     <a  type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                     <img src="./assets/Img/Solicitud_instalacion.png" class="img-fluid" alt="">
+                     </a>
+                  </h2>
+                  <div class="accordion-item">
+                     <div id="collapseOne" class="accordion-collapse collapse " aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                        <div class="accordion-body backG ">
+                           <div class="row ">
+                              <div class="col sm-6">
+                                 <button type="button" class="btn btn-instalacion  btn-instalacion-active w-100" id="solictudIRes">Solicitud de Instalacion</button>
+                              </div>
+                              <div class="col sm-6">
+                                 <button type="button" class="btn btn-instalacion  w-100" id="formatoIRes">Formato Instalacion</button>
+                              </div>
+                              <div class="shadow card">
+                                 <div id="contenedorSolicitudRes">
+                                 <div class=" p-3 justificado">
+                                    <h5>Requisitos para solicitar la instalación de un equipo transreceptor</h5>
+                                    <p>Los permisionarios y/o concesionarios con derechos vigentes y con embarcaciones
+                                       pesqueras que se ubiquen dentro de las características establecidas al apartado 1.2
+                                       de la  <b>Norma Oficial Mexicana NOM-062-SAG/PESC-2014, para la utilización del
+                                       Sistema de Localización y Monitoreo Satelital de Embarcaciones Pesqueras
+                                       publicada en el Diario Oficial de la Federación el 3 de julio del 2015,</b> deberán llevar
+                                       a cabo la gestión con los siguientes requisitos:
+                                    </p>
+                                    <ol>
+                                       <li>Presentar en original, escrito de solicitud de instalación de equipo transreceptor dirigido a la DIRECCIÓN GENERAL DE INSPECCIÓN Y VIGILANCIA DE LA COMISIÓN NACIONAL DE ACUACULTURA Y PESCA (CONAPESCA), y ser presentado ante las Oficinas de Representación de la CONAPESCA en las Entidades Federativas de la Secretaría de Agricultura y Desarrollo Rural de su localidad (en caso de residir fuera de Mazatlán, Sinaloa), mismos que serán sellados de recibido y turnados de forma gratuita a la CONAPESCA, así mismo podrá acudir directamente a las oficinas de correo para envío mediante un correo certificado.</li>
+                                       <li>Adjuntar original debidamente llenado del "FORMATO DE INSCRIPCIÓN AL REGISTRO DEL PROGRAMA DE SISTEMA DE MONITOREO SATELITAL DE EMBARCACIONES PESQUERAS 2013-2018".</li>
+                                    </ol>
+                                    <p><b>Adjuntar copia simple de los siguientes documentos:</b></p>
+                                    <ol>
+                                       <li>Identificación oficial del propietario de la embarcación (Persona Física).</li>
+                                       <li>En caso de tratarse de personas morales el trámite lo efectúa el representante legal, acreditando la personalidad por medio de carta poder general notarial (Escritura Pública otorgando poder legal).</li>
+                                       <li>Identificación oficial del representante legal.</li>
+                                       <li>Comprobante de domicilio del permisionario (con vigencia no mayor a 3 meses).</li>
+                                       <li>Permiso y/o concesión vigente.</li>
+                                       <li>Certificado Nacional de Seguridad vigente (UNICAPAM).</li>
+                                       <li>Certificado de Matrícula (UNICAPAM). (Documentación complementaria requerida).</li>
+                                       <li>Documento que acredite el carácter de propietario o posesionario de la embarcación. (Documentación complementaria requerida).</li>
+                                    </ol>
+                                    <p>
+                                       El trámite de solicitud debe ser acompañado de la documentación requerida, para
+                                       que este Órgano Administrativo esté en posibilidades de iniciar el trámite de solicitud.
+                                    </p>
+                                    <p><b>Nota Importante:</b>  Toda documentación presentada será verificada, por lo que en
+                                       caso de falsear información será turnada a las autoridades competentes para los
+                                       efectos legales correspondientes.
+                                    </p>
+                                    <p>La realización del presente trámite es necesario, por lo que la falta de un documento
+                                       solicitado, será considerado como falta de interés del solicitante para la continuidad
+                                       del mismo.
+                                    </p>
+                                    <p>Las solicitudes que cumplan con los requisitos serán atendidas por la CONAPESCA,
+                                       por medio de Seguritech Privada S.A. de C.V., que es la empresa encargada de prestar
+                                       los servicios de instalación y mantenimiento de los equipos transreceptores, y que
+                                       para el permisionario y/o concesionario se llevará a cabo la instalación de manera
+                                       gratuita conforme al procedimiento establecido, atendiendo el orden de prelación de
+                                       solicitudes registradas así como la disponibilidad de equipos transreceptores
+                                    </p>
+                                    <p>El único facultado para la realización del trámite de instalación del equipo transreceptor, es el titular del permiso y/o concesión (persona física o moral) asignado a la
+                                       embarcación requirente.
+                                    </p>
+                                    <p>Ningún servidor público de la CONAPESCA está facultado para solicitar documentos
+                                       adicionales a los requisitos antes señalados, ni para requerir pagos por la realización
+                                       del trámite, distintos a los establecidos en los ordenamientos legales aplicables. Para
+                                       cualquier duda o aclaración referente, comunicarse al Centro de Localización y
+                                       Monitoreo Satelital de Embarcaciones Pesqueras, de la Dirección General de
+                                       Inspección y Vigilancia de la CONAPESCA al teléfono (669) 9156900 extensiones 58311
+                                       y 58329, correo electrónico: monitoreo.satelital@conapesca.gob.mx
+                                    </p>
+                                    <p>Se requiere a los solicitantes que la documentación que sea entregada en las Oficinas
+                                       de Representación de la CONAPESCA en las Entidades Federativas de la Secretaría de
+                                       Agricultura y Desarrollo Rural, se recibe sólo para el efecto de ser turnada a la
+                                       Dirección General de Inspección y Vigilancia de CONAPESCA, quien acusará de
+                                       recibido como autoridad competente para su revisión, y determinará lo procedente a
+                                       su solicitud, dentro del plazo de cinco días hábiles.
+                                    </p>
+                                    <div class="row">
+                                       <div class="col-12 mx-auto  text-center ">
+                                          <a href="assets/pdfs/requisitos_solicitar-instalacion-equipo-transreceptor.pdf" target="_blank"> <button type="button" class="btn btn-outline-danger mx-auto w-100 align-left">Descargar Requisitos</button></a>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                           
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+                  <div class="accordion-item backG">
+                     <h2 class="accordion-header m-2" id="headingTwo">
+                        <a  type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                        <img src="./assets/Img/Solicitud_sustitucion.png" class="img-fluid" alt="">
+                        </a>
+                     </h2>
+                     <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                        <div class="accordion-body backG">
+                           <div class="shadow card">
+                              <div class="p-3 justificado">
+                                 <h5>Solicitud sustitución de datos</h5>
+                                 <p><b>¿Qué necesito para solicitar la alta del equipo transreceptor con nuevos datos, en caso de que la embarcación cambie
+                                    de nombre, o sea adquirida, donada o cedida?</b>
+                                 </p>
+                                 <p>El trámite que deben realizar los permisionarios y/o concesionarios con derechos vigentes, para embarcaciones pesqueras
+                                    que se ubiquen dentro de las características establecidas al apartado 1.2 de la Norma Oficial Mexicana <b>  NOM-062-SAG/PESC-2014, para la utilización del Sistema de localización y monitoreo satelital de embarcaciones pesqueras
+                                    publicada en el Diario Oficial de la Federación el 3 de julio de 2015,</b>  requieran modificación de datos, y a efecto de contar
+                                    con un mayor control y seguridad, deberán realizar el siguiente trámite:
+                                 </p>
+                                 <ol>
+                                    <li>Presentar en original, escrito de solicitud de sustitución de datos del equipo transreceptor, dirigido a la DIRECCIÓN GENERAL DE INSPECCIÓN Y VIGILANCIA DE LA COMISIÓN NACIONAL DE ACUACULTURA Y PESCA (CONAPESCA), y ser presentado ante las Oficinas de Representación de la CONAPESCA en las Entidades Federativas de la Secretaría de Agricultura y Desarrollo Rural de su localidad (en caso de residir fuera de Mazatlán, Sinaloa), mismos que serán sellados de recibido y turnados de forma gratuita a la CONAPESCA, así mismo podrá acudir directamente a las oficinas de correo para envío mediante un correo certificado.</li>
+                                    <li>Adjuntar original debidamente llenado del "FORMATO DE INSCRIPCIÓN AL REGISTRO DEL PROGRAMA DE SISTEMA DE MONITOREO SATELITAL DE EMBARCACIONES PESQUERAS 2013-2018"</li>
+                                 </ol>
+                                 <p><b>Adjuntar copia simple de los siguientes documentos:</b></p>
+                                 <ol>
+                                    <li>Identificación oficial del propietario de la embarcación (Persona Física).</li>
+                                    <li>En caso de tratarse de personas morales el trámite lo efectúa el representante legal, acreditando la personalidad por medio de carta poder general notarial (Escritura Pública otorgando poder legal).</li>
+                                    <li>Identificación oficial del representante legal.</li>
+                                    <li>Comprobante de domicilio del permisionario (con vigencia no mayor a 3 meses).</li>
+                                    <li>Permiso y/o concesión vigente.</li>
+                                    <li>Certificado Nacional de Seguridad vigente (UNICAPAM).</li>
+                                    <li>Certificado de Matrícula (UNICAPAM). (Documentación complementaria requerida).</li>
+                                    <li>Documento que acredite el carácter de propietario o posesionario de la embarcación. (Documentación complementaria requerida).</li>
+                                 </ol>
+                                 <p>
+                                    El trámite de solicitud debe ser acompañado de la documentación requerida, para que este Órgano Administrativo esté en
+                                    posibilidades de iniciar el trámite de solicitud.
+                                 </p>
+                                 <p><b>Nota Importante:</b>: Toda documentación presentada será verificada, por lo que en caso de falsear información será turnada
+                                    a las autoridades competentes para los efectos legales correspondientes.
+                                 </p>
+                                 <p>La realización del presente trámite es necesario, por lo que<b> la falta de un documento solicitado, será considerado como
+                                    falta de interés del solicitante para la continuidad del mismo.</b>
+                                 </p>
+                                 <p>
+                                    Las solicitudes que cumplan con los requisitos serán atendidas por la CONAPESCA, por medio de Seguritech Privada S.A.
+                                    de C.V., que es la empresa encargada de prestar los servicios de instalación y mantenimiento de los equipos transreceptores,
+                                    y que para el permisionario y/o concesionario se llevará a cabo la instalación de manera gratuita conforme al procedimiento
+                                    establecido, atendiendo el orden de prelación de solicitudes registradas así como la disponibilidad de equipos transreceptores.
+                                 </p>
+                                 <p>El único facultado para la realización del trámite de instalación del equipo transreceptor, es el titular del permiso y/o
+                                    concesión (persona física o moral) asignado a la embarcación requirente.
+                                 </p>
+                                 <p>
+                                    Ningún servidor público de la CONAPESCA está facultado para solicitar documentos adicionales a los requisitos antes
+                                    señalados, ni para requerir pagos por la realización del trámite, distintos a los establecidos en los ordenamientos legales
+                                    aplicables. Para cualquier duda o aclaración referente, comunicarse al Centro de Localización y Monitoreo Satelital de
+                                    Embarcaciones Pesqueras, de la Dirección General de Inspección y Vigilancia de la CONAPESCA al teléfono (669) 9156900
+                                    extensiones 58311 y 58329, correo electrónico: monitoreo.satelital@conapesca.gob.mx
+                                 </p>
+                                 <p>
+                                    Se requiere a los solicitantes que la documentación que sea entregada en las Oficinas de Representación de la CONAPESCA
+                                    en las Entidades Federativas de la Secretaría de Agricultura y Desarrollo Rural, se recibe sólo para el efecto de ser turnada
+                                    a la Dirección General de Inspección y Vigilancia de CONAPESCA, quien acusará de recibido como autoridad competente
+                                    para su revisión, y determinará lo procedente a su solicitud, dentro del plazo de cinco días hábiles.
+                                 </p>
+                                 <div class="row">
+                                    <div class="col-sm-12 mx-auto  text-center ">
+                                       <a href="assets/pdfs/requisitos_solicitud-sustitucion-datos.pdf" target="_blank"> <button type="button" class="btn btn-outline-danger mx-auto w-100">Descargar Requisitos</button></a>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="accordion-item backG">
+                     <h2 class="accordion-header m-2" id="headingThree">
+                        <a  type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
+                        <img src="./assets/Img/Solicitud_verificacion.png" class="img-fluid" alt="">
+                        </a>
+                     </h2>
+                     <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                        <div class="accordion-body backG">
+                           <div id="contenedorSolicitudVerifRes">
+                           <div class="card align-items-center shadow  back-gray">
+                              
+                              <div class="card-body">
+                                 <h5 class="text-center">Solicitud de Verificación del VMS</h5>
+                                 <div class="text-center"></div>
+                                 <label class="card-subtitle mb-2 text-muted mt-3 text-center">Proporcione el RNPA de su embarcación</label>
+                                 <input class="form-control" placeholder="RNPA de la embarcación"/>
+                                 <div class="row mt-5">
+                                    <div class="col-sm-6 text-center mb-3">
+                                       <button type="button" class="btn btn-outline-danger mb-1 w-100" id="aceptarVerificacionResponsive">Aceptar</button>
+                                    </div>
+                                    <div class="col-sm-6 text-center mb-3">
+                                       <button type="button" class="btn btn-outline-secondary mb-1 w-100">Cancelar</button>
+                                    </div>
+                                    
+                                 </div>
+                              </div>
+                           </div>
+                        
+                        </div>
+                     </div>
+                  </div>
+                  <div class="accordion-item backG">
+                     <h2 class="accordion-header m-2" id="headingThree">
+                        <a  type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="true" aria-controls="collapseFour">
+                        <img src="./assets/Img/Reposisicion.png" class="img-fluid" alt="">
+                        </a>
+                     </h2>
+                     <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                           <div class="shadow card">
+                              <div class="p-3 justificado">
+                                 <h5>Reposición de equipo transreceptor con motivo de la pérdida, robo, extravío o daño parcial o total</h5>
+                                 <p>Presentar escrito de manera breve y concisa, relatando los hechos por el robo, pérdida, extravío o daño parcial o total del
+                                    equipo transreceptor, dirigido a la DIRECCIÓN GENERAL DE INSPECCIÓN Y VIGILANCIA DE LA COMISIÓN NACIONAL DE
+                                    ACUACULTURA Y PESCA (CONAPESCA), y ser presentado ante las Oficinas de Representación de la CONAPESCA en las
+                                    Entidades Federativas de la Secretaría de Agricultura y Desarrollo Rural de su localidad (en caso de residir fuera de Mazatlán,
+                                    Sinaloa), mismos que serán sellados de recibido y turnados de forma gratuita a la CONAPESCA, así mismo podrá acudir
+                                    directamente a las oficinas de correo para envío mediante un correo certificado, o bien, una vez contando con acuse o
+                                    sellado de recibido por parte de alguna de las dependencias arriba citadas, puede ser enviado al correo electrónico
+                                    monitoreo.satelital@conapesca.gob.mx.
+                                 </p>
+                                 <p>El escrito se acompañará con la siguiente documentación:</p>
+                                 <ol>
+                                    <li>Identificación oficial del permisionario o del Representante Legal de la empresa o sociedad cooperativa propietaria de la embarcación, según sea el caso.</li>
+                                    <li>Acta circunstanciada o de hechos levantada ante la Unidad de Capitanías de Puerto y Asuntos Marítimos (UNICAPAM), donde informen el suceso relacionado con el robo, extravío o daños al equipo transreceptor.</li>
+                                    <li>En caso de robo o daños dolosos ocasionados al equipo transreceptor, además de lo anterior deberá adjuntar copia de denuncia interpuesta ante la Fiscalía que le corresponda, mencionando en su denuncia: Nombre de la embarcación la cual tenía instalado el equipo transreceptor, número de Registro Nacional de Pesca y Acuacultura de la embarcación, razón social o nombre del permisionario (persona física), así como indicar el número de serie del equipo (antena).</li>
+                                 </ol>
+                                 <p>La realización del presente trámite es necesario, por lo que  <b> la falta de un documento solicitado, será considerado como
+                                    falta de interés del solicitante para la continuidad del mismo.</b>
+                                 </p>
+                                 <p>
+                                    Los equipos transreceptores son propiedad de la empresa Seguritech Privada S.A. de C.V., quien presta el servicio de
+                                    instalación y mantenimiento de los equipos transreceptores,
+                                    <b> por lo que la pérdida o daño, salvo caso fortuito o fuerza
+                                    mayor, causaran responsabilidad al permisionario o concesionario al que le fue otorgado en comodato, en lo referente
+                                    al equipo en términos de la legislación aplicable.</b>
+                                 </p>
+                                 <p>
+                                    En caso de contar con instrumentos de equipo transreceptor otorgado en comodato es necesario su devolución, para lo
+                                    cual se extenderá constancia de acta entrega recepción.
+                                 </p>
+                                 <p><b>Nota Importante: </b>  Toda documentación presentada será verificada, por lo que en caso de falsear información será turnada
+                                    a las autoridades competentes para los efectos legales correspondientes.
+                                 </p>
+                                 <p>
+                                    Las solicitudes que cumplan con los requisitos serán atendidas por la CONAPESCA, por medio de Seguritech Privada S.A.
+                                    de C.V., que es la empresa encargada de prestar los servicios de instalación y mantenimiento de los equipos transreceptores,
+                                    y que para el permisionario y/o concesionario se llevará a cabo la instalación de manera gratuita conforme al procedimiento
+                                    establecido, atendiendo el orden de prelación de solicitudes registradas así como la disponibilidad de equipos
+                                    transreceptores.
+                                 </p>
+                                 <p>
+                                    El único facultado para la realización del trámite de instalación del equipo transreceptor, es el titular del permiso y/o
+                                    concesión (persona física o moral) asignado a la embarcación requirente.
+                                 </p>
+                                 <p>Ningún servidor público de la CONAPESCA está facultado para solicitar documentos adicionales a los requisitos antes
+                                    señalados, ni para requerir pagos por la realización del trámite, distintos a los establecidos en los ordenamientos legales
+                                    aplicables. Para cualquier duda o aclaración referente, comunicarse al Centro de Localización y Monitoreo Satelital de
+                                    mbarcaciones Pesqueras, de la Dirección General de Inspección y Vigilancia de la CONAPESCA al teléfono (669) 9156900
+                                    extensiones 58311 y 58329, correo electrónico: monitoreo.satelital@conapesca.gob.mx
+                                 </p>
+                                 <p>Se requiere a los solicitantes que la documentación que sea entregada en las Oficinas de Representación de la CONAPESCA
+                                    en las Entidades Federativas de la Secretaría de Agricultura y Desarrollo Rural, se recibe sólo para el efecto de ser turnada
+                                    a la Dirección General de Inspección y Vigilancia de CONAPESCA, quien acusará de recibido como autoridad competente
+                                    para su revisión, y determinará lo procedente a su solicitud, dentro del plazo de cinco días hábiles.
+                                 </p>
+                                 <div class="row">
+                                    <div class="col-12 mx-auto  text-center ">
+                                       <a href="assets/pdfs/requisitos_reposicion-equipo-transreceptor-motivo-perdida-robo-extravio-danoparcial-total.pdf" target="_blank"><button type="button" class="btn btn-outline-danger mx-auto w-100">Descargar Requisitos</button></a> 
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="accordion-item backG">
+                     <h2 class="accordion-header mt-2 mx-2" id="headingThree">
+                        <a  type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="true" aria-controls="collapseFive">
+                        <img src="./assets/Img/Reingreso_m.png" class="img-fluid" alt="">
+                        </a>
+                     </h2>
+                     <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                        <div class="accordion-body backG">
+                           <div class="shadow card">
+                              <div class="p-3 justificado">
+                                 <h5>Reingresar al Programa por motivo de baja</h5>
+                                 <p>
+                                    El trámite que deben realizar los permisionarios y/o concesionarios con derechos vigentes, para que una embarcación
+                                    pesquera reingrese al programa de Monitoreo Satelital, después de haber sido dado de baja, es el siguiente:
+                                 </p>
+                                 <ol>
+                                    <li>Presentar escrito de solicitud de reingreso al Programa de Monitoreo Satelital de Embarcaciones Pesqueras, en el cual indique las razones por las que la embarcación dejó de realizar actividades de pesca comercial, asimismo un párrafo que indique –Bajo protesta de decir verdad- que la embarcación se encuentre en condiciones de realizar actividades de pesca, dirigido a la DIRECCIÓN GENERAL DE INSPECCIÓN Y VIGILANCIA DE LA COMISIÓN NACIONAL DE ACUACULTURA Y PESCA (CONAPESCA), y ser presentado ante las Oficinas de Representación de la CONAPESCA en las Entidades Federativas de la Secretaría de Agricultura y Desarrollo Rural de su localidad (en caso de residir fuera de Mazatlán, Sinaloa), mismos que serán sellados de recibido y turnados de forma gratuita a la CONAPESCA, así mismo podrá acudir directamente a las oficinas de correo para envío mediante un correo certificado.</li>
+                                    <li>Adjuntar original debidamente llenado del "FORMATO DE INSCRIPCIÓN AL REGISTRO DEL PROGRAMA DE SISTEMA DE MONITOREO SATELITAL DE EMBARCACIONES PESQUERAS 2013-2018".</li>
+                                 </ol>
+                                 <p><b>Adjuntar copia simple de los siguientes documentos:</b></p>
+                                 <ol>
+                                    <li> Identificación oficial del propietario de la embarcación (Persona física)</li>
+                                    <li> En caso de tratarse de personas morales el trámite lo efectúa el representante legal, acreditando la personalidad por medio de carta poder general notarial (Escritura Pública otorgando poder legal).</li>
+                                    <li> Identificación oficial del representante legal.</li>
+                                    <li> Comprobante de domicilio del permisionario (con vigencia no mayor a 3 meses).</li>
+                                    <li> Permiso y/o concesión vigente.</li>
+                                    <li> Certificado Nacional de Seguridad vigente (UNICAPAM).</li>
+                                    <li> Certificado de Matrícula (UNICAPAM). (Documentación complementaria requerida).</li>
+                                    <li> Documento que acredite el carácter de propietario o posesionario de la embarcación. (Documentación complementaria requerida).</li>
+                                 </ol>
+                                 <p>
+                                    El trámite de solicitud debe ser acompañado de la documentación requerida, para que este Órgano Administrativo esté en
+                                    posibilidades de iniciar el trámite de solicitud.
+                                 </p>
+                                 <p>
+                                    <b>Nota Importante: </b>Toda documentación presentada será verificada, por lo que en caso de falsear información será turnada
+                                    a las autoridades competentes para los efectos legales correspondientes.
+                                 </p>
+                                 <p>La realización del presente trámite es necesario, por lo que <b> la falta de un documento solicitado, será considerado como
+                                    falta de interés del solicitante para la continuidad del mismo.</b>
+                                 </p>
+                                 <p>
+                                    Las solicitudes que cumplan con los requisitos serán atendidas por la CONAPESCA, por medio de Seguritech Privada S.A.
+                                    de C.V., que es la empresa encargada de prestar los servicios de instalación y mantenimiento de los equipos transreceptores,
+                                    y que para el permisionario y/o concesionario se llevará a cabo la instalación de manera gratuita conforme al procedimiento
+                                    establecido, atendiendo el orden de prelación de solicitudes registradas así como la disponibilidad de equipos
+                                    transreceptores.
+                                 </p>
+                                 <p>
+                                    El único facultado para la realización del trámite de instalación del equipo transreceptor, es el titular del permiso y/o
+                                    concesión (persona física o moral) asignado a la embarcación requirente.
+                                 </p>
+                                 <p>
+                                    Ningún servidor público de la CONAPESCA está facultado para solicitar documentos adicionales a los requisitos antes
+                                    señalados, ni para requerir pagos por la realización del trámite, distintos a los establecidos en los ordenamientos legales
+                                    aplicables. Para cualquier duda o aclaración referente, comunicarse al Centro de Localización y Monitoreo Satelital de
+                                    Embarcaciones Pesqueras, de la Dirección General de Inspección y Vigilancia de la CONAPESCA al teléfono (669) 9156900
+                                    extensiones 58311 y 58329, correo electrónico: monitoreo.satelital@conapesca.gob.mx
+                                 </p>
+                                 <p>
+                                    Se requiere a los solicitantes que la documentación que sea entregada en las Oficinas de Representación de la CONAPESCA
+                                    en las Entidades Federativas de la Secretaría de Agricultura y Desarrollo Rural, se recibe sólo para el efecto de ser turnada
+                                    a la Dirección General de Inspección y Vigilancia de CONAPESCA, quien acusará de recibido como autoridad competente
+                                    para su revisión, y determinará lo procedente a su solicitud, dentro del plazo de cinco días hábiles.
+                                 </p>
+                                 <div class="row">
+                                    <div class="col-12 mx-auto  text-center ">
+                                       <a href="assets/pdfs/requisitos_reingresar-programa-por-motivo-baja.pdf" target="_blank"><button type="button" class="btn btn-outline-danger mx-auto w-100">Descargar Requisitos</button></a>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         </div>
+      </div>
+         
+        
+      
+      <!-- Contenido para resoluciones mayores a 768px -->
+      <div class="container-xxl">
+      <div id="contenido-desktop">
       <div class="row d-flex justify-content-center align-items-center row-btn">
          <div class="col mb-3 text-center btn-gren ">
             <a href="#collapseC1"  data-bs-toggle="collapse"><img style="height: 120px;" src="./assets/Img/instalacion.png" alt="" ></a>
@@ -206,7 +563,8 @@
             <a href="#collapseC5"  data-bs-toggle="collapse"><img style="height: 120px;" src="./assets/Img/reingreso.png" alt="" ></a>
          </div>
       </div>
-      </div>
+      
+      
       <div class="conteCollCard " data-bs-parent="#conteCollCard">
          <div class=" collapseC  collapse"  id="collapseC1">
             <div class="card  back-gray">
@@ -569,21 +927,23 @@ para su revisión, y determinará lo procedente a su solicitud, dentro del plazo
             </div>
          </div>
       </div>
-      <div class="" id="contHide">
-         <div class="back-gray p-3 rounded">
-            <div class="container">
-               <div class="row p-2 m-2">
+   </div>
+</div>
+      <div class="m-0" id="contHide">
+         <div class="back-gray  rounded m-0">
+            <div class="container-xxl">
+               <div class="row p-2 ">
                   
                   <div class="col-md-12">
                      <div class="  shadow card-nom ">
                         <div class="row">
                            <div class="col-md-6">
-                              <img src="assets/Img/tramitespi.jpg" alt="Descripción de la imagen"  class="img-fluid rounded-start">
+                              <img src="assets/Img/tramitespi.jpg" alt="Descripción de la imagen"  class="img-fluid rounded">
                            </div>
                            <div class="col-md-6" style="font-size: small; ">
-                              <h6 class="mt-3 pe-3">NOM-062 SAG/PESC-2014</h6>
-                              <p class="pe-3">Esta Norma Oficial Mexicana tiene como propósito contribuir a un aprovechamiento  sustentable de los recursos pesqueros y marinos, a través de un mayor control de las operaciones de las embarcaciones pesqueras nacionales, de conformidad con el Artículo 2 ° fracción IV de la Ley General de Pesca y Acuacultura Sustentables.</p>
-                              <p class="pe-3">Es de observancia obligatoria para los concesionarios y permisionarios con derechos vigentes que realicen actividades de pesca, en embarcaciones pesqueras con motor estacionario (Intraborda), potencia nominal superior a 80 Hp (caballos de fuerza equivalentes a 59.68 kilowatts, con cuberta corrida y eslora superior a 10.5 metros, que operen en aguas de jurisdicción federal del Océano Pacífico, Golfo de México y Mar Caribe, dentro de la Zona Económica Exclusiva, así como para aquellas embarcaciones de bandera mexicana que realicen actividades de pesca en Alta Mar.</p>
+                              <h6 class="mt-3 px-2">NOM-062 SAG/PESC-2014</h6>
+                              <p class="px-2">Esta Norma Oficial Mexicana tiene como propósito contribuir a un aprovechamiento  sustentable de los recursos pesqueros y marinos, a través de un mayor control de las operaciones de las embarcaciones pesqueras nacionales, de conformidad con el Artículo 2 ° fracción IV de la Ley General de Pesca y Acuacultura Sustentables.</p>
+                              <p class="px-2">Es de observancia obligatoria para los concesionarios y permisionarios con derechos vigentes que realicen actividades de pesca, en embarcaciones pesqueras con motor estacionario (Intraborda), potencia nominal superior a 80 Hp (caballos de fuerza equivalentes a 59.68 kilowatts, con cuberta corrida y eslora superior a 10.5 metros, que operen en aguas de jurisdicción federal del Océano Pacífico, Golfo de México y Mar Caribe, dentro de la Zona Económica Exclusiva, así como para aquellas embarcaciones de bandera mexicana que realicen actividades de pesca en Alta Mar.</p>
                            
                            </div>
                         </div>
@@ -601,8 +961,9 @@ para su revisión, y determinará lo procedente a su solicitud, dentro del plazo
          <div class="container-md">
             <div class="row">
                <div class="col-md-4">
-                  <img src="assets/Img/Logo_footer.png" alt="Imagen 3" height="45" class="d-inline-block align-top mt-5 mb-3">
+                  <img src="assets/Img/Logo_footer.png" alt="Imagen 3" height="45" class="d-inline-block align-top  mb-3">
                </div>
+               
                <div class="col-md-4">
                   <h5 class="text-white">Enlaces</h5>
                   <ul class="list-unstyled">
@@ -613,7 +974,7 @@ para su revisión, y determinará lo procedente a su solicitud, dentro del plazo
                   </ul>
                </div>
                <div class="col-md-4">
-                  <ul class="list-unstyled mt-4">
+                  <ul class="list-unstyled">
                      <li><a href="https://www.gob.mx/terminos#medidas-seguridad-informacion" class="footer-text" target="_blank">Política de seguridad</a></li>
                      <li><a href="http://www.ordenjuridico.gob.mx/" class="footer-text" target="_blank">Marco Jurídico</a></li>
                      <li><a href="https://www.gob.mx/sitemap" class="footer-text" target="_blank">Mapa de Sitio</a></li>
