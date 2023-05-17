@@ -50,109 +50,6 @@ let contenedorSolicitudRes = document.getElementById("contenedorSolicitudRes");
 let formatoIRes = document.getElementById("formatoIRes");
 let solictudIRes = document.getElementById("solictudIRes");
 
-solictudIRes.addEventListener("click", () => {
-  formatoIRes.classList.remove("btn-instalacion-active");
-  solictudIRes.classList.add("btn-instalacion-active");
-
-  contenedorSolicitudRes.innerHTML = ` 
-                                 <div class=" p-3 justificado">
-                                    <h5>Requisitos para solicitar la instalación de un equipo transreceptor</h5>
-                                    <p>Los permisionarios y/o concesionarios con derechos vigentes y con embarcaciones
-                                       pesqueras que se ubiquen dentro de las características establecidas al apartado 1.2
-                                       de la  <b>Norma Oficial Mexicana NOM-062-SAG/PESC-2014, para la utilización del
-                                       Sistema de Localización y Monitoreo Satelital de Embarcaciones Pesqueras
-                                       publicada en el Diario Oficial de la Federación el 3 de julio del 2015,</b> deberán llevar
-                                       a cabo la gestión con los siguientes requisitos:
-                                    </p>
-                                    <ol>
-                                       <li>Presentar en original, escrito de solicitud de instalación de equipo transreceptor dirigido a la DIRECCIÓN GENERAL DE INSPECCIÓN Y VIGILANCIA DE LA COMISIÓN NACIONAL DE ACUACULTURA Y PESCA (CONAPESCA), y ser presentado ante las Oficinas de Representación de la CONAPESCA en las Entidades Federativas de la Secretaría de Agricultura y Desarrollo Rural de su localidad (en caso de residir fuera de Mazatlán, Sinaloa), mismos que serán sellados de recibido y turnados de forma gratuita a la CONAPESCA, así mismo podrá acudir directamente a las oficinas de correo para envío mediante un correo certificado.</li>
-                                       <li>Adjuntar original debidamente llenado del "FORMATO DE INSCRIPCIÓN AL REGISTRO DEL PROGRAMA DE SISTEMA DE MONITOREO SATELITAL DE EMBARCACIONES PESQUERAS 2013-2018".</li>
-                                    </ol>
-                                    <p><b>Adjuntar copia simple de los siguientes documentos:</b></p>
-                                    <ol>
-                                       <li>Identificación oficial del propietario de la embarcación (Persona Física).</li>
-                                       <li>En caso de tratarse de personas morales el trámite lo efectúa el representante legal, acreditando la personalidad por medio de carta poder general notarial (Escritura Pública otorgando poder legal).</li>
-                                       <li>Identificación oficial del representante legal.</li>
-                                       <li>Comprobante de domicilio del permisionario (con vigencia no mayor a 3 meses).</li>
-                                       <li>Permiso y/o concesión vigente.</li>
-                                       <li>Certificado Nacional de Seguridad vigente (UNICAPAM).</li>
-                                       <li>Certificado de Matrícula (UNICAPAM). (Documentación complementaria requerida).</li>
-                                       <li>Documento que acredite el carácter de propietario o posesionario de la embarcación. (Documentación complementaria requerida).</li>
-                                    </ol>
-                                    <p>
-                                       El trámite de solicitud debe ser acompañado de la documentación requerida, para
-                                       que este Órgano Administrativo esté en posibilidades de iniciar el trámite de solicitud.
-                                    </p>
-                                    <p><b>Nota Importante:</b>  Toda documentación presentada será verificada, por lo que en
-                                       caso de falsear información será turnada a las autoridades competentes para los
-                                       efectos legales correspondientes.
-                                    </p>
-                                    <p>La realización del presente trámite es necesario, por lo que la falta de un documento
-                                       solicitado, será considerado como falta de interés del solicitante para la continuidad
-                                       del mismo.
-                                    </p>
-                                    <p>Las solicitudes que cumplan con los requisitos serán atendidas por la CONAPESCA,
-                                       por medio de Seguritech Privada S.A. de C.V., que es la empresa encargada de prestar
-                                       los servicios de instalación y mantenimiento de los equipos transreceptores, y que
-                                       para el permisionario y/o concesionario se llevará a cabo la instalación de manera
-                                       gratuita conforme al procedimiento establecido, atendiendo el orden de prelación de
-                                       solicitudes registradas así como la disponibilidad de equipos transreceptores
-                                    </p>
-                                    <p>El único facultado para la realización del trámite de instalación del equipo transreceptor, es el titular del permiso y/o concesión (persona física o moral) asignado a la
-                                       embarcación requirente.
-                                    </p>
-                                    <p>Ningún servidor público de la CONAPESCA está facultado para solicitar documentos
-                                       adicionales a los requisitos antes señalados, ni para requerir pagos por la realización
-                                       del trámite, distintos a los establecidos en los ordenamientos legales aplicables. Para
-                                       cualquier duda o aclaración referente, comunicarse al Centro de Localización y
-                                       Monitoreo Satelital de Embarcaciones Pesqueras, de la Dirección General de
-                                       Inspección y Vigilancia de la CONAPESCA al teléfono (669) 9156900 extensiones 58311
-                                       y 58329, correo electrónico: monitoreo.satelital@conapesca.gob.mx
-                                    </p>
-                                    <p>Se requiere a los solicitantes que la documentación que sea entregada en las Oficinas
-                                       de Representación de la CONAPESCA en las Entidades Federativas de la Secretaría de
-                                       Agricultura y Desarrollo Rural, se recibe sólo para el efecto de ser turnada a la
-                                       Dirección General de Inspección y Vigilancia de CONAPESCA, quien acusará de
-                                       recibido como autoridad competente para su revisión, y determinará lo procedente a
-                                       su solicitud, dentro del plazo de cinco días hábiles.
-                                    </p>
-                                    <div class="row">
-                                       <div class="col-12 mx-auto  text-center ">
-                                          <a href="assets/pdfs/requisitos_solicitar-instalacion-equipo-transreceptor.pdf" target="_blank"> <button type="button" class="btn btn-outline-danger mx-auto w-100 align-left">Descargar Requisitos</button></a>
-                                       </div>
-                                    </div>
-                                 </div>
-   
-   `;
-});
-formatoIRes.addEventListener("click", () => {
-  solictudIRes.classList.remove("btn-instalacion-active");
-  formatoIRes.classList.add("btn-instalacion-active");
-
-  contenedorSolicitudRes.innerHTML = `  
-                     <br/>
-                        <h5 >Formato de instalacion</h5>
-                        <div class="row mt-5 ">
-                        
-                        <div class="col-sm-6 mx-auto">
-                           <div class="text-center">
-                             <img src="./assets/Img/pdf.jpg" alt="">
-                             <p class="text-muted text-center" style="font-size:10px">Solicitud de Instalación</p>
-                           </div>
-                         </div>
-                         <div class="col-sm-6 mx-auto">
-                         <a href="assets/pdfs/solicitud-programa-monitoreo-satelital.pdf" target="_blank"><button type="button" class="btn btn-outline-danger mb-3" style="width:80%;">Descarga Formato</button></a>
-                           
-
-                         </div>
-                         
-                       
-                     </div>
-                                </div>
-
-   `;
-});
-
 let aceptarVerificacionResponsive = document.getElementById(
   "aceptarVerificacionResponsive"
 );
@@ -162,35 +59,38 @@ let contenedorSolicitudVerifRes = document.getElementById(
 aceptarVerificacionResponsive.addEventListener("click", () => {
   contenedorSolicitudVerifRes.innerHTML = ` 
    
-   
-   <div ng-controller="restInfo" class="card shadow">
-      <h6 class="mt-3">Ubicación actual de la embarcación {{greeting}}</h6>
+   <div class="card shadow">
+      <h6 class="mt-3">Ubicación actual de la embarcación</h6>
       <div class="row m-1">
          <div class="col-sm-6 mb-2">
             <select class="form-select " aria-label="Default select example">
                <option selected>Estado</option>
-               <option value="Baja California">Baja California</option>
+               <option value="">Selecciona un estado con litoral</option>
                <option value="Baja California Sur">Baja California Sur</option>
+               <option value="Baja California">Baja California</option>
                <option value="Sonora">Sonora</option>
                <option value="Sinaloa">Sinaloa</option>
                <option value="Nayarit">Nayarit</option>
+               <option value="Jalisco">Jalisco</option>
                <option value="Colima">Colima</option>
+               <option value="Michoacán">Michoacán</option>
                <option value="Guerrero">Guerrero</option>
                <option value="Oaxaca">Oaxaca</option>
+               <option value="Chiapas">Chiapas</option>
                <option value="Quintana Roo">Quintana Roo</option>
                <option value="Yucatán">Yucatán</option>
                <option value="Campeche">Campeche</option>
-               <option value="Chiapas">Chiapas</option>
                <option value="Tabasco">Tabasco</option>
                <option value="Veracruz">Veracruz</option>
                <option value="Tamaulipas">Tamaulipas</option>
-               <option value="Cuba">Cuba</option>
              </select>
          </div>
          <div class="col-sm-6 mb-2">
             <select class="form-select" aria-label="Default select example">
                <option selected>Localidad</option>
-
+               <option value="1">One</option>
+               <option value="2">Two</option>
+               <option value="3">Three</option>
              </select>
          </div>
       </div>
@@ -198,13 +98,17 @@ aceptarVerificacionResponsive.addEventListener("click", () => {
          <div class="col-sm-6 mb-2">
             <select class="form-select" aria-label="Default select example">
                <option selected>Muelle</option>
-
+               <option value="1">One</option>
+               <option value="2">Two</option>
+               <option value="3">Three</option>
              </select>
          </div>
          <div class="col-sm-6 mb-2">
             <select class="form-select" aria-label="Default select example">
                <option selected>Referencia</option>
-
+               <option value="1">One</option>
+               <option value="2">Two</option>
+               <option value="3">Three</option>
              </select>
          </div>
       </div>
@@ -262,7 +166,7 @@ aceptarVerificacionResponsive.addEventListener("click", () => {
   );
   aceptarVerificacionDatosResponsive.addEventListener("click", () => {
     contenedorSolicitudVerifRes.innerHTML = `
-      <div ng-controller="restInfo" class="card shadow">
+      <div class="card shadow">
       <div class="container">
          <table class="table table-striped text-center mt-3">
             <tbody>
@@ -347,29 +251,30 @@ let cancelarSolicitudResp = () => {
     contenedorSolicitudVerifRes.innerHTML = ` 
       
       
-      <div ng-controller="restInfo" class="card shadow">
-         <h6 class="mt-3">Ubicación actual de la embarcación {{greeting}}</h6>
+      <div class="card shadow">
+         <h6 class="mt-3">Ubicación actual de la embarcación</h6>
          <div class="row m-1">
             <div class="col-sm-6 mb-2">
                <select class="form-select " aria-label="Default select example">
                   <option selected>Estado</option>
-                  <option selected>Estado</option>
-                  <option value="Baja California">Baja California</option>
+                  <option value="">Selecciona un estado con litoral</option>
                   <option value="Baja California Sur">Baja California Sur</option>
+                  <option value="Baja California">Baja California</option>
                   <option value="Sonora">Sonora</option>
                   <option value="Sinaloa">Sinaloa</option>
                   <option value="Nayarit">Nayarit</option>
+                  <option value="Jalisco">Jalisco</option>
                   <option value="Colima">Colima</option>
+                  <option value="Michoacán">Michoacán</option>
                   <option value="Guerrero">Guerrero</option>
                   <option value="Oaxaca">Oaxaca</option>
+                  <option value="Chiapas">Chiapas</option>
                   <option value="Quintana Roo">Quintana Roo</option>
                   <option value="Yucatán">Yucatán</option>
                   <option value="Campeche">Campeche</option>
-                  <option value="Chiapas">Chiapas</option>
                   <option value="Tabasco">Tabasco</option>
                   <option value="Veracruz">Veracruz</option>
                   <option value="Tamaulipas">Tamaulipas</option>
-                  <option value="Cuba">Cuba</option>
                 </select>
             </div>
             <div class="col-sm-6 mb-2">
@@ -453,7 +358,7 @@ let cancelarSolicitudResp = () => {
     );
     aceptarVerificacionDatosResponsive.addEventListener("click", () => {
       contenedorSolicitudVerifRes.innerHTML = `
-         <div ng-controller="restInfo" class="card shadow">
+         <div class="card shadow">
          <div class="container">
             <table class="table table-striped text-center mt-3">
                <tbody>
@@ -573,9 +478,6 @@ $(document).ready(function () {
     $(".collapse.collapseC.show").not(target).removeClass("show");
     // Mostrar el elemento seleccionado
     $(target).addClass("show");
-
-    //console.log(this);
-    //console.log(target);
   });
 
   const collapseElements = document.querySelectorAll(".collapse");
@@ -680,7 +582,7 @@ $("#formatoI").click(function () {
                              </div>
                          </div>
                          <div class="col-9 mx-auto">
-                         <a href="assets/pdfs/solicitud-programa-monitoreo-satelital.pdf" target="_blank"><button type="button" class="btn btn-outline-danger mb-2" style="width:60%;">Descarga formato</button></a>
+                         <a href="assets/pdfs/requisitos_solicitar-instalacion-equipo-transreceptor.pdf" target="_blank"><button type="button" class="btn btn-outline-danger mb-2" style="width:60%;">Descarga</button></a>
                            
 
                          </div>
@@ -690,82 +592,62 @@ $("#formatoI").click(function () {
                                 </div>
                               `;
 });
-function getEstado(val) {
 
-   $.get("http://localhost:8080/estados/"+val+"/localidad", function(data, status){
-      //console.log("Data: " + data + "\nStatus: " + status);
-      if(data){
-         $('#inputLoc').prop('disabled', false);
-         $("#inputLoc").empty();
-         $("#inputLoc").append('<option value="0">Localidad</option>');
-
-         for(i=0; i<data.length; i++){
-
-            $("#inputLoc").append('<option onclick="getLocalidad('+data[i].id+')" value="'+data[i].id+'">'+data[i].nameLoc+'</option>');
-            $("#inputLoc").val(0);
-            $("#inputLoc").focus();
-         }
-      }
-
-    });
-}
-
-function getLocalidad(val) {
-   $.get("http://localhost:8080/localidad/"+val, function(data, status){
-      if(data){
-         $("#inputMue").empty();         
-         $("#inputMue").append('<option value="0">'+data.namePue+'</option>');
-         $("#inputMue").val(0);
-      }
-    });
-}
 collapse3 = document.getElementById("collapseC3");
 btnAceptVerificacion = document.getElementById("aceptarVerificacion");
 btnAceptVerificacion.addEventListener("click", () => {
-  collapse3.innerHTML = `<div class="mx-5 py-4"  >
+  collapse3.innerHTML = `<div class="mx-5 py-4">
    <div class="card align-items-center shadow my-5 ubucacionEmb card-verifi">
-   <div class="m-3 p-3" ng-controller=restInfo>
-      <h4>Ubicacion actual de la embarcacion </h4>
+   <div class="m-3 p-3">
+      <h4>Ubicacion actual de la embarcacion</h4>
       <div class="row">
          <div class="col m-3">
             <select class="form-select" aria-label="Default select example">
-               <option selected ">Estado</option>
-               <option onclick="getEstado(1)" value="Baja California">Baja California</option>
-               <option onclick="getEstado(2)" value="Baja California Sur">Baja California Sur</option>
-               <option onclick="getEstado(3)" value="Campeche">Campeche</option>
-               <option onclick="getEstado(4)" value="Chiapas">Chiapas</option>
-               <option onclick="getEstado(5)" value="Colima">Colima</option>
-               <option onclick="getEstado(6)" value="Cuba">Cuba</option>
-               <option onclick="getEstado(7)" value="Guerrero">Guerrero</option>
-               <option onclick="getEstado(8)" value="Nayarit">Nayarit</option>
-               <option onclick="getEstado(9)" value="Nuevo León">Nuevo León</option>
-               <option onclick="getEstado(10)" value="Oaxaca">Oaxaca</option>
-               <option onclick="getEstado(11)" value="Quintana Roo">Quintana Roo</option>
-               <option onclick="getEstado(12)" value="Sinaloa">Sinaloa</option>
-               <option onclick="getEstado(13)" value="Sonora">Sonora</option>
-               <option onclick="getEstado(14)" value="Tabasco">Tabasco</option>
-               <option onclick="getEstado(15)" value="Tamaulipas">Tamaulipas</option>
-               <option onclick="getEstado(16)" value="Veracruz">Veracruz</option>
-               <option onclick="getEstado(17)" value="Yucatán">Yucatán</option>
+               <option selected>Estado</option>
+               <option value="">Selecciona un estado con litoral</option>
+               <option value="Baja California Sur">Baja California Sur</option>
+               <option value="Baja California">Baja California</option>
+               <option value="Sonora">Sonora</option>
+               <option value="Sinaloa">Sinaloa</option>
+               <option value="Nayarit">Nayarit</option>
+               <option value="Jalisco">Jalisco</option>
+               <option value="Colima">Colima</option>
+               <option value="Michoacán">Michoacán</option>
+               <option value="Guerrero">Guerrero</option>
+               <option value="Oaxaca">Oaxaca</option>
+               <option value="Chiapas">Chiapas</option>
+               <option value="Quintana Roo">Quintana Roo</option>
+               <option value="Yucatán">Yucatán</option>
+               <option value="Campeche">Campeche</option>
+               <option value="Tabasco">Tabasco</option>
+               <option value="Veracruz">Veracruz</option>
+               <option value="Tamaulipas">Tamaulipas</option>
              </select>
          </div>
          <div class="col m-3">
-            <select id="inputLoc" class="form-select" aria-label="Default select example" disabled>
-               <option value="0" selected >Localidad</option>
+            <select class="form-select" aria-label="Default select example">
+               <option selected>Localidad</option>
+               <option value="1">One</option>
+               <option value="2">Two</option>
+               <option value="3">Three</option>
              </select>
          </div>
       </div>
       <div class="row">
          <div class="col m-3">
-            <select id="inputMue" class="form-select" aria-label="Default select example" disabled>
+            <select class="form-select" aria-label="Default select example">
                <option selected>Muelle</option>
-
+               <option value="1">One</option>
+               <option value="2">Two</option>
+               <option value="3">Three</option>
              </select>
          </div>
          <div class="col m-3">
             <select class="form-select" aria-label="Default select example">
                <option selected>Referencia</option>
-
+               <option value="1">One</option>
+               <option value="2">Two</option>
+               <option value="3">Three</option>
              </select>
          </div>
       </div>
@@ -828,8 +710,6 @@ btnAceptVerificacion.addEventListener("click", () => {
    </div>       
    </div>
    `;
-
-
 
   btnAceptVerificacion2 = document.getElementById("aceptarVerificacion2");
   btnAceptVerificacion2.addEventListener("click", () => {
@@ -927,29 +807,33 @@ let cancelarSolicitud = () => {
       <div class="row">
          <div class="col m-3">
             <select class="form-select" aria-label="Default select example">
-            <option selected>Estado</option>
-            <option value="Baja California">Baja California</option>
-            <option value="Baja California Sur">Baja California Sur</option>
-            <option value="Sonora">Sonora</option>
-            <option value="Sinaloa">Sinaloa</option>
-            <option value="Nayarit">Nayarit</option>
-            <option value="Colima">Colima</option>
-            <option value="Guerrero">Guerrero</option>
-            <option value="Oaxaca">Oaxaca</option>
-            <option value="Quintana Roo">Quintana Roo</option>
-            <option value="Yucatán">Yucatán</option>
-            <option value="Campeche">Campeche</option>
-            <option value="Chiapas">Chiapas</option>
-            <option value="Tabasco">Tabasco</option>
-            <option value="Veracruz">Veracruz</option>
-            <option value="Tamaulipas">Tamaulipas</option>
-            <option value="Cuba">Cuba</option>
+               <option selected>Estado</option>
+               <option value="">Selecciona un estado con litoral</option>
+               <option value="Baja California Sur">Baja California Sur</option>
+               <option value="Baja California">Baja California</option>
+               <option value="Sonora">Sonora</option>
+               <option value="Sinaloa">Sinaloa</option>
+               <option value="Nayarit">Nayarit</option>
+               <option value="Jalisco">Jalisco</option>
+               <option value="Colima">Colima</option>
+               <option value="Michoacán">Michoacán</option>
+               <option value="Guerrero">Guerrero</option>
+               <option value="Oaxaca">Oaxaca</option>
+               <option value="Chiapas">Chiapas</option>
+               <option value="Quintana Roo">Quintana Roo</option>
+               <option value="Yucatán">Yucatán</option>
+               <option value="Campeche">Campeche</option>
+               <option value="Tabasco">Tabasco</option>
+               <option value="Veracruz">Veracruz</option>
+               <option value="Tamaulipas">Tamaulipas</option>
              </select>
          </div>
          <div class="col m-3">
             <select class="form-select" aria-label="Default select example">
                <option selected>Localidad</option>
-
+               <option value="1">One</option>
+               <option value="2">Two</option>
+               <option value="3">Three</option>
              </select>
          </div>
       </div>
@@ -957,13 +841,17 @@ let cancelarSolicitud = () => {
          <div class="col m-3">
             <select class="form-select" aria-label="Default select example">
                <option selected>Muelle</option>
-
+               <option value="1">One</option>
+               <option value="2">Two</option>
+               <option value="3">Three</option>
              </select>
          </div>
          <div class="col m-3">
             <select class="form-select" aria-label="Default select example">
                <option selected>Referencia</option>
-
+               <option value="1">One</option>
+               <option value="2">Two</option>
+               <option value="3">Three</option>
              </select>
          </div>
       </div>
