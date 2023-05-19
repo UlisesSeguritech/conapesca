@@ -36,13 +36,14 @@ function actualizarContenido() {
     contenidoDesktop.style.display = "block";
     contenidoMobile.style.display = "none";
 
-    $("#contHide").show();
+    $("#contHide").hide();
     $("#spanNav").show();
   }
 }
 
 // Ejecutar la función por primera vez al cargar la página
 actualizarContenido();
+$("#contHide").show();
 
 // Actualizar los contenidos cuando cambia la resolución de pantalla
 window.addEventListener("resize", actualizarContenido);
@@ -59,38 +60,35 @@ let contenedorSolicitudVerifRes = document.getElementById(
 aceptarVerificacionResponsive.addEventListener("click", () => {
   contenedorSolicitudVerifRes.innerHTML = ` 
    
-   <div class="card shadow">
-      <h6 class="mt-3">Ubicación actual de la embarcación</h6>
+   
+   <div ng-controller="restInfo" class="card shadow">
+      <h6 class="mt-3">Ubicación actual de la embarcación {{greeting}}</h6>
       <div class="row m-1">
          <div class="col-sm-6 mb-2">
             <select class="form-select " aria-label="Default select example">
                <option selected>Estado</option>
-               <option value="">Selecciona un estado con litoral</option>
-               <option value="Baja California Sur">Baja California Sur</option>
                <option value="Baja California">Baja California</option>
+               <option value="Baja California Sur">Baja California Sur</option>
                <option value="Sonora">Sonora</option>
                <option value="Sinaloa">Sinaloa</option>
                <option value="Nayarit">Nayarit</option>
-               <option value="Jalisco">Jalisco</option>
                <option value="Colima">Colima</option>
-               <option value="Michoacán">Michoacán</option>
                <option value="Guerrero">Guerrero</option>
                <option value="Oaxaca">Oaxaca</option>
-               <option value="Chiapas">Chiapas</option>
                <option value="Quintana Roo">Quintana Roo</option>
                <option value="Yucatán">Yucatán</option>
                <option value="Campeche">Campeche</option>
+               <option value="Chiapas">Chiapas</option>
                <option value="Tabasco">Tabasco</option>
                <option value="Veracruz">Veracruz</option>
                <option value="Tamaulipas">Tamaulipas</option>
+               <option value="Cuba">Cuba</option>
              </select>
          </div>
          <div class="col-sm-6 mb-2">
             <select class="form-select" aria-label="Default select example">
                <option selected>Localidad</option>
-               <option value="1">One</option>
-               <option value="2">Two</option>
-               <option value="3">Three</option>
+
              </select>
          </div>
       </div>
@@ -98,17 +96,13 @@ aceptarVerificacionResponsive.addEventListener("click", () => {
          <div class="col-sm-6 mb-2">
             <select class="form-select" aria-label="Default select example">
                <option selected>Muelle</option>
-               <option value="1">One</option>
-               <option value="2">Two</option>
-               <option value="3">Three</option>
+
              </select>
          </div>
          <div class="col-sm-6 mb-2">
             <select class="form-select" aria-label="Default select example">
                <option selected>Referencia</option>
-               <option value="1">One</option>
-               <option value="2">Two</option>
-               <option value="3">Three</option>
+
              </select>
          </div>
       </div>
@@ -166,7 +160,7 @@ aceptarVerificacionResponsive.addEventListener("click", () => {
   );
   aceptarVerificacionDatosResponsive.addEventListener("click", () => {
     contenedorSolicitudVerifRes.innerHTML = `
-      <div class="card shadow">
+      <div ng-controller="restInfo" class="card shadow">
       <div class="container">
          <table class="table table-striped text-center mt-3">
             <tbody>
@@ -251,30 +245,29 @@ let cancelarSolicitudResp = () => {
     contenedorSolicitudVerifRes.innerHTML = ` 
       
       
-      <div class="card shadow">
-         <h6 class="mt-3">Ubicación actual de la embarcación</h6>
+      <div ng-controller="restInfo" class="card shadow">
+         <h6 class="mt-3">Ubicación actual de la embarcación {{greeting}}</h6>
          <div class="row m-1">
             <div class="col-sm-6 mb-2">
                <select class="form-select " aria-label="Default select example">
                   <option selected>Estado</option>
-                  <option value="">Selecciona un estado con litoral</option>
-                  <option value="Baja California Sur">Baja California Sur</option>
+                  <option selected>Estado</option>
                   <option value="Baja California">Baja California</option>
+                  <option value="Baja California Sur">Baja California Sur</option>
                   <option value="Sonora">Sonora</option>
                   <option value="Sinaloa">Sinaloa</option>
                   <option value="Nayarit">Nayarit</option>
-                  <option value="Jalisco">Jalisco</option>
                   <option value="Colima">Colima</option>
-                  <option value="Michoacán">Michoacán</option>
                   <option value="Guerrero">Guerrero</option>
                   <option value="Oaxaca">Oaxaca</option>
-                  <option value="Chiapas">Chiapas</option>
                   <option value="Quintana Roo">Quintana Roo</option>
                   <option value="Yucatán">Yucatán</option>
                   <option value="Campeche">Campeche</option>
+                  <option value="Chiapas">Chiapas</option>
                   <option value="Tabasco">Tabasco</option>
                   <option value="Veracruz">Veracruz</option>
                   <option value="Tamaulipas">Tamaulipas</option>
+                  <option value="Cuba">Cuba</option>
                 </select>
             </div>
             <div class="col-sm-6 mb-2">
@@ -358,7 +351,7 @@ let cancelarSolicitudResp = () => {
     );
     aceptarVerificacionDatosResponsive.addEventListener("click", () => {
       contenedorSolicitudVerifRes.innerHTML = `
-         <div class="card shadow">
+         <div ng-controller="restInfo" class="card shadow">
          <div class="container">
             <table class="table table-striped text-center mt-3">
                <tbody>
@@ -478,6 +471,9 @@ $(document).ready(function () {
     $(".collapse.collapseC.show").not(target).removeClass("show");
     // Mostrar el elemento seleccionado
     $(target).addClass("show");
+
+    //console.log(this);
+    //console.log(target);
   });
 
   const collapseElements = document.querySelectorAll(".collapse");
@@ -582,7 +578,7 @@ $("#formatoI").click(function () {
                              </div>
                          </div>
                          <div class="col-9 mx-auto">
-                         <a href="assets/pdfs/requisitos_solicitar-instalacion-equipo-transreceptor.pdf" target="_blank"><button type="button" class="btn btn-outline-danger mb-2" style="width:60%;">Descarga</button></a>
+                         <a href="assets/pdfs/solicitud-programa-monitoreo-satelital.pdf" target="_blank"><button type="button" class="btn btn-outline-danger mb-2" style="width:60%;">Descarga formato</button></a>
                            
 
                          </div>
@@ -592,62 +588,90 @@ $("#formatoI").click(function () {
                                 </div>
                               `;
 });
+function getEstado(val) {
+  $.get(
+    "http://localhost:8080/estados/" + val + "/localidad",
+    function (data, status) {
+      //console.log("Data: " + data + "\nStatus: " + status);
+      if (data) {
+        $("#inputLoc").prop("disabled", false);
+        $("#inputLoc").empty();
+        $("#inputLoc").append('<option value="0">Localidad</option>');
 
+        for (i = 0; i < data.length; i++) {
+          $("#inputLoc").append(
+            '<option onclick="getLocalidad(' +
+              data[i].id +
+              ')" value="' +
+              data[i].id +
+              '">' +
+              data[i].nameLoc +
+              "</option>"
+          );
+          $("#inputLoc").val(0);
+          $("#inputLoc").focus();
+        }
+      }
+    }
+  );
+}
+
+function getLocalidad(val) {
+  $.get("http://localhost:8080/localidad/" + val, function (data, status) {
+    if (data) {
+      $("#inputMue").empty();
+      $("#inputMue").append('<option value="0">' + data.namePue + "</option>");
+      $("#inputMue").val(0);
+    }
+  });
+}
 collapse3 = document.getElementById("collapseC3");
 btnAceptVerificacion = document.getElementById("aceptarVerificacion");
 btnAceptVerificacion.addEventListener("click", () => {
-  collapse3.innerHTML = `<div class="mx-5 py-4">
+  collapse3.innerHTML = `<div class="mx-5 py-4"  >
    <div class="card align-items-center shadow my-5 ubucacionEmb card-verifi">
-   <div class="m-3 p-3">
-      <h4>Ubicacion actual de la embarcacion</h4>
+   <div class="m-3 p-3" ng-controller=restInfo>
+      <h4>Ubicacion actual de la embarcacion </h4>
       <div class="row">
          <div class="col m-3">
             <select class="form-select" aria-label="Default select example">
-               <option selected>Estado</option>
-               <option value="">Selecciona un estado con litoral</option>
-               <option value="Baja California Sur">Baja California Sur</option>
-               <option value="Baja California">Baja California</option>
-               <option value="Sonora">Sonora</option>
-               <option value="Sinaloa">Sinaloa</option>
-               <option value="Nayarit">Nayarit</option>
-               <option value="Jalisco">Jalisco</option>
-               <option value="Colima">Colima</option>
-               <option value="Michoacán">Michoacán</option>
-               <option value="Guerrero">Guerrero</option>
-               <option value="Oaxaca">Oaxaca</option>
-               <option value="Chiapas">Chiapas</option>
-               <option value="Quintana Roo">Quintana Roo</option>
-               <option value="Yucatán">Yucatán</option>
-               <option value="Campeche">Campeche</option>
-               <option value="Tabasco">Tabasco</option>
-               <option value="Veracruz">Veracruz</option>
-               <option value="Tamaulipas">Tamaulipas</option>
+               <option selected ">Estado</option>
+               <option onclick="getEstado(1)" value="Baja California">Baja California</option>
+               <option onclick="getEstado(2)" value="Baja California Sur">Baja California Sur</option>
+               <option onclick="getEstado(3)" value="Campeche">Campeche</option>
+               <option onclick="getEstado(4)" value="Chiapas">Chiapas</option>
+               <option onclick="getEstado(5)" value="Colima">Colima</option>
+               <option onclick="getEstado(6)" value="Cuba">Cuba</option>
+               <option onclick="getEstado(7)" value="Guerrero">Guerrero</option>
+               <option onclick="getEstado(8)" value="Nayarit">Nayarit</option>
+               <option onclick="getEstado(9)" value="Nuevo León">Nuevo León</option>
+               <option onclick="getEstado(10)" value="Oaxaca">Oaxaca</option>
+               <option onclick="getEstado(11)" value="Quintana Roo">Quintana Roo</option>
+               <option onclick="getEstado(12)" value="Sinaloa">Sinaloa</option>
+               <option onclick="getEstado(13)" value="Sonora">Sonora</option>
+               <option onclick="getEstado(14)" value="Tabasco">Tabasco</option>
+               <option onclick="getEstado(15)" value="Tamaulipas">Tamaulipas</option>
+               <option onclick="getEstado(16)" value="Veracruz">Veracruz</option>
+               <option onclick="getEstado(17)" value="Yucatán">Yucatán</option>
              </select>
          </div>
          <div class="col m-3">
-            <select class="form-select" aria-label="Default select example">
-               <option selected>Localidad</option>
-               <option value="1">One</option>
-               <option value="2">Two</option>
-               <option value="3">Three</option>
+            <select id="inputLoc" class="form-select" aria-label="Default select example" disabled>
+               <option value="0" selected >Localidad</option>
              </select>
          </div>
       </div>
       <div class="row">
          <div class="col m-3">
-            <select class="form-select" aria-label="Default select example">
+            <select id="inputMue" class="form-select" aria-label="Default select example" disabled>
                <option selected>Muelle</option>
-               <option value="1">One</option>
-               <option value="2">Two</option>
-               <option value="3">Three</option>
+
              </select>
          </div>
          <div class="col m-3">
             <select class="form-select" aria-label="Default select example">
                <option selected>Referencia</option>
-               <option value="1">One</option>
-               <option value="2">Two</option>
-               <option value="3">Three</option>
+
              </select>
          </div>
       </div>
@@ -807,33 +831,29 @@ let cancelarSolicitud = () => {
       <div class="row">
          <div class="col m-3">
             <select class="form-select" aria-label="Default select example">
-               <option selected>Estado</option>
-               <option value="">Selecciona un estado con litoral</option>
-               <option value="Baja California Sur">Baja California Sur</option>
-               <option value="Baja California">Baja California</option>
-               <option value="Sonora">Sonora</option>
-               <option value="Sinaloa">Sinaloa</option>
-               <option value="Nayarit">Nayarit</option>
-               <option value="Jalisco">Jalisco</option>
-               <option value="Colima">Colima</option>
-               <option value="Michoacán">Michoacán</option>
-               <option value="Guerrero">Guerrero</option>
-               <option value="Oaxaca">Oaxaca</option>
-               <option value="Chiapas">Chiapas</option>
-               <option value="Quintana Roo">Quintana Roo</option>
-               <option value="Yucatán">Yucatán</option>
-               <option value="Campeche">Campeche</option>
-               <option value="Tabasco">Tabasco</option>
-               <option value="Veracruz">Veracruz</option>
-               <option value="Tamaulipas">Tamaulipas</option>
+            <option selected>Estado</option>
+            <option value="Baja California">Baja California</option>
+            <option value="Baja California Sur">Baja California Sur</option>
+            <option value="Sonora">Sonora</option>
+            <option value="Sinaloa">Sinaloa</option>
+            <option value="Nayarit">Nayarit</option>
+            <option value="Colima">Colima</option>
+            <option value="Guerrero">Guerrero</option>
+            <option value="Oaxaca">Oaxaca</option>
+            <option value="Quintana Roo">Quintana Roo</option>
+            <option value="Yucatán">Yucatán</option>
+            <option value="Campeche">Campeche</option>
+            <option value="Chiapas">Chiapas</option>
+            <option value="Tabasco">Tabasco</option>
+            <option value="Veracruz">Veracruz</option>
+            <option value="Tamaulipas">Tamaulipas</option>
+            <option value="Cuba">Cuba</option>
              </select>
          </div>
          <div class="col m-3">
             <select class="form-select" aria-label="Default select example">
                <option selected>Localidad</option>
-               <option value="1">One</option>
-               <option value="2">Two</option>
-               <option value="3">Three</option>
+
              </select>
          </div>
       </div>
@@ -841,17 +861,13 @@ let cancelarSolicitud = () => {
          <div class="col m-3">
             <select class="form-select" aria-label="Default select example">
                <option selected>Muelle</option>
-               <option value="1">One</option>
-               <option value="2">Two</option>
-               <option value="3">Three</option>
+
              </select>
          </div>
          <div class="col m-3">
             <select class="form-select" aria-label="Default select example">
                <option selected>Referencia</option>
-               <option value="1">One</option>
-               <option value="2">Two</option>
-               <option value="3">Three</option>
+
              </select>
          </div>
       </div>
