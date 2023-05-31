@@ -6,12 +6,11 @@ h4,
 h3,
 h2,
 h1 {
-  text-align: justify;
+  text-align: left;
   /*color: #545454;*/
 }
-.img-monitoreo {
-  margin-left: 30%;
-  margin-top: 25%;
+p{
+  text-align: justify;
 }
 
 .nav-tabs {
@@ -114,18 +113,30 @@ Contenido del Header
   flex-grow: 1;
   text-align: center;
 }
+.imgCmsCont{
+  text-align: center;
+  padding: 5%;
+}
 
 @media (max-width: 767px) {
   .nav-tabs li {
     flex-basis: 50%;
   }
   .img-monitoreo {
-    height: 100px;
-    margin-left: 25%;
+    height: 200px;
+    
   }
   .backGray {
     padding-top: 30px;
     margin-top: -25px;
+  }
+  .imgCona{
+    height: 25px;
+   
+  }
+  .navConapesca{
+    text-align: left;
+    padding: 10px;
   }
 }
 

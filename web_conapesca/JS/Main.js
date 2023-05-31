@@ -57,15 +57,16 @@ $gmx(document).ready(function () {
       $(".CardSolicitudTwo").show();
       $(".CardSolicitudThree").hide();
     });
-
+    
     const guardarSolicitud2 = document.querySelectorAll(".guardarSolicitud2");
+    /*
     guardarSolicitud2.forEach(function (elemento2) {
       elemento2.addEventListener("click", () => {
         $(".CardSolicitudOne").hide();
         $(".CardSolicitudTwo").hide();
         $(".CardSolicitudThree").show();
       });
-    });
+    });*/
   });
 
   //DISEÑO RESPONSIVE
@@ -116,9 +117,23 @@ $gmx(document).ready(function () {
   // Ejecutar la función por primera vez al cargar la página
   // Ejecutar la función por primera vez al cargar la página
   actualizarContenido();
-  $("#hideNom").show();
+  //$("#hideNom").show();
   //TERMINA DISEÑO RESPONSIVE
 
   // Actualizar los contenidos cuando cambia la resolución de pantalla
   window.addEventListener("resize", actualizarContenido);
+
+/*
+  $(document).ready(function() {
+    $('.nav-tabs a').click(function() {
+      // Si la pestaña está activa, ciérrala
+      if ($(this).parent().hasClass('active')) {
+        $(this).parent().removeClass('active');
+        $($(this).attr('href')).removeClass('active');
+      } else {
+        // Si la pestaña no está activa, ábrela
+        $(this).tab('show');
+      }
+    });
+  });*/
 }); //Termina inicializador de framework
