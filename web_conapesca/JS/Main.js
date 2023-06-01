@@ -1,3 +1,154 @@
+var datesMail = { };
+
+function getEstado(val) {
+  console.log(val);
+
+  $.get(
+    "http://localhost:8080/estados/" + val + "/localidad",
+    function (data, status) {
+      console.log("Data: " + data + "\nStatus: " + status);
+      if (data) {
+        $("#inputLoc").prop("disabled", false);
+        $("#inputLoc").empty();
+        $("#inputLoc").append('<option value="0">Localidad</option>');
+
+        for (i = 0; i < data.length; i++) {
+          $("#inputLoc").append(
+            '<option onclick="getLocalidad(' +
+              data[i].id +
+              ')" value="' +
+              data[i].id +
+              '">' +
+              data[i].nameLoc +
+              "</option>"
+          );
+          $("#inputLoc").val(0);
+          $("#inputLoc").focus();
+        }
+      }
+    }
+  );
+}
+
+function getLocalidad(val) {
+  $.get("http://localhost:8080/localidad/" + val, function (data, status) {
+    if (data) {
+      $("#inputMue").empty();
+      $("#inputMue").append('<option value="0">' + data.namePue + "</option>");
+      $("#inputMue").val(0);
+    }
+  });
+}
+
+
+$("#usercheck").hide();
+$("#mailerror").hide();
+let usernameError = true;
+$("#usernames").keyup(function () {
+    validateUsername();
+});
+
+function validateUsername() {
+  let usernameValue = $("#usernames").val();
+  if (usernameValue.length == "") {
+      $("#usercheck").show();
+      usernameError = true;
+      //return false;
+  } else if (usernameValue.length < 8 ) {
+      $("#usercheck").show();
+      $("#usercheck").html("El RNPA debe contener 8 caracteres");
+      usernameError = true;
+      //return false;
+  } else {
+      $("#usercheck").hide();
+      usernameError = false;
+      console.log(usernameValue)
+      datesMail.RNPA = usernameValue;
+      console.log(datesMail)
+
+  }
+}
+
+function validateEmail(){
+                
+	// Get our input reference.
+	var emailField = document.getElementById('mailForm');
+	
+	// Define our regular expression.
+	var validEmail =  /^\w+([.-_+]?\w+)*@\w+([.-]?\w+)*(\.\w{2,10})+$/;
+  let mailValue = $("#mailForm").val();
+
+  if (mailValue.length == "") {
+    $("#mailerror").show();
+  }else{
+    $("#mailerror").hide();
+  }
+
+	// Using test we can check if the text match the pattern
+	if( validEmail.test(emailField.value) ){
+		console.log('Email is valid, continue with form submission');
+
+    mailError = false;
+	}else{
+		console.log('Email is invalid, skip form submission');
+    $("#mailerror").show();
+    $("#mailerror").html("Ingrese un formato valido de correo electronico");
+    mailError = true;
+	}
+} 
+
+function saveInfo() {
+  let usernameValue = $("#usernames").val();
+  let estadoValue = $("#estado").val();
+  let localidadValue = $("#inputLoc").val();
+  let muelleValue = $("#inputMue").val();
+  let refValue = $("#refrenciaForm").val();
+  let descValue = $("#descForm").val();
+  let dateValue = $("#calendarYear").val();
+  let timeValue = $("#timeForm").val();
+  let telValue = $("#telForm").val();
+  let contactValue = $("#contactForm").val();
+  let mailValue = $("#mailForm").val();
+
+  datesMail.RNPA = usernameValue;
+  datesMail.estado = estadoValue, 
+  datesMail.localidad = localidadValue, 
+  datesMail.muelle = muelleValue, 
+  datesMail.referencia = refValue, 
+  datesMail.descripcion = descValue, 
+  datesMail.fecha = dateValue, 
+  datesMail.hora = timeValue, 
+  datesMail.telefono = telValue, 
+  datesMail.contacto = contactValue,
+  datesMail.mail = mailValue
+
+  console.log(datesMail)
+  
+}
+
+$("#validateRNPA").click(function () {
+  validateUsername();
+  
+  if (usernameError == true) {
+      console.log(usernameError)
+  } else {
+    console.log(usernameError)
+    $(".CardSolicitudOne").hide();
+    $(".CardSolicitudTwo").show();
+      return false;
+  }
+});
+
+$("#sendRNPA").click(function () {
+  validateEmail();
+  if(mailError == false){
+    saveInfo();
+  }
+  
+});
+
+
+
 //funcion cancelarsolicitud regresa a la vista inicial de solicitud y limpia los inputs
 let cancelarSolicitud = () => {
   //Mostramos la card correcta de solicitud de verificacion
