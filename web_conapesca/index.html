@@ -951,29 +951,32 @@
                                                         <option  value="16">Veracruz</option>
                                                         <option  value="Yucatán">Yucatán</option>
                                                       </select>
+                                                      <p id="stateerror" style="color: red;">Es necesario Ingresar un Estado.</p>
                                                 </div>
                                                 <div class="col-md-6">
                                                     <select id="inputLoc" class="form-control" aria-label="Default select example"  disabled>
                                                         <option value="0" selected >Localidad</option>
-                                                      </select>
+                                                    </select>
+                                                    <p id="localerror" style="color: red;">Es necesario Ingresar una Localidad.</p>
                                                 </div>
                                             </div>
 
                                             <div class="row">
                                                 <div class="col-md-6">
-                                                    <select id="inputMue" class="form-control" aria-label="Default select example" id="muelle" disabled>
-                                                        <option selected>Muelle</option>
-                                         
-                                                      </select>
+                                                    <select id="inputMue" class="form-control" aria-label="Default select example"  disabled>
+                                                        <option value="0" selected>Muelle</option>
+                                                    </select>
+                                                    <p id="muelleerror" style="color: red;">Es necesario Ingresar una Referencia.</p>
                                                 </div>
                                                 <div class="col-md-6">
                                                     <input  class="form-control" placeholder="Referencia" type="text" id="refrenciaForm" />
-                                                    
+                                                    <p id="referror" style="color: red;">Es necesario Ingresar una Referencia.</p>
                                                 </div>
                                             </div>
                                             <div class="row">
                                                 <div class="col-sm-12">
                                                     <textarea class="form-control w-100" placeholder="Descripción de la falla" rows="3" id="descForm"></textarea>
+                                                    <p id="descerror" style="color: red;">Es necesario Ingresar una descripción.</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -986,27 +989,30 @@
                                                         <label class="control-label" for="calendarYear">Fecha sugerida</label>
                                                         <input class="form-control" id="calendarYear" type="text"  />
                                                         <span class="glyphicon glyphicon-calendar " style="margin-top: 15px;" aria-hidden="true"></span>
+                                                        <p id="dateerror" style="color: red;">Es necesario Ingresar un horario.</p>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6">
                                                     <label class="form-label">Hora sugerida</label>
                                                     <input class="form-control" type="time" placeholder="Hora sugerida" id="timeForm"/>
+                                                    <p id="timeerror" style="color: red;">Es necesario Ingresar un horario.</p>
                                                 </div>
                                             </div>
 
                                             <div class="row">
                                                 <div class="col-md-6">
                                                     <input onkeypress='return event.charCode >= 48 && event.charCode <= 57' class="form-control" type="text" placeholder="Teléfono" maxlength="12" id="telForm"/>
+                                                    <p id="phoneerror" style="color: red;">Es necesario Ingresar un número télefonico.</p>
                                                 </div>
                                                 <div class="col-md-6">
-                                                    <input class="form-control" type="text" placeholder="Persona de contacto" id="contactForm"/>
+                                                    <input class="form-control" type="text" placeholder="Persona de contacto" id="contactForm" onkeypress="return soloLetras(event)"/>
+                                                    <p id="contacterror" style="color: red;">Es necesario Ingresar un contacto.</p>
                                                 </div>
                                             </div>
                                             <div class="row">
                                                 <div class="col-md-12">
                                                     <input class="form-control" type="email" placeholder="Correo electrónico" id="mailForm"/>
-                                                    <p id="mailerror" style="color: red;">Es necesario Ingresar un correo electronico</p>
-
+                                                    <p id="mailerror" style="color: red;">Es necesario Ingresar un correo electronico.</p>
                                                 </div>
                                             </div>
 
