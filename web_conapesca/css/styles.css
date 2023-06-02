@@ -1,5 +1,4 @@
-p,
-li,
+
 h6,
 h5,
 h4,
@@ -9,8 +8,20 @@ h1 {
   text-align: left;
   /*color: #545454;*/
 }
-p{
-  text-align: justify;
+footer p, li, ul{
+  text-align: left!important;
+}
+
+.contenido-body{
+  margin-top: 100px;
+  height: auto;  
+ 
+}
+.img-header{
+  width: 100%;
+}
+.cardG li , p {
+  text-align: justify !important;
 }
 
 .nav-tabs {
@@ -18,9 +29,9 @@ p{
   justify-content: space-between;
 }
 
-.nav-tabs li {
+.nav-tabs li, p {
   flex-grow: 1;
-  text-align: justify;
+  text-align: justify !important;
 }
 .card-solicitud {
   width: 50%;
@@ -81,6 +92,7 @@ p{
   background-color: #dddddd;
   margin-top: -5px;
   padding-bottom: 20px;
+  width: 100%;
 }
 button {
   margin-top: 10px;
@@ -113,9 +125,13 @@ Contenido del Header
   flex-grow: 1;
   text-align: center;
 }
-.imgCmsCont{
+.imgCmsCont {
   text-align: center;
   padding: 5%;
+}
+.justificado p, li{
+  text-align: justify;
+
 }
 
 @media (max-width: 767px) {
@@ -124,22 +140,29 @@ Contenido del Header
   }
   .img-monitoreo {
     height: 200px;
-    
   }
   .backGray {
     padding-top: 30px;
     margin-top: -25px;
   }
-  .imgCona{
+  .imgCona {
     height: 25px;
-   
   }
-  .navConapesca{
+  .navConapesca {
     text-align: left;
     padding: 10px;
   }
 }
-
+@media (max-width: 350px) {
+  .imgCona {
+    height: 20px;
+  }
+}
+@media (max-width: 293px) {
+  .imgCona {
+    height: 15px;
+  }
+}
 @media (max-width: 575px) {
   .nav-tabs li {
     flex-basis: 100%;
@@ -147,7 +170,8 @@ Contenido del Header
 }
 
 .btn-gren {
-  margin: 20px;
+  margin-left: 20px;
+  margin-bottom: 15px;
 }
 
 /*

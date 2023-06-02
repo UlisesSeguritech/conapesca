@@ -42,17 +42,7 @@ function getLocalidad(val) {
 
 
 $("#usercheck").hide();
-$("#stateerror").hide();
-$("#localerror").hide();
-$("#muelleerror").hide();
-$("#referror").hide();
-$("#dateerror").hide();
-$("#timeerror").hide();
-$("#phoneerror").hide();
-$("#contacterror").hide();
 $("#mailerror").hide();
-$("#descerror").hide();
-
 let usernameError = true;
 $("#usernames").keyup(function () {
     validateUsername();
@@ -76,95 +66,6 @@ function validateUsername() {
       datesMail.RNPA = usernameValue;
       console.log(datesMail)
 
-  }
-}
-
-function validateInputs(){
-  let stateField = $("#estado").val();
-  let localField = $("#inputLoc").val();
-  let muelleField = $("#inputMue").val();
-  let refField = $("#refrenciaForm").val();
-  let descField = $("#descForm").val();
-  let dateField = $("#calendarYear").val();
-  let timetField = $("#timeForm").val();
-  let telField = $("#telForm").val();
-  let contactField = $("#contactForm").val();
-
-  if (stateField.length == "") {
-    $("#stateterror").show();
-  }else{
-    $("#stateterror").hide();
-  }
-
-  if (localField.length == "") {
-    $("#localerror").show();
-  }else{
-    $("#localerror").hide();
-  }
-
-  if (muelleField !== undefined) {
-    if (muelleField.length == "") {
-      $("#muelleerror").show();
-    }else{
-      $("#muelleerror").hide();
-    }
-  }
-
-  
-
-  if (refField.length == "") {
-    $("#referror").show();
-  }else{
-    $("#referror").hide();
-  }
-
-  if (descField.length == "") {
-    $("#descerror").show();
-  }else{
-    $("#descerror").hide();
-  }
-
-  if (dateField.length == "") {
-    $("#dateerror").show();
-  }else{
-    $("#dateerror").hide();
-  }
-
-  if (timetField.length == "") {
-    $("#timeerror").show();
-  }else{
-    $("#timeerror").hide();
-  }
-
-  if (telField.length == "") {
-    $("#phoneerror").show();
-  }else{
-    $("#phoneerror").hide();
-  }
-
-  if (contactField.length == "") {
-    $("#contacterror").show();
-  }else{
-    $("#contacterror").hide();
-  }
-} 
-
-function soloLetras(e) {
-  var key = e.keyCode || e.which,
-    tecla = String.fromCharCode(key).toLowerCase(),
-    letras = " áéíóúabcdefghijklmnñopqrstuvwxyz",
-    especiales = [8, 37, 39, 46],
-    tecla_especial = false;
-
-  for (var i in especiales) {
-    if (key == especiales[i]) {
-      tecla_especial = true;
-      break;
-    }
-  }
-
-  if (letras.indexOf(tecla) == -1 && !tecla_especial) {
-    return false;
   }
 }
 
@@ -212,7 +113,7 @@ function saveInfo() {
   datesMail.RNPA = usernameValue;
   datesMail.estado = estadoValue, 
   datesMail.localidad = localidadValue, 
-  datesMail.inputMue = muelleValue, 
+  datesMail.muelle = muelleValue, 
   datesMail.referencia = refValue, 
   datesMail.descripcion = descValue, 
   datesMail.fecha = dateValue, 
@@ -239,7 +140,6 @@ $("#validateRNPA").click(function () {
 });
 
 $("#sendRNPA").click(function () {
-  validateInputs();
   validateEmail();
   if(mailError == false){
     saveInfo();
@@ -285,6 +185,7 @@ $gmx(document).ready(function () {
 
   //console.log('Se cargo la ventana con exito');
   // Selecciona los botones utilizando el selector adecuado
+  /*
   const botones = document.querySelectorAll(".btn-gren");
   // Agrega el event listener a cada botón verde y al hacer click hace invisible la NOM
   botones.forEach(function (boton) {
@@ -292,9 +193,14 @@ $gmx(document).ready(function () {
       // Acción a realizar al hacer clic en cualquier botón
       //console.log('¡Se hizo clic en un botón!');
       // Aquí puedes agregar tu lógica adicional
-      $("#hideNom").hide();
+      //$("#hideNom").hide();
+      if ($('#hideNom').is(':visible')) {
+        $("#hideNom").hide();
+      }else{
+        $("#hideNom").show();
+      }
     });
-  });
+  });*/
 
   //SolicitudDeVerificacion
   const contenedorSolicitud = document.getElementById("contenedorSolicitud");
@@ -374,17 +280,48 @@ $gmx(document).ready(function () {
   // Actualizar los contenidos cuando cambia la resolución de pantalla
   window.addEventListener("resize", actualizarContenido);
 
-/*
-  $(document).ready(function() {
-    $('.nav-tabs a').click(function() {
-      // Si la pestaña está activa, ciérrala
-      if ($(this).parent().hasClass('active')) {
-        $(this).parent().removeClass('active');
-        $($(this).attr('href')).removeClass('active');
-      } else {
-        // Si la pestaña no está activa, ábrela
-        $(this).tab('show');
+
+
+
+  let buttons = document.querySelectorAll('.btnAGren');
+  
+  buttons.forEach((button) => {
+      button.addEventListener('click', function(event) {
+          
+      let idTab = this.getAttribute('href');
+      console.log(idTab);
+      tabClick = document.querySelector(idTab);
+      console.log(tabClick.getAttribute('class'));
+      var isActive = tabClick.classList.contains('active');
+      console.log("es activa" + isActive);
+      if (isActive) {
+          if ($('.contenedorTabsGren').is(':visible')) {
+          // El elemento está visible
+          $('.contenedorTabsGren').hide();
+          $('#hideNom').show();
+          event.preventDefault();
+          console.log("El elemento está visible");
+          } else {
+          // El elemento está oculto
+          console.log("El elemento está oculto");
+          $('.contenedorTabsGren').show();
+          $('#hideNom').hide();
+          }
+          //tabClick.className = 'tab-pane cardG tabGren fade';
+         
+         
+      }else{
+          $('.contenedorTabsGren').show();
+          $('#hideNom').hide();
       }
-    });
-  });*/
+      });
+  });
+
+
+
+
+
+
+  
 }); //Termina inicializador de framework
+

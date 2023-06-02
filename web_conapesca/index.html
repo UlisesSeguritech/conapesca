@@ -24,30 +24,20 @@
     <body>
         <!-- Contenido -->
         <main class="page">
-            <div class="container-fluid">
-                <!--BARRA DE NAVEGACION-->
-                <nav class="navbar navbar-inverse sub-navbar navbar-fixed-top navConapesca">
-                    <div class="container">
-                        <div class="navbar-header">
-                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#subenlaces">
-                                <span class="sr-only">Interruptor de Navegación</span>
-                                <span class="icon-bar"></span>
-                                <span class="icon-bar"></span>
-                                <span class="icon-bar"></span>
-                            </button>
-                            
-                           
-            <a href="#">            
-              <img                            
-              src="assets/Img/agricultura conapesca_logos_blanco.png"
-              alt="Imagen 2"
-              height="45"
-              class="d-inline-block align-left img-fluid mx-2 imgCona"
-              style="margin-top: 9px;"
-              /></a>
-                        
-                        </div>
-                        <!--
+            <!--BARRA DE NAVEGACION-->
+            <nav class="navbar navbar-inverse sub-navbar navbar-fixed-top navConapesca">
+                <div class="container">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#subenlaces">
+                            <span class="sr-only">Interruptor de Navegación</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+
+                        <a href="#"> <img src="assets/Img/agricultura conapesca_logos_blanco.png" alt="Imagen 2" height="45" class="d-inline-block align-left img-fluid mx-2 imgCona" style="margin-top: 9px;" /></a>
+                    </div>
+                    <!--
                         <div class="collapse navbar-collapse" id="subenlaces">
                             <ul class="nav navbar-nav navbar-right">
                                 <li><a href="#">Enlace</a></li>
@@ -64,16 +54,17 @@
                             </ul>
                         </div>
                         -->
-                    </div>
-                </nav>
-            </div>
+                </div>
+            </nav>
+
             <!-- HEADER -->
 
-        
-            <div class="contenedor-body" style="height: auto; margin-top: 100px;">
+            <div class="contenido-body">
                 <div class="row">
-                    <div class="col-sm-12" style="margin-left: 30px; ">
-                        <h3 class="title tituloHead">Sistema de Monitoreo Satelital de Embarcaciones Pesqueras</h3>
+                    <div class="col-sm-12" style="margin-left: 30px;">
+                        <h3 class="title tituloHead">
+                            Sistema de Monitoreo Satelital de Embarcaciones Pesqueras...
+                        </h3>
                     </div>
                 </div>
 
@@ -94,11 +85,17 @@
                             <!-- Contenido del menú -->
                             <div class="collapse navbar-collapse" id="navbar-menu">
                                 <ul class="nav navbar-nav">
-                                    <li class="active"><a data-toggle="tab" href="#tab-01">Conapesca</a></li>
+                                    <li class="active">
+                                        <a data-toggle="tab" href="#tab-01">Conapesca</a>
+                                    </li>
                                     <li><a data-toggle="tab" href="#tab-02">Satélite</a></li>
-                                    <li><a data-toggle="tab" href="#tab-03">Embarcaciones pesqueras</a></li>
+                                    <li>
+                                        <a data-toggle="tab" href="#tab-03">Embarcaciones pesqueras</a>
+                                    </li>
                                     <li><a data-toggle="tab" href="#tab-04">CMS</a></li>
-                                    <li><a data-toggle="tab" href="#tab-05">Consulta Embarcaciones</a></li>
+                                    <li>
+                                        <a data-toggle="tab" href="#tab-05">Consulta Embarcaciones</a>
+                                    </li>
                                 </ul>
                             </div>
                         </div>
@@ -107,47 +104,61 @@
 
                 <div id="header-deskop">
                     <ul class="nav nav-tabs nav-fill top-buffer">
-                        <li class="active"><a data-toggle="tab" href="#tab-01">Conapesca</a></li>
+                        <li class="active">
+                            <a data-toggle="tab" href="#tab-01">Conapesca</a>
+                        </li>
                         <li><a data-toggle="tab" href="#tab-02">Satélite</a></li>
-                        <li><a data-toggle="tab" href="#tab-03">Embarcaciones pesqueras</a></li>
+                        <li>
+                            <a data-toggle="tab" href="#tab-03">Embarcaciones pesqueras</a>
+                        </li>
                         <li><a data-toggle="tab" href="#tab-04">CMS</a></li>
-                        <li><a data-toggle="tab" href="#tab-05">Consulta Embarcaciones</a></li>
+                        <li>
+                            <a data-toggle="tab" href="#tab-05">Consulta Embarcaciones</a>
+                        </li>
                     </ul>
                 </div>
 
                 <div class="tab-content">
                     <div class="tab-pane active" id="tab-01">
-                        <img src="assets/Img/edificios.jpg" alt="Conapesca" id="imgConapesca" class="img-responsive" />
+                        <img src="assets/Img/edificios.jpg" alt="Conapesca" id="imgConapesca" class="img-responsive img-header" />
                     </div>
                     <div class="tab-pane" id="tab-02">
-                        <img src="assets/Img/satelite.jpg" alt="Conapesca" id="imgSatelite" class="img-responsive" />
-                        <div>
+                        <img src="assets/Img/satelite.jpg" alt="Conapesca" id="imgSatelite" class="img-responsive img-header" />
+                        <div class="justificado">
                             <h5 class="mt-1">Equipos transreceptores</h5>
                             <p>
-                                El equipo transreceptor es un dispositivo híbrido que utiliza GPS, comunicación satelital y/o GSM, combinación de tecnologías existentes en el mercado actual, garantizando en todo momento que los
-                                reportes de posición no sean interrumpidos, obteniendo los datos en tiempo real, monitoreando las embarcaciones para conocer su posición, velocidad, rumbo, trazabilidad de ruta; motivo por el cual puede
-                                cambiar entre redes satelitales y GSM automáticamente para optimizar la comunicación con el Centro de Localización y Monitoreo Satelital de Embarcaciones Pesqueras de la CONAPESCA.
+                                El equipo transreceptor es un dispositivo híbrido que utiliza GPS, comunicación satelital y/o GSM, combinación de tecnologías existentes en el mercado actual, garantizando en todo momento que los reportes de
+                                posición no sean interrumpidos, obteniendo los datos en tiempo real, monitoreando las embarcaciones para conocer su posición, velocidad, rumbo, trazabilidad de ruta; motivo por el cual puede cambiar entre
+                                redes satelitales y GSM automáticamente para optimizar la comunicación con el Centro de Localización y Monitoreo Satelital de Embarcaciones Pesqueras de la CONAPESCA.
                             </p>
 
                             <p><b>Ventajas del equipo transreceptor:</b></p>
                             <div>
                                 <ul>
-                                    <li>Recopila las posiciones de las embarcaciones mediante señales satelitales.</li>
-                                    <li>Transmite datos de manera inteligente a través de la red terrestre GSM/GPRS o la red satelital Iridium.</li>
+                                    <li>
+                                        Recopila las posiciones de las embarcaciones mediante señales satelitales.
+                                    </li>
+                                    <li>
+                                        Transmite datos de manera inteligente a través de la red terrestre GSM/GPRS o la red satelital Iridium.
+                                    </li>
                                     <li>
                                         A través del equipo transreceptor se rastrean las embarcaciones pesqueras con cobertura en el Mar Territorial y la Zona Económica Exclusiva de los Estados Unidos Mexicanos y aquellas que ejercen
                                         actividades de pesca en las 200 millas náuticas alrededor de la Isla de Clipperton.
                                     </li>
-                                    <li>Recepción de alertas de emergencia de la embarcación, incrementando las medidas de seguridad para salvaguardar la vida humana en el mar.</li>
+                                    <li>
+                                        Recepción de alertas de emergencia de la embarcación, incrementando las medidas de seguridad para salvaguardar la vida humana en el mar.
+                                    </li>
                                     <li>Geocercas integradas.</li>
-                                    <li>Funcionamiento continuo incluso en caso de corte de corriente de la embarcación.</li>
+                                    <li>
+                                        Funcionamiento continuo incluso en caso de corte de corriente de la embarcación.
+                                    </li>
                                 </ul>
                             </div>
                         </div>
                     </div>
                     <div class="tab-pane" id="tab-03">
-                        <img src="assets/Img/embarcaciones.jpg" alt="Conapesca" id="imgEmbarcaciones" class="img-responsive" />
-                        <div>
+                        <img src="assets/Img/embarcaciones.jpg" alt="Conapesca" id="imgEmbarcaciones" class="img-responsive img-header" />
+                        <div class="justificado">
                             <h5 class="mt-1">EMBARCACIONES PESQUERAS</h5>
                             <p>
                                 Debido a la necesidad de cumplir con acuerdos suscritos por nuestro país y hacer concurrir diferentes regulaciones pesqueras orientadas al control y seguimiento de las operaciones de pesca, se hace necesario
@@ -156,21 +167,31 @@
                                 seguimiento, apoyo y soporte, que incluya herramientas tales como la implementación de dispositivos capaces de proporcionar información correspondiente sobre el estatus que guardan las embarcaciones pesqueras
                                 en ruta y zonas de pesca.
                             </p>
-                            <p><b>ACUERDOS INTERNACIONALES Y NACIONALES EN APOYO A LA SEGURIDAD MARITIMA</b></p>
+                            <p>
+                                <b>ACUERDOS INTERNACIONALES Y NACIONALES EN APOYO A LA SEGURIDAD MARITIMA</b>
+                            </p>
                             <div class="ms-5">
                                 <ul>
-                                    <li>Norma Oficial Mexicana NOM-062-SAG/PESC-2014, publicada en el Diario Oficial de la Federación el 03 de julio de 2015.</li>
-                                    <li>Convenio internacional para la seguridad de la vida humana en el mar, 1974 (Convenio SOLAS).</li>
+                                    <li>
+                                        Norma Oficial Mexicana NOM-062-SAG/PESC-2014, publicada en el Diario Oficial de la Federación el 03 de julio de 2015.
+                                    </li>
+                                    <li>
+                                        Convenio internacional para la seguridad de la vida humana en el mar, 1974 (Convenio SOLAS).
+                                    </li>
                                     <li>
                                         SAR/79 referente a Búsqueda y Rescate, hace necesaria la participación que corresponda a la Secretaria de Comunicaciones y Transportes a través de las capitanías de puerto y la secretaria de marina.
                                     </li>
-                                    <li>PBIP/2004 referente a Buques e instalaciones portuarias.</li>
+                                    <li>
+                                        PBIP/2004 referente a Buques e instalaciones portuarias.
+                                    </li>
                                     <li>
                                         Organismos regionales de los que México forma parte, han acordado que los países miembros establezcan sistemas de seguimiento satelital de las flotas pesqueras desde el 2005 (Resolución CIAT C-04-06 y
                                         Recomendación CICAA 03-14, Resolución CIAT C-14-02).
                                     </li>
                                     <li>Comisión lnteramericana del Atún Tropical (CIAT).</li>
-                                    <li>Comisión Internacional para la Conservación del Atún del Atlántico (CICAA).</li>
+                                    <li>
+                                        Comisión Internacional para la Conservación del Atún del Atlántico (CICAA).
+                                    </li>
                                     <li>
                                         Plan de Acción Internacional para prevenir, Desalentar y Eliminar la pesca Ilegal, No Reportada y No Regulada de la Organización de las Naciones Unidas, para la Agricultura y Alimentación (FAO, 2001).
                                     </li>
@@ -183,20 +204,22 @@
                         </div>
                     </div>
                     <div class="tab-pane" id="tab-04">
-                        <img src="assets/Img/monitoreo.jpg" alt="Conapesca" id="imgCms" class="img-responsive" />
+                        <img src="assets/Img/monitoreo.jpg" alt="Conapesca" id="imgCms" class="img-responsive img-header" />
                         <div>
                             <div class="row">
-                                <div class="col-md-7">
-                                    <h5>Centro de localización y monitoreo satelital de embarcaciones pesqueras</h5>
+                                <div class="col-md-7 justificado">
+                                    <h5>
+                                        Centro de localización y monitoreo satelital de embarcaciones pesqueras
+                                    </h5>
                                     <p>
                                         Se requiere contar con un Sistema de Localización y Monitoreo Satelital de Embarcaciones Pesqueras, que esté integrado por un equipamiento uniforme y pueda ser actualizado para un mejor servicio, con
                                         el que se pueda:
                                     </p>
                                     <div>
                                         <ul style="list-style-type: none; padding: 0; margin-left: 30px;">
-                                            <li style="text-indent: -1em;"><b>a)</b> Conocer la localización exacta de la ruta tomada por la embarcación a lo largo de su viaje, así como la zona de pesca;</li>
-                                            <li style="text-indent: -1em;"><b>b)</b> Mejorar la información para la investigación técnica y científica pesquera;</li>
-                                            <li style="text-indent: -1em;"><b>c)</b> Mejorar la administración de los recursos pesqueros, y</li>
+                                            <li style="text-indent: -1em;"><b>a)</b> Conocer la localización exacta de la ruta tomada por la embarcación a lo largo de su viaje, así como la zona de pesca.</li>
+                                            <li style="text-indent: -1em;"><b>b)</b> Mejorar la información para la investigación técnica y científica pesquera.</li>
+                                            <li style="text-indent: -1em;"><b>c)</b> Mejorar la administración de los recursos pesqueros.</li>
                                             <li style="text-indent: -1em;">
                                                 <b>d)</b> Verificar el respeto a las vedas, así como a las áreas de captura restringidas o prohibidas y el grado de incidencia o reincidencia de embarcaciones, lo que aportará información a
                                                 las autoridades, que podrá ser considerada como prueba de eventuales infracciones o ilícitos en los términos de las disposiciones aplicables.
@@ -205,14 +228,14 @@
                                         </ul>
                                     </div>
                                 </div>
-                                <div class="col-md-2 imgCmsCont" style="align-items: left;"> 
+                                <div class="col-md-2 imgCmsCont" style="align-items: left;">
                                     <img class="img-monitoreo" src="assets/Img/monitoreo2.jpg" alt="Conapesca" />
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="tab-pane" id="tab-05">
-                        <a href="https://20.225.146.99/Tuna/Account/Login"><img src="assets/Img/consulta.jpg" alt="Conapesca" id="imgConsulta" class="img-responsive" /></a>
+                        <a href="https://20.225.146.99/Tuna/Account/Login" target="_blank"><img src="assets/Img/consulta.jpg" alt="Conapesca" id="imgConsulta" class="img-responsive img-header" /></a>
                     </div>
                 </div>
                 <!--TTERMINA EL HEADER-->
@@ -235,7 +258,9 @@
                             <div id="collapseOne" class="panel-collapse collapse">
                                 <div class="panel-body">
                                     <div class="cardG">
-                                        <h5>Requisitos para solicitar la instalación de un equipo transreceptor</h5>
+                                        <h5>
+                                            Requisitos para solicitar la instalación de un equipo transreceptor
+                                        </h5>
                                         <p>
                                             Los permisionarios y/o concesionarios con derechos vigentes y con embarcaciones pesqueras que se ubiquen dentro de las características establecidas al apartado 1.2 de la
                                             <b>
@@ -251,21 +276,35 @@
                                                 residir fuera de Mazatlán, Sinaloa), mismos que serán sellados de recibido y turnados de forma gratuita a la CONAPESCA, así mismo podrá acudir directamente a las oficinas de correo para envío
                                                 mediante un correo certificado.
                                             </li>
-                                            <li>Adjuntar original debidamente llenado del "FORMATO DE INSCRIPCIÓN AL REGISTRO DEL PROGRAMA DE SISTEMA DE MONITOREO SATELITAL DE EMBARCACIONES PESQUERAS 2013-2018".</li>
+                                            <li>
+                                                Adjuntar original debidamente llenado del "FORMATO DE INSCRIPCIÓN AL REGISTRO DEL PROGRAMA DE SISTEMA DE MONITOREO SATELITAL DE EMBARCACIONES PESQUERAS 2013-2018".
+                                            </li>
                                         </ol>
-                                        <p><b>Adjuntar copia simple de los siguientes documentos:</b></p>
+                                        <p>
+                                            <b>Adjuntar copia simple de los siguientes documentos:</b>
+                                        </p>
                                         <ol>
-                                            <li>Identificación oficial del propietario de la embarcación (Persona Física).</li>
+                                            <li>
+                                                Identificación oficial del propietario de la embarcación (Persona Física).
+                                            </li>
                                             <li>
                                                 En caso de tratarse de personas morales el trámite lo efectúa el representante legal, acreditando la personalidad por medio de carta poder general notarial (Escritura Pública otorgando poder
                                                 legal).
                                             </li>
                                             <li>Identificación oficial del representante legal.</li>
-                                            <li>Comprobante de domicilio del permisionario (con vigencia no mayor a 3 meses).</li>
+                                            <li>
+                                                Comprobante de domicilio del permisionario (con vigencia no mayor a 3 meses).
+                                            </li>
                                             <li>Permiso y/o concesión vigente.</li>
-                                            <li>Certificado Nacional de Seguridad vigente (UNICAPAM).</li>
-                                            <li>Certificado de Matrícula (UNICAPAM). (Documentación complementaria requerida).</li>
-                                            <li>Documento que acredite el carácter de propietario o posesionario de la embarcación. (Documentación complementaria requerida).</li>
+                                            <li>
+                                                Certificado Nacional de Seguridad vigente (UNICAPAM).
+                                            </li>
+                                            <li>
+                                                Certificado de Matrícula (UNICAPAM). (Documentación complementaria requerida).
+                                            </li>
+                                            <li>
+                                                Documento que acredite el carácter de propietario o posesionario de la embarcación. (Documentación complementaria requerida).
+                                            </li>
                                         </ol>
                                         <p>
                                             El trámite de solicitud debe ser acompañado de la documentación requerida, para que este Órgano Administrativo esté en posibilidades de iniciar el trámite de solicitud.
@@ -280,7 +319,7 @@
                                         <p>
                                             Las solicitudes que cumplan con los requisitos serán atendidas por la CONAPESCA, por medio de Seguritech Privada S.A. de C.V., que es la empresa encargada de prestar los servicios de instalación y
                                             mantenimiento de los equipos transreceptores, y que para el permisionario y/o concesionario se llevará a cabo la instalación de manera gratuita conforme al procedimiento establecido, atendiendo el
-                                            orden de prelación de solicitudes registradas así como la disponibilidad de equipos transreceptores
+                                            orden de prelación de solicitudes registradas así como la disponibilidad de equipos transreceptores.
                                         </p>
                                         <p>
                                             El único facultado para la realización del trámite de instalación del equipo transreceptor, es el titular del permiso y/o concesión (persona física o moral) asignado a la embarcación requirente.
@@ -298,11 +337,17 @@
                                         <div class="row row-btnRes">
                                             <div class="col-md-4">
                                                 <a href="assets/pdfs/requisitos_solicitar-instalacion-equipo-transreceptor.pdf" target="_blank">
-                                                    <button type="button" class="btn btn-primary btn-sm">Descargar Requisitos</button>
+                                                    <button type="button" class="btn btn-primary btn-sm">
+                                                        Descargar Requisitos
+                                                    </button>
                                                 </a>
                                             </div>
                                             <div class="col-md-4">
-                                                <a href="assets/pdfs/solicitud-programa-monitoreo-satelital.pdf" target="_blank"> <button type="button" class="btn btn-primary btn-sm">Descarga Formato</button></a>
+                                                <a href="assets/pdfs/solicitud-programa-monitoreo-satelital.pdf" target="_blank">
+                                                    <button type="button" class="btn btn-primary btn-sm">
+                                                        Descarga Formato
+                                                    </button>
+                                                </a>
                                             </div>
                                             <div class="col-md-4"></div>
                                         </div>
@@ -321,7 +366,9 @@
                                 <div class="panel-body">
                                     <div class="cardG">
                                         <h5>Solicitud sustitución de datos</h5>
-                                        <p><b>¿Qué necesito para solicitar el alta del equipo transreceptor con nuevos datos, en caso de que la embarcación cambie de nombre, o sea adquirida, donada o cedida?</b></p>
+                                        <p>
+                                            <b>¿Qué necesito para solicitar el alta del equipo transreceptor con nuevos datos, en caso de que la embarcación cambie de nombre, o sea adquirida, donada o cedida?</b>
+                                        </p>
                                         <p>
                                             El trámite que deben realizar los permisionarios y/o concesionarios con derechos vigentes, para embarcaciones pesqueras que se ubiquen dentro de las características establecidas al apartado 1.2 de
                                             la Norma Oficial Mexicana
@@ -337,21 +384,35 @@
                                                 caso de residir fuera de Mazatlán, Sinaloa), mismos que serán sellados de recibido y turnados de forma gratuita a la CONAPESCA, así mismo podrá acudir directamente a las oficinas de correo
                                                 para envío mediante un correo certificado.
                                             </li>
-                                            <li>Adjuntar original debidamente llenado del "FORMATO DE INSCRIPCIÓN AL REGISTRO DEL PROGRAMA DE SISTEMA DE MONITOREO SATELITAL DE EMBARCACIONES PESQUERAS 2013-2018"</li>
+                                            <li>
+                                                Adjuntar original debidamente llenado del "FORMATO DE INSCRIPCIÓN AL REGISTRO DEL PROGRAMA DE SISTEMA DE MONITOREO SATELITAL DE EMBARCACIONES PESQUERAS 2013-2018"
+                                            </li>
                                         </ol>
-                                        <p><b>Adjuntar copia simple de los siguientes documentos:</b></p>
+                                        <p>
+                                            <b>Adjuntar copia simple de los siguientes documentos:</b>
+                                        </p>
                                         <ol>
-                                            <li>Identificación oficial del propietario de la embarcación (Persona Física).</li>
+                                            <li>
+                                                Identificación oficial del propietario de la embarcación (Persona Física).
+                                            </li>
                                             <li>
                                                 En caso de tratarse de personas morales el trámite lo efectúa el representante legal, acreditando la personalidad por medio de carta poder general notarial (Escritura Pública otorgando poder
                                                 legal).
                                             </li>
                                             <li>Identificación oficial del representante legal.</li>
-                                            <li>Comprobante de domicilio del permisionario (con vigencia no mayor a 3 meses).</li>
+                                            <li>
+                                                Comprobante de domicilio del permisionario (con vigencia no mayor a 3 meses).
+                                            </li>
                                             <li>Permiso y/o concesión vigente.</li>
-                                            <li>Certificado Nacional de Seguridad vigente (UNICAPAM).</li>
-                                            <li>Certificado de Matrícula (UNICAPAM). (Documentación complementaria requerida).</li>
-                                            <li>Documento que acredite el carácter de propietario o posesionario de la embarcación. (Documentación complementaria requerida).</li>
+                                            <li>
+                                                Certificado Nacional de Seguridad vigente (UNICAPAM).
+                                            </li>
+                                            <li>
+                                                Certificado de Matrícula (UNICAPAM). (Documentación complementaria requerida).
+                                            </li>
+                                            <li>
+                                                Documento que acredite el carácter de propietario o posesionario de la embarcación. (Documentación complementaria requerida).
+                                            </li>
                                         </ol>
                                         <p>
                                             El trámite de solicitud debe ser acompañado de la documentación requerida, para que este Órgano Administrativo esté en posibilidades de iniciar el trámite de solicitud.
@@ -382,11 +443,17 @@
                                         <div class="row row-btnRes">
                                             <div class="col-md-4">
                                                 <a href="assets/pdfs/requisitos_solicitud-sustitucion-datos.pdf" target="_blank">
-                                                    <button type="button" class="btn btn-primary btn-sm">Descargar Requisitos</button>
+                                                    <button type="button" class="btn btn-primary btn-sm">
+                                                        Descargar Requisitos
+                                                    </button>
                                                 </a>
                                             </div>
                                             <div class="col-md-4">
-                                                <a href="assets/pdfs/solicitud-programa-monitoreo-satelital.pdf" target="_blank"> <button type="button" class="btn btn-primary btn-sm">Descarga Formato</button></a>
+                                                <a href="assets/pdfs/solicitud-programa-monitoreo-satelital.pdf" target="_blank">
+                                                    <button type="button" class="btn btn-primary btn-sm">
+                                                        Descarga Formato
+                                                    </button>
+                                                </a>
                                             </div>
                                             <div class="col-md-4"></div>
                                         </div>
@@ -412,10 +479,14 @@
                                                 <input class="form-control input-sm" placeholder="RNPA de la embarcación" type="text" id="rnpa" />
                                                 <div class="row row-btnRes">
                                                     <div class="col-md-6">
-                                                        <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Cancelar</button>
+                                                        <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">
+                                                            Cancelar
+                                                        </button>
                                                     </div>
                                                     <div class="col-md-6">
-                                                        <button type="button" class="btn btn-primary btn-sm guardarSolicitud">Aceptar</button>
+                                                        <button type="button" class="btn btn-primary btn-sm guardarSolicitud">
+                                                            Aceptar
+                                                        </button>
                                                     </div>
                                                 </div>
                                             </div>
@@ -423,20 +494,28 @@
                                             <!-- Card 2-->
                                             <div class="CardSolicitudTwo">
                                                 <div class="cardG">
-                                                    <h4 class="mt-3">Ubicación actual de la embarcación</h4>
+                                                    <h4 class="mt-3">
+                                                        Ubicación actual de la embarcación
+                                                    </h4>
                                                     <div class="row">
                                                         <div class="col-md-6">
                                                             <select class="form-control" aria-label="Ubicacion Estado">
                                                                 <option selected>Estado</option>
-                                                                <option value="Baja California">Baja California</option>
-                                                                <option value="Baja California Sur">Baja California Sur</option>
+                                                                <option value="Baja California">
+                                                                    Baja California
+                                                                </option>
+                                                                <option value="Baja California Sur">
+                                                                    Baja California Sur
+                                                                </option>
                                                                 <option value="Sonora">Sonora</option>
                                                                 <option value="Sinaloa">Sinaloa</option>
                                                                 <option value="Nayarit">Nayarit</option>
                                                                 <option value="Colima">Colima</option>
                                                                 <option value="Guerrero">Guerrero</option>
                                                                 <option value="Oaxaca">Oaxaca</option>
-                                                                <option value="Quintana Roo">Quintana Roo</option>
+                                                                <option value="Quintana Roo">
+                                                                    Quintana Roo
+                                                                </option>
                                                                 <option value="Yucatán">Yucatán</option>
                                                                 <option value="Campeche">Campeche</option>
                                                                 <option value="Chiapas">Chiapas</option>
@@ -484,9 +563,7 @@
                                                 <div class="cardG">
                                                     <h4 class="mt-3">Datos de contacto</h4>
                                                     <div class="row">
-                                                        <div class="col-md-6">
-                                                            
-                                                        </div>
+                                                        <div class="col-md-6"></div>
                                                         <div class="col-md-6">
                                                             <label class="form-label">Hora sugerida</label>
                                                             <input class="form-control" type="time" placeholder="Hora sugerida" />
@@ -509,10 +586,14 @@
 
                                                     <div class="row row-btnRes">
                                                         <div class="col-md-6">
-                                                            <button type="button" class="btn btn-default btn-sm" data-dismiss="modal" onclick="cancelarSolicitud()">Cancelar</button>
+                                                            <button type="button" class="btn btn-default btn-sm" data-dismiss="modal" onclick="cancelarSolicitud()">
+                                                                Cancelar
+                                                            </button>
                                                         </div>
                                                         <div class="col-md-6">
-                                                            <button type="button" class="btn btn-primary btn-sm guardarSolicitud2">Aceptar</button>
+                                                            <button type="button" class="btn btn-primary btn-sm guardarSolicitud2">
+                                                                Aceptar
+                                                            </button>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -558,10 +639,14 @@
                                                 </table>
                                                 <div class="row row-btnRes">
                                                     <div class="col-md-6">
-                                                        <button type="button" class="btn btn-default btn-sm" data-dismiss="modal" onclick="cancelarSolicitud()">Cancelar Solicitud</button>
+                                                        <button type="button" class="btn btn-default btn-sm" data-dismiss="modal" onclick="cancelarSolicitud()">
+                                                            Cancelar Solicitud
+                                                        </button>
                                                     </div>
                                                     <div class="col-md-6">
-                                                        <button type="button" class="btn btn-primary btn-sm">Generar Follio</button>
+                                                        <button type="button" class="btn btn-primary btn-sm">
+                                                            Generar Follio
+                                                        </button>
                                                     </div>
                                                 </div>
                                             </div>
@@ -580,7 +665,9 @@
                             <div id="collapseFour" class="panel-collapse collapse">
                                 <div class="panel-body">
                                     <div class="cardG">
-                                        <h5>Reposición de equipo transreceptor con motivo de la pérdida, robo, extravío o daño parcial o total</h5>
+                                        <h5>
+                                            Reposición de equipo transreceptor con motivo de la pérdida, robo, extravío o daño parcial o total
+                                        </h5>
                                         <p>
                                             Presentar escrito de manera breve y concisa, relatando los hechos por el robo, pérdida, extravío o daño parcial o total del equipo transreceptor, dirigido a la DIRECCIÓN GENERAL DE INSPECCIÓN Y
                                             VIGILANCIA DE LA COMISIÓN NACIONAL DE ACUACULTURA Y PESCA (CONAPESCA), y ser presentado ante las Oficinas de Representación de la CONAPESCA en las Entidades Federativas de la Secretaría de
@@ -588,9 +675,13 @@
                                             acudir directamente a las oficinas de correo para envío mediante un correo certificado, o bien, una vez contando con acuse o sellado de recibido por parte de alguna de las dependencias arriba
                                             citadas, puede ser enviado al correo electrónico monitoreo.satelital@conapesca.gob.mx.
                                         </p>
-                                        <p>El escrito se acompañará con la siguiente documentación:</p>
+                                        <p>
+                                            El escrito se acompañará con la siguiente documentación:
+                                        </p>
                                         <ol>
-                                            <li>Identificación oficial del permisionario o del Representante Legal de la empresa o sociedad cooperativa propietaria de la embarcación, según sea el caso.</li>
+                                            <li>
+                                                Identificación oficial del permisionario o del Representante Legal de la empresa o sociedad cooperativa propietaria de la embarcación, según sea el caso.
+                                            </li>
                                             <li>
                                                 Acta circunstanciada o de hechos levantada ante la Unidad de Capitanías de Puerto y Asuntos Marítimos (UNICAPAM), donde informen el suceso relacionado con el robo, extravío o daños al equipo
                                                 transreceptor.
@@ -640,7 +731,9 @@
                                         <div class="row row-btnRes">
                                             <div class="col-md-12">
                                                 <a href="assets/pdfs/requisitos_reposicion-equipo-transreceptor-motivo-perdida-robo-extravio-danoparcial-total.pdf" target="_blank">
-                                                    <button type="button" class="btn btn-primary btn-sm">Descargar Requisitos</button>
+                                                    <button type="button" class="btn btn-primary btn-sm">
+                                                        Descargar Requisitos
+                                                    </button>
                                                 </a>
                                             </div>
                                         </div>
@@ -671,21 +764,35 @@
                                                 Federativas de la Secretaría de Agricultura y Desarrollo Rural de su localidad (en caso de residir fuera de Mazatlán, Sinaloa), mismos que serán sellados de recibido y turnados de forma
                                                 gratuita a la CONAPESCA, así mismo podrá acudir directamente a las oficinas de correo para envío mediante un correo certificado.
                                             </li>
-                                            <li>Adjuntar original debidamente llenado del "FORMATO DE INSCRIPCIÓN AL REGISTRO DEL PROGRAMA DE SISTEMA DE MONITOREO SATELITAL DE EMBARCACIONES PESQUERAS 2013-2018".</li>
+                                            <li>
+                                                Adjuntar original debidamente llenado del "FORMATO DE INSCRIPCIÓN AL REGISTRO DEL PROGRAMA DE SISTEMA DE MONITOREO SATELITAL DE EMBARCACIONES PESQUERAS 2013-2018".
+                                            </li>
                                         </ol>
-                                        <p><b>Adjuntar copia simple de los siguientes documentos:</b></p>
+                                        <p>
+                                            <b>Adjuntar copia simple de los siguientes documentos:</b>
+                                        </p>
                                         <ol>
-                                            <li>Identificación oficial del propietario de la embarcación (Persona física)</li>
+                                            <li>
+                                                Identificación oficial del propietario de la embarcación (Persona física)
+                                            </li>
                                             <li>
                                                 En caso de tratarse de personas morales el trámite lo efectúa el representante legal, acreditando la personalidad por medio de carta poder general notarial (Escritura Pública otorgando poder
                                                 legal).
                                             </li>
                                             <li>Identificación oficial del representante legal.</li>
-                                            <li>Comprobante de domicilio del permisionario (con vigencia no mayor a 3 meses).</li>
+                                            <li>
+                                                Comprobante de domicilio del permisionario (con vigencia no mayor a 3 meses).
+                                            </li>
                                             <li>Permiso y/o concesión vigente.</li>
-                                            <li>Certificado Nacional de Seguridad vigente (UNICAPAM).</li>
-                                            <li>Certificado de Matrícula (UNICAPAM). (Documentación complementaria requerida).</li>
-                                            <li>Documento que acredite el carácter de propietario o posesionario de la embarcación. (Documentación complementaria requerida).</li>
+                                            <li>
+                                                Certificado Nacional de Seguridad vigente (UNICAPAM).
+                                            </li>
+                                            <li>
+                                                Certificado de Matrícula (UNICAPAM). (Documentación complementaria requerida).
+                                            </li>
+                                            <li>
+                                                Documento que acredite el carácter de propietario o posesionario de la embarcación. (Documentación complementaria requerida).
+                                            </li>
                                         </ol>
                                         <p>
                                             El trámite de solicitud debe ser acompañado de la documentación requerida, para que este Órgano Administrativo esté en posibilidades de iniciar el trámite de solicitud.
@@ -719,11 +826,17 @@
                                         <div class="row row-btnRes">
                                             <div class="col-md-4">
                                                 <a href="assets/pdfs/requisitos_reingresar-programa-por-motivo-baja.pdf" target="_blank">
-                                                    <button type="button" class="btn btn-primary btn-sm">Descargar Requisitos</button>
+                                                    <button type="button" class="btn btn-primary btn-sm">
+                                                        Descargar Requisitos
+                                                    </button>
                                                 </a>
                                             </div>
                                             <div class="col-md-4">
-                                                <a href="assets/pdfs/solicitud-programa-monitoreo-satelital.pdf" target="_blank"> <button type="button" class="btn btn-primary btn-sm">Descarga Formato</button></a>
+                                                <a href="assets/pdfs/solicitud-programa-monitoreo-satelital.pdf" target="_blank">
+                                                    <button type="button" class="btn btn-primary btn-sm">
+                                                        Descarga Formato
+                                                    </button>
+                                                </a>
                                             </div>
                                             <div class="col-md-4"></div>
                                         </div>
@@ -738,26 +851,28 @@
                 <div id="contenido-desktop">
                     <div class="row nav nav-tabs">
                         <div class="col-md-2 text-center btn-gren">
-                          <a data-toggle="tab" href="#tabGreen-01"><img style="height: 120px;" src="./assets/Img/instalacion.png" alt="" /></a>
+                            <a class="btnAGren"data-toggle="tab" href="#tabGreen-01"><img style="height: 120px;" src="./assets/Img/instalacion.png" alt="" /></a>
                         </div>
                         <div class="col-md-2 text-center btn-gren">
-                          <a data-toggle="tab" href="#tabGreen-02"><img style="height: 120px;" src="./assets/Img/sustitucion.png" alt="" /></a>
+                            <a class="btnAGren" data-toggle="tab" href="#tabGreen-02"><img style="height: 120px;" src="./assets/Img/sustitucion.png" alt="" /></a>
                         </div>
                         <div class="col-md-2 text-center btn-gren">
-                          <a data-toggle="tab" href="#tabGreen-03"><img style="height: 120px;" src="./assets/Img/solicitud.png" alt="" /></a>
+                            <a class="btnAGren" data-toggle="tab" href="#tabGreen-03"><img style="height: 120px;" src="./assets/Img/solicitud.png" alt="" /></a>
                         </div>
                         <div class="col-md-2 text-center btn-gren">
-                          <a data-toggle="tab" href="#tabGreen-04"><img style="height: 120px;" src="./assets/Img/reposicion.png" alt="" /></a>
+                            <a class="btnAGren" data-toggle="tab" href="#tabGreen-04"><img style="height: 120px;" src="./assets/Img/reposicion.png" alt="" /></a>
                         </div>
                         <div class="col-md-2 text-center btn-gren">
-                          <a data-toggle="tab" href="#tabGreen-05"><img style="height: 120px;" src="./assets/Img/reingreso.png" alt="" /></a>
+                            <a class="btnAGren" data-toggle="tab" href="#tabGreen-05"><img style="height: 120px;" src="./assets/Img/reingreso.png" alt="" /></a>
                         </div>
-                      </div>
+                    </div>
                     <div class="backGray">
-                        <div class="cont-tab tab-content">
-                            <div class="tab-pane cardG" id="tabGreen-01">
+                        <div class="cont-tab tab-content contenedorTabsGren">
+                            <div class="tab-pane cardG tabGren " id="tabGreen-01">
                                 <div>
-                                    <h5>Requisitos para solicitar la instalación de un equipo transreceptor</h5>
+                                    <h5>
+                                        Requisitos para solicitar la instalación de un equipo transreceptor
+                                    </h5>
 
                                     <p>
                                         Los permisionarios y/o concesionarios con derechos vigentes y con embarcaciones pesqueras que se ubiquen dentro de las características establecidas al apartado 1.2 de la
@@ -775,23 +890,37 @@
                                                 residir fuera de Mazatlán, Sinaloa), mismos que serán sellados de recibido y turnados de forma gratuita a la CONAPESCA, así mismo podrá acudir directamente a las oficinas de correo para envío
                                                 mediante un correo certificado.
                                             </li>
-                                            <li>Adjuntar original debidamente llenado del "FORMATO DE INSCRIPCIÓN AL REGISTRO DEL PROGRAMA DE SISTEMA DE MONITOREO SATELITAL DE EMBARCACIONES PESQUERAS 2013-2018".</li>
+                                            <li>
+                                                Adjuntar original debidamente llenado del "FORMATO DE INSCRIPCIÓN AL REGISTRO DEL PROGRAMA DE SISTEMA DE MONITOREO SATELITAL DE EMBARCACIONES PESQUERAS 2013-20182"
+                                            </li>
                                         </ol>
                                     </div>
-                                    <p><b>Adjuntar copia simple de los siguientes documentos:</b></p>
+                                    <p>
+                                        <b>Adjuntar copia simple de los siguientes documentos:</b>
+                                    </p>
                                     <div class="ms-5">
                                         <ol>
-                                            <li>Identificación oficial del propietario de la embarcación (Persona Física).</li>
+                                            <li>
+                                                Identificación oficial del propietario de la embarcación (Persona Física).
+                                            </li>
                                             <li>
                                                 En caso de tratarse de personas morales el trámite lo efectúa el representante legal, acreditando la personalidad por medio de carta poder general notarial (Escritura Pública otorgando poder
                                                 legal).
                                             </li>
                                             <li>Identificación oficial del representante legal.</li>
-                                            <li>Comprobante de domicilio del permisionario (con vigencia no mayor a 3 meses).</li>
+                                            <li>
+                                                Comprobante de domicilio del permisionario (con vigencia no mayor a 3 meses).
+                                            </li>
                                             <li>Permiso y/o concesión vigente.</li>
-                                            <li>Certificado Nacional de Seguridad vigente (UNICAPAM).</li>
-                                            <li>Certificado de Matrícula (UNICAPAM). (Documentación complementaria requerida).</li>
-                                            <li>Documento que acredite el carácter de propietario o posesionario de la embarcación. (Documentación complementaria requerida).</li>
+                                            <li>
+                                                Certificado Nacional de Seguridad vigente (UNICAPAM).
+                                            </li>
+                                            <li>
+                                                Certificado de Matrícula (UNICAPAM). (Documentación complementaria requerida).
+                                            </li>
+                                            <li>
+                                                Documento que acredite el carácter de propietario o posesionario de la embarcación. (Documentación complementaria requerida).
+                                            </li>
                                         </ol>
 
                                         <p>
@@ -801,14 +930,18 @@
                                     <p>
                                         <b>Nota Importante:</b> Toda documentación presentada será verificada, por lo que en caso de falsear información será turnada a las autoridades competentes para los efectos legales correspondientes.
                                     </p>
-                                    <p>La realización del presente trámite es necesario, por lo que la falta de un documento solicitado, será considerado como falta de interés del solicitante para la continuidad del mismo.</p>
+                                    <p>
+                                        La realización del presente trámite es necesario, por lo que la falta de un documento solicitado, será considerado como falta de interés del solicitante para la continuidad del mismo.
+                                    </p>
 
                                     <p>
                                         Las solicitudes que cumplan con los requisitos serán atendidas por la CONAPESCA, por medio de Seguritech Privada S.A. de C.V., que es la empresa encargada de prestar los servicios de instalación y
                                         mantenimiento de los equipos transreceptores, y que para el permisionario y/o concesionario se llevará a cabo la instalación de manera gratuita conforme al procedimiento establecido, atendiendo el
                                         orden de prelación de solicitudes registradas así como la disponibilidad de equipos transreceptores
                                     </p>
-                                    <p>El único facultado para la realización del trámite de instalación del equipo transreceptor, es el titular del permiso y/o concesión (persona física o moral) asignado a la embarcación requirente.</p>
+                                    <p>
+                                        El único facultado para la realización del trámite de instalación del equipo transreceptor, es el titular del permiso y/o concesión (persona física o moral) asignado a la embarcación requirente.
+                                    </p>
                                     <p>
                                         Ningún servidor público de la CONAPESCA está facultado para solicitar documentos adicionales a los requisitos antes señalados, ni para requerir pagos por la realización del trámite, distintos a los
                                         establecidos en los ordenamientos legales aplicables. Para cualquier duda o aclaración referente, comunicarse al Centro de Localización y Monitoreo Satelital de Embarcaciones Pesqueras, de la
@@ -822,20 +955,28 @@
                                     <div class="row row-btnRes">
                                         <div class="col-md-4">
                                             <a href="assets/pdfs/requisitos_solicitar-instalacion-equipo-transreceptor.pdf" target="_blank">
-                                                <button type="button" class="btn btn-primary">Descargar Requisitos</button>
+                                                <button type="button" class="btn btn-primary">
+                                                    Descargar Requisitos
+                                                </button>
                                             </a>
                                         </div>
                                         <div class="col-md-4">
-                                            <a href="assets/pdfs/solicitud-programa-monitoreo-satelital.pdf" target="_blank"> <button type="button" class="btn btn-primary">Descargar Formato</button></a>
+                                            <a href="assets/pdfs/solicitud-programa-monitoreo-satelital.pdf" target="_blank">
+                                                <button type="button" class="btn btn-primary">
+                                                    Descargar Formato
+                                                </button>
+                                            </a>
                                         </div>
                                         <div class="col-md-4"></div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="tab-pane cardG" id="tabGreen-02">
+                            <div class="tab-pane cardG tabGren " id="tabGreen-02">
                                 <div>
                                     <h5>Solicitud sustitución de datos</h5>
-                                    <p><b>¿Qué necesito para solicitar el alta del equipo transreceptor con nuevos datos, en caso de que la embarcación cambie de nombre, o sea adquirida, donada o cedida?</b></p>
+                                    <p>
+                                        <b>¿Qué necesito para solicitar el alta del equipo transreceptor con nuevos datos, en caso de que la embarcación cambie de nombre, o sea adquirida, donada o cedida?</b>
+                                    </p>
                                     <p>
                                         El trámite que deben realizar los permisionarios y/o concesionarios con derechos vigentes, para embarcaciones pesqueras que se ubiquen dentro de las características establecidas al apartado 1.2 de la
                                         Norma Oficial Mexicana
@@ -850,23 +991,37 @@
                                             residir fuera de Mazatlán, Sinaloa), mismos que serán sellados de recibido y turnados de forma gratuita a la CONAPESCA, así mismo podrá acudir directamente a las oficinas de correo para envío
                                             mediante un correo certificado.
                                         </li>
-                                        <li>Adjuntar original debidamente llenado del "FORMATO DE INSCRIPCIÓN AL REGISTRO DEL PROGRAMA DE SISTEMA DE MONITOREO SATELITAL DE EMBARCACIONES PESQUERAS 2013-2018"</li>
+                                        <li>
+                                            Adjuntar original debidamente llenado del "FORMATO DE INSCRIPCIÓN AL REGISTRO DEL PROGRAMA DE SISTEMA DE MONITOREO SATELITAL DE EMBARCACIONES PESQUERAS 2013-2018".
+                                        </li>
                                     </ol>
 
-                                    <p><b>Adjuntar copia simple de los siguientes documentos:</b></p>
+                                    <p>
+                                        <b>Adjuntar copia simple de los siguientes documentos:</b>
+                                    </p>
 
                                     <ol>
-                                        <li>Identificación oficial del propietario de la embarcación (Persona Física).</li>
+                                        <li>
+                                            Identificación oficial del propietario de la embarcación (Persona Física).
+                                        </li>
                                         <li>
                                             En caso de tratarse de personas morales, el trámite lo efectúa el representante legal, acreditando la personalidad por medio de carta poder general notarial (Escritura Pública otorgando poder
                                             legal).
                                         </li>
                                         <li>Identificación oficial del representante legal.</li>
-                                        <li>Comprobante de domicilio del permisionario (con vigencia no mayor a 3 meses).</li>
+                                        <li>
+                                            Comprobante de domicilio del permisionario (con vigencia no mayor a 3 meses).
+                                        </li>
                                         <li>Permiso y/o concesión vigente.</li>
-                                        <li>Certificado Nacional de Seguridad vigente (UNICAPAM).</li>
-                                        <li>Certificado de Matrícula (UNICAPAM). (Documentación complementaria requerida).</li>
-                                        <li>Documento que acredite el carácter de propietario o posesionario de la embarcación. (Documentación complementaria requerida).</li>
+                                        <li>
+                                            Certificado Nacional de Seguridad vigente (UNICAPAM).
+                                        </li>
+                                        <li>
+                                            Certificado de Matrícula (UNICAPAM). (Documentación complementaria requerida).
+                                        </li>
+                                        <li>
+                                            Documento que acredite el carácter de propietario o posesionario de la embarcación. (Documentación complementaria requerida).
+                                        </li>
                                     </ol>
 
                                     <p>
@@ -882,7 +1037,9 @@
                                         mantenimiento de los equipos transreceptores, y que para el permisionario y/o concesionario se llevará a cabo la instalación de manera gratuita conforme al procedimiento establecido, atendiendo el
                                         orden de prelación de solicitudes registradas así como la disponibilidad de equipos transreceptores.
                                     </p>
-                                    <p>El único facultado para la realización del trámite de instalación del equipo transreceptor, es el titular del permiso y/o concesión (persona física o moral) asignado a la embarcación requirente.</p>
+                                    <p>
+                                        El único facultado para la realización del trámite de instalación del equipo transreceptor, es el titular del permiso y/o concesión (persona física o moral) asignado a la embarcación requirente.
+                                    </p>
                                     <p>
                                         Ningún servidor público de la CONAPESCA está facultado para solicitar documentos adicionales a los requisitos antes señalados, ni para requerir pagos por la realización del trámite, distintos a los
                                         establecidos en los ordenamientos legales aplicables. Para cualquier duda o aclaración referente, comunicarse al Centro de Localización y Monitoreo Satelital de Embarcaciones Pesqueras, de la
@@ -896,188 +1053,214 @@
                                     <div class="row row-btnRes">
                                         <div class="col-md-4">
                                             <a href="assets/pdfs/requisitos_solicitud-sustitucion-datos.pdf" target="_blank">
-                                                <button type="button" class="btn btn-primary">Descargar Requisitos</button>
+                                                <button type="button" class="btn btn-primary">
+                                                    Descargar Requisitos
+                                                </button>
                                             </a>
                                         </div>
                                         <div class="col-md-4">
-                                            <a href="assets/pdfs/solicitud-programa-monitoreo-satelital.pdf" target="_blank"> <button type="button" class="btn btn-primary">Descargar Formato</button></a>
+                                            <a href="assets/pdfs/solicitud-programa-monitoreo-satelital.pdf" target="_blank">
+                                                <button type="button" class="btn btn-primary">
+                                                    Descargar Formato
+                                                </button>
+                                            </a>
                                         </div>
                                         <div class="col-md-4"></div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="tab-pane cardG" id="tabGreen-03">
+                            <div class="tab-pane cardG tabGren " id="tabGreen-03">
                                 <div id="contenedorSolicitud">
-                                    <div  id="formSolicitudV">
+                                    <div id="formSolicitudV">
                                         <!-- Card 1-->
                                         <div class="card-solicitud CardSolicitudOne">
                                             <h4>Solicitud de Verificación del VMS</h4>
                                             <label for="rnpa">Proporcione el RNPA de su embarcación</label>
-                                            <input onkeypress='return event.charCode >= 48 && event.charCode <= 57' name="username" id="usernames" class="form-control" placeholder="RNPA de la embarcación" type="text" id="rnpa" maxlength="8" />
-                                            <p id="usercheck" style="color: red;"> Es necesario Ingresar un RNPA</p>
+                                            <input
+                                                onkeypress="return event.charCode >= 48 && event.charCode <= 57"
+                                                name="username"
+                                                id="usernames"
+                                                class="form-control"
+                                                placeholder="RNPA de la embarcación"
+                                                type="text"
+                                                id="rnpa"
+                                                maxlength="8"
+                                            />
+                                            <p id="usercheck" style="color: red;">
+                                                Es necesario Ingresar un RNPA
+                                            </p>
                                             <div class="row">
                                                 <div class="col-md-6">
-                                                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                                                    <button type="button" class="btn btn-default" data-dismiss="modal">
+                                                        Cancelar
+                                                    </button>
                                                 </div>
                                                 <div class="col-md-6">
-                                                    <button  id="validateRNPA" class="btn btn-primary ">Aceptar</button>
+                                                    <button id="validateRNPA" class="btn btn-primary">
+                                                        Aceptar
+                                                    </button>
                                                 </div>
                                             </div>
                                         </div>
 
                                         <!-- Card 2-->
                                         <div class="CardSolicitudTwo">
-                                        <div class="card-solicitud">
-                                            <h4 class="mt-3">Ubicación actual de la embarcación</h4>
-                                            <div class="row">
-                                                <div class="col-md-6">
-                                                    <select class="form-control" aria-label="Default select example" onchange="getEstado(value);"  id="estado">
-                                                        <option selected>Estado</option>
-                                                        <option   value="1">Baja California</option>
-                                                        <option   value="2">Baja California Sur</option>
-                                                        <option   value="3">Campeche</option>
-                                                        <option   value="4">Chiapas</option>
-                                                        <option   value="5">Colima</option>
-                                                        <option   value="6">Cuba</option>
-                                                        <option   value="7">Guerrero</option>
-                                                        <option   value="8">Nayarit</option>
-                                                        <option   value="9">Nuevo León</option>
-                                                        <option   value="10">Oaxaca</option>
-                                                        <option   value="11">Quintana Roo</option>
-                                                        <option  value="12">Sinaloa</option>
-                                                        <option value="13">Sonora</option>
-                                                        <option  value="14">Tabasco</option>
-                                                        <option  value="15">Tamaulipas</option>
-                                                        <option  value="16">Veracruz</option>
-                                                        <option  value="Yucatán">Yucatán</option>
-                                                      </select>
-                                                      <p id="stateerror" style="color: red;">Es necesario Ingresar un Estado.</p>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <select id="inputLoc" class="form-control" aria-label="Default select example"  disabled>
-                                                        <option value="0" selected >Localidad</option>
-                                                    </select>
-                                                    <p id="localerror" style="color: red;">Es necesario Ingresar una Localidad.</p>
-                                                </div>
-                                            </div>
-
-                                            <div class="row">
-                                                <div class="col-md-6">
-                                                    <select id="inputMue" class="form-control" aria-label="Default select example"  disabled>
-                                                        <option value="0" selected>Muelle</option>
-                                                    </select>
-                                                    <p id="muelleerror" style="color: red;">Es necesario Ingresar una Referencia.</p>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <input  class="form-control" placeholder="Referencia" type="text" id="refrenciaForm" />
-                                                    <p id="referror" style="color: red;">Es necesario Ingresar una Referencia.</p>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-sm-12">
-                                                    <textarea class="form-control w-100" placeholder="Descripción de la falla" rows="3" id="descForm"></textarea>
-                                                    <p id="descerror" style="color: red;">Es necesario Ingresar una descripción.</p>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="card-solicitud">
-                                            <h4 class="mt-3">Datos de contacto</h4>
-                                            <div class="row">
-                                                <div class="col-md-6">
-                                                    <div class="form-group datepicker-group">
-                                                        <label class="control-label" for="calendarYear">Fecha sugerida</label>
-                                                        <input class="form-control" id="calendarYear" type="text"  />
-                                                        <span class="glyphicon glyphicon-calendar " style="margin-top: 15px;" aria-hidden="true"></span>
-                                                        <p id="dateerror" style="color: red;">Es necesario Ingresar un horario.</p>
+                                            <div class="card-solicitud">
+                                                <h4 class="mt-3">Ubicación actual de la embarcación</h4>
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <select class="form-control" aria-label="Default select example" onchange="getEstado(value);" id="estado">
+                                                            <option selected>Estado</option>
+                                                            <option value="1">Baja California</option>
+                                                            <option value="2">Baja California Sur</option>
+                                                            <option value="3">Campeche</option>
+                                                            <option value="4">Chiapas</option>
+                                                            <option value="5">Colima</option>
+                                                            <option value="6">Cuba</option>
+                                                            <option value="7">Guerrero</option>
+                                                            <option value="8">Nayarit</option>
+                                                            <option value="9">Nuevo León</option>
+                                                            <option value="10">Oaxaca</option>
+                                                            <option value="11">Quintana Roo</option>
+                                                            <option value="12">Sinaloa</option>
+                                                            <option value="13">Sonora</option>
+                                                            <option value="14">Tabasco</option>
+                                                            <option value="15">Tamaulipas</option>
+                                                            <option value="16">Veracruz</option>
+                                                            <option value="Yucatán">Yucatán</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <select id="inputLoc" class="form-control" aria-label="Default select example" disabled>
+                                                            <option value="0" selected>Localidad</option>
+                                                        </select>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-6">
-                                                    <label class="form-label">Hora sugerida</label>
-                                                    <input class="form-control" type="time" placeholder="Hora sugerida" id="timeForm"/>
-                                                    <p id="timeerror" style="color: red;">Es necesario Ingresar un horario.</p>
+
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <select id="inputMue" class="form-control" aria-label="Default select example" id="muelle" disabled>
+                                                            <option selected>Muelle</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <input class="form-control" placeholder="Referencia" type="text" id="refrenciaForm" />
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-sm-12">
+                                                        <textarea class="form-control w-100" placeholder="Descripción de la falla" rows="3" id="descForm"></textarea>
+                                                    </div>
                                                 </div>
                                             </div>
 
-                                            <div class="row">
-                                                <div class="col-md-6">
-                                                    <input onkeypress='return event.charCode >= 48 && event.charCode <= 57' class="form-control" type="text" placeholder="Teléfono" maxlength="12" id="telForm"/>
-                                                    <p id="phoneerror" style="color: red;">Es necesario Ingresar un número télefonico.</p>
+                                            <div class="card-solicitud">
+                                                <h4 class="mt-3">Datos de contacto</h4>
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <div class="form-group datepicker-group">
+                                                            <label class="control-label" for="calendarYear">Fecha sugerida</label>
+                                                            <input class="form-control" id="calendarYear" type="text" />
+                                                            <span class="glyphicon glyphicon-calendar" style="margin-top: 15px;" aria-hidden="true"></span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <label class="form-label">Hora sugerida</label>
+                                                        <input class="form-control" type="time" placeholder="Hora sugerida" id="timeForm" />
+                                                    </div>
                                                 </div>
-                                                <div class="col-md-6">
-                                                    <input class="form-control" type="text" placeholder="Persona de contacto" id="contactForm" onkeypress="return soloLetras(event)"/>
-                                                    <p id="contacterror" style="color: red;">Es necesario Ingresar un contacto.</p>
+
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <input onkeypress="return event.charCode >= 48 && event.charCode <= 57" class="form-control" type="text" placeholder="Teléfono" maxlength="12" id="telForm" />
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <input class="form-control" type="text" placeholder="Persona de contacto" id="contactForm" />
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-md-12">
-                                                    <input class="form-control" type="email" placeholder="Correo electrónico" id="mailForm"/>
-                                                    <p id="mailerror" style="color: red;">Es necesario Ingresar un correo electronico.</p>
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <input class="form-control" type="email" placeholder="Correo electrónico" id="mailForm" />
+                                                        <p id="mailerror" style="color: red;">
+                                                            Es necesario Ingresar un correo electronico
+                                                        </p>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <button type="button" class="btn btn-default" data-dismiss="modal" onclick="cancelarSolicitud()">
+                                                            Cancelar
+                                                        </button>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <button type="button" class="btn btn-primary" id="sendRNPA">
+                                                            Aceptar
+                                                        </button>
+                                                    </div>
                                                 </div>
                                             </div>
 
-                                            <div class="row">
-                                                <div class="col-md-6">
-                                                    <button type="button" class="btn btn-default" data-dismiss="modal" onclick="cancelarSolicitud()">Cancelar</button>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <button type="button" class="btn btn-primary" id="sendRNPA">Aceptar</button>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <!-- Card 3-->
-                                        <div class="card-solicitud-table CardSolicitudThree">
-                                            <table class="table">
-                                                <thead>
-                                                    <tr class="table-secondary">
-                                                        <th class="fw-normal">Tipo de solicitud</th>
-                                                        <th class="fw-normal">RNPA de la embarcación</th>
-                                                        <th class="fw-normal">Nombre de la Embarcación</th>
-                                                        <th class="fw-normal">Matricula</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        <td class="fw-bold">Solicitud</td>
-                                                        <td class="fw-bold">09817162</td>
-                                                        <td class="fw-bold">CAMILA</td>
-                                                        <td class="fw-bold">00056549</td>
-                                                    </tr>
-                                                </tbody>
-                                                <thead>
-                                                    <tr class="table-secondary">
-                                                        <th class="fw-normal">Puerto Base</th>
-                                                        <th class="fw-normal">RNPA del propietario</th>
-                                                        <th class="fw-normal">Razón Social</th>
-                                                        <th class="fw-normal">Tipo de Falla</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        <td class="fw-bold">Sinaloa</td>
-                                                        <td class="fw-bold">89111262</td>
-                                                        <td class="fw-bold">EMPRESA</td>
-                                                        <td class="fw-bold">Falla</td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                            <div class="row">
-                                                <div class="col-md-6">
-                                                    <button type="button" class="btn btn-default" data-dismiss="modal" onclick="cancelarSolicitud()">Cancelar Solicitud</button>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <button type="button" class="btn btn-primary">Generar Follio</button>
+                                            <!-- Card 3-->
+                                            <div class="card-solicitud-table CardSolicitudThree">
+                                                <table class="table">
+                                                    <thead>
+                                                        <tr class="table-secondary">
+                                                            <th class="fw-normal">Tipo de solicitud</th>
+                                                            <th class="fw-normal">RNPA de la embarcación</th>
+                                                            <th class="fw-normal">
+                                                                Nombre de la Embarcación
+                                                            </th>
+                                                            <th class="fw-normal">Matricula</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td class="fw-bold">Solicitud</td>
+                                                            <td class="fw-bold">09817162</td>
+                                                            <td class="fw-bold">CAMILA</td>
+                                                            <td class="fw-bold">00056549</td>
+                                                        </tr>
+                                                    </tbody>
+                                                    <thead>
+                                                        <tr class="table-secondary">
+                                                            <th class="fw-normal">Puerto Base</th>
+                                                            <th class="fw-normal">RNPA del propietario</th>
+                                                            <th class="fw-normal">Razón Social</th>
+                                                            <th class="fw-normal">Tipo de Falla</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td class="fw-bold">Sinaloa</td>
+                                                            <td class="fw-bold">89111262</td>
+                                                            <td class="fw-bold">EMPRESA</td>
+                                                            <td class="fw-bold">Falla</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <button type="button" class="btn btn-default" data-dismiss="modal" onclick="cancelarSolicitud()">
+                                                            Cancelar Solicitud
+                                                        </button>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <button type="button" class="btn btn-primary">
+                                                            Generar Follio
+                                                        </button>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                            <div class="tab-pane cardG" id="tabGreen-04">
+                            <div class="tab-pane cardG tabGren " id="tabGreen-04">
                                 <div>
-                                    <h5>Reposición de equipo transreceptor con motivo de la pérdida, robo, extravío o daño parcial o total</h5>
+                                    <h5>
+                                        Reposición de equipo transreceptor con motivo de la pérdida, robo, extravío o daño parcial o total
+                                    </h5>
                                     <p>
                                         Presentar escrito de manera breve y concisa, relatando los hechos por el robo, pérdida, extravío o daño parcial o total del equipo transreceptor, dirigido a la DIRECCIÓN GENERAL DE INSPECCIÓN Y
                                         VIGILANCIA DE LA COMISIÓN NACIONAL DE ACUACULTURA Y PESCA (CONAPESCA), y ser presentado ante las Oficinas de Representación de la CONAPESCA en las Entidades Federativas de la Secretaría de Agricultura
@@ -1085,10 +1268,14 @@
                                         directamente a las oficinas de correo para envío mediante un correo certificado, o bien, una vez contando con acuse o sellado de recibido por parte de alguna de las dependencias arriba citadas, puede
                                         ser enviado al correo electrónico monitoreo.satelital@conapesca.gob.mx.
                                     </p>
-                                    <p>El escrito se acompañará con la siguiente documentación:</p>
+                                    <p>
+                                        El escrito se acompañará con la siguiente documentación:
+                                    </p>
 
                                     <ol>
-                                        <li>Identificación oficial del permisionario o del Representante Legal de la empresa o sociedad cooperativa propietaria de la embarcación, según sea el caso.</li>
+                                        <li>
+                                            Identificación oficial del permisionario o del Representante Legal de la empresa o sociedad cooperativa propietaria de la embarcación, según sea el caso.
+                                        </li>
                                         <li>
                                             Acta circunstanciada o de hechos levantada ante la Unidad de Capitanías de Puerto y Asuntos Marítimos (UNICAPAM), donde informen el suceso relacionado con el robo, extravío o daños al equipo
                                             transreceptor.
@@ -1100,11 +1287,14 @@
                                         </li>
                                     </ol>
 
-                                    <p>La realización del presente trámite es necesario, por lo que <b> la falta de un documento solicitado, será considerado como falta de interés del solicitante para la continuidad del mismo.</b></p>
+                                    <p>
+                                        La realización del presente trámite es necesario, por lo que
+                                        <b> la falta de un documento solicitado, será considerado como falta de interés del solicitante para la continuidad del mismo.</b>
+                                    </p>
                                     <p>
                                         Los equipos transreceptores son propiedad de la empresa Seguritech Privada S.A. de C.V., quien presta el servicio de instalación y mantenimiento de los equipos transreceptores,
                                         <b>
-                                            por lo que la pérdida o daño, salvo caso fortuito o fuerza mayor, causaran responsabilidad al permisionario o concesionario al que le fue otorgado en comodato, en lo referente al equipo en
+                                            por lo que la pérdida o daño, salvo caso fortuito o fuerza mayor, causarán responsabilidad al permisionario o concesionario al que le fue otorgado en comodato, en lo referente al equipo en
                                             términos de la legislación aplicable.
                                         </b>
                                     </p>
@@ -1124,8 +1314,8 @@
                                     </p>
                                     <p>
                                         Ningún servidor público de la CONAPESCA está facultado para solicitar documentos adicionales a los requisitos antes señalados, ni para requerir pagos por la realización del trámite, distintos a los
-                                        establecidos en los ordenamientos legales aplicables. Para cualquier duda o aclaración referente, comunicarse al Centro de Localización y Monitoreo Satelital de embarcaciones Pesqueras, de la Dirección
-                                        General de Inspección y Vigilancia de la CONAPESCA al teléfono (669) 9156900 extensiones 58311 y 58329, correo electrónico: monitoreo.satelital@conapesca.gob.mx
+                                        establecidos en los ordenamientos legales aplicables. Para cualquier duda o aclaración referente, comunicarse al Centro de Localización y Monitoreo Satelital de embarcaciones Pesqueras, de la
+                                        Dirección General de Inspección y Vigilancia de la CONAPESCA al teléfono (669) 9156900 extensiones 58311 y 58329, correo electrónico: monitoreo.satelital@conapesca.gob.mx
                                     </p>
                                     <p>
                                         Se requiere a los solicitantes que la documentación que sea entregada en las Oficinas de Representación de la CONAPESCA en las Entidades Federativas de la Secretaría de Agricultura y Desarrollo Rural,
@@ -1135,15 +1325,17 @@
                                     <div class="row row-btnRes">
                                         <div class="col-md-4">
                                             <a href="assets/pdfs/requisitos_reposicion-equipo-transreceptor-motivo-perdida-robo-extravio-danoparcial-total.pdf" target="_blank">
-                                                <button type="button" class="btn btn-primary">Descargar Requisitos</button>
+                                                <button type="button" class="btn btn-primary">
+                                                    Descargar Requisitos
+                                                </button>
                                             </a>
                                         </div>
-                                        
+
                                         <div class="col-md-4"></div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="tab-pane cardG" id="tabGreen-05">
+                            <div class="tab-pane cardG tabGren " id="tabGreen-05">
                                 <div>
                                     <h5>Reingresar al Programa por motivo de baja</h5>
                                     <p>
@@ -1159,23 +1351,37 @@
                                             Secretaría de Agricultura y Desarrollo Rural de su localidad (en caso de residir fuera de Mazatlán, Sinaloa), mismos que serán sellados de recibido y turnados de forma gratuita a la CONAPESCA, así
                                             mismo podrá acudir directamente a las oficinas de correo para envío mediante un correo certificado.
                                         </li>
-                                        <li>Adjuntar original debidamente llenado del "FORMATO DE INSCRIPCIÓN AL REGISTRO DEL PROGRAMA DE SISTEMA DE MONITOREO SATELITAL DE EMBARCACIONES PESQUERAS 2013-2018".</li>
+                                        <li>
+                                            Adjuntar original debidamente llenado del "FORMATO DE INSCRIPCIÓN AL REGISTRO DEL PROGRAMA DE SISTEMA DE MONITOREO SATELITAL DE EMBARCACIONES PESQUERAS 2013-2018".
+                                        </li>
                                     </ol>
 
-                                    <p><b>Adjuntar copia simple de los siguientes documentos:</b></p>
+                                    <p>
+                                        <b>Adjuntar copia simple de los siguientes documentos:</b>
+                                    </p>
 
                                     <ol>
-                                        <li>Identificación oficial del propietario de la embarcación (Persona física)</li>
+                                        <li>
+                                            Identificación oficial del propietario de la embarcación (Persona física)
+                                        </li>
                                         <li>
                                             En caso de tratarse de personas morales el trámite lo efectúa el representante legal, acreditando la personalidad por medio de carta poder general notarial (Escritura Pública otorgando poder
                                             legal).
                                         </li>
                                         <li>Identificación oficial del representante legal.</li>
-                                        <li>Comprobante de domicilio del permisionario (con vigencia no mayor a 3 meses).</li>
+                                        <li>
+                                            Comprobante de domicilio del permisionario (con vigencia no mayor a 3 meses).
+                                        </li>
                                         <li>Permiso y/o concesión vigente.</li>
-                                        <li>Certificado Nacional de Seguridad vigente (UNICAPAM).</li>
-                                        <li>Certificado de Matrícula (UNICAPAM). (Documentación complementaria requerida).</li>
-                                        <li>Documento que acredite el carácter de propietario o posesionario de la embarcación. (Documentación complementaria requerida).</li>
+                                        <li>
+                                            Certificado Nacional de Seguridad vigente (UNICAPAM).
+                                        </li>
+                                        <li>
+                                            Certificado de Matrícula (UNICAPAM). (Documentación complementaria requerida).
+                                        </li>
+                                        <li>
+                                            Documento que acredite el carácter de propietario o posesionario de la embarcación. (Documentación complementaria requerida).
+                                        </li>
                                     </ol>
 
                                     <p>
@@ -1185,7 +1391,10 @@
                                     <p>
                                         <b>Nota Importante: </b>Toda documentación presentada será verificada, por lo que en caso de falsear información será turnada a las autoridades competentes para los efectos legales correspondientes.
                                     </p>
-                                    <p>La realización del presente trámite es necesario, por lo que <b> la falta de un documento solicitado, será considerado como falta de interés del solicitante para la continuidad del mismo.</b></p>
+                                    <p>
+                                        La realización del presente trámite es necesario, por lo que
+                                        <b> la falta de un documento solicitado, será considerado como falta de interés del solicitante para la continuidad del mismo.</b>
+                                    </p>
                                     <p>
                                         Las solicitudes que cumplan con los requisitos serán atendidas por la CONAPESCA, por medio de Seguritech Privada S.A. de C.V., que es la empresa encargada de prestar los servicios de instalación y
                                         mantenimiento de los equipos transreceptores, y que para el permisionario y/o concesionario se llevará a cabo la instalación de manera gratuita conforme al procedimiento establecido, atendiendo el
@@ -1207,11 +1416,17 @@
                                     <div class="row row-btnRes">
                                         <div class="col-md-4">
                                             <a href="assets/pdfs/requisitos_reingresar-programa-por-motivo-baja.pdf" target="_blank">
-                                                <button type="button" class="btn btn-primary">Descargar Requisitos</button>
+                                                <button type="button" class="btn btn-primary">
+                                                    Descargar Requisitos
+                                                </button>
                                             </a>
                                         </div>
                                         <div class="col-md-4">
-                                            <a href="assets/pdfs/solicitud-programa-monitoreo-satelital.pdf" target="_blank"> <button type="button" class="btn btn-primary">Descargar Formato</button></a>
+                                            <a href="assets/pdfs/solicitud-programa-monitoreo-satelital.pdf" target="_blank">
+                                                <button type="button" class="btn btn-primary">
+                                                    Descargar Formato
+                                                </button>
+                                            </a>
                                         </div>
                                         <div class="col-md-4"></div>
                                     </div>
@@ -1220,34 +1435,38 @@
                         </div>
                     </div>
                 </div>
-            </div>
-            <!--COMIENZA NOM062-->
-            <div class="backGray">
-                <div class="card container" style="font-size: medium;" id="hideNom">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <img src="assets/Img/tramitespi.jpg" alt="Descripción de la imagen" class="img-responsive" />
-                        </div>
-                        <div class="col-md-6">
-                            <h6>NOM-062 SAG/PESC-2014</h6>
-                            <p>
-                                Esta Norma Oficial Mexicana tiene como propósito contribuir a un aprovechamiento sustentable de los recursos pesqueros y marinos, a través de un mayor control de las operaciones de las embarcaciones pesqueras
-                                nacionales, de conformidad con el Artículo 2 ° fracción IV de la Ley General de Pesca y Acuacultura Sustentables.
-                            </p>
-                            <p>
-                                Es de observancia obligatoria para los concesionarios y permisionarios con derechos vigentes que realicen actividades de pesca, en embarcaciones pesqueras con motor estacionario (Intraborda), potencia nominal
-                                superior a 80 Hp (caballos de fuerza) equivalentes a 59.68 kilowatts, con cubierta corrida y eslora superior a 10.5 metros, que operen en aguas de jurisdicción federal del Océano Pacífico, Golfo de México y Mar
-                                Caribe, dentro de la Zona Económica Exclusiva, así como para aquellas embarcaciones de bandera mexicana que realicen actividades de pesca en Alta Mar.
-                            </p>
+
+                <!--COMIENZA NOM062-->
+                <div class="backGray">
+                    <div class="card container" style="font-size: medium;" id="hideNom">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <img src="assets/Img/tramitespi.jpg" alt="Descripción de la imagen" class="img-responsive" />
+                            </div>
+                            <div class="col-md-6">
+                                <h6>NOM-062 SAG/PESC-2014</h6>
+                                <p>
+                                    Esta Norma Oficial Mexicana tiene como propósito contribuir a un aprovechamiento sustentable de los recursos pesqueros y marinos, a través de un mayor control de las operaciones de las embarcaciones
+                                    pesqueras nacionales, de conformidad con el Artículo 2 ° fracción IV de la Ley General de Pesca y Acuacultura Sustentables.
+                                </p>
+                                <p>
+                                    Es de observancia obligatoria para los concesionarios y permisionarios con derechos vigentes que realicen actividades de pesca, en embarcaciones pesqueras con motor estacionario (Intraborda), potencia
+                                    nominal superior a 80 Hp (caballos de fuerza) equivalentes a 59.68 kilowatts, con cubierta corrida y eslora superior a 10.5 metros, que operen en aguas de jurisdicción federal del Océano Pacífico, Golfo
+                                    de México y Mar Caribe, dentro de la Zona Económica Exclusiva, así como para aquellas embarcaciones de bandera mexicana que realicen actividades de pesca en Alta Mar.
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>
+                <!--TERMINA NOM062-->
             </div>
-            <!--TERMINA NOM062-->
         </main>
 
         <!-- JS -->
+     
+       
         <script src="https://framework-gb.cdn.gob.mx/qa/gobmx.js"></script>
         <script src="./js/Main.js"></script>
+        
     </body>
 </html>
