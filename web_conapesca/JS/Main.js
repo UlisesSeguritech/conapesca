@@ -1,4 +1,4 @@
-var datesMail = { };
+var datesMail = {};
 
 function getEstado(val) {
   console.log(val);
@@ -40,7 +40,6 @@ function getLocalidad(val) {
   });
 }
 
-
 $("#usercheck").hide();
 $("#stateerror").hide();
 $("#localerror").hide();
@@ -55,31 +54,30 @@ $("#descerror").hide();
 
 let usernameError = true;
 $("#usernames").keyup(function () {
-    validateUsername();
+  validateUsername();
 });
 
 function validateUsername() {
   let usernameValue = $("#usernames").val();
   if (usernameValue.length == "") {
-      $("#usercheck").show();
-      usernameError = true;
-      //return false;
-  } else if (usernameValue.length < 8 ) {
-      $("#usercheck").show();
-      $("#usercheck").html("El RNPA debe contener 8 caracteres");
-      usernameError = true;
-      //return false;
+    $("#usercheck").show();
+    usernameError = true;
+    //return false;
+  } else if (usernameValue.length < 8) {
+    $("#usercheck").show();
+    $("#usercheck").html("El RNPA debe contener 8 caracteres");
+    usernameError = true;
+    //return false;
   } else {
-      $("#usercheck").hide();
-      usernameError = false;
-      console.log(usernameValue)
-      datesMail.RNPA = usernameValue;
-      console.log(datesMail)
-
+    $("#usercheck").hide();
+    usernameError = false;
+    console.log(usernameValue);
+    datesMail.RNPA = usernameValue;
+    console.log(datesMail);
   }
 }
 
-function validateInputs(){
+function validateInputs() {
   let stateField = $("#estado").val();
   let localField = $("#inputLoc").val();
   let muelleField = $("#inputMue").val();
@@ -92,62 +90,60 @@ function validateInputs(){
 
   if (stateField.length == "") {
     $("#stateterror").show();
-  }else{
+  } else {
     $("#stateterror").hide();
   }
 
   if (localField.length == "") {
     $("#localerror").show();
-  }else{
+  } else {
     $("#localerror").hide();
   }
 
   if (muelleField !== undefined) {
     if (muelleField.length == "") {
       $("#muelleerror").show();
-    }else{
+    } else {
       $("#muelleerror").hide();
     }
   }
 
-  
-
   if (refField.length == "") {
     $("#referror").show();
-  }else{
+  } else {
     $("#referror").hide();
   }
 
   if (descField.length == "") {
     $("#descerror").show();
-  }else{
+  } else {
     $("#descerror").hide();
   }
 
   if (dateField.length == "") {
     $("#dateerror").show();
-  }else{
+  } else {
     $("#dateerror").hide();
   }
 
   if (timetField.length == "") {
     $("#timeerror").show();
-  }else{
+  } else {
     $("#timeerror").hide();
   }
 
   if (telField.length == "") {
     $("#phoneerror").show();
-  }else{
+  } else {
     $("#phoneerror").hide();
   }
 
   if (contactField.length == "") {
     $("#contacterror").show();
-  }else{
+  } else {
     $("#contacterror").hide();
   }
-} 
+}
 
 function soloLetras(e) {
   var key = e.keyCode || e.which,
@@ -168,33 +164,32 @@ function soloLetras(e) {
   }
 }
 
-function validateEmail(){
-                
-	// Get our input reference.
-	var emailField = document.getElementById('mailForm');
-	
-	// Define our regular expression.
-	var validEmail =  /^\w+([.-_+]?\w+)*@\w+([.-]?\w+)*(\.\w{2,10})+$/;
+function validateEmail() {
+  // Get our input reference.
+  var emailField = document.getElementById("mailForm");
+
+  // Define our regular expression.
+  var validEmail = /^\w+([.-_+]?\w+)*@\w+([.-]?\w+)*(\.\w{2,10})+$/;
   let mailValue = $("#mailForm").val();
 
   if (mailValue.length == "") {
     $("#mailerror").show();
-  }else{
+  } else {
     $("#mailerror").hide();
   }
 
-	// Using test we can check if the text match the pattern
-	if( validEmail.test(emailField.value) ){
-		console.log('Email is valid, continue with form submission');
+  // Using test we can check if the text match the pattern
+  if (validEmail.test(emailField.value)) {
+    console.log("Email is valid, continue with form submission");
 
     mailError = false;
-	}else{
-		console.log('Email is invalid, skip form submission');
+  } else {
+    console.log("Email is invalid, skip form submission");
     $("#mailerror").show();
-    $("#mailerror").html("Ingrese un formato valido de correo electronico");
+    $("#mailerror").html("Ingrese un formato válido de correo electrónico");
     mailError = true;
-	}
-} 
+  }
+}
 
 function saveInfo() {
   let usernameValue = $("#usernames").val();
@@ -210,45 +205,40 @@ function saveInfo() {
   let mailValue = $("#mailForm").val();
 
   datesMail.RNPA = usernameValue;
-  datesMail.estado = estadoValue, 
-  datesMail.localidad = localidadValue, 
-  datesMail.inputMue = muelleValue, 
-  datesMail.referencia = refValue, 
-  datesMail.descripcion = descValue, 
-  datesMail.fecha = dateValue, 
-  datesMail.hora = timeValue, 
-  datesMail.telefono = telValue, 
-  datesMail.contacto = contactValue,
-  datesMail.mail = mailValue
+  (datesMail.estado = estadoValue),
+    (datesMail.localidad = localidadValue),
+    (datesMail.inputMue = muelleValue),
+    (datesMail.referencia = refValue),
+    (datesMail.descripcion = descValue),
+    (datesMail.fecha = dateValue),
+    (datesMail.hora = timeValue),
+    (datesMail.telefono = telValue),
+    (datesMail.contacto = contactValue),
+    (datesMail.mail = mailValue);
 
-  console.log(datesMail)
-  
+  console.log(datesMail);
 }
 
 $("#validateRNPA").click(function () {
   validateUsername();
-  
+
   if (usernameError == true) {
-      console.log(usernameError)
+    console.log(usernameError);
   } else {
-    console.log(usernameError)
+    console.log(usernameError);
     $(".CardSolicitudOne").hide();
     $(".CardSolicitudTwo").show();
-      return false;
+    return false;
   }
 });
 
 $("#sendRNPA").click(function () {
   validateInputs();
   validateEmail();
-  if(mailError == false){
+  if (mailError == false) {
     saveInfo();
   }
-  
 });
-
-
-
 
 //funcion cancelarsolicitud regresa a la vista inicial de solicitud y limpia los inputs
 let cancelarSolicitud = () => {
@@ -315,7 +305,7 @@ $gmx(document).ready(function () {
       $(".CardSolicitudTwo").show();
       $(".CardSolicitudThree").hide();
     });
-    
+
     const guardarSolicitud2 = document.querySelectorAll(".guardarSolicitud2");
     /*
     guardarSolicitud2.forEach(function (elemento2) {
@@ -381,48 +371,34 @@ $gmx(document).ready(function () {
   // Actualizar los contenidos cuando cambia la resolución de pantalla
   window.addEventListener("resize", actualizarContenido);
 
+  let buttons = document.querySelectorAll(".btnAGren");
 
-
-
-  let buttons = document.querySelectorAll('.btnAGren');
-  
   buttons.forEach((button) => {
-      button.addEventListener('click', function(event) {
-          
-      let idTab = this.getAttribute('href');
+    button.addEventListener("click", function (event) {
+      let idTab = this.getAttribute("href");
       console.log(idTab);
       tabClick = document.querySelector(idTab);
-      console.log(tabClick.getAttribute('class'));
-      var isActive = tabClick.classList.contains('active');
+      console.log(tabClick.getAttribute("class"));
+      var isActive = tabClick.classList.contains("active");
       console.log("es activa" + isActive);
       if (isActive) {
-          if ($('.contenedorTabsGren').is(':visible')) {
+        if ($(".contenedorTabsGren").is(":visible")) {
           // El elemento está visible
-          $('.contenedorTabsGren').hide();
-          $('#hideNom').show();
+          $(".contenedorTabsGren").hide();
+          $("#hideNom").show();
           event.preventDefault();
           console.log("El elemento está visible");
-          } else {
+        } else {
           // El elemento está oculto
           console.log("El elemento está oculto");
-          $('.contenedorTabsGren').show();
-          $('#hideNom').hide();
-          }
-          //tabClick.className = 'tab-pane cardG tabGren fade';
-         
-         
-      }else{
-          $('.contenedorTabsGren').show();
-          $('#hideNom').hide();
+          $(".contenedorTabsGren").show();
+          $("#hideNom").hide();
+        }
+        //tabClick.className = 'tab-pane cardG tabGren fade';
+      } else {
+        $(".contenedorTabsGren").show();
+        $("#hideNom").hide();
       }
-      });
+    });
   });
-
-
-
-
-
-
-  
 }); //Termina inicializador de framework
-

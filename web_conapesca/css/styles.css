@@ -1,3 +1,6 @@
+.nueva {
+  text-align: left;
+}
 
 h6,
 h5,
@@ -8,19 +11,21 @@ h1 {
   text-align: left;
   /*color: #545454;*/
 }
-footer p, li, ul{
-  text-align: left!important;
+footer p,
+li,
+ul {
+  text-align: left !important;
 }
 
-.contenido-body{
+.contenido-body {
   margin-top: 100px;
-  height: auto;  
- 
+  height: auto;
 }
-.img-header{
+.img-header {
   width: 100%;
 }
-.cardG li , p {
+.cardG li,
+p {
   text-align: justify !important;
 }
 
@@ -29,7 +34,8 @@ footer p, li, ul{
   justify-content: space-between;
 }
 
-.nav-tabs li, p {
+.nav-tabs li,
+p {
   flex-grow: 1;
   text-align: justify !important;
 }
@@ -129,9 +135,9 @@ Contenido del Header
   text-align: center;
   padding: 5%;
 }
-.justificado p, li{
+.justificado p,
+li {
   text-align: justify;
-
 }
 
 @media (max-width: 767px) {
