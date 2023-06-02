@@ -42,7 +42,17 @@ function getLocalidad(val) {
 
 
 $("#usercheck").hide();
+$("#stateerror").hide();
+$("#localerror").hide();
+$("#muelleerror").hide();
+$("#referror").hide();
+$("#dateerror").hide();
+$("#timeerror").hide();
+$("#phoneerror").hide();
+$("#contacterror").hide();
 $("#mailerror").hide();
+$("#descerror").hide();
+
 let usernameError = true;
 $("#usernames").keyup(function () {
     validateUsername();
@@ -66,6 +76,95 @@ function validateUsername() {
       datesMail.RNPA = usernameValue;
       console.log(datesMail)
 
+  }
+}
+
+function validateInputs(){
+  let stateField = $("#estado").val();
+  let localField = $("#inputLoc").val();
+  let muelleField = $("#inputMue").val();
+  let refField = $("#refrenciaForm").val();
+  let descField = $("#descForm").val();
+  let dateField = $("#calendarYear").val();
+  let timetField = $("#timeForm").val();
+  let telField = $("#telForm").val();
+  let contactField = $("#contactForm").val();
+
+  if (stateField.length == "") {
+    $("#stateterror").show();
+  }else{
+    $("#stateterror").hide();
+  }
+
+  if (localField.length == "") {
+    $("#localerror").show();
+  }else{
+    $("#localerror").hide();
+  }
+
+  if (muelleField !== undefined) {
+    if (muelleField.length == "") {
+      $("#muelleerror").show();
+    }else{
+      $("#muelleerror").hide();
+    }
+  }
+
+  
+
+  if (refField.length == "") {
+    $("#referror").show();
+  }else{
+    $("#referror").hide();
+  }
+
+  if (descField.length == "") {
+    $("#descerror").show();
+  }else{
+    $("#descerror").hide();
+  }
+
+  if (dateField.length == "") {
+    $("#dateerror").show();
+  }else{
+    $("#dateerror").hide();
+  }
+
+  if (timetField.length == "") {
+    $("#timeerror").show();
+  }else{
+    $("#timeerror").hide();
+  }
+
+  if (telField.length == "") {
+    $("#phoneerror").show();
+  }else{
+    $("#phoneerror").hide();
+  }
+
+  if (contactField.length == "") {
+    $("#contacterror").show();
+  }else{
+    $("#contacterror").hide();
+  }
+} 
+
+function soloLetras(e) {
+  var key = e.keyCode || e.which,
+    tecla = String.fromCharCode(key).toLowerCase(),
+    letras = " áéíóúabcdefghijklmnñopqrstuvwxyz",
+    especiales = [8, 37, 39, 46],
+    tecla_especial = false;
+
+  for (var i in especiales) {
+    if (key == especiales[i]) {
+      tecla_especial = true;
+      break;
+    }
+  }
+
+  if (letras.indexOf(tecla) == -1 && !tecla_especial) {
+    return false;
   }
 }
 
@@ -113,7 +212,7 @@ function saveInfo() {
   datesMail.RNPA = usernameValue;
   datesMail.estado = estadoValue, 
   datesMail.localidad = localidadValue, 
-  datesMail.muelle = muelleValue, 
+  datesMail.inputMue = muelleValue, 
   datesMail.referencia = refValue, 
   datesMail.descripcion = descValue, 
   datesMail.fecha = dateValue, 
@@ -140,12 +239,14 @@ $("#validateRNPA").click(function () {
 });
 
 $("#sendRNPA").click(function () {
+  validateInputs();
   validateEmail();
   if(mailError == false){
     saveInfo();
   }
   
 });
+
 
 
 
