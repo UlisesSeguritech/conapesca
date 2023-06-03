@@ -32,6 +32,7 @@ function getEstado(val) {
 
 function getLocalidad(val) {
   $.get("/localidad/" + val, function (data, status) {
+    console.log(data.namePue)
     if (data) {
       $("#inputMue").empty();
       $("#inputMue").append('<option value="0">' + data.namePue + "</option>");
@@ -51,6 +52,7 @@ $("#phoneerror").hide();
 $("#contacterror").hide();
 $("#mailerror").hide();
 $("#descerror").hide();
+$("#dateerroryear").hide();
 
 let usernameError = true;
 $("#usernames").keyup(function () {
@@ -88,13 +90,19 @@ function validateInputs() {
   let telField = $("#telForm").val();
   let contactField = $("#contactForm").val();
 
-  if (stateField.length == "") {
-    $("#stateterror").show();
-  } else {
-    $("#stateterror").hide();
+  
+
+  if(stateField.length == "" || stateField.length == 0){
+    console.log(stateField);
   }
 
-  if (localField.length == "") {
+  if (stateField.length == "" || stateField.length == 0) {
+    $("#stateerror").show();
+  } else {
+    $("#stateerror").hide();
+  }
+
+  if (localField.length == "" || localField.length == 0) {
     $("#localerror").show();
   } else {
     $("#localerror").hide();
@@ -122,6 +130,8 @@ function validateInputs() {
 
   if (dateField.length == "") {
     $("#dateerror").show();
+    $("#dateerroryear").hide();
+
   } else {
     $("#dateerror").hide();
   }
@@ -148,20 +158,78 @@ function validateInputs() {
 function soloLetras(e) {
   var key = e.keyCode || e.which,
     tecla = String.fromCharCode(key).toLowerCase(),
-    letras = " áéíóúabcdefghijklmnñopqrstuvwxyz",
-    especiales = [8, 37, 39, 46],
-    tecla_especial = false;
+    letras = " áéíóúabcdefghijklmnñopqrstuvwxyz"
+    //especiales = [8, 37, 39, 46],
+    // = false;
 
-  for (var i in especiales) {
+  /*for (var i in especiales) {
     if (key == especiales[i]) {
       tecla_especial = true;
       break;
     }
-  }
+  }*/
 
-  if (letras.indexOf(tecla) == -1 && !tecla_especial) {
+  if (letras.indexOf(tecla) == -1) {
     return false;
   }
+}
+
+function validateDate(){
+
+    // crea un nuevo objeto `Date`
+    var today = new Date();
+    
+    // `getDate()` devuelve el día del mes (del 1 al 31)
+    var day = today.getDate();
+    
+    // `getMonth()` devuelve el mes (de 0 a 11)
+    var month = today.getMonth() + 1;
+    
+    // `getFullYear()` devuelve el año completo
+    var year = today.getFullYear();
+    
+    // muestra la fecha de hoy en formato `MM/DD/YYYY`
+    //console.log(`0${day}/0${month}/${year}`);
+
+    var d_reg = /^([0-2][0-9]|3[0-1])(\/|-)(0[1-9]|1[0-2])\2(\d{4})$/;
+    var dateValue = $("#calendarYear").val();
+    var user_date = dateValue;
+    var yearPicker = dateValue.substring(dateValue.length - 4)
+
+
+    if (d_reg.test(user_date)) {
+      console.log("Success");
+      $("#dateerroryear").hide();
+    } else{
+      $("#dateerroryear").show();
+
+    }
+
+    if(yearPicker.length == 0){
+      console.log(user_date);
+      console.log(yearPicker);
+      $("#dateerroryear").hide();
+
+    }else{
+      if (yearPicker > year) {
+        $("#dateerroryear").show();
+        $("#dateerroryear").html("El año no puede ser mayor al año en curso.");
+  
+      } 
+      
+      if(yearPicker < year){
+        $("#dateerroryear").show();
+        $("#dateerroryear").html("El año no puede ser menor al año en curso.");
+      }
+  
+      if(yearPicker == year){
+        console.log("Fechas ok.");
+        $("#dateerroryear").hide();
+      }
+    }
+
+
+  
 }
 
 function validateEmail() {
@@ -186,7 +254,7 @@ function validateEmail() {
   } else {
     console.log("Email is invalid, skip form submission");
     $("#mailerror").show();
-    $("#mailerror").html("Ingrese un formato válido de correo electrónico");
+    $("#mailerror").html("Ingrese un formato válido de correo electrónico.");
     mailError = true;
   }
 }
@@ -217,6 +285,18 @@ function saveInfo() {
     (datesMail.mail = mailValue);
 
   console.log(datesMail);
+
+  
+  $.post(
+    "/sendMail/" ,
+    function (data, status) {
+      console.log("Data: " + data + "\nStatus: " + status);
+      if(status = "success"){
+        alert("Gracias, sus datos se enviaron con éxito.")
+        document.location.href="/";
+      }
+    }
+  );
 }
 
 $("#validateRNPA").click(function () {
@@ -235,6 +315,7 @@ $("#validateRNPA").click(function () {
 $("#sendRNPA").click(function () {
   validateInputs();
   validateEmail();
+  validateDate();
   if (mailError == false) {
     saveInfo();
   }
@@ -247,7 +328,7 @@ let cancelarSolicitud = () => {
   $(".CardSolicitudTwo").hide();
   $(".CardSolicitudThree").hide();
   //Limpiamos los formularios
-  $("#formSolicitudV")[0].reset();
+  document.getElementById("usernames").value = "";
 };
 
 //Funcion del FRAMEWORK de gobienrno que se ejecuta cuando todas las dependencias se cargaron correctamente

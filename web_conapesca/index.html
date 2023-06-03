@@ -777,7 +777,7 @@
               <div id="collapseThree" class="panel-collapse collapse">
                 <div class="panel-body">
                   <div id="contenedorSolicitud">
-                    <form action="" id="formSolicitudV">
+                    <div  id="formSolicitudV">
                       <!-- Card 1-->
                       <div class="cardG CardSolicitudOne">
                         <h6>Solicitud de Verificación del VMS</h6>
@@ -1018,7 +1018,7 @@
                           </div>
                         </div>
                       </div>
-                    </form>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -1757,7 +1757,7 @@
                         maxlength="8"
                       />
                       <p id="usercheck" style="color: red">
-                        Es necesario ingresar un RNPA
+                        Es necesario ingresar un RNPA.
                       </p>
                       <div class="row">
                         <div class="col-md-6">
@@ -1789,7 +1789,7 @@
                               onchange="getEstado(value);"
                               id="estado"
                             >
-                              <option selected>Estado</option>
+                              <option value="" selected>Estado</option>
                               <option value="1">Baja California</option>
                               <option value="2">Baja California Sur</option>
                               <option value="3">Campeche</option>
@@ -1819,7 +1819,7 @@
                               aria-label="Default select example"
                               disabled
                             >
-                              <option value="0" selected>Localidad</option>
+                              <option value="" selected>Localidad</option>
                             </select>
                             <p id="localerror" style="color: red">
                               Es necesario ingresar una Localidad.
@@ -1880,6 +1880,7 @@
                                 class="form-control"
                                 id="calendarYear"
                                 type="text"
+                                maxlength="10"
                               />
                               <span
                                 class="glyphicon glyphicon-calendar"
@@ -1888,6 +1889,9 @@
                               ></span>
                               <p id="dateerror" style="color: red">
                                 Es necesario ingresar una fecha.
+                              </p>
+                              <p id="dateerroryear" style="color: red">
+                                El formato de fecha es inavalido.
                               </p>
                             </div>
                           </div>
