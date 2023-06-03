@@ -4,7 +4,7 @@ function getEstado(val) {
   console.log(val);
 
   $.get(
-    "http://localhost:8080/estados/" + val + "/localidad",
+    "/estados/" + val + "/localidad",
     function (data, status) {
       console.log("Data: " + data + "\nStatus: " + status);
       if (data) {
@@ -31,7 +31,7 @@ function getEstado(val) {
 }
 
 function getLocalidad(val) {
-  $.get("http://localhost:8080/localidad/" + val, function (data, status) {
+  $.get("/localidad/" + val, function (data, status) {
     if (data) {
       $("#inputMue").empty();
       $("#inputMue").append('<option value="0">' + data.namePue + "</option>");
@@ -186,7 +186,7 @@ function validateEmail() {
   } else {
     console.log("Email is invalid, skip form submission");
     $("#mailerror").show();
-    $("#mailerror").html("Ingrese un formato válido de correo electrónico.");
+    $("#mailerror").html("Ingrese un formato válido de correo electrónico");
     mailError = true;
   }
 }
