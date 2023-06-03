@@ -186,7 +186,7 @@ function validateEmail() {
   } else {
     console.log("Email is invalid, skip form submission");
     $("#mailerror").show();
-    $("#mailerror").html("Ingrese un formato válido de correo electrónico");
+    $("#mailerror").html("Ingrese un formato válido de correo electrónico.");
     mailError = true;
   }
 }
