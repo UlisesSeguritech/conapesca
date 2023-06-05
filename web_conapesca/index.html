@@ -1818,8 +1818,9 @@
                               class="form-control"
                               aria-label="Default select example"
                               disabled
+                              onchange="getLocalidad(value);"
                             >
-                              <option value="" selected>Localidad</option>
+                              <option value=""  selected>Localidad</option>
                             </select>
                             <p id="localerror" style="color: red; text-align: left !important;">
                               Es necesario ingresar una Localidad.
@@ -1835,7 +1836,7 @@
                               aria-label="Default select example"
                               disabled
                             >
-                              <option value="0" selected>Muelle</option>
+                              <option  value="0" selected>Muelle</option>
                             </select>
                             <p id="muelleerror" style="color: red; text-align: left !important;">
                               Es necesario ingresar un Muelle.
@@ -1846,7 +1847,7 @@
                               class="form-control"
                               placeholder="Referencia"
                               type="text"
-                              id="refrenciaForm"
+                              id="refrenciaForm" onclick="getLocalidad(25)"
                             />
                             <p id="referror" style="color: red; text-align: left !important;">
                               Es necesario ingresar una Referencia.
@@ -1881,6 +1882,7 @@
                                 id="calendarYear"
                                 type="text"
                                 maxlength="10"
+                                onkeypress="validateFormatDate(value)"
                               />
                               <span
                                 class="glyphicon glyphicon-calendar"
@@ -1891,7 +1893,7 @@
                                 Es necesario ingresar una fecha.
                               </p>
                               <p id="dateerroryear" style="color: red; text-align: left !important;">
-                                El formato de fecha es inavalido.
+                                El formato de fecha es invalido.
                               </p>
                             </div>
                           </div>

@@ -4,7 +4,7 @@ function getEstado(val) {
   console.log(val);
 
   $.get(
-    "/estados/" + val + "/localidad",
+    "http://localhost:8080/estados/" + val + "/localidad",
     function (data, status) {
       console.log("Data: " + data + "\nStatus: " + status);
       if (data) {
@@ -12,11 +12,10 @@ function getEstado(val) {
         $("#inputLoc").empty();
         $("#inputLoc").append('<option value="0">Localidad</option>');
 
+        
+
         for (i = 0; i < data.length; i++) {
-          $("#inputLoc").append(
-            '<option onclick="getLocalidad(' +
-              data[i].id +
-              ')" value="' +
+          $("#inputLoc").append('<option  value="' +
               data[i].id +
               '">' +
               data[i].nameLoc +
@@ -31,12 +30,13 @@ function getEstado(val) {
 }
 
 function getLocalidad(val) {
-  $.get("/localidad/" + val, function (data, status) {
-    console.log(data.namePue)
+  //$.get("/localidad/" + val, function (data, status) {
+    $.get("http://localhost:8080/localidad/" + val, function (data, status) {
+    console.log("si",data.namePue)
     if (data) {
+      $("#inputMue").prop("disabled", true);
       $("#inputMue").empty();
       $("#inputMue").append('<option value="0">' + data.namePue + "</option>");
-      $("#inputMue").val(0);
     }
   });
 }
@@ -230,6 +230,22 @@ function validateDate(){
 
 
   
+}
+
+function validateFormatDate(dateGet) {
+  console.log(dateGet);
+  var d_reg = /^([0-2][0-9]|3[0-1])(\/|-)(0[1-9]|1[0-2])\2(\d{4})$/;
+  if (d_reg.test(dateGet)) {
+    console.log("Success");
+    $("#dateerroryear").hide();
+  } else{
+    console.log("False");
+
+    $("#dateerroryear").show();
+
+  }
+
+
 }
 
 function validateEmail() {
