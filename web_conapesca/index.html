@@ -1778,258 +1778,259 @@
                     </div>
 
                     <!-- Card 2-->
-                    <div class="CardSolicitudTwo">
-                      <div class="card-solicitud">
-                        <h4 class="mt-3">Ubicación actual de la embarcación</h4>
-                        <div class="row">
-                          <div class="col-md-6">
-                            <select
-                              class="form-control"
-                              aria-label="Default select example"
-                              onchange="getEstado(value);"
-                              id="estado"
-                            >
-                              <option value="" selected>Estado</option>
-                              <option value="1">Baja California</option>
-                              <option value="2">Baja California Sur</option>
-                              <option value="3">Campeche</option>
-                              <option value="4">Chiapas</option>
-                              <option value="5">Colima</option>
-                              <option value="6">Cuba</option>
-                              <option value="7">Guerrero</option>
-                              <option value="8">Nayarit</option>
-                              <option value="9">Nuevo León</option>
-                              <option value="10">Oaxaca</option>
-                              <option value="11">Quintana Roo</option>
-                              <option value="12">Sinaloa</option>
-                              <option value="13">Sonora</option>
-                              <option value="14">Tabasco</option>
-                              <option value="15">Tamaulipas</option>
-                              <option value="16">Veracruz</option>
-                              <option value="Yucatán">Yucatán</option>
-                            </select>
-                            <p id="stateerror" style="color: red; text-align: left !important;">
-                              Es necesario ingresar un Estado.
-                            </p>
-                          </div>
-                          <div class="col-md-6">
-                            <select
-                              id="inputLoc"
-                              class="form-control"
-                              aria-label="Default select example"
-                              disabled
-                              onchange="getLocalidad(value);"
-                            >
-                              <option value=""  selected>Localidad</option>
-                            </select>
-                            <p id="localerror" style="color: red; text-align: left !important;">
-                              Es necesario ingresar una Localidad.
-                            </p>
-                          </div>
-                        </div>
-
-                        <div class="row">
-                          <div class="col-md-6">
-                            <select
-                              id="inputMue"
-                              class="form-control"
-                              aria-label="Default select example"
-                              disabled
-                            >
-                              <option  value="0" selected>Muelle</option>
-                            </select>
-                            <p id="muelleerror" style="color: red; text-align: left !important;">
-                              Es necesario ingresar un Muelle.
-                            </p>
-                          </div>
-                          <div class="col-md-6">
-                            <input
-                              class="form-control"
-                              placeholder="Referencia"
-                              type="text"
-                              id="refrenciaForm" onclick="getLocalidad(25)"
-                            />
-                            <p id="referror" style="color: red; text-align: left !important;">
-                              Es necesario ingresar una Referencia.
-                            </p>
-                          </div>
-                        </div>
-                        <div class="row">
-                          <div class="col-sm-12">
-                            <textarea
-                              class="form-control w-100"
-                              placeholder="Descripción de la falla"
-                              rows="3"
-                              id="descForm"
-                            ></textarea>
-                            <p id="descerror" style="color: red; text-align: left !important;">
-                              Es necesario ingresar una descripción.
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-
-                      <div class="card-solicitud">
-                        <h4 class="mt-3">Datos de contacto</h4>
-                        <div class="row">
-                          <div class="col-md-6">
-                            <div class="form-group datepicker-group">
-                              <label class="control-label" for="calendarYear"
-                                >Fecha sugerida</label
-                              >
-                              <input
+                    <div class="CardSolicitudTwo" >
+                      <form id="myForm">
+                        <div class="card-solicitud">
+                          <h4 class="mt-3">Ubicación actual de la embarcación</h4>
+                          <div class="row">
+                            <div class="col-md-6">
+                              <select
                                 class="form-control"
-                                id="calendarYear"
-                                type="text"
-                                maxlength="10"
-                              />
-                              <span
-                                class="glyphicon glyphicon-calendar"
-                                style="margin-top: 15px"
-                                aria-hidden="true"
-                              ></span>
-                              <p id="dateerror" style="color: red; text-align: left !important;">
-                                Es necesario ingresar una fecha.
+                                aria-label="Default select example"
+                                onchange="getEstado(value);"
+                                id="estado"
+                              >
+                                <option value="" selected>Estado</option>
+                                <option value="1">Baja California</option>
+                                <option value="2">Baja California Sur</option>
+                                <option value="3">Campeche</option>
+                                <option value="4">Chiapas</option>
+                                <option value="5">Colima</option>
+                                <option value="6">Cuba</option>
+                                <option value="7">Guerrero</option>
+                                <option value="8">Nayarit</option>
+                                <option value="9">Nuevo León</option>
+                                <option value="10">Oaxaca</option>
+                                <option value="11">Quintana Roo</option>
+                                <option value="12">Sinaloa</option>
+                                <option value="13">Sonora</option>
+                                <option value="14">Tabasco</option>
+                                <option value="15">Tamaulipas</option>
+                                <option value="16">Veracruz</option>
+                                <option value="Yucatán">Yucatán</option>
+                              </select>
+                              <p id="stateerror" style="color: red; text-align: left !important;">
+                                Es necesario ingresar un Estado.
                               </p>
-                              <p id="dateerroryear" style="color: red; text-align: left !important;">
-                                El formato de fecha es invalido.
+                            </div>
+                            <div class="col-md-6">
+                              <select
+                                id="inputLoc"
+                                class="form-control"
+                                aria-label="Default select example"
+                                disabled
+                                onchange="getLocalidad(value);"
+                              >
+                                <option value=""  selected>Localidad</option>
+                              </select>
+                              <p id="localerror" style="color: red; text-align: left !important;">
+                                Es necesario ingresar una Localidad.
                               </p>
                             </div>
                           </div>
-                          <div class="col-md-6">
-                            <label class="form-label">Hora sugerida</label>
-                            <input
-                              class="form-control"
-                              type="time"
-                              placeholder="Hora sugerida"
-                              id="timeForm"
-                            />
-                            <p id="timeerror" style="color: red; text-align: left !important;">
-                              Es necesario ingresar un horario.
-                            </p>
+
+                          <div class="row">
+                            <div class="col-md-6">
+                                <input id="inputMue"
+                                class="form-control"
+                                aria-label="Default select example"
+                                disabled
+                                type="text"  
+                                placeholder="Muelle" ></input>
+
+                              <p id="muelleerror" style="color: red; text-align: left !important;">
+                                Es necesario ingresar un Muelle.
+                              </p>
+                            </div>
+                            <div class="col-md-6">
+                              <input
+                                class="form-control"
+                                placeholder="Referencia"
+                                type="text"
+                                id="refrenciaForm"
+                              />
+                              <p id="referror" style="color: red; text-align: left !important;">
+                                Es necesario ingresar una Referencia.
+                              </p>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-sm-12">
+                              <textarea
+                                class="form-control w-100"
+                                placeholder="Descripción de la falla"
+                                rows="3"
+                                id="descForm"
+                              ></textarea>
+                              <p id="descerror" style="color: red; text-align: left !important;">
+                                Es necesario ingresar una descripción.
+                              </p>
+                            </div>
                           </div>
                         </div>
 
-                        <div class="row">
-                          <div class="col-md-6">
-                            <input
-                              onkeypress="return event.charCode >= 48 && event.charCode <= 57"
-                              class="form-control"
-                              type="text"
-                              placeholder="Teléfono"
-                              maxlength="12"
-                              id="telForm"
-                            />
-                            <p id="phoneerror" style="color: red; text-align: left !important;">
-                              Es necesario ingresar un número telefónico.
-                            </p>
+                        <div class="card-solicitud">
+                          <h4 class="mt-3">Datos de contacto</h4>
+                          <div class="row">
+                            <div class="col-md-6">
+                              <div class="form-group datepicker-group">
+                                <label class="control-label" for="calendarYear"
+                                  >Fecha sugerida</label
+                                >
+                                <input
+                                  class="form-control"
+                                  id="calendarYear"
+                                  type="text"
+                                  maxlength="10"
+                                />
+                                <span
+                                  class="glyphicon glyphicon-calendar"
+                                  style="margin-top: 15px"
+                                  aria-hidden="true"
+                                ></span>
+                                <p id="dateerror" style="color: red; text-align: left !important;">
+                                  Es necesario ingresar una fecha.
+                                </p>
+                                <p id="dateerroryear" style="color: red; text-align: left !important;">
+                                  El formato de fecha es invalido.
+                                </p>
+                              </div>
+                            </div>
+                            <div class="col-md-6">
+                              <label class="form-label">Hora sugerida</label>
+                              <input
+                                class="form-control"
+                                type="time"
+                                placeholder="Hora sugerida"
+                                id="timeForm"
+                              />
+                              <p id="timeerror" style="color: red; text-align: left !important;">
+                                Es necesario ingresar un horario.
+                              </p>
+                            </div>
                           </div>
-                          <div class="col-md-6">
-                            <input
-                              class="form-control"
-                              type="text"
-                              placeholder="Persona de contacto"
-                              id="contactForm"
-                              onkeypress="return soloLetras(event)"
-                            />
-                            <p id="contacterror" style="color: red; text-align: left !important;">
-                              Es necesario ingresar un contacto.
-                            </p>
+
+                          <div class="row">
+                            <div class="col-md-6">
+                              <input
+                                onkeypress="return event.charCode >= 48 && event.charCode <= 57"
+                                class="form-control"
+                                type="text"
+                                placeholder="Teléfono"
+                                maxlength="12"
+                                id="telForm"
+                              />
+                              <p id="phoneerror" style="color: red; text-align: left !important;">
+                                Es necesario ingresar un número telefónico.
+                              </p>
+                            </div>
+                            <div class="col-md-6">
+                              <input
+                                class="form-control"
+                                type="text"
+                                placeholder="Persona de contacto"
+                                id="contactForm"
+                                onkeypress="return soloLetras(event)"
+                              />
+                              <p id="contacterror" style="color: red; text-align: left !important;">
+                                Es necesario ingresar un contacto.
+                              </p>
+                            </div>
                           </div>
-                        </div>
-                        <div class="row">
-                          <div class="col-md-12">
-                            <input
-                              class="form-control"
-                              type="email"
-                              placeholder="Correo electrónico"
-                              id="mailForm"
-                            />
-                            <p id="mailerror" style="color: red; text-align: left !important;">
-                              Es necesario ingresar un correo electrónico2.
-                            </p>
+                          <div class="row">
+                            <div class="col-md-12">
+                              <input
+                                class="form-control"
+                                type="email"
+                                placeholder="Correo electrónico"
+                                id="mailForm"
+                              />
+                              <p id="mailerror" style="color: red; text-align: left !important;">
+                                Es necesario ingresar un correo electrónico.
+                              </p>
+                            </div>
+                          </div>
+
+                          <div class="row">
+                            <div class="col-md-6">
+                              <button
+                                type="button"
+                                class="btn btn-default"
+                                data-dismiss="modal"
+                                onclick="cancelarSolicitud()"
+                              >
+                                Cancelar
+                              </button>
+                            </div>
+                            <div class="col-md-6">
+                              <button
+                                type="button"
+                                class="btn btn-primary"
+                                id="sendRNPA"
+                              >
+                                Aceptar
+                              </button>
+                            </div>
                           </div>
                         </div>
 
-                        <div class="row">
-                          <div class="col-md-6">
-                            <button
-                              type="button"
-                              class="btn btn-default"
-                              data-dismiss="modal"
-                              onclick="cancelarSolicitud()"
-                            >
-                              Cancelar
-                            </button>
-                          </div>
-                          <div class="col-md-6">
-                            <button
-                              type="button"
-                              class="btn btn-primary"
-                              id="sendRNPA"
-                            >
-                              Aceptar
-                            </button>
-                          </div>
-                        </div>
-                      </div>
-
-                      <!-- Card 3-->
-                      <div class="card-solicitud-table CardSolicitudThree">
-                        <table class="table">
-                          <thead>
-                            <tr class="table-secondary">
-                              <th class="fw-normal">Tipo de solicitud</th>
-                              <th class="fw-normal">RNPA de la embarcación</th>
-                              <th class="fw-normal">
-                                Nombre de la Embarcación
-                              </th>
-                              <th class="fw-normal">Matricula</th>
-                            </tr>
-                          </thead>
-                          <tbody>
-                            <tr>
-                              <td class="fw-bold">Solicitud</td>
-                              <td class="fw-bold">09817162</td>
-                              <td class="fw-bold">CAMILA</td>
-                              <td class="fw-bold">00056549</td>
-                            </tr>
-                          </tbody>
-                          <thead>
-                            <tr class="table-secondary">
-                              <th class="fw-normal">Puerto Base</th>
-                              <th class="fw-normal">RNPA del propietario</th>
-                              <th class="fw-normal">Razón Social</th>
-                              <th class="fw-normal">Tipo de Falla</th>
-                            </tr>
-                          </thead>
-                          <tbody>
-                            <tr>
-                              <td class="fw-bold">Sinaloa</td>
-                              <td class="fw-bold">89111262</td>
-                              <td class="fw-bold">EMPRESA</td>
-                              <td class="fw-bold">Falla</td>
-                            </tr>
-                          </tbody>
-                        </table>
-                        <div class="row">
-                          <div class="col-md-6">
-                            <button
-                              type="button"
-                              class="btn btn-default"
-                              data-dismiss="modal"
-                              onclick="cancelarSolicitud()"
-                            >
-                              Cancelar Solicitud
-                            </button>
-                          </div>
-                          <div class="col-md-6">
-                            <button type="button" class="btn btn-primary">
-                              Generar Follio
-                            </button>
+                        <!-- Card 3-->
+                        <div class="card-solicitud-table CardSolicitudThree">
+                          <table class="table">
+                            <thead>
+                              <tr class="table-secondary">
+                                <th class="fw-normal">Tipo de solicitud</th>
+                                <th class="fw-normal">RNPA de la embarcación</th>
+                                <th class="fw-normal">
+                                  Nombre de la Embarcación
+                                </th>
+                                <th class="fw-normal">Matricula</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td class="fw-bold">Solicitud</td>
+                                <td class="fw-bold">09817162</td>
+                                <td class="fw-bold">CAMILA</td>
+                                <td class="fw-bold">00056549</td>
+                              </tr>
+                            </tbody>
+                            <thead>
+                              <tr class="table-secondary">
+                                <th class="fw-normal">Puerto Base</th>
+                                <th class="fw-normal">RNPA del propietario</th>
+                                <th class="fw-normal">Razón Social</th>
+                                <th class="fw-normal">Tipo de Falla</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td class="fw-bold">Sinaloa</td>
+                                <td class="fw-bold">89111262</td>
+                                <td class="fw-bold">EMPRESA</td>
+                                <td class="fw-bold">Falla</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                          <div class="row">
+                            <div class="col-md-6">
+                              <button
+                                type="button"
+                                class="btn btn-default"
+                                data-dismiss="modal"
+                                onclick="cancelarSolicitud()"
+                              >
+                                Cancelar Solicitud
+                              </button>
+                            </div>
+                            <div class="col-md-6">
+                              <button type="button" class="btn btn-primary">
+                                Generar Follio
+                              </button>
+                            </div>
                           </div>
                         </div>
-                      </div>
+                      </form>
                     </div>
                   </div>
                 </div>

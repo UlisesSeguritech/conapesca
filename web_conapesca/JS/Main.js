@@ -4,7 +4,8 @@ function getEstado(val) {
   console.log(val);
 
   $.get(
-    "http://localhost:8080/estados/" + val + "/localidad",
+    "/estados/" + val + "/localidad",
+   //"http://localhost:8080/estados/" + val + "/localidad",
     function (data, status) {
       console.log("Data: " + data + "\nStatus: " + status);
       if (data) {
@@ -30,13 +31,13 @@ function getEstado(val) {
 }
 
 function getLocalidad(val) {
-  //$.get("/localidad/" + val, function (data, status) {
-    $.get("http://localhost:8080/localidad/" + val, function (data, status) {
+    $.get("/localidad/" + val, function (data, status) {
+    //$.get("http://localhost:8080/localidad/" + val, function (data, status) {
     console.log("si",data.namePue)
     if (data) {
       $("#inputMue").prop("disabled", true);
       $("#inputMue").empty();
-      $("#inputMue").append('<option value="0">' + data.namePue + "</option>");
+      $("#inputMue").val(data.namePue);
     }
   });
 }
@@ -55,6 +56,7 @@ $("#descerror").hide();
 $("#dateerroryear").hide();
 
 let usernameError = true;
+
 $("#usernames").keyup(function () {
   validateUsername();
 });
@@ -67,7 +69,7 @@ function validateUsername() {
     //return false;
   } else if (usernameValue.length < 8) {
     $("#usercheck").show();
-    $("#usercheck").html("El RNPA debe contener 8 caracteres");
+    $("#usercheck").html("El RNPA debe contener 8 caracteres.");
     usernameError = true;
     //return false;
   } else {
@@ -90,31 +92,28 @@ function validateInputs() {
   let telField = $("#telForm").val();
   let contactField = $("#contactForm").val();
 
-  
-
-  if(stateField.length == "" || stateField.length == 0){
-    console.log(stateField);
-  }
-
   if (stateField.length == "" || stateField.length == 0) {
     $("#stateerror").show();
+
+
   } else {
     $("#stateerror").hide();
+    if (localField == 0) {
+      $("#localerror").show();
+    } else {
+      $("#localerror").hide();
+    }
   }
 
-  if (localField.length == "" || localField.length == 0) {
-    $("#localerror").show();
-  } else {
-    $("#localerror").hide();
-  }
 
-  if (muelleField !== undefined) {
+
+  /*if (muelleField !== undefined) {
     if (muelleField.length == "") {
       $("#muelleerror").show();
     } else {
       $("#muelleerror").hide();
     }
-  }
+  }*/
 
   if (refField.length == "") {
     $("#referror").show();
@@ -228,36 +227,10 @@ function validateDate(){
   
       }
     }
-
-
-    
-
-    /*if(yearPicker.length == 0){
-      console.log(user_date);
-      console.log(yearPicker);
-      $("#dateerroryear").hide();
-
-    }else{
-      if (yearPicker > year) {
-        $("#dateerroryear").show();
-        $("#dateerroryear").html("El año no puede ser mayor al año en curso.");
-  
-      } 
-      
-      if(yearPicker < year){
-        $("#dateerroryear").show();
-        $("#dateerroryear").html("El año no puede ser menor al año en curso.");
-      }
-  
-      if(yearPicker == year){
-        console.log("Fechas ok.");
-        $("#dateerroryear").hide();
-      }
-    }*/
-
-
-  
 }
+
+
+
 
 /*function validateFormatDate(dateGet) {
   console.log("Hola",dateGet);
@@ -332,6 +305,7 @@ function saveInfo() {
   
   $.post(
     "/sendMail/" ,
+    //"http://localhost:8080/sendMail/" ,
     function (data, status) {
       console.log("Data: " + data + "\nStatus: " + status);
       if(status = "success"){
@@ -345,14 +319,26 @@ function saveInfo() {
 $("#validateRNPA").click(function () {
   validateUsername();
 
-  if (usernameError == true) {
-    console.log(usernameError);
-  } else {
-    console.log(usernameError);
-    $(".CardSolicitudOne").hide();
-    $(".CardSolicitudTwo").show();
-    return false;
+  if (datesMail.RNPA) {
+    console.log(datesMail.RNPA);
+
+    if(datesMail.RNPA == "12345678"){
+      $(".CardSolicitudOne").hide();
+      $(".CardSolicitudTwo").show();
+      return false;
+    } else {
+
+      $("#usercheck").show();
+      $("#usercheck").html("El RNPA no existe.");
+    
+
   }
+}
+
+
+
+
+
 });
 
 $("#sendRNPA").click(function () {
@@ -372,6 +358,8 @@ let cancelarSolicitud = () => {
   $(".CardSolicitudThree").hide();
   //Limpiamos los formularios
   document.getElementById("usernames").value = "";
+  document.getElementById("myForm").reset();
+
 };
 
 //Funcion del FRAMEWORK de gobienrno que se ejecuta cuando todas las dependencias se cargaron correctamente
