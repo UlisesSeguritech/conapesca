@@ -191,21 +191,48 @@ function validateDate(){
     // muestra la fecha de hoy en formato `MM/DD/YYYY`
     //console.log(`0${day}/0${month}/${year}`);
 
-    var d_reg = /^([0-2][0-9]|3[0-1])(\/|-)(0[1-9]|1[0-2])\2(\d{4})$/;
+    var d_reg =  /^(0[1-9]|[1-2]\d|3[01])(\/)(0[1-9]|1[012])\2(\d{4})$/;
     var dateValue = $("#calendarYear").val();
     var user_date = dateValue;
     var yearPicker = dateValue.substring(dateValue.length - 4)
+    console.log("valor date value", user_date);
 
+    if(user_date){
+      if (d_reg.test(user_date)) {
+        console.log("valor date value", user_date, yearPicker);
+  
+        if (yearPicker > year) {
+          
+          $("#dateerroryear").show();
+          $("#dateerroryear").html("El año no puede ser mayor al año en curso.");
+    
+        } 
+        
+        if(yearPicker < year){
+          $("#dateerroryear").show();
+          $("#dateerroryear").html("El año no puede ser menor al año en curso.");
+        }
+    
+        if(yearPicker == year){
+          console.log("Fechas ok.");
+          $("#dateerroryear").hide();
+        }
+  
+        console.log("Success");
+      } else{
+      console.log("valor date value", user_date);
+  
+        $("#dateerroryear").show();
+        $("#dateerroryear").html("El formato de fecha es invalido.");
 
-    if (d_reg.test(user_date)) {
-      console.log("Success");
-      $("#dateerroryear").hide();
-    } else{
-      $("#dateerroryear").show();
-
+  
+      }
     }
 
-    if(yearPicker.length == 0){
+
+    
+
+    /*if(yearPicker.length == 0){
       console.log(user_date);
       console.log(yearPicker);
       $("#dateerroryear").hide();
@@ -226,15 +253,15 @@ function validateDate(){
         console.log("Fechas ok.");
         $("#dateerroryear").hide();
       }
-    }
+    }*/
 
 
   
 }
 
-function validateFormatDate(dateGet) {
-  console.log(dateGet);
-  var d_reg = /^([0-2][0-9]|3[0-1])(\/|-)(0[1-9]|1[0-2])\2(\d{4})$/;
+/*function validateFormatDate(dateGet) {
+  console.log("Hola",dateGet);
+  var d_reg =  /^(0[1-9]|[1-2]\d|3[01])(\/)(0[1-9]|1[012])\2(\d{4})$/;
   if (d_reg.test(dateGet)) {
     console.log("Success");
     $("#dateerroryear").hide();
@@ -246,7 +273,7 @@ function validateFormatDate(dateGet) {
   }
 
 
-}
+}*/
 
 function validateEmail() {
   // Get our input reference.
