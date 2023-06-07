@@ -300,20 +300,28 @@ function saveInfo() {
     (datesMail.contacto = contactValue),
     (datesMail.mail = mailValue);
 
-  console.log(datesMail);
+  console.log(JSON.stringify(datesMail));
+
+  console.log(typeof datesMail);
+  nuw = JSON.stringify(datesMail);
+
+  $.ajax({
+    url: '/sendMail/',
+    headers: {
+        'Content-Type':'application/json'
+    },
+    method: 'POST',
+    dataType: 'json',
+    data: nuw,
+    complete : function(xhr, status) {
+      alert("Gracias, sus datos se enviaron con éxito. Estado: ")
+      document.location.href="/"; 
+  }
+  });
 
   
-  $.post(
-    "/sendMail/" ,
-    //"http://localhost:8080/sendMail/" ,
-    function (data, status) {
-      console.log("Data: " + data + "\nStatus: " + status);
-      if(status = "success"){
-        alert("Gracias, sus datos se enviaron con éxito.")
-        document.location.href="/";
-      }
-    }
-  );
+
+
 }
 
 $("#validateRNPA").click(function () {
@@ -358,6 +366,7 @@ let cancelarSolicitud = () => {
   $(".CardSolicitudThree").hide();
   //Limpiamos los formularios
   document.getElementById("usernames").value = "";
+  $("#usercheck").hide();
   document.getElementById("myForm").reset();
 
 };
