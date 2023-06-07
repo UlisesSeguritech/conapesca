@@ -53,6 +53,8 @@ $("#dateerror").hide();
 $("#timeerror").hide();
 $("#phoneerror").hide();
 $("#contacterror").hide();
+$("#contacterrorstart").hide();
+$("#contacterrorend").hide();
 $("#mailerror").hide();
 $("#descerror").hide();
 $("#deserrorstart").hide();
@@ -73,9 +75,15 @@ $("#descForm").keyup(function () {
   validateWhiteSpaces();
 });
 
+$("#contactForm").keyup(function () {
+  validateWhiteSpaces();
+});
+
+
 function validateWhiteSpaces(){
   let refField = $("#refrenciaForm").val();
   let desField = $("#descForm").val();
+  let contactField = $("#contactForm").val();
 
   let regex = /^\s+/;
   let regexFin = /\s+$/;
@@ -88,11 +96,12 @@ function validateWhiteSpaces(){
     }
   
     if (regexFin.test(refField)) {
-      $("#referrorend").show();
+      $("#referrorstart").show();
     } else {
-      $("#referrorend").hide();
+      $("#referrorstart").hide();
     }
   }
+
 
   if(desField){
     if (regex.test(desField)) {
@@ -102,9 +111,24 @@ function validateWhiteSpaces(){
     }
   
     if (regexFin.test(desField)) {
-      $("#deserrorend").show();
+      $("#deserrorstart").show();
     } else {
-      $("#deserrorend").hide();
+      $("#deserrorstart").hide();
+    }
+  }
+
+  
+  if(contactField){
+    if (regex.test(contactField)) {
+      $("#contacterrorstart").show();
+    } else {
+      $("#contacterrorstart").hide();
+    }
+  
+    if (regexFin.test(contactField)) {
+      $("#contacterrorstart").show();
+    } else {
+      $("#contacterrorstart").hide();
     }
   }
 
