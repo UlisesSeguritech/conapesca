@@ -47,12 +47,16 @@ $("#stateerror").hide();
 $("#localerror").hide();
 $("#muelleerror").hide();
 $("#referror").hide();
+$("#referrorstart").hide();
+$("#referrorend").hide();
 $("#dateerror").hide();
 $("#timeerror").hide();
 $("#phoneerror").hide();
 $("#contacterror").hide();
 $("#mailerror").hide();
 $("#descerror").hide();
+$("#deserrorstart").hide();
+$("#deserrorend").hide();
 $("#dateerroryear").hide();
 
 let usernameError = true;
@@ -60,6 +64,52 @@ let usernameError = true;
 $("#usernames").keyup(function () {
   validateUsername();
 });
+
+$("#refrenciaForm").keyup(function () {
+  validateWhiteSpaces();
+});
+
+$("#descForm").keyup(function () {
+  validateWhiteSpaces();
+});
+
+function validateWhiteSpaces(){
+  let refField = $("#refrenciaForm").val();
+  let desField = $("#descForm").val();
+
+  let regex = /^\s+/;
+  let regexFin = /\s+$/;
+
+  if(refField){
+    if (regex.test(refField)) {
+      $("#referrorstart").show();
+    } else {
+      $("#referrorstart").hide();
+    }
+  
+    if (regexFin.test(refField)) {
+      $("#referrorend").show();
+    } else {
+      $("#referrorend").hide();
+    }
+  }
+
+  if(desField){
+    if (regex.test(desField)) {
+      $("#deserrorstart").show();
+    } else {
+      $("#deserrorstart").hide();
+    }
+  
+    if (regexFin.test(desField)) {
+      $("#deserrorend").show();
+    } else {
+      $("#deserrorend").hide();
+    }
+  }
+
+
+}
 
 function validateUsername() {
   let usernameValue = $("#usernames").val();
@@ -114,6 +164,8 @@ function validateInputs() {
       $("#muelleerror").hide();
     }
   }*/
+
+
 
   if (refField.length == "") {
     $("#referror").show();
@@ -229,6 +281,26 @@ function validateDate(){
     }
 }
 
+var mensajeRef = document.getElementById('refrenciaForm');
+var contadorRef = document.getElementById('contadorRef');
+var mensajeDes = document.getElementById('descForm');
+var contadorDes = document.getElementById('contadorDes');
+
+mensajeRef.addEventListener('input', function(e) {
+  var target = e.target;
+  //var longitudMax = target.getAttribute('maxlength');
+  var longitudAct = target.value.length;
+  var longMin = target.getAttribute('maxlength') - target.value.length;
+  contadorRef.innerHTML = `${longitudAct}/${longMin}`;
+});
+
+mensajeDes.addEventListener('input', function(e) {
+  var target = e.target;
+  //var longitudMax = target.getAttribute('maxlength');
+  var longitudAct = target.value.length;
+  var longMin = target.getAttribute('maxlength') - target.value.length;
+  contadorDes.innerHTML = `${longitudAct}/${longMin}`;
+});
 
 
 

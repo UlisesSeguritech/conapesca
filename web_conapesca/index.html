@@ -1842,28 +1842,55 @@
                                 Es necesario ingresar un Muelle.
                               </p>
                             </div>
-                            <div class="col-md-6">
-                              <input
-                                class="form-control"
-                                placeholder="Referencia"
-                                type="text"
-                                id="refrenciaForm"
-                              />
-                              <p id="referror" style="color: red; text-align: left !important;">
-                                Es necesario ingresar una Referencia.
-                              </p>
-                            </div>
+
                           </div>
                           <div class="row">
+                            <div class="col-sm-12">
+                              <textarea
+                                class="form-control w-100"
+                                placeholder="Referencia"
+                                rows="3"
+                                maxlength="2000"
+                                id="refrenciaForm"
+                                style="resize: none;"
+                              ></textarea>
+                              <span id="contadorRef" style=" position: absolute;
+                              margin-left: 225px;
+                              margin-top: -20px;
+                              font-size: small;
+                              color: darkgray;">0/2000</span>
+                              <p id="referror" style="color: red; text-align: left !important;">
+                                Es necesario ingresar una Referencia. 
+                              </p>
+                              <p id="referrorstart" style="color: red; text-align: left !important;">
+                                No puede ingresar espacios en blanco al principio. 
+                              </p>
+                              <p id="referrorend" style="color: red; text-align: left !important;">
+                                No puede ingresar espacios en blanco al final. 
+                              </p>
+                            </div>
                             <div class="col-sm-12">
                               <textarea
                                 class="form-control w-100"
                                 placeholder="Descripción de la falla"
                                 rows="3"
                                 id="descForm"
+                                maxlength="2000"
+                                style="resize: none;"
                               ></textarea>
+                              <span id="contadorDes" style=" position: absolute;
+                              margin-left: 225px;
+                              margin-top: -20px;
+                              font-size: small;
+                              color: darkgray;">0/2000</span>
                               <p id="descerror" style="color: red; text-align: left !important;">
                                 Es necesario ingresar una descripción.
+                              </p>
+                              <p id="deserrorstart" style="color: red; text-align: left !important;">
+                                No puede ingresar espacios en blanco al principio. 
+                              </p>
+                              <p id="deserrorend" style="color: red; text-align: left !important;">
+                                No puede ingresar espacios en blanco al final. 
                               </p>
                             </div>
                           </div>
@@ -1917,7 +1944,7 @@
                                 class="form-control"
                                 type="text"
                                 placeholder="Teléfono"
-                                maxlength="12"
+                                maxlength="10"
                                 id="telForm"
                               />
                               <p id="phoneerror" style="color: red; text-align: left !important;">
@@ -1931,26 +1958,25 @@
                                 placeholder="Persona de contacto"
                                 id="contactForm"
                                 onkeypress="return soloLetras(event)"
+                                maxlength="100"
                               />
                               <p id="contacterror" style="color: red; text-align: left !important;">
                                 Es necesario ingresar un contacto.
                               </p>
                             </div>
-                          </div>
-                          <div class="row">
-                            <div class="col-md-12">
+                            <div class="col-md-6">
                               <input
                                 class="form-control"
                                 type="email"
                                 placeholder="Correo electrónico"
                                 id="mailForm"
+                                maxlength="50"
                               />
                               <p id="mailerror" style="color: red; text-align: left !important;">
                                 Es necesario ingresar un correo electrónico.
                               </p>
                             </div>
                           </div>
-
                           <div class="row">
                             <div class="col-md-6">
                               <button
