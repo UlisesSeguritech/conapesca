@@ -135,6 +135,7 @@ function validateWhiteSpaces(){
 
 }
 
+
 function validateUsername() {
   let usernameValue = $("#usernames").val();
   if (usernameValue.length == "") {
@@ -630,4 +631,63 @@ $gmx(document).ready(function () {
       }
     });
   });
+
+
+
+ //Time piker responsive
+ const timepickerButton = document.getElementById("timeForm");
+ const timepickerContainer = document.getElementById("timepicker");
+ const confirmButton = document.getElementById("confirm");
+ 
+ // Mostrar/ocultar el time picker al hacer clic en el botón
+ timepickerButton.addEventListener("click", () => {
+   timepickerContainer.classList.toggle("hidden");
+ });
+ 
+ // Obtener la hora seleccionada al hacer clic en el botón "Confirmar"
+ confirmButton.addEventListener("click", () => {
+   const selectedHour = document.getElementById("hours").value;
+   const selectedMinute = document.getElementById("minutes").value;
+   const formattedTime = `${selectedHour}:${selectedMinute}`;
+ 
+   // Asignar la hora seleccionada al input
+   timepickerButton.value = formattedTime;
+ 
+   // Ocultar el time picker
+   timepickerContainer.classList.add("hidden");
+ });
+
+
+
+
+
+
+  //Time piker descktop
+  const timepickerButtonR = document.getElementById("timeFormR");
+  const timepickerContainerR = document.getElementById("timepickerR");
+  const confirmButtonR = document.getElementById("confirmR");
+  
+  // Mostrar/ocultar el time picker al hacer clic en el botón
+  timepickerButtonR.addEventListener("click", () => {
+    timepickerContainerR.classList.toggle("hidden");
+    console.log('clicltime');
+  });
+  
+  // Obtener la hora seleccionada al hacer clic en el botón "Confirmar"
+  confirmButtonR.addEventListener("click", () => {
+    const selectedHour = document.getElementById("hoursR").value;
+    const selectedMinute = document.getElementById("minutesR").value;
+    const formattedTime = `${selectedHour}:${selectedMinute}`;
+  
+    // Asignar la hora seleccionada al input
+    timepickerButtonR.value = formattedTime;
+  
+    // Ocultar el time picker
+    timepickerContainerR.classList.add("hidden");
+  });
+ 
+ 
+
+
+
 }); //Termina inicializador de framework

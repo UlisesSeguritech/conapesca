@@ -1,3 +1,43 @@
+/* Estilos para el time picker */
+#timepicker {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  background-color: #ffffff;
+  border: 1px solid #ccc;
+  margin-top: -25px;
+  padding: 5px; 
+  
+  text-align: center;
+  border-radius: 8px;
+  position: absolute;
+  z-index: 500;
+  width: 95%;
+  
+}
+nav{
+  z-index: 9999;
+
+}
+#timepicker button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#hours{
+  margin-top: 33px;
+}
+#minutes{
+  margin-top: 33px;
+}
+
+.hidden {
+  display: none;
+}
+
+
+
 body{    
   width:100%;
   overflow-x: hidden;
@@ -14,6 +54,10 @@ h2,
 h1 {
   text-align: left;
   /*color: #545454;*/
+}
+
+.top-buffer li a{
+  text-align: center;
 }
 footer p,
 li,
