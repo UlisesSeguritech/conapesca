@@ -1895,7 +1895,6 @@
                                 <option value="6">Cuba</option>
                                 <option value="7">Guerrero</option>
                                 <option value="8">Nayarit</option>
-                                <option value="9">Nuevo León</option>
                                 <option value="10">Oaxaca</option>
                                 <option value="11">Quintana Roo</option>
                                 <option value="12">Sinaloa</option>
@@ -1903,7 +1902,7 @@
                                 <option value="14">Tabasco</option>
                                 <option value="15">Tamaulipas</option>
                                 <option value="16">Veracruz</option>
-                                <option value="Yucatán">Yucatán</option>
+                                <option value="17">Yucatán</option>
                               </select>
                               <p id="stateerror" style="color: red; text-align: left !important;">
                                 Es necesario ingresar un Estado.
@@ -2004,7 +2003,8 @@
                                   class="form-control"
                                   id="calendarYear"
                                   type="text"
-                                  maxlength="10"
+                                  placeholder=""
+                                  readonly 
                                 />
                                 <span
                                   class="glyphicon glyphicon-calendar"
@@ -2021,7 +2021,7 @@
                             </div>
                             <div class="col-md-6">
                               <label class="form-label">Hora sugerida</label>
-                              <input  class="form-control" type="text" id="timeForm" placeholder="Selecciona la hora">
+                              <input  class="form-control" type="text" id="timeForm"  placeholder="08:00" readonly>
   
                                 <div id="timepicker" class="hidden ">
                                   

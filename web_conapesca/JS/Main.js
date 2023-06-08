@@ -1,4 +1,20 @@
 var datesMail = {};
+    // crea un nuevo objeto `Date`
+    var today = new Date();
+    
+    // `getDate()` devuelve el día del mes (del 1 al 31)
+    var day = today.getDate();
+    
+    // `getMonth()` devuelve el mes (de 0 a 11)
+    var month = today.getMonth() + 1;
+    
+    // `getFullYear()` devuelve el año completo
+    var year = today.getFullYear();
+
+    var setDay = day+"/"+month+"/"+year;
+    $('#calendarYear').attr('placeholder',
+    setDay);
+
 
 function getEstado(val) {
   console.log(val);
@@ -252,17 +268,7 @@ function soloLetras(e) {
 
 function validateDate(){
 
-    // crea un nuevo objeto `Date`
-    var today = new Date();
-    
-    // `getDate()` devuelve el día del mes (del 1 al 31)
-    var day = today.getDate();
-    
-    // `getMonth()` devuelve el mes (de 0 a 11)
-    var month = today.getMonth() + 1;
-    
-    // `getFullYear()` devuelve el año completo
-    var year = today.getFullYear();
+
 
     var d_reg =  /^(0[1-9]|[1-2]\d|3[01])(\/)(0[1-9]|1[012])\2(\d{4})$/;
     var dateValue = $("#calendarYear").val();
@@ -477,6 +483,8 @@ let cancelarSolicitud = () => {
   document.getElementById("usernames").value = "";
   $("#usercheck").hide();
   document.getElementById("myForm").reset();
+  document.location.href="/"; 
+
 
 };
 
