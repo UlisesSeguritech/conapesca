@@ -262,44 +262,56 @@ function validateDate(){
     
     // `getFullYear()` devuelve el año completo
     var year = today.getFullYear();
-    
-    // muestra la fecha de hoy en formato `MM/DD/YYYY`
-    //console.log(`0${day}/0${month}/${year}`);
 
     var d_reg =  /^(0[1-9]|[1-2]\d|3[01])(\/)(0[1-9]|1[012])\2(\d{4})$/;
     var dateValue = $("#calendarYear").val();
-    var user_date = dateValue;
-    var yearPicker = dateValue.substring(dateValue.length - 4)
-    console.log("valor date value", user_date);
+    console.log("valor date value", dateValue);
 
-    if(user_date){
-      if (d_reg.test(user_date)) {
-        console.log("valor date value", user_date, yearPicker);
-  
-        if (yearPicker > year) {
-          
+    var dayIn = parseInt(dateValue.split('/')[0])
+    var monthIn = parseInt(dateValue.split('/')[1])
+    var yearIn = parseInt(dateValue.split('/')[2])
+
+    console.log("aqui",dayIn,monthIn,yearIn)
+    console.log("aqui2",day,month,year)
+
+    if(dateValue){
+      if (d_reg.test(dateValue)) {
+        console.log("Success");
+        if(yearIn < year ){
           $("#dateerroryear").show();
-          $("#dateerroryear").html("El año no puede ser mayor al año en curso.");
+          $("#dateerroryear").html("El año no puede ser menor al actual.");
     
-        } 
-        
-        if(yearPicker < year){
-          $("#dateerroryear").show();
-          $("#dateerroryear").html("El año no puede ser menor al año en curso.");
+
         }
-    
-        if(yearPicker == year){
-          console.log("Fechas ok.");
+
+        if(yearIn == year ){
+          if(monthIn >= month && dayIn >= day){
+          $("#dateerroryear").hide();
+          }
+
+          if(monthIn <= month && dayIn < day){
+            $("#dateerroryear").show();
+            $("#dateerroryear").html("La fecha no puede ser menor al dia en curso.");
+          }
+
+          if(monthIn < month && dayIn <= day){
+            $("#dateerroryear").show();
+            $("#dateerroryear").html("La fecha no puede ser menor al dia en curso.");
+          }
+          
+        }
+
+        if(yearIn == year+1 || yearIn == year+2 ){
           $("#dateerroryear").hide();
         }
-  
-        console.log("Success");
+
+          if(yearIn > year+2 ){
+            $("#dateerroryear").show();
+            $("#dateerroryear").html("La fecha no puede superar 2 años del actual.");
+        }
       } else{
-      console.log("valor date value", user_date);
-  
         $("#dateerroryear").show();
         $("#dateerroryear").html("El formato de fecha es invalido.");
-
   
       }
     }
