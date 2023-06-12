@@ -12,7 +12,7 @@ var datesMail = {};
     var year = today.getFullYear();
 
     var setDay = day+"/"+month+"/"+year;
-    $('#calendarYear').attr('placeholder',
+    $('#calendarYearR').attr('placeholder',
     setDay);
 
 
@@ -25,21 +25,21 @@ function getEstado(val) {
     function (data, status) {
       console.log("Data: " + data + "\nStatus: " + status);
       if (data) {
-        $("#inputLoc").prop("disabled", false);
-        $("#inputLoc").empty();
-        $("#inputLoc").append('<option value="0">Localidad</option>');
+        $("#inputLocR").prop("disabled", false);
+        $("#inputLocR").empty();
+        $("#inputLocR").append('<option value="0">Localidad</option>');
 
         
 
         for (i = 0; i < data.length; i++) {
-          $("#inputLoc").append('<option  value="' +
+          $("#inputLocR").append('<option  value="' +
               data[i].id +
               '">' +
               data[i].nameLoc +
               "</option>"
           );
-          $("#inputLoc").val(0);
-          $("#inputLoc").focus();
+          $("#inputLocR").val(0);
+          $("#inputLocR").focus();
         }
       }
     }
@@ -51,97 +51,97 @@ function getLocalidad(val) {
     //$.get("http://localhost:8080/localidad/" + val, function (data, status) {
     console.log("si",data.namePue)
     if (data) {
-      $("#inputMue").prop("disabled", true);
-      $("#inputMue").empty();
-      $("#inputMue").val(data.namePue);
+      $("#inputMueR").prop("disabled", true);
+      $("#inputMueR").empty();
+      $("#inputMueR").val(data.namePue);
     }
   });
 }
 
-$("#usercheck").hide();
-$("#stateerror").hide();
-$("#localerror").hide();
-$("#muelleerror").hide();
-$("#referror").hide();
-$("#referrorstart").hide();
-$("#referrorend").hide();
+$("#usercheckR").hide();
+$("#stateerrorR").hide();
+$("#localerrorR").hide();
+$("#muelleerrorR").hide();
+$("#referrorR").hide();
+$("#referrorstartR").hide();
+$("#referrorendR").hide();
 $("#dateerror").hide();
-$("#timeerror").hide();
-$("#phoneerror").hide();
+$("#timeerrorR").hide();
+$("#phoneerrorR").hide();
 $("#contacterror").hide();
 $("#contacterrorstart").hide();
 $("#contacterrorend").hide();
-$("#mailerror").hide();
-$("#descerror").hide();
-$("#deserrorstart").hide();
-$("#deserrorend").hide();
+$("#mailerrorR").hide();
+$("#descerrorR").hide();
+$("#deserrorstartR").hide();
+$("#deserrorendR").hide();
 $("#dateerroryear").hide();
 
 let usernameError = true;
 
-$("#usernames").keyup(function () {
-  validateUsername();
+$("#usernamesR").keyup(function () {
+  validateUsernameR();
 });
 
-$("#refrenciaForm").keyup(function () {
+$("#refrenciaFormR").keyup(function () {
   validateWhiteSpaces();
 });
 
-$("#descForm").keyup(function () {
+$("#descFormR").keyup(function () {
   validateWhiteSpaces();
 });
 
-$("#contactForm").keyup(function () {
+$("#contactFormR").keyup(function () {
   validateWhiteSpaces();
 });
 
 
 function validateWhiteSpaces(){
-  let refField = $("#refrenciaForm").val();
-  let desField = $("#descForm").val();
-  let contactField = $("#contactForm").val();
+  let refFieldR = $("#refrenciaFormR").val();
+  let desField = $("#descFormR").val();
+  let contactFieldR = $("#contactFormR").val();
 
   let regex = /^\s+/;
   let regexFin = /\s+$/;
 
-  if(refField){
-    if (regex.test(refField)) {
-      $("#referrorstart").show();
+  if(refFieldR){
+    if (regex.test(refFieldR)) {
+      $("#referrorstartR").show();
     } else {
-      $("#referrorstart").hide();
+      $("#referrorstartR").hide();
     }
   
-    if (regexFin.test(refField)) {
-      $("#referrorstart").show();
+    if (regexFin.test(refFieldR)) {
+      $("#referrorstartR").show();
     } else {
-      $("#referrorstart").hide();
+      $("#referrorstartR").hide();
     }
   }
 
 
   if(desField){
     if (regex.test(desField)) {
-      $("#deserrorstart").show();
+      $("#deserrorstartR").show();
     } else {
-      $("#deserrorstart").hide();
+      $("#deserrorstartR").hide();
     }
   
     if (regexFin.test(desField)) {
-      $("#deserrorstart").show();
+      $("#deserrorstartR").show();
     } else {
-      $("#deserrorstart").hide();
+      $("#deserrorstartR").hide();
     }
   }
 
   
-  if(contactField){
-    if (regex.test(contactField)) {
+  if(contactFieldR){
+    if (regex.test(contactFieldR)) {
       $("#contacterrorstart").show();
     } else {
       $("#contacterrorstart").hide();
     }
   
-    if (regexFin.test(contactField)) {
+    if (regexFin.test(contactFieldR)) {
       $("#contacterrorstart").show();
     } else {
       $("#contacterrorstart").hide();
@@ -152,19 +152,19 @@ function validateWhiteSpaces(){
 }
 
 
-function validateUsername() {
-  let usernameValue = $("#usernames").val();
+function validateUsernameR() {
+  let usernameValue = $("#usernamesR").val();
   if (usernameValue.length == "") {
-    $("#usercheck").show();
+    $("#usercheckR").show();
     usernameError = true;
     //return false;
   } else if (usernameValue.length < 8) {
-    $("#usercheck").show();
-    $("#usercheck").html("El RNPA debe contener 8 caracteres.");
+    $("#usercheckR").show();
+    $("#usercheckR").html("El RNPA debe contener 8 caracteres.");
     usernameError = true;
     //return false;
   } else {
-    $("#usercheck").hide();
+    $("#usercheckR").hide();
     usernameError = false;
     console.log(usernameValue);
     datesMail.RNPA = usernameValue;
@@ -172,27 +172,27 @@ function validateUsername() {
   }
 }
 
-function validateInputs() {
-  let stateField = $("#estado").val();
-  let localField = $("#inputLoc").val();
-  let muelleField = $("#inputMue").val();
-  let refField = $("#refrenciaForm").val();
-  let descField = $("#descForm").val();
-  let dateField = $("#calendarYear").val();
-  let timetField = $("#timeForm").val();
-  let telField = $("#telForm").val();
-  let contactField = $("#contactForm").val();
+function validateInputsR() {
+  let stateFieldR = $("#estadoR").val();
+  let localFieldR = $("#inputLocR").val();
+  let muelleField = $("#inputMueR").val();
+  let refFieldR = $("#refrenciaFormR").val();
+  let descFieldR = $("#descFormR").val();
+  let dateFieldR = $("#calendarYearR").val();
+  let timetFieldR = $("#timeFormR").val();
+  let telFieldR = $("#telFormR").val();
+  let contactFieldR = $("#contactFormR").val();
 
-  if (stateField.length == "" || stateField.length == 0) {
-    $("#stateerror").show();
+  if (stateFieldR.length == "" || stateFieldR.length == 0) {
+    $("#stateerrorR").show();
 
 
   } else {
-    $("#stateerror").hide();
-    if (localField == 0) {
-      $("#localerror").show();
+    $("#stateerrorR").hide();
+    if (localFieldR == 0) {
+      $("#localerrorR").show();
     } else {
-      $("#localerror").hide();
+      $("#localerrorR").hide();
     }
   }
 
@@ -200,27 +200,27 @@ function validateInputs() {
 
   /*if (muelleField !== undefined) {
     if (muelleField.length == "") {
-      $("#muelleerror").show();
+      $("#muelleerrorR").show();
     } else {
-      $("#muelleerror").hide();
+      $("#muelleerrorR").hide();
     }
   }*/
 
 
 
-  if (refField.length == "") {
-    $("#referror").show();
+  if (refFieldR.length == "") {
+    $("#referrorR").show();
   } else {
-    $("#referror").hide();
+    $("#referrorR").hide();
   }
 
-  if (descField.length == "") {
-    $("#descerror").show();
+  if (descFieldR.length == "") {
+    $("#descerrorR").show();
   } else {
-    $("#descerror").hide();
+    $("#descerrorR").hide();
   }
 
-  if (dateField.length == "") {
+  if (dateFieldR.length == "") {
     $("#dateerror").show();
     $("#dateerroryear").hide();
 
@@ -228,19 +228,19 @@ function validateInputs() {
     $("#dateerror").hide();
   }
 
-  if (timetField.length == "") {
-    $("#timeerror").show();
+  if (timetFieldR.length == "") {
+    $("#timeerrorR").show();
   } else {
-    $("#timeerror").hide();
+    $("#timeerrorR").hide();
   }
 
-  if (telField.length == "") {
-    $("#phoneerror").show();
+  if (telFieldR.length == "") {
+    $("#phoneerrorR").show();
   } else {
-    $("#phoneerror").hide();
+    $("#phoneerrorR").hide();
   }
 
-  if (contactField.length == "") {
+  if (contactFieldR.length == "") {
     $("#contacterror").show();
   } else {
     $("#contacterror").hide();
@@ -266,12 +266,12 @@ function soloLetras(e) {
   }
 }
 
-function validateDate(){
+function validateDateR(){
 
 
 
     var d_reg =  /^(0[1-9]|[1-2]\d|3[01])(\/)(0[1-9]|1[012])\2(\d{4})$/;
-    var dateValue = $("#calendarYear").val();
+    var dateValue = $("#calendarYearR").val();
     console.log("valor date value", dateValue);
 
     var dayIn = parseInt(dateValue.split('/')[0])
@@ -324,25 +324,25 @@ function validateDate(){
     }
 }
 
-var mensajeRef = document.getElementById('refrenciaForm');
-var contadorRef = document.getElementById('contadorRef');
-var mensajeDes = document.getElementById('descForm');
-var contadorDes = document.getElementById('contadorDes');
+var mensajeRefR = document.getElementById('refrenciaFormR');
+var contadorRefR = document.getElementById('contadorRefR');
+var mensajeDesR = document.getElementById('descFormR');
+var contadorDesR = document.getElementById('contadorDesR');
 
-mensajeRef.addEventListener('input', function(e) {
+mensajeRefR.addEventListener('input', function(e) {
   var target = e.target;
   //var longitudMax = target.getAttribute('maxlength');
   var longitudAct = target.value.length;
   var longMin = target.getAttribute('maxlength') - target.value.length;
-  contadorRef.innerHTML = `${longitudAct}/${longMin}`;
+  contadorRefR.innerHTML = `${longitudAct}/${longMin}`;
 });
 
-mensajeDes.addEventListener('input', function(e) {
+mensajeDesR.addEventListener('input', function(e) {
   var target = e.target;
   //var longitudMax = target.getAttribute('maxlength');
   var longitudAct = target.value.length;
   var longMin = target.getAttribute('maxlength') - target.value.length;
-  contadorDes.innerHTML = `${longitudAct}/${longMin}`;
+  contadorDesR.innerHTML = `${longitudAct}/${longMin}`;
 });
 
 
@@ -363,50 +363,50 @@ mensajeDes.addEventListener('input', function(e) {
 
 }*/
 
-function validateEmail() {
+function validateEmailR() {
   // Get our input reference.
-  var emailField = document.getElementById("mailForm");
+  var emailField = document.getElementById("mailFormR");
 
   // Define our regular expression.
   var validEmail = /^\w+([.-_+]?\w+)*@\w+([.-]?\w+)*(\.\w{2,10})+$/;
-  let mailValue = $("#mailForm").val();
+  let mailValue = $("#mailFormR").val();
 
   if (mailValue.length == "") {
-    $("#mailerror").show();
+    $("#mailerrorR").show();
   } else {
-    $("#mailerror").hide();
+    $("#mailerrorR").hide();
   }
 
   // Using test we can check if the text match the pattern
   if (validEmail.test(emailField.value)) {
     console.log("Email is valid, continue with form submission");
 
-    mailError = false;
+    mailErrorR = false;
   } else {
     console.log("Email is invalid, skip form submission");
-    $("#mailerror").show();
-    $("#mailerror").html("Ingrese un formato válido de correo electrónico.");
-    mailError = true;
+    $("#mailerrorR").show();
+    $("#mailerrorR").html("Ingrese un formato válido de correo electrónico.");
+    mailErrorR = true;
   }
 }
 
 function saveInfo() {
-  let usernameValue = $("#usernames").val();
-  let estadoValue = $("#estado").val();
-  let localidadValue = $("#inputLoc").val();
-  let muelleValue = $("#inputMue").val();
-  let refValue = $("#refrenciaForm").val();
-  let descValue = $("#descForm").val();
-  let dateValue = $("#calendarYear").val();
-  let timeValue = $("#timeForm").val();
-  let telValue = $("#telForm").val();
-  let contactValue = $("#contactForm").val();
-  let mailValue = $("#mailForm").val();
+  let usernameValue = $("#usernamesR").val();
+  let estadoRValue = $("#estadoR").val();
+  let localidadValue = $("#inputLocR").val();
+  let muelleValue = $("#inputMueR").val();
+  let refValue = $("#refrenciaFormR").val();
+  let descValue = $("#descFormR").val();
+  let dateValue = $("#calendarYearR").val();
+  let timeValue = $("#timeFormR").val();
+  let telValue = $("#telFormR").val();
+  let contactValue = $("#contactFormR").val();
+  let mailValue = $("#mailFormR").val();
 
   datesMail.RNPA = usernameValue;
-  (datesMail.estado = estadoValue),
+  (datesMail.estado = estadoRValue),
     (datesMail.localidad = localidadValue),
-    (datesMail.inputMue = muelleValue),
+    (datesMail.inputMueR = muelleValue),
     (datesMail.referencia = refValue),
     (datesMail.descripcion = descValue),
     (datesMail.fecha = dateValue),
@@ -439,8 +439,8 @@ function saveInfo() {
 
 }
 
-$("#validateRNPA").click(function () {
-  validateUsername();
+$("#validateRNPAR").click(function () {
+  validateUsernameR();
 
   if (datesMail.RNPA) {
     console.log(datesMail.RNPA);
@@ -451,8 +451,8 @@ $("#validateRNPA").click(function () {
       return false;
     } else {
 
-      $("#usercheck").show();
-      $("#usercheck").html("El RNPA no existe.");
+      $("#usercheckR").show();
+      $("#usercheckR").html("El RNPA no existe.");
     
 
   }
@@ -465,10 +465,10 @@ $("#validateRNPA").click(function () {
 });
 
 $("#sendRNPA").click(function () {
-  validateInputs();
-  validateEmail();
-  validateDate();
-  if (mailError == false) {
+  validateInputsR();
+  validateEmailR();
+  validateDateR();
+  if (mailErrorR == false) {
     saveInfo();
   }
 });
@@ -480,18 +480,58 @@ let cancelarSolicitud = () => {
   $(".CardSolicitudTwo").hide();
   $(".CardSolicitudThree").hide();
   //Limpiamos los formularios
-  document.getElementById("usernames").value = "";
-  $("#usercheck").hide();
+  document.getElementById("usernamesR").value = "";
+  $("#usercheckR").hide();
   document.getElementById("myForm").reset();
   document.location.href="/"; 
 
 
 };
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //Funcion del FRAMEWORK de gobienrno que se ejecuta cuando todas las dependencias se cargaron correctamente
 //INICIALIZAMOS LOS INPUTS TIPO CALENDAR
 $gmx(document).ready(function () {
-  $("#calendarYear").datepicker({ changeYear: true });
+  $("#calendarYearR").datepicker({ changeYear: true });
 });
 $gmx(document).ready(function () {
   //ACORDION jQUERY
@@ -699,425 +739,3 @@ $gmx(document).ready(function () {
 
 
 }); //Termina inicializador de framework
-
-
-
-/**
- * 
- * BACK RESPONSIVE
- */
-
-$("#usercheckR").hide();
-$("#stateerrorR").hide();
-$("#localerrorR").hide();
-$("#muelleerrorR").hide();
-$("#referrorR").hide();
-$("#referrorstartR").hide();
-$("#referrorendR").hide();
-$("#dateerrorR").hide();
-$("#timeerrorR").hide();
-$("#phoneerrorR").hide();
-$("#contacterrorR").hide();
-$("#contacterrorstartR").hide();
-$("#contacterrorendR").hide();
-$("#mailerrorR").hide();
-$("#descerrorR").hide();
-$("#deserrorstartR").hide();
-$("#deserrorendR").hide();
-$("#dateerroryearR").hide();
-
-let usernameErrorR = true;
-
-$("#usernamesR").keyup(function () {
-  validateUsernameR();
-});
-
-$("#refrenciaFormR").keyup(function () {
-  validateWhiteSpacesR();
-});
-
-$("#descFormR").keyup(function () {
-  validateWhiteSpacesR();
-});
-
-$("#contactFormR").keyup(function () {
-  validateWhiteSpacesR();
-});
-
-
-function validateWhiteSpacesR(){
-  let refFieldR = $("#refrenciaFormR").val();
-  let desField = $("#descFormR").val();
-  let contactFieldR = $("#contactFormR").val();
-
-  let regex = /^\s+/;
-  let regexFin = /\s+$/;
-
-  if(refFieldR){
-    if (regex.test(refFieldR)) {
-      $("#referrorstartR").show();
-    } else {
-      $("#referrorstartR").hide();
-    }
-  
-    if (regexFin.test(refFieldR)) {
-      $("#referrorstartR").show();
-    } else {
-      $("#referrorstartR").hide();
-    }
-  }
-
-
-  if(desField){
-    if (regex.test(desField)) {
-      $("#deserrorstartR").show();
-    } else {
-      $("#deserrorstartR").hide();
-    }
-  
-    if (regexFin.test(desField)) {
-      $("#deserrorstartR").show();
-    } else {
-      $("#deserrorstartR").hide();
-    }
-  }
-
-  
-  if(contactFieldR){
-    if (regex.test(contactFieldR)) {
-      $("#contacterrorstart").show();
-    } else {
-      $("#contacterrorstart").hide();
-    }
-  
-    if (regexFin.test(contactFieldR)) {
-      $("#contacterrorstart").show();
-    } else {
-      $("#contacterrorstart").hide();
-    }
-  }
-
-
-}
-
-
-function validateUsernameR() {
-  let usernameValue = $("#usernamesR").val();
-  if (usernameValue.length == "") {
-    $("#usercheckR").show();
-    usernameErrorR = true;
-    //return false;
-  } else if (usernameValue.length < 8) {
-    $("#usercheckR").show();
-    $("#usercheckR").html("El RNPA debe contener 8 caracteres.");
-    usernameErrorR = true;
-    //return false;
-  } else {
-    $("#usercheckR").hide();
-    usernameErrorR = false;
-    console.log(usernameValue);
-    datesMail.RNPA = usernameValue;
-    console.log(datesMail);
-  }
-}
-
-function validateInputsR() {
-  let stateFieldR = $("#estadoR").val();
-  let localFieldR = $("#inputLocR").val();
-  let muelleField = $("#inputMueR").val();
-  let refFieldR = $("#refrenciaFormR").val();
-  let descFieldR = $("#descFormR").val();
-  let dateFieldR = $("#calendarYearR").val();
-  let timetFieldR = $("#timeFormR").val();
-  let telFieldR = $("#telFormR").val();
-  let contactFieldR = $("#contactFormR").val();
-
-  if (stateFieldR.length == "" || stateFieldR.length == 0) {
-    $("#stateerrorR").show();
-
-
-  } else {
-    $("#stateerrorR").hide();
-    if (localFieldR == 0) {
-      $("#localerrorR").show();
-    } else {
-      $("#localerrorR").hide();
-    }
-  }
-
-
-
-  /*if (muelleField !== undefined) {
-    if (muelleField.length == "") {
-      $("#muelleerrorR").show();
-    } else {
-      $("#muelleerrorR").hide();
-    }
-  }*/
-
-
-
-  if (refFieldR.length == "") {
-    $("#referrorR").show();
-  } else {
-    $("#referrorR").hide();
-  }
-
-  if (descFieldR.length == "") {
-    $("#descerrorR").show();
-  } else {
-    $("#descerrorR").hide();
-  }
-
-  if (dateFieldR.length == "") {
-    $("#dateerrorR").show();
-    $("#dateerroryearR").hide();
-
-  } else {
-    $("#dateerrorR").hide();
-  }
-
-  if (timetFieldR.length == "") {
-    $("#timeerrorR").show();
-  } else {
-    $("#timeerrorR").hide();
-  }
-
-  if (telFieldR.length == "") {
-    $("#phoneerrorR").show();
-  } else {
-    $("#phoneerrorR").hide();
-  }
-
-  if (contactFieldR.length == "") {
-    $("#contacterror").show();
-  } else {
-    $("#contacterror").hide();
-  }
-}
-
-function soloLetras(e) {
-  var key = e.keyCode || e.which,
-    tecla = String.fromCharCode(key).toLowerCase(),
-    letras = " áéíóúabcdefghijklmnñopqrstuvwxyz"
-    //especiales = [8, 37, 39, 46],
-    // = false;
-
-  /*for (var i in especiales) {
-    if (key == especiales[i]) {
-      tecla_especial = true;
-      break;
-    }
-  }*/
-
-  if (letras.indexOf(tecla) == -1) {
-    return false;
-  }
-}
-
-function validateDateR(){
-
-
-
-    var d_reg =  /^(0[1-9]|[1-2]\d|3[01])(\/)(0[1-9]|1[012])\2(\d{4})$/;
-    var dateValue = $("#calendarYearR").val();
-    console.log("valor date value", dateValue);
-
-    var dayIn = parseInt(dateValue.split('/')[0])
-    var monthIn = parseInt(dateValue.split('/')[1])
-    var yearIn = parseInt(dateValue.split('/')[2])
-
-    console.log("aqui",dayIn,monthIn,yearIn)
-    console.log("aqui2",day,month,year)
-
-    if(dateValue){
-      if (d_reg.test(dateValue)) {
-        console.log("Success");
-        if(yearIn < year ){
-          $("#dateerroryearR").show();
-          $("#dateerroryearR").html("El año no puede ser menor al actual.");
-    
-
-        }
-
-        if(yearIn == year ){
-          if(monthIn >= month && dayIn >= day){
-          $("#dateerroryearR").hide();
-          }
-
-          if(monthIn <= month && dayIn < day){
-            $("#dateerroryearR").show();
-            $("#dateerroryearR").html("La fecha no puede ser menor al dia en curso.");
-          }
-
-          if(monthIn < month && dayIn <= day){
-            $("#dateerroryearR").show();
-            $("#dateerroryearR").html("La fecha no puede ser menor al dia en curso.");
-          }
-          
-        }
-
-        if(yearIn == year+1 || yearIn == year+2 ){
-          $("#dateerroryearR").hide();
-        }
-
-          if(yearIn > year+2 ){
-            $("#dateerroryearR").show();
-            $("#dateerroryearR").html("La fecha no puede superar 2 años del actual.");
-        }
-      } else{
-        $("#dateerroryearR").show();
-        $("#dateerroryearR").html("El formato de fecha es invalido.");
-  
-      }
-    }
-}
-
-var mensajeRefR = document.getElementById('refrenciaFormR');
-var contadorRefR = document.getElementById('contadorRefR');
-var mensajeDesR = document.getElementById('descFormR');
-var contadorDesR = document.getElementById('contadorDesR');
-
-mensajeRefR.addEventListener('input', function(e) {
-  var target = e.target;
-  //var longitudMax = target.getAttribute('maxlength');
-  var longitudAct = target.value.length;
-  var longMin = target.getAttribute('maxlength') - target.value.length;
-  contadorRefR.innerHTML = `${longitudAct}/${longMin}`;
-});
-
-mensajeDesR.addEventListener('input', function(e) {
-  var target = e.target;
-  //var longitudMax = target.getAttribute('maxlength');
-  var longitudAct = target.value.length;
-  var longMin = target.getAttribute('maxlength') - target.value.length;
-  contadorDesR.innerHTML = `${longitudAct}/${longMin}`;
-});
-
-
-
-/*function validateFormatDate(dateGet) {
-  console.log("Hola",dateGet);
-  var d_reg =  /^(0[1-9]|[1-2]\d|3[01])(\/)(0[1-9]|1[012])\2(\d{4})$/;
-  if (d_reg.test(dateGet)) {
-    console.log("Success");
-    $("#dateerroryear").hide();
-  } else{
-    console.log("False");
-
-    $("#dateerroryear").show();
-
-  }
-
-
-}*/
-
-function validateEmailR() {
-  // Get our input reference.
-  var emailField = document.getElementById("mailFormR");
-
-  // Define our regular expression.
-  var validEmail = /^\w+([.-_+]?\w+)*@\w+([.-]?\w+)*(\.\w{2,10})+$/;
-  let mailValue = $("#mailFormR").val();
-
-  if (mailValue.length == "") {
-    $("#mailerrorR").show();
-  } else {
-    $("#mailerrorR").hide();
-  }
-
-  // Using test we can check if the text match the pattern
-  if (validEmail.test(emailField.value)) {
-    console.log("Email is valid, continue with form submission");
-
-    mailErrorR = false;
-  } else {
-    console.log("Email is invalid, skip form submission");
-    $("#mailerrorR").show();
-    $("#mailerrorR").html("Ingrese un formato válido de correo electrónico.");
-    mailErrorR = true;
-  }
-}
-
-function saveInfo() {
-  let usernameValue = $("#usernamesR").val();
-  let estadoRValue = $("#estadoR").val();
-  let localidadValue = $("#inputLocR").val();
-  let muelleValue = $("#inputMueR").val();
-  let refValue = $("#refrenciaFormR").val();
-  let descValue = $("#descFormR").val();
-  let dateValue = $("#calendarYearR").val();
-  let timeValue = $("#timeFormR").val();
-  let telValue = $("#telFormR").val();
-  let contactValue = $("#contactFormR").val();
-  let mailValue = $("#mailFormR").val();
-
-  datesMail.RNPA = usernameValue;
-  (datesMail.estado = estadoRValue),
-    (datesMail.localidad = localidadValue),
-    (datesMail.inputMueR = muelleValue),
-    (datesMail.referencia = refValue),
-    (datesMail.descripcion = descValue),
-    (datesMail.fecha = dateValue),
-    (datesMail.hora = timeValue),
-    (datesMail.telefono = telValue),
-    (datesMail.contacto = contactValue),
-    (datesMail.mail = mailValue);
-
-  console.log(JSON.stringify(datesMail));
-
-  console.log(typeof datesMail);
-  nuw = JSON.stringify(datesMail);
-
-  $.ajax({
-    url: '/sendMail/',
-    headers: {
-        'Content-Type':'application/json'
-    },
-    method: 'POST',
-    dataType: 'json',
-    data: nuw,
-    complete : function(xhr, status) {
-      alert("Gracias, sus datos se enviaron con éxito. Estado: ")
-      document.location.href="/"; 
-  }
-  });
-
-  
-
-
-}
-
-$("#validateRNPAR").click(function () {
-  validateUsernameR();
-
-  if (datesMail.RNPA) {
-    console.log(datesMail.RNPA);
-
-    if(datesMail.RNPA == "12345678"){
-      $(".CardSolicitudOne").hide();
-      $(".CardSolicitudTwo").show();
-      return false;
-    } else {
-
-      $("#usercheckR").show();
-      $("#usercheckR").html("El RNPA no existe.");
-    
-
-  }
-}
-
-
-
-
-
-});
-
-$("#sendRNPAR").click(function () {
-  validateInputsR();
-  validateEmailR();
-  validateDateR();
-  if (mailErrorR == false) {
-    saveInfo();
-  }
-});

@@ -61,23 +61,6 @@
                 style="margin-top: 9px"
             /></a>
           </div>
-          <!--
-                        <div class="collapse navbar-collapse" id="subenlaces">
-                            <ul class="nav navbar-nav navbar-right">
-                                <li><a href="#">Enlace</a></li>
-                                <li class="dropdown">
-                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Desplegable <span class="caret"></span></a>
-                                    <ul class="dropdown-menu" role="menu">
-                                        <li><a href="#">Link_1</a></li>
-                                        <li><a href="#">Link_2</a></li>
-                                        <li><a href="#">Link_3</a></li>
-                                        <li class="divider"></li>
-                                        <li><a href="#">Enlace separado</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </div>
-                        -->
         </div>
       </nav>
 
@@ -106,7 +89,7 @@
                   class="navbar-toggle"
                   data-toggle="collapse"
                   data-target="#navbar-menu"
-                  style="border: 0"
+                  style="border: 0; position: absolut"
                 >
                   <span class="sr-only">Interruptor de Navegación</span>
                   <span class="icon-bar"></span>
@@ -185,15 +168,25 @@
                 Localización y Monitoreo Satelital de Embarcaciones Pesqueras de
                 la CONAPESCA.
               </p>
-              
-
-
 
               <p><b>Ventajas del equipo transreceptor:</b></p>
               <div>
                 <ul>
                   <li>
-                    El sistema "BlueTraker VMS" permite una comunicación bidireccional entre el Centro de Monitoreo de Flota (FMC, por sus siglas en inglés) ubicado en Conapesca y el capitán de la embarcación en forma de mensajes de texto cortos. Esta innovadora solución permite el intercambio de mensajes incluso en lugares remotos, gracias al uso de satélites de IRIDIUM para proporcionar la transmisión. Mediante la instalación de la caja de conexiones LCD y el transpondedor equipado, las embarcaciones pueden enviar y recibir mensajes de manera eficiente y confiable. Ahora, los capitanes pueden mantener una comunicación constante y segura con CONAPESCA, independientemente de su ubicación en alta mar. Esta tecnología revolucionaria brinda una conexión directa y rápida, mejorando la coordinación y eficiencia operativa.
+                    El sistema "BlueTraker VMS" permite una comunicación
+                    bidireccional entre el Centro de Monitoreo de Flota (FMC,
+                    por sus siglas en inglés) ubicado en Conapesca y el capitán
+                    de la embarcación en forma de mensajes de texto cortos. Esta
+                    innovadora solución permite el intercambio de mensajes
+                    incluso en lugares remotos, gracias al uso de satélites de
+                    IRIDIUM para proporcionar la transmisión. Mediante la
+                    instalación de la caja de conexiones LCD y el transpondedor
+                    equipado, las embarcaciones pueden enviar y recibir mensajes
+                    de manera eficiente y confiable. Ahora, los capitanes pueden
+                    mantener una comunicación constante y segura con CONAPESCA,
+                    independientemente de su ubicación en alta mar. Esta
+                    tecnología revolucionaria brinda una conexión directa y
+                    rápida, mejorando la coordinación y eficiencia operativa.
                   </li>
                   <li>
                     Recopila las posiciones de las embarcaciones mediante
@@ -682,10 +675,10 @@
                       de solicitud.
                     </p>
                     <p>
-                      <b>Nota Importante:</b> Toda documentación presentada
-                      será verificada, por lo que en caso de falsear información
-                      será turnada a las autoridades competentes para los
-                      efectos legales correspondientes.
+                      <b>Nota Importante:</b> Toda documentación presentada será
+                      verificada, por lo que en caso de falsear información será
+                      turnada a las autoridades competentes para los efectos
+                      legales correspondientes.
                     </p>
                     <p>
                       La realización del presente trámite es necesario, por lo
@@ -783,7 +776,7 @@
               <div id="collapseThree" class="panel-collapse collapse">
                 <div class="panel-body">
                   <div id="contenedorSolicitud">
-                    <div  id="formSolicitudV">
+                    <div id="formSolicitudV">
                       <!-- Card 1-->
                       <div class="cardG CardSolicitudOne">
                         <h6>Solicitud de Verificación del VMS</h6>
@@ -791,11 +784,21 @@
                           >Proporcione el RNPA de su embarcación</label
                         >
                         <input
-                          class="form-control input-sm"
+                          onkeypress="return event.charCode >= 48 && event.charCode <= 57"
+                          name="username"
+                          id="usernamesR"
+                          class="form-control"
                           placeholder="RNPA de la embarcación"
                           type="text"
-                          id="rnpaR"
+                          id="rnpa"
+                          maxlength="8"
                         />
+                        <p
+                          id="usercheckR"
+                          style="color: red; text-align: left !important"
+                        >
+                          Es necesario ingresar un RNPA.
+                        </p>
                         <div class="row row-btnRes">
                           <div class="col-md-6">
                             <button
@@ -808,8 +811,9 @@
                           </div>
                           <div class="col-md-6">
                             <button
-                              type="button"
-                              class="btn btn-primary btn-sm guardarSolicitud"
+                              id="validateRNPAR"
+                              class="btn btn-primary btn-sm"
+                              style="width: 100%"
                             >
                               Aceptar
                             </button>
@@ -827,77 +831,151 @@
                             <div class="col-md-6">
                               <select
                                 class="form-control"
-                                aria-label="Ubicacion Estado"
+                                aria-label="Default select example"
+                                onchange="getEstado(value);"
+                                id="estadoR"
                               >
-                                <option selected>Estado</option>
-                                <option value="Baja California">
-                                  Baja California
-                                </option>
-                                <option value="Baja California Sur">
-                                  Baja California Sur
-                                </option>
-                                <option value="Sonora">Sonora</option>
-                                <option value="Sinaloa">Sinaloa</option>
-                                <option value="Nayarit">Nayarit</option>
-                                <option value="Colima">Colima</option>
-                                <option value="Guerrero">Guerrero</option>
-                                <option value="Oaxaca">Oaxaca</option>
-                                <option value="Quintana Roo">
-                                  Quintana Roo
-                                </option>
-                                <option value="Yucatán">Yucatán</option>
-                                <option value="Campeche">Campeche</option>
-                                <option value="Chiapas">Chiapas</option>
-                                <option value="Tabasco">Tabasco</option>
-                                <option value="Veracruz">Veracruz</option>
-                                <option value="Tamaulipas">Tamaulipas</option>
-                                <option value="Cuba">Cuba</option>
+                                <option value="" selected>Estado</option>
+                                <option value="1">Baja California</option>
+                                <option value="2">Baja California Sur</option>
+                                <option value="3">Campeche</option>
+                                <option value="4">Chiapas</option>
+                                <option value="5">Colima</option>
+                                <option value="6">Cuba</option>
+                                <option value="7">Guerrero</option>
+                                <option value="8">Nayarit</option>
+                                <option value="10">Oaxaca</option>
+                                <option value="11">Quintana Roo</option>
+                                <option value="12">Sinaloa</option>
+                                <option value="13">Sonora</option>
+                                <option value="14">Tabasco</option>
+                                <option value="15">Tamaulipas</option>
+                                <option value="16">Veracruz</option>
+                                <option value="17">Yucatán</option>
                               </select>
+                              <p
+                                id="stateerrorR"
+                                style="color: red; text-align: left !important"
+                              >
+                                Es necesario ingresar un Estado.
+                              </p>
                             </div>
                             <div class="col-md-6">
                               <select
+                                id="inputLocR"
                                 class="form-control"
-                                aria-label="Ubicacion Localidad"
+                                aria-label="Default select example"
+                                disabled
+                                onchange="getLocalidad(value);"
                               >
-                                <option selected>Localidad</option>
-                                <option value="1">One</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option>
+                                <option value="" selected>Localidad</option>
                               </select>
+                              <p
+                                id="localerrorR"
+                                style="color: red; text-align: left !important"
+                              >
+                                Es necesario ingresar una Localidad.
+                              </p>
                             </div>
                           </div>
 
                           <div class="row">
                             <div class="col-md-6">
-                              <select
+                              <input
+                                id="inputMueR"
                                 class="form-control"
-                                aria-label="Ubicacion Estado"
+                                aria-label="Default select example"
+                                disabled
+                                type="text"
+                                placeholder="Muelle"
+                              />
+
+                              <p
+                                id="muelleerrorR"
+                                style="color: red; text-align: left !important"
                               >
-                                <option selected>Localidad</option>
-                                <option value="1">One</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option>
-                              </select>
-                            </div>
-                            <div class="col-md-6">
-                              <select
-                                class="form-control"
-                                aria-label="Ubicacion Localidad"
-                              >
-                                <option selected>Localidad</option>
-                                <option value="1">One</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option>
-                              </select>
+                                Es necesario ingresar un Muelle.
+                              </p>
                             </div>
                           </div>
                           <div class="row">
                             <div class="col-sm-12">
                               <textarea
                                 class="form-control w-100"
+                                placeholder="Referencia"
+                                rows="3"
+                                maxlength="2000"
+                                id="refrenciaFormR"
+                                style="resize: none"
+                              ></textarea>
+                              <span
+                                id="contadorRefR"
+                                style="
+                                  position: absolute;
+                                  margin-left: 225px;
+                                  margin-top: -20px;
+                                  font-size: small;
+                                  color: darkgray;
+                                "
+                                >0/2000</span
+                              >
+                              <p
+                                id="referrorR"
+                                style="color: red; text-align: left !important"
+                              >
+                                Es necesario ingresar una Referencia.
+                              </p>
+                              <p
+                                id="referrorstartR"
+                                style="color: red; text-align: left !important"
+                              >
+                                No puede ingresar espacios en blanco.
+                              </p>
+                              <p
+                                id="referrorendR"
+                                style="color: red; text-align: left !important"
+                              >
+                                No puede ingresar espacios en blanco al final.
+                              </p>
+                            </div>
+                            <div class="col-sm-12">
+                              <textarea
+                                class="form-control w-100"
                                 placeholder="Descripción de la falla"
                                 rows="3"
+                                id="descFormR"
+                                maxlength="2000"
+                                style="resize: none"
                               ></textarea>
+                              <span
+                                id="contadorDesR"
+                                style="
+                                  position: absolute;
+                                  margin-left: 225px;
+                                  margin-top: -20px;
+                                  font-size: small;
+                                  color: darkgray;
+                                "
+                                >0/2000</span
+                              >
+                              <p
+                                id="descerrorR"
+                                style="color: red; text-align: left !important"
+                              >
+                                Es necesario ingresar una descripción.
+                              </p>
+                              <p
+                                id="deserrorstartR"
+                                style="color: red; text-align: left !important"
+                              >
+                                No puede ingresar espacios en blanco.
+                              </p>
+                              <p
+                                id="deserrorendR"
+                                style="color: red; text-align: left !important"
+                              >
+                                No puede ingresar espacios en blanco al final.
+                              </p>
                             </div>
                           </div>
                         </div>
@@ -905,14 +983,73 @@
                         <div class="cardG">
                           <h4 class="mt-3">Datos de contacto</h4>
                           <div class="row">
-                            <div class="col-md-6"></div>
                             <div class="col-md-6">
-                              <label class="form-label ">Hora sugerida</label>
-                              <label class="form-label">Hora sugerida</label>
-                            <input  class="form-control" type="text" id="timeFormR" placeholder="Selecciona la hora">
+                              <div class="form-group datepicker-group">
+                                <label class="control-label" for="calendarYear"
+                                  >Fecha sugerida</label
+                                >
+                                <input
+                                  class="form-control"
+                                  id="calendarYearR"
+                                  type="text"
+                                  placeholder=""
+                                  readonly
+                                />
+                                <span
+                                  class="glyphicon glyphicon-calendar"
+                                  style="margin-top: 15px"
+                                  aria-hidden="true"
+                                ></span>
+                                <p
+                                  id="dateerrorR"
+                                  style="
+                                    color: red;
+                                    text-align: left !important;
+                                  "
+                                >
+                                  Es necesario ingresar una fecha.
+                                </p>
+                                <p
+                                  id="dateerroryearR"
+                                  style="
+                                    color: red;
+                                    text-align: left !important;
+                                  "
+                                >
+                                  El formato de fecha es invalido.
+                                </p>
+                              </div>
+                            </div>
+                            <div class="col-md-6">
+                              <label class="form-label w-90"
+                                >Hora sugerida</label
+                              >
 
-                              <div id="timepickerR" class="hidden ">
-                                <span>Hora</span>
+                              <div class="input-group">
+                                <input
+                                  class="form-control"
+                                  type="text"
+                                  id="timeFormR"
+                                  placeholder="08:00"
+                                  readonly
+                                />
+                                <span
+                                  class="input-group-addon"
+                                  style="border: 0"
+                                >
+                                  <span
+                                    class="glyphicon glyphicon-time"
+                                    style="margin-top: 15px"
+                                  ></span>
+                                </span>
+                              </div>
+
+                              <div
+                                id="timepickerR"
+                                class="hidden"
+                                style="width: 91%"
+                              >
+                                <h6>Hora</h6>
                                 <select class="form-control" id="hoursR">
                                   <option value="01">01</option>
                                   <option value="02">02</option>
@@ -939,8 +1076,8 @@
                                   <option value="23">23</option>
                                   <option value="24">24</option>
                                 </select>
-                                <span>Minuto</span>
-                                <select  class="form-control" id="minutesR">
+                                <h6>Minuto</h6>
+                                <select class="form-control" id="minutesR">
                                   <option value="01">01</option>
                                   <option value="02">02</option>
                                   <option value="03">03</option>
@@ -1000,51 +1137,91 @@
                                   <option value="57">57</option>
                                   <option value="58">58</option>
                                   <option value="59">59</option>
-
                                 </select>
-                                <button class="btn btn-primary btn-sm btnTime" id="confirmR">Confirmar</button>
+                                <button
+                                  type="button"
+                                  class="btn btn-primary btn-sm btnTime"
+                                  id="confirmR"
+                                >
+                                  Confirmar
+                                </button>
                               </div>
-                              <!-- <input
-                                class="form-control inpTime"
-                                type="text"
-                                placeholder="Hora sugerida"
-                              /> -->
+
+                              <p
+                                id="timeerrorR"
+                                style="color: red; text-align: left !important"
+                              >
+                                Es necesario ingresar un horario.
+                              </p>
                             </div>
                           </div>
 
                           <div class="row">
                             <div class="col-md-6">
                               <input
+                                onkeypress="return event.charCode >= 48 && event.charCode <= 57"
                                 class="form-control"
                                 type="text"
                                 placeholder="Teléfono"
+                                maxlength="10"
+                                id="telFormR"
                               />
+                              <p
+                                id="phoneerrorR"
+                                style="color: red; text-align: left !important"
+                              >
+                                Es necesario ingresar un número telefónico.
+                              </p>
                             </div>
                             <div class="col-md-6">
                               <input
                                 class="form-control"
                                 type="text"
                                 placeholder="Persona de contacto"
+                                id="contactFormR"
+                                onkeypress="return soloLetras(event)"
+                                maxlength="100"
                               />
+                              <p
+                                id="contacterrorR"
+                                style="color: red; text-align: left !important"
+                              >
+                                Es necesario ingresar un contacto.
+                              </p>
+                              <p
+                                id="contacterrorstartR"
+                                style="color: red; text-align: left !important"
+                              >
+                                No puede ingresar espacios en blanco.
+                              </p>
+                              <!--p id="contacterrorend" style="color: red; text-align: left !important;">
+                                  No puede ingresar espacios en blanco al final. 
+                                </p-->
                             </div>
-                          </div>
-                          <div class="row">
-                            <div class="col-md-12">
+                            <div class="col-md-6">
                               <input
                                 class="form-control"
                                 type="email"
                                 placeholder="Correo electrónico"
+                                id="mailFormR"
+                                maxlength="50"
                               />
+                              <p
+                                id="mailerrorR"
+                                style="color: red; text-align: left !important"
+                              >
+                                Es necesario ingresar un correo electrónico.
+                              </p>
                             </div>
                           </div>
-
-                          <div class="row row-btnRes">
+                          <div class="row">
                             <div class="col-md-6">
                               <button
                                 type="button"
-                                class="btn btn-default btn-sm"
+                                class="btn btn-default"
                                 data-dismiss="modal"
                                 onclick="cancelarSolicitud()"
+                                style="width: 100%"
                               >
                                 Cancelar
                               </button>
@@ -1052,71 +1229,13 @@
                             <div class="col-md-6">
                               <button
                                 type="button"
-                                class="btn btn-primary btn-sm guardarSolicitud2"
+                                class="btn btn-primary"
+                                id="sendRNPAR"
+                                style="width: 100%"
                               >
                                 Aceptar
                               </button>
                             </div>
-                          </div>
-                        </div>
-                      </div>
-
-                      <!-- Card 3-->
-                      <div class="cardG CardSolicitudThree">
-                        <table class="table table-striped text-center mt-3">
-                          <tbody>
-                            <tr>
-                              <td>Tipo de solicitud</td>
-                              <td>RNPA de la embarcación</td>
-                            </tr>
-                            <tr>
-                              <td><b>Solicitud</b></td>
-                              <td><b>09817162</b></td>
-                            </tr>
-                            <tr>
-                              <td>Nombre de la embarcación</td>
-                              <td>Matricula</td>
-                            </tr>
-                            <tr>
-                              <td><b>CAMILA</b></td>
-                              <td><b>00056549</b></td>
-                            </tr>
-                            <tr>
-                              <td>Puerto base</td>
-                              <td>RNPA del propietario</td>
-                            </tr>
-                            <tr>
-                              <td><b>Sinaloa</b></td>
-                              <td><b>89111262</b></td>
-                            </tr>
-                            <tr>
-                              <td>Razón social</td>
-                              <td>Tipo de falla</td>
-                            </tr>
-                            <tr>
-                              <td><b>EMPRESA</b></td>
-                              <td><b>Falla</b></td>
-                            </tr>
-                          </tbody>
-                        </table>
-                        <div class="row row-btnRes">
-                          <div class="col-md-6">
-                            <button
-                              type="button"
-                              class="btn btn-default btn-sm"
-                              data-dismiss="modal"
-                              onclick="cancelarSolicitud()"
-                            >
-                              Cancelar Solicitud
-                            </button>
-                          </div>
-                          <div class="col-md-6">
-                            <button
-                              type="button"
-                              class="btn btn-primary btn-sm"
-                            >
-                              Generar Follio
-                            </button>
                           </div>
                         </div>
                       </div>
@@ -1563,7 +1682,7 @@
                         (Persona Física).
                       </li>
                       <li>
-                        En caso de tratarse de personas morales el trámite lo
+                        En caso de tratarse de personas morales, el trámite lo
                         efectúa el representante legal, acreditando la
                         personalidad por medio de carta poder general notarial
                         (Escritura Pública otorgando poder legal).
@@ -1591,7 +1710,7 @@
                     <p>
                       El trámite de solicitud debe ser acompañado de la
                       documentación requerida, para que este Órgano
-                      Administrativo esté en posibilidades de iniciar el trámite
+                      Administrativo esté en posibilidad de iniciar el trámite
                       de solicitud.
                     </p>
                   </div>
@@ -1858,7 +1977,10 @@
                         id="rnpa"
                         maxlength="8"
                       />
-                      <p id="usercheck" style="color: red; text-align: left !important;">
+                      <p
+                        id="usercheck"
+                        style="color: red; text-align: left !important"
+                      >
                         Es necesario ingresar un RNPA.
                       </p>
                       <div class="row">
@@ -1866,13 +1988,18 @@
                           <button
                             type="button"
                             class="btn btn-default"
-                            data-dismiss="modal" style="width:100%;"
+                            data-dismiss="modal"
+                            style="width: 100%"
                           >
                             Cancelar
                           </button>
                         </div>
                         <div class="col-md-6">
-                          <button id="validateRNPA" class="btn btn-primary" style="width:100%;">
+                          <button
+                            id="validateRNPA"
+                            class="btn btn-primary"
+                            style="width: 100%"
+                          >
                             Aceptar
                           </button>
                         </div>
@@ -1880,10 +2007,12 @@
                     </div>
 
                     <!-- Card 2-->
-                    <div class="CardSolicitudTwo" >
+                    <div class="CardSolicitudTwo">
                       <form id="myForm">
                         <div class="card-solicitud">
-                          <h4 class="mt-3">Ubicación actual de la embarcación</h4>
+                          <h4 class="mt-3">
+                            Ubicación actual de la embarcación
+                          </h4>
                           <div class="row">
                             <div class="col-md-6">
                               <select
@@ -1910,7 +2039,10 @@
                                 <option value="16">Veracruz</option>
                                 <option value="17">Yucatán</option>
                               </select>
-                              <p id="stateerror" style="color: red; text-align: left !important;">
+                              <p
+                                id="stateerror"
+                                style="color: red; text-align: left !important"
+                              >
                                 Es necesario ingresar un Estado.
                               </p>
                             </div>
@@ -1922,9 +2054,12 @@
                                 disabled
                                 onchange="getLocalidad(value);"
                               >
-                                <option value=""  selected>Localidad</option>
+                                <option value="" selected>Localidad</option>
                               </select>
-                              <p id="localerror" style="color: red; text-align: left !important;">
+                              <p
+                                id="localerror"
+                                style="color: red; text-align: left !important"
+                              >
                                 Es necesario ingresar una Localidad.
                               </p>
                             </div>
@@ -1932,18 +2067,22 @@
 
                           <div class="row">
                             <div class="col-md-6">
-                                <input id="inputMue"
+                              <input
+                                id="inputMue"
                                 class="form-control"
                                 aria-label="Default select example"
                                 disabled
-                                type="text"  
-                                placeholder="Muelle" ></input>
+                                type="text"
+                                placeholder="Muelle"
+                              />
 
-                              <p id="muelleerror" style="color: red; text-align: left !important;">
+                              <p
+                                id="muelleerror"
+                                style="color: red; text-align: left !important"
+                              >
                                 Es necesario ingresar un Muelle.
                               </p>
                             </div>
-
                           </div>
                           <div class="row">
                             <div class="col-sm-12">
@@ -1953,21 +2092,36 @@
                                 rows="3"
                                 maxlength="2000"
                                 id="refrenciaForm"
-                                style="resize: none;"
+                                style="resize: none"
                               ></textarea>
-                              <span id="contadorRef" style=" position: absolute;
-                              margin-left: 225px;
-                              margin-top: -20px;
-                              font-size: small;
-                              color: darkgray;">0/2000</span>
-                              <p id="referror" style="color: red; text-align: left !important;">
-                                Es necesario ingresar una Referencia. 
+                              <span
+                                id="contadorRef"
+                                style="
+                                  position: absolute;
+                                  margin-left: 225px;
+                                  margin-top: -20px;
+                                  font-size: small;
+                                  color: darkgray;
+                                "
+                                >0/2000</span
+                              >
+                              <p
+                                id="referror"
+                                style="color: red; text-align: left !important"
+                              >
+                                Es necesario ingresar una Referencia.
                               </p>
-                              <p id="referrorstart" style="color: red; text-align: left !important;">
-                                No puede ingresar espacios en blanco. 
+                              <p
+                                id="referrorstart"
+                                style="color: red; text-align: left !important"
+                              >
+                                No puede ingresar espacios en blanco.
                               </p>
-                              <p id="referrorend" style="color: red; text-align: left !important;">
-                                No puede ingresar espacios en blanco al final. 
+                              <p
+                                id="referrorend"
+                                style="color: red; text-align: left !important"
+                              >
+                                No puede ingresar espacios en blanco al final.
                               </p>
                             </div>
                             <div class="col-sm-12">
@@ -1977,21 +2131,36 @@
                                 rows="3"
                                 id="descForm"
                                 maxlength="2000"
-                                style="resize: none;"
+                                style="resize: none"
                               ></textarea>
-                              <span id="contadorDes" style=" position: absolute;
-                              margin-left: 225px;
-                              margin-top: -20px;
-                              font-size: small;
-                              color: darkgray;">0/2000</span>
-                              <p id="descerror" style="color: red; text-align: left !important;">
+                              <span
+                                id="contadorDes"
+                                style="
+                                  position: absolute;
+                                  margin-left: 225px;
+                                  margin-top: -20px;
+                                  font-size: small;
+                                  color: darkgray;
+                                "
+                                >0/2000</span
+                              >
+                              <p
+                                id="descerror"
+                                style="color: red; text-align: left !important"
+                              >
                                 Es necesario ingresar una descripción.
                               </p>
-                              <p id="deserrorstart" style="color: red; text-align: left !important;">
-                                No puede ingresar espacios en blanco. 
+                              <p
+                                id="deserrorstart"
+                                style="color: red; text-align: left !important"
+                              >
+                                No puede ingresar espacios en blanco.
                               </p>
-                              <p id="deserrorend" style="color: red; text-align: left !important;">
-                                No puede ingresar espacios en blanco al final. 
+                              <p
+                                id="deserrorend"
+                                style="color: red; text-align: left !important"
+                              >
+                                No puede ingresar espacios en blanco al final.
                               </p>
                             </div>
                           </div>
@@ -2010,126 +2179,154 @@
                                   id="calendarYear"
                                   type="text"
                                   placeholder=""
-                                  readonly 
+                                  readonly
                                 />
                                 <span
                                   class="glyphicon glyphicon-calendar"
                                   style="margin-top: 15px"
                                   aria-hidden="true"
                                 ></span>
-                                <p id="dateerror" style="color: red; text-align: left !important;">
+                                <p
+                                  id="dateerror"
+                                  style="
+                                    color: red;
+                                    text-align: left !important;
+                                  "
+                                >
                                   Es necesario ingresar una fecha.
                                 </p>
-                                <p id="dateerroryear" style="color: red; text-align: left !important;">
+                                <p
+                                  id="dateerroryear"
+                                  style="
+                                    color: red;
+                                    text-align: left !important;
+                                  "
+                                >
                                   El formato de fecha es invalido.
                                 </p>
                               </div>
                             </div>
                             <div class="col-md-6">
                               <label class="form-label">Hora sugerida</label>
-                              <input  class="form-control" type="text" id="timeForm" placeholder="08:00" readonly>
-                              <span
-                                  
-                                  style="margin-top: 1px; margin-left: 318px;"
-                                  aria-hidden="true"
-                                ></span>
-  
-                                <div id="timepicker" class="hidden ">
-                                  
-                                  <select class="form-control" id="hours">
-                                    <option value="01">01</option>
-                                    <option value="02">02</option>
-                                    <option value="03">03</option>
-                                    <option value="04">04</option>
-                                    <option value="05">05</option>
-                                    <option value="06">06</option>
-                                    <option value="07">07</option>
-                                    <option value="08">08</option>
-                                    <option value="09">09</option>
-                                    <option value="10">10</option>
-                                    <option value="11">11</option>
-                                    <option value="12">12</option>
-                                    <option value="13">13</option>
-                                    <option value="14">14</option>
-                                    <option value="15">15</option>
-                                    <option value="16">16</option>
-                                    <option value="17">17</option>
-                                    <option value="18">18</option>
-                                    <option value="19">19</option>
-                                    <option value="20">20</option>
-                                    <option value="21">21</option>
-                                    <option value="22">22</option>
-                                    <option value="23">23</option>
-                                    <option value="24">24</option>
-                                  </select>
-                                  <span>:</span>
-                                  <select  class="form-control" id="minutes">
-                                    <option value="01">01</option>
-                                    <option value="02">02</option>
-                                    <option value="03">03</option>
-                                    <option value="04">04</option>
-                                    <option value="05">05</option>
-                                    <option value="06">06</option>
-                                    <option value="07">07</option>
-                                    <option value="08">08</option>
-                                    <option value="09">09</option>
-                                    <option value="10">10</option>
-                                    <option value="11">11</option>
-                                    <option value="12">12</option>
-                                    <option value="13">13</option>
-                                    <option value="14">14</option>
-                                    <option value="15">15</option>
-                                    <option value="16">16</option>
-                                    <option value="17">17</option>
-                                    <option value="18">18</option>
-                                    <option value="19">19</option>
-                                    <option value="20">20</option>
-                                    <option value="21">21</option>
-                                    <option value="22">22</option>
-                                    <option value="23">23</option>
-                                    <option value="24">24</option>
-                                    <option value="25">25</option>
-                                    <option value="26">26</option>
-                                    <option value="27">27</option>
-                                    <option value="28">28</option>
-                                    <option value="29">29</option>
-                                    <option value="30">30</option>
-                                    <option value="31">31</option>
-                                    <option value="32">32</option>
-                                    <option value="33">33</option>
-                                    <option value="34">34</option>
-                                    <option value="35">35</option>
-                                    <option value="36">36</option>
-                                    <option value="37">37</option>
-                                    <option value="38">38</option>
-                                    <option value="39">39</option>
-                                    <option value="40">40</option>
-                                    <option value="41">41</option>
-                                    <option value="42">42</option>
-                                    <option value="43">43</option>
-                                    <option value="44">44</option>
-                                    <option value="45">45</option>
-                                    <option value="46">46</option>
-                                    <option value="47">47</option>
-                                    <option value="48">48</option>
-                                    <option value="49">49</option>
-                                    <option value="50">50</option>
-                                    <option value="51">51</option>
-                                    <option value="52">52</option>
-                                    <option value="53">53</option>
-                                    <option value="54">54</option>
-                                    <option value="55">55</option>
-                                    <option value="56">56</option>
-                                    <option value="57">57</option>
-                                    <option value="58">58</option>
-                                    <option value="59">59</option>
-  
-  
-                                  </select>
-                                  <button type="button"  class="btn btn-primary btn-sm btnTime" id="confirm">Confirmar</button>
-                                </div>
-  
-                              <p id="timeerror" style="color: red; text-align: left !important;">
+                              <div class="input-group">
+                                <input
+                                  class="form-control"
+                                  type="text"
+                                  id="timeForm"
+                                  placeholder="08:00"
+                                  readonly
+                                />
+                                <span
+                                  class="input-group-addon"
+                                  style="border: 0"
+                                >
+                                  <span style="margin-top: -4px"></span>
+                                </span>
+                              </div>
+                              <span aria-hidden="true"></span>
+
+                              <div id="timepicker" class="hidden">
+                                <select class="form-control" id="hours">
+                                  <option value="01">01</option>
+                                  <option value="02">02</option>
+                                  <option value="03">03</option>
+                                  <option value="04">04</option>
+                                  <option value="05">05</option>
+                                  <option value="06">06</option>
+                                  <option value="07">07</option>
+                                  <option value="08">08</option>
+                                  <option value="09">09</option>
+                                  <option value="10">10</option>
+                                  <option value="11">11</option>
+                                  <option value="12">12</option>
+                                  <option value="13">13</option>
+                                  <option value="14">14</option>
+                                  <option value="15">15</option>
+                                  <option value="16">16</option>
+                                  <option value="17">17</option>
+                                  <option value="18">18</option>
+                                  <option value="19">19</option>
+                                  <option value="20">20</option>
+                                  <option value="21">21</option>
+                                  <option value="22">22</option>
+                                  <option value="23">23</option>
+                                  <option value="24">24</option>
+                                </select>
+                                <span>:</span>
+                                <select class="form-control" id="minutes">
+                                  <option value="01">01</option>
+                                  <option value="02">02</option>
+                                  <option value="03">03</option>
+                                  <option value="04">04</option>
+                                  <option value="05">05</option>
+                                  <option value="06">06</option>
+                                  <option value="07">07</option>
+                                  <option value="08">08</option>
+                                  <option value="09">09</option>
+                                  <option value="10">10</option>
+                                  <option value="11">11</option>
+                                  <option value="12">12</option>
+                                  <option value="13">13</option>
+                                  <option value="14">14</option>
+                                  <option value="15">15</option>
+                                  <option value="16">16</option>
+                                  <option value="17">17</option>
+                                  <option value="18">18</option>
+                                  <option value="19">19</option>
+                                  <option value="20">20</option>
+                                  <option value="21">21</option>
+                                  <option value="22">22</option>
+                                  <option value="23">23</option>
+                                  <option value="24">24</option>
+                                  <option value="25">25</option>
+                                  <option value="26">26</option>
+                                  <option value="27">27</option>
+                                  <option value="28">28</option>
+                                  <option value="29">29</option>
+                                  <option value="30">30</option>
+                                  <option value="31">31</option>
+                                  <option value="32">32</option>
+                                  <option value="33">33</option>
+                                  <option value="34">34</option>
+                                  <option value="35">35</option>
+                                  <option value="36">36</option>
+                                  <option value="37">37</option>
+                                  <option value="38">38</option>
+                                  <option value="39">39</option>
+                                  <option value="40">40</option>
+                                  <option value="41">41</option>
+                                  <option value="42">42</option>
+                                  <option value="43">43</option>
+                                  <option value="44">44</option>
+                                  <option value="45">45</option>
+                                  <option value="46">46</option>
+                                  <option value="47">47</option>
+                                  <option value="48">48</option>
+                                  <option value="49">49</option>
+                                  <option value="50">50</option>
+                                  <option value="51">51</option>
+                                  <option value="52">52</option>
+                                  <option value="53">53</option>
+                                  <option value="54">54</option>
+                                  <option value="55">55</option>
+                                  <option value="56">56</option>
+                                  <option value="57">57</option>
+                                  <option value="58">58</option>
+                                  <option value="59">59</option>
+                                </select>
+                                <button
+                                  type="button"
+                                  class="btn btn-primary btn-sm btnTime"
+                                  id="confirm"
+                                >
+                                  Confirmar
+                                </button>
+                              </div>
+
+                              <p
+                                id="timeerror"
+                                style="color: red; text-align: left !important"
+                              >
                                 Es necesario ingresar un horario.
                               </p>
                             </div>
@@ -2145,7 +2342,10 @@
                                 maxlength="10"
                                 id="telForm"
                               />
-                              <p id="phoneerror" style="color: red; text-align: left !important;">
+                              <p
+                                id="phoneerror"
+                                style="color: red; text-align: left !important"
+                              >
                                 Es necesario ingresar un número telefónico.
                               </p>
                             </div>
@@ -2158,11 +2358,17 @@
                                 onkeypress="return soloLetras(event)"
                                 maxlength="100"
                               />
-                              <p id="contacterror" style="color: red; text-align: left !important;">
+                              <p
+                                id="contacterror"
+                                style="color: red; text-align: left !important"
+                              >
                                 Es necesario ingresar un contacto.
                               </p>
-                              <p id="contacterrorstart" style="color: red; text-align: left !important;">
-                                No puede ingresar espacios en blanco. 
+                              <p
+                                id="contacterrorstart"
+                                style="color: red; text-align: left !important"
+                              >
+                                No puede ingresar espacios en blanco.
                               </p>
                               <!--p id="contacterrorend" style="color: red; text-align: left !important;">
                                 No puede ingresar espacios en blanco al final. 
@@ -2176,7 +2382,10 @@
                                 id="mailForm"
                                 maxlength="50"
                               />
-                              <p id="mailerror" style="color: red; text-align: left !important;">
+                              <p
+                                id="mailerror"
+                                style="color: red; text-align: left !important"
+                              >
                                 Es necesario ingresar un correo electrónico.
                               </p>
                             </div>
@@ -2187,7 +2396,8 @@
                                 type="button"
                                 class="btn btn-default"
                                 data-dismiss="modal"
-                                onclick="cancelarSolicitud()" style="width:100%;"
+                                onclick="cancelarSolicitud()"
+                                style="width: 100%"
                               >
                                 Cancelar
                               </button>
@@ -2196,7 +2406,8 @@
                               <button
                                 type="button"
                                 class="btn btn-primary"
-                                id="sendRNPA" style="width:100%;"
+                                id="sendRNPA"
+                                style="width: 100%"
                               >
                                 Aceptar
                               </button>
@@ -2210,7 +2421,9 @@
                             <thead>
                               <tr class="table-secondary">
                                 <th class="fw-normal">Tipo de solicitud</th>
-                                <th class="fw-normal">RNPA de la embarcación</th>
+                                <th class="fw-normal">
+                                  RNPA de la embarcación
+                                </th>
                                 <th class="fw-normal">
                                   Nombre de la Embarcación
                                 </th>
@@ -2243,7 +2456,7 @@
                             </tbody>
                           </table>
                           <div class="row">
-                            <div class="col-md-12" >
+                            <div class="col-md-12">
                               <button
                                 type="button"
                                 class="btn btn-default"
@@ -2450,7 +2663,7 @@
                       (Persona física).
                     </li>
                     <li>
-                      En caso de tratarse de personas morales el trámite lo
+                      En caso de tratarse de personas morales, el trámite lo
                       efectúa el representante legal, acreditando la
                       personalidad por medio de carta poder general notarial
                       (Escritura Pública otorgando poder legal).
@@ -2478,7 +2691,7 @@
                   <p>
                     El trámite de solicitud debe ser acompañado de la
                     documentación requerida, para que este Órgano Administrativo
-                    esté en posibilidades de iniciar el trámite de solicitud.
+                    esté en posibilidad de iniciar el trámite de solicitud.
                   </p>
 
                   <p>
