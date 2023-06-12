@@ -16,8 +16,49 @@ var datesMail = {};
     setDay);
 
 
-function getEstado(val) {
-  console.log(val);
+$("#validateRNPA").click(function () {
+  validateUsername();
+
+  if (datesMail.RNPA) {
+    console.log(datesMail.RNPA);
+
+    if(datesMail.RNPA == "12345678"){
+      $(".CardSolicitudOne").hide();
+      $(".CardSolicitudTwo").show();
+      return false;
+    } else {
+
+      $("#usercheck").show();
+      $("#usercheck").html("El RNPA no existe.");
+    
+
+  }
+}
+
+});
+
+//SET DE RNPA
+function validateUsername() {
+  let usernameValue = $("#usernames").val();
+  if (usernameValue.length == "") {
+    $("#usercheck").show();
+    usernameError = true;
+    //return false;
+  } else if (usernameValue.length < 8) {
+    $("#usercheck").show();
+    $("#usercheck").html("El RNPA debe contener 8 caracteres.");
+    usernameError = true;
+    //return false;
+  } else {
+    $("#usercheck").hide();
+    usernameError = false;
+    datesMail.RNPA = usernameValue;
+    console.log(datesMail);
+  }
+}
+
+//SET ESTADO
+function getEstado(val) { 
 
   $.get(
     "/estados/" + val + "/localidad",
@@ -32,6 +73,8 @@ function getEstado(val) {
         
 
         for (i = 0; i < data.length; i++) {
+          var nameState = data[0].nombreEstado.name;
+
           $("#inputLoc").append('<option  value="' +
               data[i].id +
               '">' +
@@ -41,6 +84,9 @@ function getEstado(val) {
           $("#inputLoc").val(0);
           $("#inputLoc").focus();
         }
+        datesMail.estado = nameState;
+        console.log(datesMail);
+
       }
     }
   );
@@ -54,6 +100,11 @@ function getLocalidad(val) {
       $("#inputMue").prop("disabled", true);
       $("#inputMue").empty();
       $("#inputMue").val(data.namePue);
+      datesMail.muelle = data.namePue;
+      datesMail.localidad = data.nameLoc,
+
+      console.log(datesMail);
+
     }
   });
 }
@@ -152,30 +203,11 @@ function validateWhiteSpaces(){
 }
 
 
-function validateUsername() {
-  let usernameValue = $("#usernames").val();
-  if (usernameValue.length == "") {
-    $("#usercheck").show();
-    usernameError = true;
-    //return false;
-  } else if (usernameValue.length < 8) {
-    $("#usercheck").show();
-    $("#usercheck").html("El RNPA debe contener 8 caracteres.");
-    usernameError = true;
-    //return false;
-  } else {
-    $("#usercheck").hide();
-    usernameError = false;
-    console.log(usernameValue);
-    datesMail.RNPA = usernameValue;
-    console.log(datesMail);
-  }
-}
+
 
 function validateInputs() {
   let stateField = $("#estado").val();
   let localField = $("#inputLoc").val();
-  let muelleField = $("#inputMue").val();
   let refField = $("#refrenciaForm").val();
   let descField = $("#descForm").val();
   let dateField = $("#calendarYear").val();
@@ -197,53 +229,62 @@ function validateInputs() {
   }
 
 
-
-  /*if (muelleField !== undefined) {
-    if (muelleField.length == "") {
-      $("#muelleerror").show();
-    } else {
-      $("#muelleerror").hide();
-    }
-  }*/
-
-
-
   if (refField.length == "") {
     $("#referror").show();
   } else {
     $("#referror").hide();
+    datesMail.referencia = $("#refrenciaForm").val();
+    console.log(datesMail);
+
   }
 
   if (descField.length == "") {
     $("#descerror").show();
   } else {
     $("#descerror").hide();
+    datesMail.descripcion = $("#descForm").val();
+    console.log(datesMail);
+
+
   }
 
   if (dateField.length == "") {
     $("#dateerror").show();
     $("#dateerroryear").hide();
-
   } else {
     $("#dateerror").hide();
+    datesMail.fecha = $("#calendarYear").val();
+    console.log(datesMail);
+
   }
 
   if (timetField.length == "") {
     $("#timeerror").show();
   } else {
     $("#timeerror").hide();
+    datesMail.hora = $("#timeForm").val();
+    console.log(datesMail);
+
   }
 
   if (telField.length == "") {
     $("#phoneerror").show();
   } else {
     $("#phoneerror").hide();
+    datesMail.telefono = $("#telForm").val();
+    console.log(datesMail);
+
+
   }
 
   if (contactField.length == "") {
     $("#contacterror").show();
   } else {
     $("#contacterror").hide();
+    datesMail.contacto = $("#contactForm").val();
+    console.log(datesMail);
+
+
   }
 }
 
@@ -251,15 +292,6 @@ function soloLetras(e) {
   var key = e.keyCode || e.which,
     tecla = String.fromCharCode(key).toLowerCase(),
     letras = " áéíóúabcdefghijklmnñopqrstuvwxyz"
-    //especiales = [8, 37, 39, 46],
-    // = false;
-
-  /*for (var i in especiales) {
-    if (key == especiales[i]) {
-      tecla_especial = true;
-      break;
-    }
-  }*/
 
   if (letras.indexOf(tecla) == -1) {
     return false;
@@ -267,8 +299,6 @@ function soloLetras(e) {
 }
 
 function validateDate(){
-
-
 
     var d_reg =  /^(0[1-9]|[1-2]\d|3[01])(\/)(0[1-9]|1[012])\2(\d{4})$/;
     var dateValue = $("#calendarYear").val();
@@ -346,23 +376,6 @@ mensajeDes.addEventListener('input', function(e) {
 });
 
 
-
-/*function validateFormatDate(dateGet) {
-  console.log("Hola",dateGet);
-  var d_reg =  /^(0[1-9]|[1-2]\d|3[01])(\/)(0[1-9]|1[012])\2(\d{4})$/;
-  if (d_reg.test(dateGet)) {
-    console.log("Success");
-    $("#dateerroryear").hide();
-  } else{
-    console.log("False");
-
-    $("#dateerroryear").show();
-
-  }
-
-
-}*/
-
 function validateEmail() {
   // Get our input reference.
   var emailField = document.getElementById("mailForm");
@@ -380,7 +393,7 @@ function validateEmail() {
   // Using test we can check if the text match the pattern
   if (validEmail.test(emailField.value)) {
     console.log("Email is valid, continue with form submission");
-
+    datesMail.mail = mailValue;
     mailError = false;
   } else {
     console.log("Email is invalid, skip form submission");
@@ -391,29 +404,7 @@ function validateEmail() {
 }
 
 function saveInfo() {
-  let usernameValue = $("#usernames").val();
-  let estadoValue = $("#estado").val();
-  let localidadValue = $("#inputLoc").val();
-  let muelleValue = $("#inputMue").val();
-  let refValue = $("#refrenciaForm").val();
-  let descValue = $("#descForm").val();
-  let dateValue = $("#calendarYear").val();
-  let timeValue = $("#timeForm").val();
-  let telValue = $("#telForm").val();
-  let contactValue = $("#contactForm").val();
-  let mailValue = $("#mailForm").val();
 
-  datesMail.RNPA = usernameValue;
-  (datesMail.estado = estadoValue),
-    (datesMail.localidad = localidadValue),
-    (datesMail.inputMue = muelleValue),
-    (datesMail.referencia = refValue),
-    (datesMail.descripcion = descValue),
-    (datesMail.fecha = dateValue),
-    (datesMail.hora = timeValue),
-    (datesMail.telefono = telValue),
-    (datesMail.contacto = contactValue),
-    (datesMail.mail = mailValue);
 
   console.log(JSON.stringify(datesMail));
 
@@ -433,36 +424,9 @@ function saveInfo() {
       document.location.href="/"; 
   }
   });
-
-  
-
-
-}
-
-$("#validateRNPA").click(function () {
-  validateUsername();
-
-  if (datesMail.RNPA) {
-    console.log(datesMail.RNPA);
-
-    if(datesMail.RNPA == "12345678"){
-      $(".CardSolicitudOne").hide();
-      $(".CardSolicitudTwo").show();
-      return false;
-    } else {
-
-      $("#usercheck").show();
-      $("#usercheck").html("El RNPA no existe.");
-    
-
-  }
 }
 
 
-
-
-
-});
 
 $("#sendRNPA").click(function () {
   validateInputs();
@@ -1039,7 +1003,7 @@ function validateEmailR() {
   }
 }
 
-function saveInfo() {
+function saveIn() {
   let usernameValue = $("#usernamesR").val();
   let estadoRValue = $("#estadoR").val();
   let localidadValue = $("#inputLocR").val();
