@@ -19,10 +19,10 @@ var datesMail = {};
 $("#validateRNPA").click(function () {
   validateUsername();
 
-  if (datesMail.RNPA) {
-    console.log(datesMail.RNPA);
+  if (datesMail.rnpa) {
+    console.log(datesMail.rnpa);
 
-    if(datesMail.RNPA == "12345678"){
+    if(datesMail.rnpa == "12345678"){
       $(".CardSolicitudOne").hide();
       $(".CardSolicitudTwo").show();
       return false;
@@ -52,7 +52,7 @@ function validateUsername() {
   } else {
     $("#usercheck").hide();
     usernameError = false;
-    datesMail.RNPA = usernameValue;
+    datesMail.rnpa = usernameValue;
     console.log(datesMail);
   }
 }
@@ -780,7 +780,7 @@ function validateUsernameR() {
     $("#usercheckR").hide();
     usernameErrorR = false;
     console.log(usernameValue);
-    datesMail.RNPA = usernameValue;
+    datesMail.rnpa = usernameValue;
     console.log(datesMail);
   }
 }
@@ -1016,7 +1016,7 @@ function saveIn() {
   let contactValue = $("#contactFormR").val();
   let mailValue = $("#mailFormR").val();
 
-  datesMail.RNPA = usernameValue;
+  datesMail.rnpa = usernameValue;
   (datesMail.estado = estadoRValue),
     (datesMail.localidad = localidadValue),
     (datesMail.inputMueR = muelleValue),
@@ -1055,10 +1055,10 @@ function saveIn() {
 $("#validateRNPAR").click(function () {
   validateUsernameR();
 
-  if (datesMail.RNPA) {
-    console.log(datesMail.RNPA);
+  if (datesMail.rnpa) {
+    console.log(datesMail.rnpa);
 
-    if(datesMail.RNPA == "12345678"){
+    if(datesMail.rnpa == "12345678"){
       $(".CardSolicitudOne").hide();
       $(".CardSolicitudTwo").show();
       return false;
