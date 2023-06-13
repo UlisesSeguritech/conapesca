@@ -411,7 +411,7 @@ function saveInfo() {
   console.log(typeof datesMail);
   nuw = JSON.stringify(datesMail);
 
-  $.ajax({
+ /* $.ajax({
     url: '/sendMail/',
     headers: {
         'Content-Type':'application/json'
@@ -423,7 +423,7 @@ function saveInfo() {
       alert("Gracias, sus datos se enviaron con éxito. Estado: ")
       document.location.href="/"; 
   }
-  });
+  });*/
 }
 
 
@@ -446,7 +446,7 @@ function saveInfo() {
   console.log(typeof datesMail);
   nuw = JSON.stringify(datesMail);
 
-  $.ajax({
+  /*$.ajax({
     url: '/sendMail/',
     headers: {
         'Content-Type':'application/json'
@@ -458,7 +458,7 @@ function saveInfo() {
       alert("Gracias, sus datos se enviaron con éxito. Estado: ")
       document.location.href="/"; 
   }
-  });
+  });*/
 }
 
 
@@ -1106,7 +1106,7 @@ function saveIn() {
   console.log(typeof datesMail);
   nuw = JSON.stringify(datesMail);
 
-  $.ajax({
+ /* $.ajax({
     url: '/sendMail/',
     headers: {
         'Content-Type':'application/json'
@@ -1118,7 +1118,7 @@ function saveIn() {
       alert("Gracias, sus datos se enviaron con éxito. Estado: ")
       document.location.href="/"; 
   }
-  });
+  });*/
 
   
 
@@ -1155,6 +1155,6 @@ $("#sendRNPAR").click(function () {
   validateEmailR();
   validateDateR();
   if (mailErrorR == false) {
-    saveInfo();
+    //saveInfo();
   }
 });
