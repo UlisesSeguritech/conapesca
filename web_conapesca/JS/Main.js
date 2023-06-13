@@ -468,8 +468,8 @@ $("#sendRNPA").click(function () {
   validateEmail();
   validateDate();
   if (mailError == false) {
-    //saveInfo();
-    generatePDF();
+    saveInfo();
+    //generatePDF();
   }
 });
 
@@ -495,11 +495,11 @@ function generatePDF() {
   };  
   var y = 20;  
   doc.setLineWidth(2);  
-  doc.text(200, y = y + 30, "TOTAL MARKS OF STUDENTS");  
+  doc.text(200, y = y + 30, "Solicitud de verificación / Número de solicitud “00001” ");  
   doc.autoTable({  
       html: '#conapescaTable',  
       startY: 70,  
-      theme: 'grid',  
+      theme: 'striped',  
       columnStyles: {  
           0: {  
               cellWidth: 180,  
@@ -512,13 +512,7 @@ function generatePDF() {
           },  
           3: {  
             cellWidth: 180,  
-        },  
-        4: {  
-            cellWidth: 180,  
-        },  
-        5: {  
-            cellWidth: 180,  
-        }  
+        }
       },  
       styles: {  
           minCellHeight: 40  
