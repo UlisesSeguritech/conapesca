@@ -433,8 +433,8 @@ $("#sendRNPA").click(function () {
   validateEmail();
   validateDate();
   if (mailError == false) {
-    //saveInfo();
-    generatePDF();
+    saveInfo();
+    //generatePDF();
   }
 });
 
@@ -462,16 +462,6 @@ function saveInfo() {
 }
 
 
-
-$("#sendRNPA").click(function () {
-  validateInputs();
-  validateEmail();
-  validateDate();
-  if (mailError == false) {
-    saveInfo();
-    //generatePDF();
-  }
-});
 
 function generatePDF() {
   var doc = new jsPDF('l', 'pt', 'letter');  
