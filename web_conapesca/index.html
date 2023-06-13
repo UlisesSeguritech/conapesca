@@ -23,7 +23,8 @@
       src="https://framework-gb.cdn.gob.mx/assets/scripts/jquery-ui-datepicker.js"
       crossorigin="anonymous"
     ></script>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js" integrity="sha384-NaWTHo/8YCBYJ59830LTz/P4aQZK1sS0SneOgAvhsIl3zBu8r9RevNg5lHCHAuQ/" crossorigin="anonymous"></script> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.6/jspdf.plugin.autotable.min.js"></script> 
     <!-- Respond.js soporte de media queries para Internet Explorer 8 -->
     <!-- ie8.js EventTarget para cada nodo en Internet Explorer 8 -->
     <!--[if lt IE 9]>
@@ -2405,57 +2406,74 @@
                               </button>
                             </div>
                             <div class="col-md-6">
-                              <button
-                                type="button"
-                                class="btn btn-primary"
-                                id="sendRNPA"
-                                style="width: 100%"
-                              >
+                              <button  type="button" class="btn btn-primary" id="sendRNPA"
+                                style="width: 100%">
                                 Aceptar
                               </button>
+                              
                             </div>
                           </div>
                         </div>
 
+                        <style>#conapesca {  border-collapse: collapse;  width: 100%;  }#conapesca td, #conapesca th {  border: 1px solid #ddd;  padding: 5px;  text-align:center;  font-weight:bold;}#conapesca tr:nth-child(even){background-color: #FFF; }#conapesca th {  padding-top: 5px;  text-align: center;  background-color: #CCCCCC;  color: #696969;  font-weight:bold;    background-color:#D3D3D3;}</style>
+                      
+
+
                         <!-- Card 3-->
                         <div class="card-solicitud-table CardSolicitudThree">
-                          <table class="table">
-                            <thead>
-                              <tr class="table-secondary">
-                                <th class="fw-normal">Tipo de solicitud</th>
-                                <th class="fw-normal">
-                                  RNPA de la embarcación
-                                </th>
-                                <th class="fw-normal">
-                                  Nombre de la Embarcación
-                                </th>
-                                <th class="fw-normal">Matricula</th>
-                              </tr>
-                            </thead>
-                            <tbody>
-                              <tr>
-                                <td class="fw-bold">Solicitud</td>
-                                <td class="fw-bold">09817162</td>
-                                <td class="fw-bold">CAMILA</td>
-                                <td class="fw-bold">00056549</td>
-                              </tr>
-                            </tbody>
-                            <thead>
-                              <tr class="table-secondary">
-                                <th class="fw-normal">Puerto Base</th>
-                                <th class="fw-normal">RNPA del propietario</th>
-                                <th class="fw-normal">Razón Social</th>
-                                <th class="fw-normal">Tipo de Falla</th>
-                              </tr>
-                            </thead>
-                            <tbody>
-                              <tr>
-                                <td class="fw-bold">Sinaloa</td>
-                                <td class="fw-bold">89111262</td>
-                                <td class="fw-bold">EMPRESA</td>
-                                <td class="fw-bold">Falla</td>
-                              </tr>
-                            </tbody>
+                          <table id="conapescaTable">  
+                            <tr>    
+                              <th>Tipo de Solicitud</th>    
+                              <th>RNPA de la Embarcación</th>    
+                              <th>Nombre de la embarcación</th> 
+                              <th>Matricula</th>
+                            </tr>  
+                            <tr>    
+                              <td>Solicitud</td>   
+                               <td>rnpa</td>    
+                               <td>CAMILA</td>    
+                               <td>00056540</td>  
+                            </tr>    
+                            <tr>    
+                              <th>Puerto Base</th>    
+                              <th>RNPA del propietario</th>     
+                              <th colspan="2">Descripción de la falla</th>  
+                            </tr>    
+                            <tr>    
+                              <td>estado</td>    
+                              <td>89111262</td>    
+                              <td colspan="2">descripcion</td>  
+                            </tr>    
+                            <tr>    
+                          <th>Localidad</th>    
+                          <th>Muelle</th>   
+                           <th>Referencia</th>        
+                           <th>Fecha Sugerida</th> 
+                           </tr>  
+                           <tr>    
+                            <td>localidad</td>    
+                            <td>inputMue</td>    
+                            <td>referencia</td>    
+                            <td>fecha</td>  
+                          </tr>    
+                          <tr>   
+                             <th>Hora Sugerida</th>    
+                             <th colspan="2">Nombre del contacto</th>    
+                             <th>Teléfono</th>    
+                          </tr>  
+                          <tr>    
+                            <td>hora</td>    
+                            <td colspan="2">contacto</td> 
+                               <td>telefono</td>  
+                            </tr>  
+                            <tr>    
+                              <th colspan="4">Correo Electronico</th>  
+                            </tr>  
+                            <tr>    
+                              <td colspan="4">
+                                <a href="mailto:mail">mail></a>
+                              </td>  
+                            </tr>    
                           </table>
                           <div class="row">
                             <div class="col-md-12">

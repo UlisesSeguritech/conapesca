@@ -433,10 +433,99 @@ $("#sendRNPA").click(function () {
   validateEmail();
   validateDate();
   if (mailError == false) {
-    saveInfo();
+    //saveInfo();
+    generatePDF();
   }
 });
 
+function saveInfo() {
+
+
+  console.log(JSON.stringify(datesMail));
+
+  console.log(typeof datesMail);
+  nuw = JSON.stringify(datesMail);
+
+  $.ajax({
+    url: '/sendMail/',
+    headers: {
+        'Content-Type':'application/json'
+    },
+    method: 'POST',
+    dataType: 'json',
+    data: nuw,
+    complete : function(xhr, status) {
+      alert("Gracias, sus datos se enviaron con éxito. Estado: ")
+      document.location.href="/"; 
+  }
+  });
+}
+
+
+
+$("#sendRNPA").click(function () {
+  validateInputs();
+  validateEmail();
+  validateDate();
+  if (mailError == false) {
+    //saveInfo();
+    generatePDF();
+  }
+});
+
+function generatePDF() {
+  var doc = new jsPDF('l', 'pt', 'letter');  
+  var htmlstring = '';  
+  var tempVarToCheckPageHeight = 0;  
+  var pageHeight = 0;  
+  pageHeight = doc.internal.pageSize.height;  
+  specialElementHandlers = {  
+      // element with id of "bypass" - jQuery style selector  
+      '#bypassme': function(element, renderer) {  
+          // true = "handled elsewhere, bypass text extraction"  
+          return true  
+      }  
+  };  
+  margins = {  
+      top: 150,  
+      bottom: 60,  
+      left: 40,  
+      right: 40,  
+      width: 600  
+  };  
+  var y = 20;  
+  doc.setLineWidth(2);  
+  doc.text(200, y = y + 30, "TOTAL MARKS OF STUDENTS");  
+  doc.autoTable({  
+      html: '#conapescaTable',  
+      startY: 70,  
+      theme: 'grid',  
+      columnStyles: {  
+          0: {  
+              cellWidth: 180,  
+          },  
+          1: {  
+              cellWidth: 180,  
+          },  
+          2: {  
+              cellWidth: 180,  
+          },  
+          3: {  
+            cellWidth: 180,  
+        },  
+        4: {  
+            cellWidth: 180,  
+        },  
+        5: {  
+            cellWidth: 180,  
+        }  
+      },  
+      styles: {  
+          minCellHeight: 40  
+      }  
+  })  
+  doc.output('dataurlnewwindow');  
+}  
 //funcion cancelarsolicitud regresa a la vista inicial de solicitud y limpia los inputs
 let cancelarSolicitud = () => {
   //Mostramos la card correcta de solicitud de verificacion
