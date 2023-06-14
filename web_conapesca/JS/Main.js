@@ -215,6 +215,10 @@ function validateInputs() {
   let telField = $("#telForm").val();
   let contactField = $("#contactForm").val();
 
+  //set table values
+
+  
+
   if (stateField.length == "" || stateField.length == 0) {
     $("#stateerror").show();
 
@@ -433,7 +437,10 @@ $("#sendRNPA").click(function () {
   validateEmail();
   validateDate();
   if (mailError == false) {
-    saveInfo();
+    $(".CardSolicitudOne").hide();
+    $(".CardSolicitudTwo").hide();
+    $(".CardSolicitudThree").show();
+    //saveInfo();
     //generatePDF();
   }
 });

@@ -2211,23 +2211,12 @@
                             </div>
                             <div class="col-md-6">
                               <label class="form-label">Hora sugerida</label>
-                              <div class="input-group">
-                                <input
-                                  class="form-control"
-                                  type="text"
-                                  id="timeForm"
-                                  placeholder="08:00"
-                                  readonly
-                                />
-                                <span
-                                  class="input-group-addon"
-                                  style="border: 0"
-                                >
-                                  <span style="margin-top: -4px"></span>
-                                </span>
+                              <div class="form-group datepicker-group">
+                                <input class="form-control" type="text" id="timeForm" placeholder="08:00" readonly />
+                  
+                                  <span class="glyphicon glyphicon-time" style=" background-color: transparent;"></span>
+                              
                               </div>
-                              <span aria-hidden="true"></span>
-
                               <div id="timepicker" class="hidden">
                                 <select class="form-control" id="hours">
                                   <option value="01">01</option>
@@ -2317,22 +2306,11 @@
                                   <option value="58">58</option>
                                   <option value="59">59</option>
                                 </select>
-                                <button
-                                  type="button"
-                                  class="btn btn-primary btn-sm btnTime"
-                                  id="confirm"
-                                >
-                                  Confirmar
-                                </button>
+                                <button type="button" class="btn btn-primary btn-sm btnTime" id="confirm">Confirmar</button>
                               </div>
-
-                              <p
-                                id="timeerror"
-                                style="color: red; text-align: left !important"
-                              >
-                                Es necesario ingresar un horario.
-                              </p>
+                              <p id="timeerror" style="color: red; text-align: left !important">Es necesario ingresar un horario.</p>
                             </div>
+                            
                           </div>
 
                           <div class="row">
@@ -2415,7 +2393,7 @@
                           </div>
                         </div>
                         <!-- Card 3-->
-                        <div class="card-solicitud-table CardSolicitudThree">
+                        <div class=" CardSolicitudThree">
                           <table id="conapescaTable">  
                             <tr>    
                               <th>Tipo de Solicitud</th>    
@@ -2424,7 +2402,7 @@
                               <th>Matricula</th>
                             </tr>  
                             <tr>    
-                              <td>Solicitud</td>   
+                              <td >Solicitud</td>   
                                <td>rnpa</td>    
                                <td>CAMILA</td>    
                                <td>00056540</td>  
@@ -2488,8 +2466,104 @@
                             </div>
                           </div>
                         </div>
+
+
+
                       </form>
                     </div>
+
+
+                    <div class="CardSolicitudThree card-padding">
+                      <!--AQUI VA LA TABLA-->
+                      <div class="container">
+                        <table class="table table-bordered text-center">
+                            <tbody>
+                                <tr class="bg-dark">
+                                    <th>Tipo de solicitud</th>
+                                    <th>RNPA de la embarcación</th>
+                                    <th>Nombre de la embarcación</th>
+                                    <th>Matrícula</th>
+                                </tr>
+                                <tr>
+                                    <td>Solicitud</td>
+                                    <td>12345678</td>
+                                    <td>CAMILA</td>
+                                    <td>00056540</td>
+                                </tr>
+                                <tr class="bg-dark">
+                                    <th>Puerto base</th>
+                                    <th >RNPA del propietario</th>
+                                    <th colspan="2">Descripción</th>
+                                </tr>
+                                <tr>
+                                    <td>Campeche</td>
+                                    <td >858485684</td>
+                                    <td colspan="2">des</td>
+                                </tr>
+                                <tr class="bg-dark">
+                                    <th>Localidad</th>
+                                    <th>Muelle</th>
+                                    <th>Referencia</th>
+                                    <th>Fecha sugerida</th>
+                                </tr>
+                                <tr>
+                                    <td>CAMPECHE</td>
+                                    <td>CAMPECHE,CAMP.</td>
+                                    <td>Ref</td>
+                                    <td>23/06/2023</td>
+                                </tr>
+                                <tr class="bg-dark">
+                                    <th>Hora sugerida</th>
+                                    <th colspan="2">Nombre del contacto</th>
+                                    <th>Teléfono</th>
+                                </tr>
+                                <tr>
+                                    <td>02:02</td>
+                                    <td colspan="2">Usuario de prueba</td>
+                                    <td>1111111</td>
+                                </tr>
+                                <tr class="bg-dark">
+                                    <th colspan="4">Correo</th>
+                                </tr>
+                                <tr>
+                                    <td colspan="4" ><a href="mailto:">email@g.com</a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="row row-btnRes">
+                            <div class="col-md-6">
+                              <button
+                                type="button"
+                                class="btn btn-default btn-sm"
+                                data-dismiss="modal"
+                              >
+                                Cancelar
+                              </button>
+                            </div>
+                            <div class="col-md-6">
+                              <button
+                                id="validateRNPAR"
+                                class="btn btn-primary btn-sm"
+                                style="width: 100%"
+                              >
+                                Aceptar
+                              </button>
+                            </div>
+                          </div>
+                    </div>
+
+                      
+
+
+                    </div>
+
+
+
+
+
+
+
+
                   </div>
                 </div>
               </div>
