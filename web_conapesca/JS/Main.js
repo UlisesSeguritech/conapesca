@@ -222,13 +222,16 @@ function validateInputs() {
   if (stateField.length == "" || stateField.length == 0) {
     $("#stateerror").show();
 
-
+    stateNull = true;
   } else {
+    stateNull = false;
     $("#stateerror").hide();
     if (localField == 0) {
       $("#localerror").show();
+      localNull = true;
     } else {
       $("#localerror").hide();
+      localNull = false;
     }
   }
 
@@ -412,7 +415,7 @@ $("#sendRNPA").click(function () {
   validateInputs();
   validateEmail();
   validateDate();
-  if (mailError == false) {
+  if (mailError == false && localNull == false && stateNull == false) {
     $(".CardSolicitudOne").hide();
     $(".CardSolicitudTwo").hide();
     $(".CardSolicitudThree").show();
