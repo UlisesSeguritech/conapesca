@@ -407,30 +407,6 @@ function validateEmail() {
   }
 }
 
-function saveInfo() {
-
-
-  console.log(JSON.stringify(datesMail));
-
-  console.log(typeof datesMail);
-  nuw = JSON.stringify(datesMail);
-
- /* $.ajax({
-    url: '/sendMail/',
-    headers: {
-        'Content-Type':'application/json'
-    },
-    method: 'POST',
-    dataType: 'json',
-    data: nuw,
-    complete : function(xhr, status) {
-      alert("Gracias, sus datos se enviaron con éxito. Estado: ")
-      document.location.href="/"; 
-  }
-  });*/
-}
-
-
 
 $("#sendRNPA").click(function () {
   validateInputs();
@@ -440,20 +416,82 @@ $("#sendRNPA").click(function () {
     $(".CardSolicitudOne").hide();
     $(".CardSolicitudTwo").hide();
     $(".CardSolicitudThree").show();
+    
+    //RNPA
+    let rnVal = document.querySelector('.rnpaValue');
+    rnVal.innerHTML = datesMail.rnpa;
+    
+    //nombre embaracion
+    let nmVal = document.querySelector('.nameValue');
+    nmVal.innerHTML = "CAMILA";
+    
+    //Matricula
+    let mtVal = document.querySelector('.matValue');
+    mtVal.innerHTML = "00559966";
+    
+    //puerto
+    let ptVal = document.querySelector('.ptValue');
+    ptVal.innerHTML = datesMail.estado;
+
+    //RNPA propietario
+    let rnpVal = document.querySelector('.rnpropValue');
+    rnpVal.innerHTML = "12345678";
+
+    //descripcion
+    let dsVal = document.querySelector('.desValue');
+    dsVal.innerHTML = datesMail.descripcion;
+
+    //localidad
+    let lcVal = document.querySelector('.locValue');
+    lcVal.innerHTML = datesMail.localidad;
+
+    //muelle
+    let mueVal = document.querySelector('.mullValue');
+    mueVal.innerHTML = datesMail.muelle;
+
+    //referencia
+    let refVal = document.querySelector('.refeValue');
+    refVal.innerHTML = datesMail.referencia;
+
+    //fecha
+    let dtVal = document.querySelector('.dteValue');
+    dtVal.innerHTML = datesMail.fecha;
+
+    //hora
+    let hrVal = document.querySelector('.hourValue');
+    hrVal.innerHTML = datesMail.hora;
+
+    //user
+    let usrVal = document.querySelector('.ctctValue');
+    usrVal.innerHTML = datesMail.contacto ;
+
+    //tel
+    let telVal = document.querySelector('.teleValue');
+    telVal.innerHTML = datesMail.telefono;
+
+    //mail
+    let emVal = document.querySelector('.emaValue');
+    emVal.innerHTML = datesMail.mail;
+
     //saveInfo();
     //generatePDF();
   }
 });
 
+$("#generateFolio").click(function () {
+    saveInfo();
+    generatePDF();
+});
+
 function saveInfo() {
 
 
-  console.log(JSON.stringify(datesMail));
+  console.log("aca",JSON.stringify(datesMail));
 
   console.log(typeof datesMail);
   nuw = JSON.stringify(datesMail);
 
-  /*$.ajax({
+  $.ajax({
     url: '/sendMail/',
     headers: {
         'Content-Type':'application/json'
@@ -465,7 +503,7 @@ function saveInfo() {
       alert("Gracias, sus datos se enviaron con éxito. Estado: ")
       document.location.href="/"; 
   }
-  });*/
+  });
 }
 
 
