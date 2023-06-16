@@ -597,24 +597,6 @@ $gmx(document).ready(function () {
   $(".CardSolicitudTwo").hide();
   $(".CardSolicitudThree").hide();
 
-  //console.log('Se cargo la ventana con exito');
-  // Selecciona los botones utilizando el selector adecuado
-  /*
-  const botones = document.querySelectorAll(".btn-gren");
-  // Agrega el event listener a cada botón verde y al hacer click hace invisible la NOM
-  botones.forEach(function (boton) {
-    boton.addEventListener("click", function () {
-      // Acción a realizar al hacer clic en cualquier botón
-      //console.log('¡Se hizo clic en un botón!');
-      // Aquí puedes agregar tu lógica adicional
-      //$("#hideNom").hide();
-      if ($('#hideNom').is(':visible')) {
-        $("#hideNom").hide();
-      }else{
-        $("#hideNom").show();
-      }
-    });
-  });*/
 
   //SolicitudDeVerificacion
   const contenedorSolicitud = document.getElementById("contenedorSolicitud");
@@ -630,14 +612,7 @@ $gmx(document).ready(function () {
     });
 
     const guardarSolicitud2 = document.querySelectorAll(".guardarSolicitud2");
-    /*
-    guardarSolicitud2.forEach(function (elemento2) {
-      elemento2.addEventListener("click", () => {
-        $(".CardSolicitudOne").hide();
-        $(".CardSolicitudTwo").hide();
-        $(".CardSolicitudThree").show();
-      });
-    });*/
+   
   });
 
   //DISEÑO RESPONSIVE
