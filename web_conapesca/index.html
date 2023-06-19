@@ -1031,7 +1031,7 @@
                                 >Hora sugerida</label
                               >
 
-                              <div class="input-group">
+                              <div class="form-group datepicker-group">
                                 <input
                                   class="form-control"
                                   type="text"
@@ -1040,14 +1040,9 @@
                                   readonly
                                 />
                                 <span
-                                  class="input-group-addon"
-                                  style="border: 0"
-                                >
-                                  <span
-                                    class="glyphicon glyphicon-time"
-                                    style="margin-top: 15px"
-                                  ></span>
-                                </span>
+                                  class="glyphicon glyphicon-time"
+                                  style="background-color: transparent"
+                                ></span>
                               </div>
 
                               <div
@@ -1240,6 +1235,112 @@
                                 style="width: 100%"
                               >
                                 Aceptar
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <!--Card 3-->
+                      <div class="CardSolicitudThree card-padding">
+                        <!--AQUI VA LA TABLA-->
+                        <div class="container cardG">
+                          <table
+                            id="conapescaTable"
+                            class="table table-bordered text-center"
+                          >
+                            <tbody>
+                              <tr class="bg-dark">
+                                <th>Tipo de solicitud</th>
+                                <th>RNPA de la embarcación</th>
+                              </tr>
+                              <tr>
+                                <td>Solicitud</td>
+                                <td class="rnpaValue"></td>
+                              </tr>
+                              <tr class="bg-dark">
+                                <th>Nombre de la embarcación</th>
+                                <th>Matrícula</th>
+                              </tr>
+                              <tr>
+                                <td class="nameValue"></td>
+                                <td class="matValue"></td>
+                              </tr>
+                              <tr class="bg-dark">
+                                <th>Puerto base</th>
+                                <th>RNPA del propietario</th>
+                              </tr>
+                              <tr>
+                                <td class="ptValue"></td>
+                                <td class="rnpropValue"></td>                               
+                              </tr>
+                              <tr class="bg-dark">
+                                <th colspan="2">Descripción</th>
+                              </tr>
+                              <tr>
+                                <td class="desValue" colspan="2"></td>
+                              </tr>
+                             
+                              <tr class="bg-dark">
+                                <th>Localidad</th>
+                                <th>Muelle</th>
+       
+                              </tr>
+                              <tr>
+                                <td class="locValue"></td>
+                                <td class="mullValue"></td>
+                   
+                              </tr>
+
+                              <tr class="bg-dark">
+                     
+                                <th>Referencia</th>
+                                <th>Fecha sugerida</th>
+                              </tr>
+
+                              <tr>                             
+                                <td class="refeValue"></td>
+                                <td class="dteValue"></td>
+                              </tr>
+                              <tr class="bg-dark">
+                                <th>Hora sugerida</th>
+                                <th >Nombre del contacto</th>
+                               
+                              </tr>
+                              <tr>
+                                <td class="hourValue"></td>
+                                <td class="ctctValue"></td>
+                              </tr>
+                              <tr class="bg-dark">
+                                <th >Correo</th>
+                                <th>Teléfono</th>
+                              </tr>
+                              <tr>
+                                <td >
+                                  <a class="emaValue" href="mailto:"></a>                                  
+                                </td>
+                                <td class="teleValue"></td>
+                              </tr>
+                            </tbody>
+                          </table>
+                          <div class="row row-btnRes">
+                            <div class="col-md-6">
+                              <button
+                                type="button"
+                                class="btn btn-default btn-sm"
+                                data-dismiss="modal"
+                                onclick="cancelarSolicitud()"
+                              >
+                                Cancelar
+                              </button>
+                            </div>
+                            <div class="col-md-6">
+                              <button
+                                id="generateFolio"
+                                class="btn btn-primary btn-sm"
+                                style="width: 100%"
+                              >
+                                Generar Folio
                               </button>
                             </div>
                           </div>
@@ -2420,7 +2521,7 @@
                         </div>
                         <!-- Card 3-->
                         <div class="CardSolicitudThree">
-                          <table >
+                          <table>
                             <tr>
                               <th>Tipo de Solicitud</th>
                               <th>RNPA de la Embarcación</th>
@@ -2498,7 +2599,10 @@
                     <div class="CardSolicitudThree card-padding">
                       <!--AQUI VA LA TABLA-->
                       <div class="container">
-                        <table id="conapescaTable" class="table table-bordered text-center">
+                        <table
+                          id="conapescaTable"
+                          class="table table-bordered text-center"
+                        >
                           <tbody>
                             <tr class="bg-dark">
                               <th>Tipo de solicitud</th>
