@@ -15,15 +15,12 @@ var datesMail = {};
     $('#calendarYear').attr('placeholder',
     setDay);
 
-    
-    $('#calendarYearR').attr('placeholder',
-    setDay);
 
 $("#validateRNPA").click(function () {
   validateUsername();
 
   if (datesMail.rnpa) {
-     //console.log(datesMail.rnpa);
+    console.log(datesMail.rnpa);
 
     if(datesMail.rnpa == "12345678"){
       $(".CardSolicitudOne").hide();
@@ -56,7 +53,7 @@ function validateUsername() {
     $("#usercheck").hide();
     usernameError = false;
     datesMail.rnpa = usernameValue;
-    //console.log(datesMail);
+    console.log(datesMail);
   }
 }
 
@@ -67,7 +64,7 @@ function getEstado(val) {
     "/estados/" + val + "/localidad",
    //"http://localhost:8080/estados/" + val + "/localidad",
     function (data, status) {
-      //console.log("Data: " + data + "\nStatus: " + status);
+      console.log("Data: " + data + "\nStatus: " + status);
       if (data) {
         $("#inputLoc").prop("disabled", false);
         $("#inputLoc").empty();
@@ -98,7 +95,7 @@ function getEstado(val) {
 function getLocalidad(val) {
     $.get("/localidad/" + val, function (data, status) {
     //$.get("http://localhost:8080/localidad/" + val, function (data, status) {
-    //console.log("si",data.namePue)
+    console.log("si",data.namePue)
     if (data) {
       $("#inputMue").prop("disabled", true);
       $("#inputMue").empty();
@@ -106,7 +103,7 @@ function getLocalidad(val) {
       datesMail.muelle = data.namePue;
       datesMail.localidad = data.nameLoc,
 
-      //console.log(datesMail);
+      console.log(datesMail);
 
     }
   });
@@ -244,7 +241,7 @@ function validateInputs() {
   } else {
     $("#referror").hide();
     datesMail.referencia = $("#refrenciaForm").val();
-    //console.log(datesMail);
+    console.log(datesMail);
 
   }
 
@@ -253,7 +250,7 @@ function validateInputs() {
   } else {
     $("#descerror").hide();
     datesMail.descripcion = $("#descForm").val();
-    //console.log(datesMail);
+    console.log(datesMail);
 
 
   }
@@ -264,7 +261,7 @@ function validateInputs() {
   } else {
     $("#dateerror").hide();
     datesMail.fecha = $("#calendarYear").val();
-    //console.log(datesMail);
+    console.log(datesMail);
 
   }
 
@@ -273,7 +270,7 @@ function validateInputs() {
   } else {
     $("#timeerror").hide();
     datesMail.hora = $("#timeForm").val();
-    //console.log(datesMail);
+    console.log(datesMail);
 
   }
 
@@ -282,7 +279,7 @@ function validateInputs() {
   } else {
     $("#phoneerror").hide();
     datesMail.telefono = $("#telForm").val();
-    //console.log(datesMail);
+    console.log(datesMail);
 
 
   }
@@ -292,7 +289,7 @@ function validateInputs() {
   } else {
     $("#contacterror").hide();
     datesMail.contacto = $("#contactForm").val();
-    //console.log(datesMail);
+    console.log(datesMail);
 
 
   }
@@ -312,18 +309,18 @@ function validateDate(){
 
     var d_reg =  /^(0[1-9]|[1-2]\d|3[01])(\/)(0[1-9]|1[012])\2(\d{4})$/;
     var dateValue = $("#calendarYear").val();
-    //console.log("valor date value", dateValue);
+    console.log("valor date value", dateValue);
 
     var dayIn = parseInt(dateValue.split('/')[0])
     var monthIn = parseInt(dateValue.split('/')[1])
     var yearIn = parseInt(dateValue.split('/')[2])
 
-    //console.log("aqui",dayIn,monthIn,yearIn)
-    //console.log("aqui2",day,month,year)
+    console.log("aqui",dayIn,monthIn,yearIn)
+    console.log("aqui2",day,month,year)
 
     if(dateValue){
       if (d_reg.test(dateValue)) {
-        ///console.log("Success");
+        console.log("Success");
         if(yearIn < year ){
           $("#dateerroryear").show();
           $("#dateerroryear").html("El año no puede ser menor al actual.");
@@ -402,11 +399,11 @@ function validateEmail() {
 
   // Using test we can check if the text match the pattern
   if (validEmail.test(emailField.value)) {
-    //console.log("Email is valid, continue with form submission");
+    console.log("Email is valid, continue with form submission");
     datesMail.mail = mailValue;
     mailError = false;
   } else {
-    //console.log("Email is invalid, skip form submission");
+    console.log("Email is invalid, skip form submission");
     $("#mailerror").show();
     $("#mailerror").html("Ingrese un formato válido de correo electrónico.");
     mailError = true;
@@ -422,8 +419,6 @@ $("#sendRNPA").click(function () {
     $(".CardSolicitudOne").hide();
     $(".CardSolicitudTwo").hide();
     $(".CardSolicitudThree").show();
-
-
     
     //RNPA
     let rnVal = document.querySelector('.rnpaValue');
@@ -494,9 +489,9 @@ $("#generateFolio").click(function () {
 function saveInfo() {
 
 
-  //console.log("aca",JSON.stringify(datesMail));
+  console.log("aca",JSON.stringify(datesMail));
 
-  //console.log(typeof datesMail);
+  console.log(typeof datesMail);
   nuw = JSON.stringify(datesMail);
 
   $.ajax({
@@ -582,9 +577,6 @@ let cancelarSolicitud = () => {
 //INICIALIZAMOS LOS INPUTS TIPO CALENDAR
 $gmx(document).ready(function () {
   $("#calendarYear").datepicker({ changeYear: true });
-});
-$gmx(document).ready(function () {
-  $("#calendarYearR").datepicker({ changeYear: true });
 });
 $gmx(document).ready(function () {
   //ACORDION jQUERY
@@ -682,18 +674,18 @@ $gmx(document).ready(function () {
   buttons.forEach((button) => {
     button.addEventListener("click", function (event) {
       let idTab = this.getAttribute("href");
-      //console.log(idTab);
+      console.log(idTab);
       tabClick = document.querySelector(idTab);
-      //console.log(tabClick.getAttribute("class"));
+      console.log(tabClick.getAttribute("class"));
       var isActive = tabClick.classList.contains("active");
-      //console.log("es activa" + isActive);
+      console.log("es activa" + isActive);
       if (isActive) {
         if ($(".contenedorTabsGren").is(":visible")) {
           // El elemento está visible
           $(".contenedorTabsGren").hide();
           $("#hideNom").show();
           event.preventDefault();
-          //console.log("El elemento está visible");
+          console.log("El elemento está visible");
         } else {
           // El elemento está oculto
           console.log("El elemento está oculto");
@@ -746,7 +738,7 @@ $gmx(document).ready(function () {
   // Mostrar/ocultar el time picker al hacer clic en el botón
   timepickerButtonR.addEventListener("click", () => {
     timepickerContainerR.classList.toggle("hidden");
-    //console.log('clicltime');
+    console.log('clicltime');
   });
   
   // Obtener la hora seleccionada al hacer clic en el botón "Confirmar"
@@ -883,15 +875,15 @@ function validateUsernameR() {
   } else {
     $("#usercheckR").hide();
     usernameErrorR = false;
-   // console.log(usernameValue);
+    console.log(usernameValue);
     datesMail.rnpa = usernameValue;
-    //console.log(datesMail);
+    console.log(datesMail);
   }
 }
 
 function validateInputsR() {
   let stateFieldR = $("#estadoR").val();
- // let localFieldR = $("#inputLocR").val();
+  let localFieldR = $("#inputLocR").val();
   let muelleField = $("#inputMueR").val();
   let refFieldR = $("#refrenciaFormR").val();
   let descFieldR = $("#descFormR").val();
@@ -906,11 +898,11 @@ function validateInputsR() {
 
   } else {
     $("#stateerrorR").hide();
-  //  if (localFieldR == 0) {
-   //   $("#localerrorR").show();
-   // } else {
-   //   $("#localerrorR").hide();
-   // }
+    if (localFieldR == 0) {
+      $("#localerrorR").show();
+    } else {
+      $("#localerrorR").hide();
+    }
   }
 
 
@@ -962,7 +954,6 @@ function validateInputsR() {
   } else {
     $("#contacterror").hide();
   }
- 
 }
 
 function soloLetras(e) {
@@ -990,18 +981,18 @@ function validateDateR(){
 
     var d_reg =  /^(0[1-9]|[1-2]\d|3[01])(\/)(0[1-9]|1[012])\2(\d{4})$/;
     var dateValue = $("#calendarYearR").val();
-    //console.log("valor date value", dateValue);
+    console.log("valor date value", dateValue);
 
     var dayIn = parseInt(dateValue.split('/')[0])
     var monthIn = parseInt(dateValue.split('/')[1])
     var yearIn = parseInt(dateValue.split('/')[2])
 
-    //console.log("aqui",dayIn,monthIn,yearIn)
-    //console.log("aqui2",day,month,year)
+    console.log("aqui",dayIn,monthIn,yearIn)
+    console.log("aqui2",day,month,year)
 
     if(dateValue){
       if (d_reg.test(dateValue)) {
-        //console.log("Success");
+        console.log("Success");
         if(yearIn < year ){
           $("#dateerroryearR").show();
           $("#dateerroryearR").html("El año no puede ser menor al actual.");
@@ -1097,11 +1088,11 @@ function validateEmailR() {
 
   // Using test we can check if the text match the pattern
   if (validEmail.test(emailField.value)) {
-    //console.log("Email is valid, continue with form submission");
+    console.log("Email is valid, continue with form submission");
 
     mailErrorR = false;
   } else {
-    //console.log("Email is invalid, skip form submission");
+    console.log("Email is invalid, skip form submission");
     $("#mailerrorR").show();
     $("#mailerrorR").html("Ingrese un formato válido de correo electrónico.");
     mailErrorR = true;
@@ -1133,9 +1124,9 @@ function saveIn() {
     (datesMail.contacto = contactValue),
     (datesMail.mail = mailValue);
 
-  //console.log(JSON.stringify(datesMail));
+  console.log(JSON.stringify(datesMail));
 
-  //console.log(typeof datesMail);
+  console.log(typeof datesMail);
   nuw = JSON.stringify(datesMail);
 
  /* $.ajax({
@@ -1161,7 +1152,7 @@ $("#validateRNPAR").click(function () {
   validateUsernameR();
 
   if (datesMail.rnpa) {
-    //console.log(datesMail.rnpa);
+    console.log(datesMail.rnpa);
 
     if(datesMail.rnpa == "12345678"){
       $(".CardSolicitudOne").hide();
@@ -1186,70 +1177,7 @@ $("#sendRNPAR").click(function () {
   validateInputsR();
   validateEmailR();
   validateDateR();
-  saveIn();
-  //console.log("datos " + JSON.stringify(datesMail));
   if (mailErrorR == false) {
-    $(".CardSolicitudOne").hide();
-    $(".CardSolicitudTwo").hide();
-    $(".CardSolicitudThree").show();
-    
-    //RNPA
-    let rnVal = document.querySelector('.rnpaValue');
-    rnVal.innerHTML = datesMail.rnpa;
-    
-    //nombre embaracion
-    let nmVal = document.querySelector('.nameValue');
-    nmVal.innerHTML = "CAMILA";
-    
-    //Matricula
-    let mtVal = document.querySelector('.matValue');
-    mtVal.innerHTML = "00559966";
-    
-    //puerto
-    let ptVal = document.querySelector('.ptValue');
-    ptVal.innerHTML = datesMail.estado;
-
-    //RNPA propietario
-    let rnpVal = document.querySelector('.rnpropValue');
-    rnpVal.innerHTML = "12345678";
-
-    //descripcion
-    let dsVal = document.querySelector('.desValue');
-    dsVal.innerHTML = datesMail.descripcion;
-
-    //localidad
-    let lcVal = document.querySelector('.locValue');
-    lcVal.innerHTML = datesMail.localidad;
-
-    //muelle
-    let mueVal = document.querySelector('.mullValue');
-    mueVal.innerHTML = datesMail.muelle;
-
-    //referencia
-    let refVal = document.querySelector('.refeValue');
-    refVal.innerHTML = datesMail.referencia;
-
-    //fecha
-    let dtVal = document.querySelector('.dteValue');
-    dtVal.innerHTML = datesMail.fecha;
-
-    //hora
-    let hrVal = document.querySelector('.hourValue');
-    hrVal.innerHTML = datesMail.hora;
-
-    //user
-    let usrVal = document.querySelector('.ctctValue');
-    usrVal.innerHTML = datesMail.contacto ;
-
-    //tel
-    let telVal = document.querySelector('.teleValue');
-    telVal.innerHTML = datesMail.telefono;
-
-    //mail
-    let emVal = document.querySelector('.emaValue');
-    emVal.innerHTML = datesMail.mail;
-
     //saveInfo();
-    //generatePDF();
   }
 });
