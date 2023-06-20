@@ -15,6 +15,22 @@
   z-index: 500;
   width: 93%;
 }
+
+#timepickerR {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  background-color: #ffffff;
+  border: 1px solid #ccc;
+  margin-top: -53px;
+  padding: 5px;
+  text-align: center;
+  border-radius: 8px;
+  position: absolute;
+  z-index: 500;
+  width: 93%;
+}
 nav {
   z-index: 9999;
 }
