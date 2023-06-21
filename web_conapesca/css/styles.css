@@ -1,4 +1,25 @@
-#conapesca {  border-collapse: collapse;  width: 100%;  }#conapesca td, #conapesca th {  border: 1px solid #ddd;  padding: 5px;  text-align:center;  font-weight:bold;}#conapesca tr:nth-child(even){background-color: #FFF; }#conapesca th {  padding-top: 5px;  text-align: center;  background-color: #CCCCCC;  color: #696969;  font-weight:bold;    background-color:#D3D3D3;}
+#conapesca {
+  border-collapse: collapse;
+  width: 100%;
+}
+#conapesca td,
+#conapesca th {
+  border: 1px solid #ddd;
+  padding: 5px;
+  text-align: center;
+  font-weight: bold;
+}
+#conapesca tr:nth-child(even) {
+  background-color: #fff;
+}
+#conapesca th {
+  padding-top: 5px;
+  text-align: center;
+  background-color: #cccccc;
+  color: #696969;
+  font-weight: bold;
+  background-color: #d3d3d3;
+}
 /* Estilos para el time picker */
 #timepicker {
   display: flex;
@@ -35,10 +56,8 @@ nav {
   z-index: 9999;
 }
 
-#header-mobile nav{
-
+#header-mobile nav {
   z-index: 888;
-
 }
 
 #timepicker button {
@@ -134,7 +153,7 @@ p {
   margin-top: 50px;
   margin-bottom: 50px;
 }
-.card-padding{
+.card-padding {
   margin-top: 50px;
   margin-bottom: 50px;
 }
@@ -376,8 +395,8 @@ textarea {
   background-color: transparent;
 }
 .text-center {
-        text-align: center;
-        font-weight: bold;
+  text-align: center;
+  font-weight: bold;
 }
 .bg-dark {
   background-color: #d3d3d3;
@@ -390,4 +409,7 @@ textarea {
 .bg-dark td {
   font-weight: bold;
 }
-    
+
+.texfinal {
+  text-align: justify;
+}
