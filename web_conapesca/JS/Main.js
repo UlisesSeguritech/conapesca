@@ -15,6 +15,9 @@ var datesMail = {};
     $('#calendarYear').attr('placeholder',
     setDay);
 
+    
+    $('#calendarYearR').attr('placeholder',
+    setDay);
 
 $("#validateRNPA").click(function () {
   validateUsername();
@@ -222,16 +225,13 @@ function validateInputs() {
   if (stateField.length == "" || stateField.length == 0) {
     $("#stateerror").show();
 
-    stateNull = true;
+
   } else {
-    stateNull = false;
     $("#stateerror").hide();
     if (localField == 0) {
       $("#localerror").show();
-      localNull = true;
     } else {
       $("#localerror").hide();
-      localNull = false;
     }
   }
 
@@ -415,10 +415,12 @@ $("#sendRNPA").click(function () {
   validateInputs();
   validateEmail();
   validateDate();
-  if (mailError == false && localNull == false && stateNull == false) {
+  if (mailError == false) {
     $(".CardSolicitudOne").hide();
     $(".CardSolicitudTwo").hide();
     $(".CardSolicitudThree").show();
+
+
     
     //RNPA
     let rnVal = document.querySelector('.rnpaValue');
@@ -579,6 +581,9 @@ $gmx(document).ready(function () {
   $("#calendarYear").datepicker({ changeYear: true });
 });
 $gmx(document).ready(function () {
+  $("#calendarYearR").datepicker({ changeYear: true });
+});
+$gmx(document).ready(function () {
   //ACORDION jQUERY
   $(".panel-collapse").on("show.bs.collapse", function () {
     $(this).prev(".panel-heading").addClass("active");
@@ -597,6 +602,24 @@ $gmx(document).ready(function () {
   $(".CardSolicitudTwo").hide();
   $(".CardSolicitudThree").hide();
 
+  //console.log('Se cargo la ventana con exito');
+  // Selecciona los botones utilizando el selector adecuado
+  /*
+  const botones = document.querySelectorAll(".btn-gren");
+  // Agrega el event listener a cada botón verde y al hacer click hace invisible la NOM
+  botones.forEach(function (boton) {
+    boton.addEventListener("click", function () {
+      // Acción a realizar al hacer clic en cualquier botón
+      //console.log('¡Se hizo clic en un botón!');
+      // Aquí puedes agregar tu lógica adicional
+      //$("#hideNom").hide();
+      if ($('#hideNom').is(':visible')) {
+        $("#hideNom").hide();
+      }else{
+        $("#hideNom").show();
+      }
+    });
+  });*/
 
   //SolicitudDeVerificacion
   const contenedorSolicitud = document.getElementById("contenedorSolicitud");
@@ -612,7 +635,14 @@ $gmx(document).ready(function () {
     });
 
     const guardarSolicitud2 = document.querySelectorAll(".guardarSolicitud2");
-   
+    /*
+    guardarSolicitud2.forEach(function (elemento2) {
+      elemento2.addEventListener("click", () => {
+        $(".CardSolicitudOne").hide();
+        $(".CardSolicitudTwo").hide();
+        $(".CardSolicitudThree").show();
+      });
+    });*/
   });
 
   //DISEÑO RESPONSIVE
@@ -883,7 +913,7 @@ function validateUsernameR() {
 
 function validateInputsR() {
   let stateFieldR = $("#estadoR").val();
-  let localFieldR = $("#inputLocR").val();
+ // let localFieldR = $("#inputLocR").val();
   let muelleField = $("#inputMueR").val();
   let refFieldR = $("#refrenciaFormR").val();
   let descFieldR = $("#descFormR").val();
@@ -898,11 +928,11 @@ function validateInputsR() {
 
   } else {
     $("#stateerrorR").hide();
-    if (localFieldR == 0) {
-      $("#localerrorR").show();
-    } else {
-      $("#localerrorR").hide();
-    }
+  //  if (localFieldR == 0) {
+   //   $("#localerrorR").show();
+   // } else {
+   //   $("#localerrorR").hide();
+   // }
   }
 
 
@@ -954,6 +984,7 @@ function validateInputsR() {
   } else {
     $("#contacterror").hide();
   }
+ 
 }
 
 function soloLetras(e) {
@@ -1177,7 +1208,70 @@ $("#sendRNPAR").click(function () {
   validateInputsR();
   validateEmailR();
   validateDateR();
+  saveIn();
+  console.log("datos " + JSON.stringify(datesMail));
   if (mailErrorR == false) {
+    $(".CardSolicitudOne").hide();
+    $(".CardSolicitudTwo").hide();
+    $(".CardSolicitudThree").show();
+    
+    //RNPA
+    let rnVal = document.querySelector('.rnpaValue');
+    rnVal.innerHTML = datesMail.rnpa;
+    
+    //nombre embaracion
+    let nmVal = document.querySelector('.nameValue');
+    nmVal.innerHTML = "CAMILA";
+    
+    //Matricula
+    let mtVal = document.querySelector('.matValue');
+    mtVal.innerHTML = "00559966";
+    
+    //puerto
+    let ptVal = document.querySelector('.ptValue');
+    ptVal.innerHTML = datesMail.estado;
+
+    //RNPA propietario
+    let rnpVal = document.querySelector('.rnpropValue');
+    rnpVal.innerHTML = "12345678";
+
+    //descripcion
+    let dsVal = document.querySelector('.desValue');
+    dsVal.innerHTML = datesMail.descripcion;
+
+    //localidad
+    let lcVal = document.querySelector('.locValue');
+    lcVal.innerHTML = datesMail.localidad;
+
+    //muelle
+    let mueVal = document.querySelector('.mullValue');
+    mueVal.innerHTML = datesMail.muelle;
+
+    //referencia
+    let refVal = document.querySelector('.refeValue');
+    refVal.innerHTML = datesMail.referencia;
+
+    //fecha
+    let dtVal = document.querySelector('.dteValue');
+    dtVal.innerHTML = datesMail.fecha;
+
+    //hora
+    let hrVal = document.querySelector('.hourValue');
+    hrVal.innerHTML = datesMail.hora;
+
+    //user
+    let usrVal = document.querySelector('.ctctValue');
+    usrVal.innerHTML = datesMail.contacto ;
+
+    //tel
+    let telVal = document.querySelector('.teleValue');
+    telVal.innerHTML = datesMail.telefono;
+
+    //mail
+    let emVal = document.querySelector('.emaValue');
+    emVal.innerHTML = datesMail.mail;
+
     //saveInfo();
+    //generatePDF();
   }
 });
