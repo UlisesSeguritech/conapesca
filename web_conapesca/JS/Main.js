@@ -994,11 +994,11 @@ function validateInputsR() {
     $("#stateerrorR").show();
   } else {
     $("#stateerrorR").hide();
-    //  if (localFieldR == 0) {
-    //   $("#localerrorR").show();
-    // } else {
-    //   $("#localerrorR").hide();
-    // }
+    if (localFieldR == 0) {
+      $("#localerrorR").show();
+    } else {
+      $("#localerrorR").hide();
+    }
   }
 
   /*if (muelleField !== undefined) {
@@ -1041,9 +1041,9 @@ function validateInputsR() {
   }
 
   if (contactFieldR.length == "") {
-    $("#contacterror").show();
+    $("#contacterrorR").show();
   } else {
-    $("#contacterror").hide();
+    $("#contacterrorR").hide();
   }
 }
 
