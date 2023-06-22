@@ -1178,59 +1178,59 @@ $("#sendRNPAR").click(function () {
     $(".CardSolicitudThree").show();
 
     //RNPA
-    let rnVal = document.querySelector(".rnpaValue");
+    let rnVal = document.querySelector(".rnpaValueR");
     rnVal.innerHTML = datesMail.rnpa;
 
     //nombre embaracion
-    let nmVal = document.querySelector(".nameValue");
+    let nmVal = document.querySelector(".nameValueR");
     nmVal.innerHTML = "CAMILA";
 
     //Matricula
-    let mtVal = document.querySelector(".matValue");
+    let mtVal = document.querySelector(".matValueR");
     mtVal.innerHTML = "00559966";
 
     //puerto
-    let ptVal = document.querySelector(".ptValue");
+    let ptVal = document.querySelector(".ptValueR");
     ptVal.innerHTML = datesMail.estado;
 
     //RNPA propietario
-    let rnpVal = document.querySelector(".rnpropValue");
+    let rnpVal = document.querySelector(".rnpropValueR");
     rnpVal.innerHTML = "12345678";
 
     //descripcion
-    let dsVal = document.querySelector(".desValue");
+    let dsVal = document.querySelector(".desValueR");
     dsVal.innerHTML = datesMail.descripcion;
 
     //localidad
-    let lcVal = document.querySelector(".locValue");
+    let lcVal = document.querySelector(".locValueR");
     lcVal.innerHTML = datesMail.localidad;
 
     //muelle
-    let mueVal = document.querySelector(".mullValue");
+    let mueVal = document.querySelector(".mullValueR");
     mueVal.innerHTML = datesMail.muelle;
 
     //referencia
-    let refVal = document.querySelector(".refeValue");
+    let refVal = document.querySelector(".refeValueR");
     refVal.innerHTML = datesMail.referencia;
 
     //fecha
-    let dtVal = document.querySelector(".dteValue");
+    let dtVal = document.querySelector(".dteValueR");
     dtVal.innerHTML = datesMail.fecha;
 
     //hora
-    let hrVal = document.querySelector(".hourValue");
+    let hrVal = document.querySelector(".hourValueR");
     hrVal.innerHTML = datesMail.hora;
 
     //user
-    let usrVal = document.querySelector(".ctctValue");
+    let usrVal = document.querySelector(".ctctValueR");
     usrVal.innerHTML = datesMail.contacto;
 
     //tel
-    let telVal = document.querySelector(".teleValue");
+    let telVal = document.querySelector(".teleValueR");
     telVal.innerHTML = datesMail.telefono;
 
     //mail
-    let emVal = document.querySelector(".emaValue");
+    let emVal = document.querySelector(".emaValueR");
     emVal.innerHTML = datesMail.mail;
 
     //saveInfo();
