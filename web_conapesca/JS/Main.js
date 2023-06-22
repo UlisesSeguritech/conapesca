@@ -567,6 +567,89 @@ function generatePDF() {
   });
   doc.output("dataurlnewwindow");
 }
+
+//funciones responsive para PDF
+
+$("#generateFolioRes").click(function () {
+  saveInfores();
+  generatePDFRes();
+});
+
+function saveInfores() {
+  console.log("aca", JSON.stringify(datesMail));
+
+  console.log(typeof datesMail);
+  nuw = JSON.stringify(datesMail);
+
+  $.ajax({
+    url: "/sendMail/",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    method: "POST",
+    dataType: "json",
+    data: nuw,
+    complete: function (xhr, status) {
+      alert("Gracias, sus datos se enviaron con éxito. Estado: ");
+      document.location.href = "/";
+    },
+  });
+}
+
+function generatePDFRes() {
+  var doc = new jsPDF("l", "pt", "letter");
+  var htmlstring = "";
+  var tempVarToCheckPageHeight = 0;
+  var pageHeight = 0;
+  pageHeight = doc.internal.pageSize.height;
+  specialElementHandlers = {
+    // element with id of "bypass" - jQuery style selector
+    "#bypassme": function (element, renderer) {
+      // true = "handled elsewhere, bypass text extraction"
+      return true;
+    },
+  };
+  margins = {
+    top: 150,
+    bottom: 60,
+    left: 40,
+    right: 40,
+    width: 600,
+  };
+  var y = 20;
+  doc.setLineWidth(2);
+  doc.text(
+    200,
+    (y = y + 30),
+    "Solicitud de verificación / Número de solicitud “00001” "
+  );
+  doc.autoTable({
+    html: "#conapescaTableRes",
+    startY: 70,
+    theme: "striped",
+    columnStyles: {
+      0: {
+        cellWidth: 180,
+      },
+      1: {
+        cellWidth: 180,
+      },
+      2: {
+        cellWidth: 180,
+      },
+      3: {
+        cellWidth: 180,
+      },
+    },
+    styles: {
+      minCellHeight: 40,
+    },
+  });
+  doc.output("dataurlnewwindow");
+}
+
+//
+
 //funcion cancelarsolicitud regresa a la vista inicial de solicitud y limpia los inputs
 let cancelarSolicitud = () => {
   //Mostramos la card correcta de solicitud de verificacion
