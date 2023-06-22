@@ -981,7 +981,7 @@ function validateUsernameR() {
 
 function validateInputsR() {
   let stateFieldR = $("#estadoR").val();
-  // let localFieldR = $("#inputLocR").val();
+  let localFieldR = $("#inputLocR").val();
   let muelleField = $("#inputMueR").val();
   let refFieldR = $("#refrenciaFormR").val();
   let descFieldR = $("#descFormR").val();
