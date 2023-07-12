@@ -531,7 +531,9 @@ function saveInfo() {
     success: function (xhr, status, res) {
       //folioId.folio = res.responseJSON.idFolio;
       datesMail.folioId = res.responseJSON.idFolio;
-      generatePDF(datesMail.folioId);
+      formatFolio = datesMail.folioId.toString().padStart(6,'0');
+      datesMail.folioId = formatFolio;
+      generatePDF(formatFolio);
       nuw = JSON.stringify(datesMail);
       console.log(nuw,"desktop")
 
@@ -629,9 +631,11 @@ function saveInfores() {
     data: genFoliores,
     success: function (xhr, status, res) {
       datesMail.folioId = res.responseJSON.idFolio;
-      console.log( datesMail.folioId);
+      datesMail.folioId = res.responseJSON.idFolio;
+      formatFolio = datesMail.folioId.toString().padStart(6,'0');
+      datesMail.folioId = formatFolio;
 
-      generatePDFRes(datesMail.folioId);
+      generatePDFRes(formatFolio);
       nuw = JSON.stringify(datesMail);
       console.log(nuw,"responsive")
       $.ajax({
