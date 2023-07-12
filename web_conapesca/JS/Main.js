@@ -25,7 +25,7 @@ $("#validateRNPA").click(function () {
     $.ajax({
       type: "GET",
       url: "https://ss.seguritech.org/ConapescaPublicApi/api/public/GetVesselListBasic",
-      headers: {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2ODkxNzI0MjksImlzcyI6IkJsdWVUcmFrZXIiLCJhdWQiOiJwdWJsaWMuYXBpLmNvbnN1bWVyIn0.gZfc0iFMDUJ5lCwm0bHqSNXuGPBZopmjg43LVHyC53U'},
+      headers: {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2ODkyNjkwNzksImlzcyI6IkJsdWVUcmFrZXIiLCJhdWQiOiJwdWJsaWMuYXBpLmNvbnN1bWVyIn0.4Py9GDero-pU9jFWb4a-zNC951j4P-4YD64rM9zixQ8'},
       dataType: 'json',
       success: function (result, status, xhr) {
         for(i=0; i<=result.length; i++){
@@ -1236,7 +1236,7 @@ $("#validateRNPAR").click(function () {
     $.ajax({
       type: "GET",
       url: "https://ss.seguritech.org/ConapescaPublicApi/api/public/GetVesselListBasic",
-      headers: {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2ODkxNzI0MjksImlzcyI6IkJsdWVUcmFrZXIiLCJhdWQiOiJwdWJsaWMuYXBpLmNvbnN1bWVyIn0.gZfc0iFMDUJ5lCwm0bHqSNXuGPBZopmjg43LVHyC53U'},
+      headers: {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2ODkyNjkwNzksImlzcyI6IkJsdWVUcmFrZXIiLCJhdWQiOiJwdWJsaWMuYXBpLmNvbnN1bWVyIn0.4Py9GDero-pU9jFWb4a-zNC951j4P-4YD64rM9zixQ8'},
       dataType: 'json',
       success: function (result, status, xhr) {
         for(i=0; i<=result.length; i++){
