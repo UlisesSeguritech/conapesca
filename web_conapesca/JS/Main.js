@@ -1,4 +1,6 @@
 var datesMail = {};
+var datesFolio = {};
+var folioId = {};
 // crea un nuevo objeto `Date`
 var today = new Date();
 
@@ -20,17 +22,35 @@ $("#validateRNPA").click(function () {
   validateUsername();
 
   if (datesMail.rnpa) {
-    console.log(datesMail.rnpa);
-
-    if (datesMail.rnpa == "12345678") {
-      $(".CardSolicitudOne").hide();
-      $(".CardSolicitudTwo").show();
-      return false;
-    } else {
-      $("#usercheck").show();
-      $("#usercheck").html("El RNPA no existe.");
-    }
+    $.ajax({
+      type: "GET",
+      url: "https://ss.seguritech.org/ConapescaPublicApi/api/public/GetVesselListBasic",
+      headers: {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2ODkxNzI0MjksImlzcyI6IkJsdWVUcmFrZXIiLCJhdWQiOiJwdWJsaWMuYXBpLmNvbnN1bWVyIn0.gZfc0iFMDUJ5lCwm0bHqSNXuGPBZopmjg43LVHyC53U'},
+      dataType: 'json',
+      success: function (result, status, xhr) {
+        for(i=0; i<=result.length; i++){
+          if(datesMail.rnpa == result[i].vesselIdentification.rnpa){
+            datesMail.nameEmb = result[i].vesselIdentification.vesselName;
+            datesMail.matricula = result[i].vesselIdentification.matricula;
+            datesMail.propietario = result[i].vesselIdentification.rnpaTitular;
+            datesMail.trackerId = result[i].registrationInformation.blueTrakerId;
+            
+            $(".CardSolicitudOne").hide();
+            $(".CardSolicitudTwo").show();
+            return false;
+          }else{
+            $("#usercheck").show();
+            $("#usercheck").html("El RNPA no existe.");
+          }
+        }
+      },
+      error: function (xhr, status, error) {
+        $("#usercheck").show();
+        $("#usercheck").html("El RNPA no existe.");
+      }
+    });
   }
+
 });
 
 //SET DE RNPA
@@ -49,6 +69,7 @@ function validateUsername() {
     $("#usercheck").hide();
     usernameError = false;
     datesMail.rnpa = usernameValue;
+    datesFolio.rnpaFolio = usernameValue;
     console.log(datesMail);
   }
 }
@@ -88,7 +109,7 @@ function getEstado(val) {
 function getEstadoR(val) {
   $.get(
     "/estados/" + val + "/localidad",
-    //"http://localhost:8080/estados/" + val + "/localidad",
+   //"http://localhost:8080/estados/" + val + "/localidad",
     function (data, status) {
       console.log("Data: " + data + "\nStatus: " + status);
       if (data) {
@@ -117,7 +138,7 @@ function getEstadoR(val) {
 }
 
 function getLocalidad(val) {
-  $.get("/localidad/" + val, function (data, status) {
+ $.get("/localidad/" + val, function (data, status) {
     //$.get("http://localhost:8080/localidad/" + val, function (data, status) {
     console.log("si", data.namePue);
     if (data) {
@@ -435,11 +456,11 @@ $("#sendRNPA").click(function () {
 
     //nombre embaracion
     let nmVal = document.querySelector(".nameValue");
-    nmVal.innerHTML = "CAMILA";
+    nmVal.innerHTML = datesMail.nameEmb ;
 
     //Matricula
     let mtVal = document.querySelector(".matValue");
-    mtVal.innerHTML = "00559966";
+    mtVal.innerHTML = datesMail.matricula;
 
     //puerto
     let ptVal = document.querySelector(".ptValue");
@@ -447,7 +468,7 @@ $("#sendRNPA").click(function () {
 
     //RNPA propietario
     let rnpVal = document.querySelector(".rnpropValue");
-    rnpVal.innerHTML = "12345678";
+    rnpVal.innerHTML = datesMail.propietario;
 
     //descripcion
     let dsVal = document.querySelector(".desValue");
@@ -492,31 +513,52 @@ $("#sendRNPA").click(function () {
 
 $("#generateFolio").click(function () {
   saveInfo();
-  generatePDF();
+  
 });
 
 function saveInfo() {
-  console.log("aca", JSON.stringify(datesMail));
 
-  console.log(typeof datesMail);
-  nuw = JSON.stringify(datesMail);
+  genFolio = JSON.stringify(datesFolio);
 
   $.ajax({
-    url: "/sendMail/",
+    url: "/generateFolio/",
     headers: {
       "Content-Type": "application/json",
     },
     method: "POST",
     dataType: "json",
-    data: nuw,
-    complete: function (xhr, status) {
-      alert("Gracias, sus datos se enviaron con éxito. Estado: ");
-      document.location.href = "/";
+    data: genFolio,
+    success: function (xhr, status, res) {
+      //folioId.folio = res.responseJSON.idFolio;
+      datesMail.folioId = res.responseJSON.idFolio;
+      generatePDF(datesMail.folioId);
+      nuw = JSON.stringify(datesMail);
+      console.log(nuw,"desktop")
+
+      $.ajax({
+        url: "/sendMail/",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        method: "POST",
+        dataType: "json",
+        data: nuw,
+        complete: function (xhr, status) {
+          
+          alert("Gracias, sus datos se enviaron con éxito. Estado: ");
+          document.location.href = "/";
+        },
+      });
     },
   });
+
+
+
+
 }
 
-function generatePDF() {
+function generatePDF(fol) {
+
   var doc = new jsPDF("l", "pt", "letter");
   var htmlstring = "";
   var tempVarToCheckPageHeight = 0;
@@ -541,7 +583,7 @@ function generatePDF() {
   doc.text(
     200,
     (y = y + 30),
-    "Solicitud de verificación / Número de solicitud “00001” "
+    "Solicitud de verificación / Número de solicitud " + fol
   );
   doc.autoTable({
     html: "#conapescaTable",
@@ -572,31 +614,46 @@ function generatePDF() {
 
 $("#generateFolioRes").click(function () {
   saveInfores();
-  generatePDFRes();
 });
 
 function saveInfores() {
-  console.log("aca", JSON.stringify(datesMail));
-
-  console.log(typeof datesMail);
-  nuw = JSON.stringify(datesMail);
+  genFoliores = JSON.stringify(datesFolio);
 
   $.ajax({
-    url: "/sendMail/",
+    url: "/generateFolio/",
     headers: {
       "Content-Type": "application/json",
     },
     method: "POST",
     dataType: "json",
-    data: nuw,
-    complete: function (xhr, status) {
-      alert("Gracias, sus datos se enviaron con éxito. Estado: ");
-      document.location.href = "/";
+    data: genFoliores,
+    success: function (xhr, status, res) {
+      datesMail.folioId = res.responseJSON.idFolio;
+      console.log( datesMail.folioId);
+
+      generatePDFRes(datesMail.folioId);
+      nuw = JSON.stringify(datesMail);
+      console.log(nuw,"responsive")
+      $.ajax({
+        url: "/sendMail/",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        method: "POST",
+        dataType: "json",
+        data: nuw,
+        complete: function (xhr, status) {
+          alert("Gracias, sus datos se enviaron con éxito. Estado: ");
+          document.location.href = "/";
+        },
+      });
     },
   });
+
+
 }
 
-function generatePDFRes() {
+function generatePDFRes(foli) {
   var doc = new jsPDF("l", "pt", "letter");
   var htmlstring = "";
   var tempVarToCheckPageHeight = 0;
@@ -618,10 +675,15 @@ function generatePDFRes() {
   };
   var y = 20;
   doc.setLineWidth(2);
+  console.log("soy fol",foli),
+
   doc.text(
     200,
     (y = y + 30),
-    "Solicitud de verificación / Número de solicitud “00001” "
+   
+
+    "Solicitud de verificación / Número de solicitud " + foli
+    
   );
   doc.autoTable({
     html: "#conapescaTableRes",
@@ -975,6 +1037,7 @@ function validateUsernameR() {
     usernameErrorR = false;
     console.log(usernameValue);
     datesMail.rnpa = usernameValue;
+    datesFolio.rnpaFolio = usernameValue;
     console.log(datesMail);
   }
 }
@@ -982,13 +1045,14 @@ function validateUsernameR() {
 function validateInputsR() {
   let stateFieldR = $("#estadoR").val();
   let localFieldR = $("#inputLocR").val();
-  let muelleField = $("#inputMueR").val();
   let refFieldR = $("#refrenciaFormR").val();
   let descFieldR = $("#descFormR").val();
   let dateFieldR = $("#calendarYearR").val();
   let timetFieldR = $("#timeFormR").val();
   let telFieldR = $("#telFormR").val();
   let contactFieldR = $("#contactFormR").val();
+
+    //set table values Responsive
 
   if (stateFieldR.length == "" || stateFieldR.length == 0) {
     $("#stateerrorR").show();
@@ -1001,24 +1065,20 @@ function validateInputsR() {
     }
   }
 
-  /*if (muelleField !== undefined) {
-    if (muelleField.length == "") {
-      $("#muelleerrorR").show();
-    } else {
-      $("#muelleerrorR").hide();
-    }
-  }*/
-
   if (refFieldR.length == "") {
     $("#referrorR").show();
   } else {
     $("#referrorR").hide();
+    datesMail.referencia = $("#refrenciaFormR").val();
+    console.log(datesMail);
   }
 
   if (descFieldR.length == "") {
     $("#descerrorR").show();
   } else {
     $("#descerrorR").hide();
+    datesMail.descripcion = $("#descFormR").val();
+    console.log(datesMail);
   }
 
   if (dateFieldR.length == "") {
@@ -1026,24 +1086,32 @@ function validateInputsR() {
     $("#dateerroryearR").hide();
   } else {
     $("#dateerrorR").hide();
+    datesMail.fecha = $("#calendarYearR").val();
+    console.log(datesMail);
   }
 
   if (timetFieldR.length == "") {
     $("#timeerrorR").show();
   } else {
     $("#timeerrorR").hide();
+    datesMail.hora = $("#timeFormR").val();
+    console.log(datesMail);
   }
 
   if (telFieldR.length == "") {
     $("#phoneerrorR").show();
   } else {
     $("#phoneerrorR").hide();
+    datesMail.telefono = $("#telFormR").val();
+    console.log(datesMail);
   }
 
   if (contactFieldR.length == "") {
     $("#contacterrorR").show();
   } else {
     $("#contacterrorR").hide();
+    datesMail.contacto = $("#contactFormR").val();
+    console.log(datesMail);
   }
 }
 
@@ -1051,15 +1119,6 @@ function soloLetras(e) {
   var key = e.keyCode || e.which,
     tecla = String.fromCharCode(key).toLowerCase(),
     letras = " áéíóúabcdefghijklmnñopqrstuvwxyz";
-  //especiales = [8, 37, 39, 46],
-  // = false;
-
-  /*for (var i in especiales) {
-    if (key == especiales[i]) {
-      tecla_especial = true;
-      break;
-    }
-  }*/
 
   if (letras.indexOf(tecla) == -1) {
     return false;
@@ -1144,22 +1203,6 @@ mensajeDesR.addEventListener("input", function (e) {
   contadorDesR.innerHTML = `${longitudAct}/${longMin}`;
 });
 
-/*function validateFormatDate(dateGet) {
-  console.log("Hola",dateGet);
-  var d_reg =  /^(0[1-9]|[1-2]\d|3[01])(\/)(0[1-9]|1[012])\2(\d{4})$/;
-  if (d_reg.test(dateGet)) {
-    console.log("Success");
-    $("#dateerroryear").hide();
-  } else{
-    console.log("False");
-
-    $("#dateerroryear").show();
-
-  }
-
-
-}*/
-
 function validateEmailR() {
   // Get our input reference.
   var emailField = document.getElementById("mailFormR");
@@ -1177,7 +1220,7 @@ function validateEmailR() {
   // Using test we can check if the text match the pattern
   if (validEmail.test(emailField.value)) {
     console.log("Email is valid, continue with form submission");
-
+    datesMail.mail = mailValue;
     mailErrorR = false;
   } else {
     console.log("Email is invalid, skip form submission");
@@ -1187,74 +1230,49 @@ function validateEmailR() {
   }
 }
 
-function saveIn() {
-  let usernameValue = $("#usernamesR").val();
-  let estadoRValue = $("#estadoR").val();
-  let localidadValue = $("#inputLocR").val();
-  let muelleValue = $("#inputMueR").val();
-  let refValue = $("#refrenciaFormR").val();
-  let descValue = $("#descFormR").val();
-  let dateValue = $("#calendarYearR").val();
-  let timeValue = $("#timeFormR").val();
-  let telValue = $("#telFormR").val();
-  let contactValue = $("#contactFormR").val();
-  let mailValue = $("#mailFormR").val();
-
-  datesMail.rnpa = usernameValue;
-  (datesMail.estado = estadoRValue),
-    (datesMail.localidad = localidadValue),
-    (datesMail.inputMueR = muelleValue),
-    (datesMail.referencia = refValue),
-    (datesMail.descripcion = descValue),
-    (datesMail.fecha = dateValue),
-    (datesMail.hora = timeValue),
-    (datesMail.telefono = telValue),
-    (datesMail.contacto = contactValue),
-    (datesMail.mail = mailValue);
-
-  console.log(JSON.stringify(datesMail));
-
-  console.log(typeof datesMail);
-  nuw = JSON.stringify(datesMail);
-
-  /* $.ajax({
-    url: '/sendMail/',
-    headers: {
-        'Content-Type':'application/json'
-    },
-    method: 'POST',
-    dataType: 'json',
-    data: nuw,
-    complete : function(xhr, status) {
-      alert("Gracias, sus datos se enviaron con éxito. Estado: ")
-      document.location.href="/"; 
-  }
-  });*/
-}
-
 $("#validateRNPAR").click(function () {
   validateUsernameR();
-
   if (datesMail.rnpa) {
-    console.log(datesMail.rnpa);
+    $.ajax({
+      type: "GET",
+      url: "https://ss.seguritech.org/ConapescaPublicApi/api/public/GetVesselListBasic",
+      headers: {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2ODkxNzI0MjksImlzcyI6IkJsdWVUcmFrZXIiLCJhdWQiOiJwdWJsaWMuYXBpLmNvbnN1bWVyIn0.gZfc0iFMDUJ5lCwm0bHqSNXuGPBZopmjg43LVHyC53U'},
+      dataType: 'json',
+      success: function (result, status, xhr) {
+        for(i=0; i<=result.length; i++){
 
-    if (datesMail.rnpa == "12345678") {
-      $(".CardSolicitudOne").hide();
-      $(".CardSolicitudTwo").show();
-      return false;
-    } else {
-      $("#usercheckR").show();
-      $("#usercheckR").html("El RNPA no existe.");
-    }
+
+          
+          if(datesMail.rnpa == result[i].vesselIdentification.rnpa){
+            datesMail.nameEmb = result[i].vesselIdentification.vesselName;
+            datesMail.matricula = result[i].vesselIdentification.matricula;
+            datesMail.propietario = result[i].vesselIdentification.rnpaTitular;
+            datesMail.trackerId = result[i].registrationInformation.blueTrakerId;
+
+            $(".CardSolicitudOne").hide();
+            $(".CardSolicitudTwo").show();
+            return false;
+          }else{
+            $("#usercheck").show();
+            $("#usercheck").html("El RNPA no existe.");
+          }
+        }
+      },
+      error: function (xhr, status, error) {
+        $("#usercheck").show();
+        $("#usercheck").html("El RNPA no existe.");
+      }
+    });
   }
+
 });
 
 $("#sendRNPAR").click(function () {
   validateInputsR();
   validateEmailR();
   validateDateR();
-  saveIn();
-  console.log("datos " + JSON.stringify(datesMail));
+  //saveIn();
+  //console.log("datos " + JSON.stringify(datesMail));
   if (mailErrorR == false) {
     $(".CardSolicitudOne").hide();
     $(".CardSolicitudTwo").hide();
@@ -1266,11 +1284,11 @@ $("#sendRNPAR").click(function () {
 
     //nombre embaracion
     let nmVal = document.querySelector(".nameValueR");
-    nmVal.innerHTML = "CAMILA";
+    nmVal.innerHTML = datesMail.nameEmb;
 
     //Matricula
     let mtVal = document.querySelector(".matValueR");
-    mtVal.innerHTML = "00559966";
+    mtVal.innerHTML = datesMail.matricula;
 
     //puerto
     let ptVal = document.querySelector(".ptValueR");
@@ -1278,7 +1296,7 @@ $("#sendRNPAR").click(function () {
 
     //RNPA propietario
     let rnpVal = document.querySelector(".rnpropValueR");
-    rnpVal.innerHTML = "12345678";
+    rnpVal.innerHTML = datesMail.propietario;
 
     //descripcion
     let dsVal = document.querySelector(".desValueR");
