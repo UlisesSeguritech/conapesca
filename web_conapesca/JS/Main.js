@@ -1,6 +1,13 @@
 var datesMail = {};
 var datesFolio = {};
 var folioId = {};
+var nameState  ="";
+var nameLocal  ="";
+
+var nameRNPA  ="";
+var nameEmbarca  ="";
+var nameMatricula  ="";
+var nameOwner  ="";
 // crea un nuevo objeto `Date`
 var today = new Date();
 
@@ -12,6 +19,9 @@ var month = today.getMonth() + 1;
 
 // `getFullYear()` devuelve el año completo
 var year = today.getFullYear();
+
+/*var button = document.querySelector("#sendRNPA");
+button.disabled = true;*/
 
 var setDay = day + "/" + month + "/" + year;
 $("#calendarYear").attr("placeholder", setDay);
@@ -25,15 +35,16 @@ $("#validateRNPA").click(function () {
     $.ajax({
       type: "GET",
       url: "https://ss.seguritech.org/ConapescaPublicApi/api/public/GetVesselListBasic",
-      headers: {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2ODkyNjkwNzksImlzcyI6IkJsdWVUcmFrZXIiLCJhdWQiOiJwdWJsaWMuYXBpLmNvbnN1bWVyIn0.4Py9GDero-pU9jFWb4a-zNC951j4P-4YD64rM9zixQ8'},
+      headers: {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2ODkzNTY4OTIsImlzcyI6IkJsdWVUcmFrZXIiLCJhdWQiOiJwdWJsaWMuYXBpLmNvbnN1bWVyIn0.H1TyTVfPlRyhB8acDVB1h4G-uKVeiwCqUw8kcEsMXWA'},
       dataType: 'json',
       success: function (result, status, xhr) {
         for(i=0; i<=result.length; i++){
           if(datesMail.rnpa == result[i].vesselIdentification.rnpa){
-            datesMail.nameEmb = result[i].vesselIdentification.vesselName;
-            datesMail.matricula = result[i].vesselIdentification.matricula;
-            datesMail.propietario = result[i].vesselIdentification.rnpaTitular;
-            datesMail.trackerId = result[i].registrationInformation.blueTrakerId;
+           
+            nameRNPA = result[i].vesselIdentification.rnpa;
+            nameEmbarca = result[i].vesselIdentification.vesselName;
+            nameMatricula = result[i].vesselIdentification.matricula;
+            nameOwner = result[i].vesselIdentification.rnpaTitular;
             
             $(".CardSolicitudOne").hide();
             $(".CardSolicitudTwo").show();
@@ -74,6 +85,19 @@ function validateUsername() {
   }
 }
 
+//SET DE telefono
+function validateTelLength() {
+  let telValue = $("#telForm").val();
+  if (telValue.length < 10) {
+    $("#phoneerror").show();
+    $("#phoneerror").html("El Teléfono debe contener 10 caracteres.");
+     telError = true;
+    //return false;
+  } else {
+    $("#phoneerror").hide();
+    telError = false;
+  }
+}
 //SET ESTADO
 function getEstado(val) {
   $.get(
@@ -87,7 +111,7 @@ function getEstado(val) {
         $("#inputLoc").append('<option value="0">Localidad</option>');
 
         for (i = 0; i < data.length; i++) {
-          var nameState = data[0].nombreEstado.name;
+           nameState = data[0].nombreEstado.name;
 
           $("#inputLoc").append(
             '<option  value="' +
@@ -118,7 +142,7 @@ function getEstadoR(val) {
         $("#inputLocR").append('<option value="0">Localidad</option>');
 
         for (i = 0; i < data.length; i++) {
-          var nameState = data[0].nombreEstado.name;
+           nameState = data[0].nombreEstado.name;
 
           $("#inputLocR").append(
             '<option  value="' +
@@ -138,31 +162,60 @@ function getEstadoR(val) {
 }
 
 function getLocalidad(val) {
- $.get("/localidad/" + val, function (data, status) {
-    //$.get("http://localhost:8080/localidad/" + val, function (data, status) {
-    console.log("si", data.namePue);
-    if (data) {
+  console.log(val)
+  if(val == "0"){
+    $("#inputMue").val("");
+    $("#inputMue").prop("disabled", true);
+
+    console.log(typeof val)
+  }else{
+    $.get("/localidad/" + val, function (data, status) {
+      //$.get("http://localhost:8080/localidad/" + val, function (data, status) {
+      console.log("si", data.namePue);
+      nameLocal = data.nameLoc;
+      console.log(val)
+  
+  
+  
+      if (data) {
+        $("#inputMue").prop("disabled", true);
+        $("#inputMue").empty();
+        $("#inputMue").val(data.namePue);
+        datesMail.muelle = data.namePue;
+        (datesMail.localidad = nameLocal), console.log(datesMail);
+      }else{
+        $("#inputMue").empty();
+  
+      }
+    })  .fail(function() {
       $("#inputMue").prop("disabled", true);
       $("#inputMue").empty();
-      $("#inputMue").val(data.namePue);
-      datesMail.muelle = data.namePue;
-      (datesMail.localidad = data.nameLoc), console.log(datesMail);
-    }
-  });
+    });
+  }
+
 }
 
 function getLocalidadR(val) {
+  console.log(val)
+  if(val == "0"){
+    $("#inputMueR").val("");
+    $("#inputMueR").prop("disabled", true);
+
+    console.log(typeof val)
+  }else{
   $.get("/localidad/" + val, function (data, status) {
     //$.get("http://localhost:8080/localidad/" + val, function (data, status) {
     console.log("si", data.namePue);
+    nameLocal = data.nameLoc;
     if (data) {
       $("#inputMueR").prop("disabled", true);
       $("#inputMueR").empty();
       $("#inputMueR").val(data.namePue);
       datesMail.muelle = data.namePue;
-      (datesMail.localidad = data.nameLoc), console.log(datesMail);
+      (datesMail.localidad = nameLocal), console.log(datesMail);
     }
   });
+}
 }
 
 $("#usercheck").hide();
@@ -185,9 +238,13 @@ $("#deserrorend").hide();
 $("#dateerroryear").hide();
 
 let usernameError = true;
-
+let telError = true;
 $("#usernames").keyup(function () {
   validateUsername();
+});
+
+$("#telForm").keyup(function () {
+  validateTelLength();
 });
 
 $("#refrenciaForm").keyup(function () {
@@ -256,6 +313,7 @@ function validateWhiteSpaces() {
 function validateInputs() {
   let stateField = $("#estado").val();
   let localField = $("#inputLoc").val();
+  let muelleField = $("#inputMue").val();
   let refField = $("#refrenciaForm").val();
   let descField = $("#descForm").val();
   let dateField = $("#calendarYear").val();
@@ -269,10 +327,16 @@ function validateInputs() {
     $("#stateerror").show();
   } else {
     $("#stateerror").hide();
+    datesMail.estado = nameState;
+    console.log(datesMail);
     if (localField == 0) {
       $("#localerror").show();
     } else {
       $("#localerror").hide();
+      datesMail.localidad = nameLocal;
+      datesMail.muelle = $("#inputMue").val();
+      
+      console.log(datesMail);
     }
   }
 
@@ -324,6 +388,8 @@ function validateInputs() {
     datesMail.contacto = $("#contactForm").val();
     console.log(datesMail);
   }
+
+  
 }
 
 function soloLetras(e) {
@@ -354,11 +420,14 @@ function validateDate() {
       if (yearIn < year) {
         $("#dateerroryear").show();
         $("#dateerroryear").html("El año no puede ser menor al actual.");
+        fechaError = true;
       }
 
       if (yearIn == year) {
         if (monthIn >= month && dayIn >= day) {
           $("#dateerroryear").hide();
+          fechaError = false;
+
         }
 
         if (monthIn <= month && dayIn < day) {
@@ -366,6 +435,8 @@ function validateDate() {
           $("#dateerroryear").html(
             "La fecha no puede ser menor al dia en curso."
           );
+        fechaError = true;
+
         }
 
         if (monthIn < month && dayIn <= day) {
@@ -373,11 +444,15 @@ function validateDate() {
           $("#dateerroryear").html(
             "La fecha no puede ser menor al dia en curso."
           );
+        fechaError = true;
+
         }
       }
 
       if (yearIn == year + 1 || yearIn == year + 2) {
         $("#dateerroryear").hide();
+        fechaError = false;
+
       }
 
       if (yearIn > year + 2) {
@@ -385,10 +460,14 @@ function validateDate() {
         $("#dateerroryear").html(
           "La fecha no puede superar 2 años del actual."
         );
+        fechaError = true;
+
       }
     } else {
       $("#dateerroryear").show();
       $("#dateerroryear").html("El formato de fecha es invalido.");
+      fechaError = true;
+
     }
   }
 }
@@ -422,8 +501,11 @@ function validateEmail() {
   var validEmail = /^\w+([.-_+]?\w+)*@\w+([.-]?\w+)*(\.\w{2,10})+$/;
   let mailValue = $("#mailForm").val();
 
+
+
   if (mailValue.length == "") {
     $("#mailerror").show();
+
   } else {
     $("#mailerror").hide();
   }
@@ -442,13 +524,18 @@ function validateEmail() {
 }
 
 $("#sendRNPA").click(function () {
+  datesMail = {};
   validateInputs();
   validateEmail();
   validateDate();
-  if (mailError == false) {
-    $(".CardSolicitudOne").hide();
-    $(".CardSolicitudTwo").hide();
-    $(".CardSolicitudThree").show();
+  validateTelLength();
+  
+  if (mailError == false && fechaError == false) {
+
+    datesMail.nameEmb = nameEmbarca;
+    datesMail.matricula = nameMatricula;
+    datesMail.propietario = nameOwner;
+    datesMail.rnpa = nameRNPA;
 
     //RNPA
     let rnVal = document.querySelector(".rnpaValue");
@@ -505,6 +592,22 @@ $("#sendRNPA").click(function () {
     //mail
     let emVal = document.querySelector(".emaValue");
     emVal.innerHTML = datesMail.mail;
+
+    if(datesMail.estado && datesMail.localidad && datesMail.descripcion && datesMail.referencia && datesMail.fecha && datesMail.hora && datesMail.contacto && datesMail.telefono.length == 10 && datesMail.mail){
+      $(".CardSolicitudOne").hide();
+      $(".CardSolicitudTwo").hide();
+      $(".CardSolicitudThree").show();
+      console.log(datesMail);
+
+    }else{
+      //alert("Todos los campos son obligatorios")
+      console.log(datesMail);
+
+    }
+
+    
+
+
 
     //saveInfo();
     //generatePDF();
@@ -1046,9 +1149,24 @@ function validateUsernameR() {
   }
 }
 
+//SET DE telefono
+function validateTelLengthR() {
+  let telValue = $("#telFormR").val();
+  if (telValue.length < 10) {
+    $("#phoneerrorR").show();
+    $("#phoneerrorR").html("El Teléfono debe contener 10 caracteres.");
+     telError = true;
+    //return false;
+  } else {
+    $("#phoneerrorR").hide();
+    telError = false;
+  }
+}
 function validateInputsR() {
   let stateFieldR = $("#estadoR").val();
   let localFieldR = $("#inputLocR").val();
+  let muelleField = $("#inputMueR").val();
+
   let refFieldR = $("#refrenciaFormR").val();
   let descFieldR = $("#descFormR").val();
   let dateFieldR = $("#calendarYearR").val();
@@ -1062,10 +1180,16 @@ function validateInputsR() {
     $("#stateerrorR").show();
   } else {
     $("#stateerrorR").hide();
+    datesMail.estado = nameState;
+    console.log(datesMail);
     if (localFieldR == 0) {
       $("#localerrorR").show();
     } else {
       $("#localerrorR").hide();
+      datesMail.localidad = nameLocal;
+      datesMail.muelle = $("#inputMueR").val();
+      console.log(datesMail);
+
     }
   }
 
@@ -1147,11 +1271,15 @@ function validateDateR() {
       if (yearIn < year) {
         $("#dateerroryearR").show();
         $("#dateerroryearR").html("El año no puede ser menor al actual.");
+        fechaError = true;
+      
       }
 
       if (yearIn == year) {
         if (monthIn >= month && dayIn >= day) {
           $("#dateerroryearR").hide();
+          fechaError = false;
+
         }
 
         if (monthIn <= month && dayIn < day) {
@@ -1159,6 +1287,8 @@ function validateDateR() {
           $("#dateerroryearR").html(
             "La fecha no puede ser menor al dia en curso."
           );
+        fechaError = true;
+
         }
 
         if (monthIn < month && dayIn <= day) {
@@ -1166,11 +1296,15 @@ function validateDateR() {
           $("#dateerroryearR").html(
             "La fecha no puede ser menor al dia en curso."
           );
+        fechaError = true;
+
         }
       }
 
       if (yearIn == year + 1 || yearIn == year + 2) {
         $("#dateerroryearR").hide();
+        fechaError = false;
+
       }
 
       if (yearIn > year + 2) {
@@ -1178,10 +1312,14 @@ function validateDateR() {
         $("#dateerroryearR").html(
           "La fecha no puede superar 2 años del actual."
         );
+        fechaError = true;
+
       }
     } else {
       $("#dateerroryearR").show();
       $("#dateerroryearR").html("El formato de fecha es invalido.");
+      fechaError = true;
+    
     }
   }
 }
@@ -1240,7 +1378,7 @@ $("#validateRNPAR").click(function () {
     $.ajax({
       type: "GET",
       url: "https://ss.seguritech.org/ConapescaPublicApi/api/public/GetVesselListBasic",
-      headers: {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2ODkyNjkwNzksImlzcyI6IkJsdWVUcmFrZXIiLCJhdWQiOiJwdWJsaWMuYXBpLmNvbnN1bWVyIn0.4Py9GDero-pU9jFWb4a-zNC951j4P-4YD64rM9zixQ8'},
+      headers: {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2ODkzNTY4OTIsImlzcyI6IkJsdWVUcmFrZXIiLCJhdWQiOiJwdWJsaWMuYXBpLmNvbnN1bWVyIn0.H1TyTVfPlRyhB8acDVB1h4G-uKVeiwCqUw8kcEsMXWA'},
       dataType: 'json',
       success: function (result, status, xhr) {
         for(i=0; i<=result.length; i++){
@@ -1248,11 +1386,11 @@ $("#validateRNPAR").click(function () {
 
           
           if(datesMail.rnpa == result[i].vesselIdentification.rnpa){
-            datesMail.nameEmb = result[i].vesselIdentification.vesselName;
-            datesMail.matricula = result[i].vesselIdentification.matricula;
-            datesMail.propietario = result[i].vesselIdentification.rnpaTitular;
-            datesMail.trackerId = result[i].registrationInformation.blueTrakerId;
-
+            nameRNPA = result[i].vesselIdentification.rnpa;
+            nameEmbarca = result[i].vesselIdentification.vesselName;
+            nameMatricula = result[i].vesselIdentification.matricula;
+            nameOwner = result[i].vesselIdentification.rnpaTitular;
+            
             $(".CardSolicitudOne").hide();
             $(".CardSolicitudTwo").show();
             return false;
@@ -1272,15 +1410,21 @@ $("#validateRNPAR").click(function () {
 });
 
 $("#sendRNPAR").click(function () {
+  datesMail = {};
   validateInputsR();
   validateEmailR();
   validateDateR();
+  validateTelLengthR();
+
+  
   //saveIn();
   //console.log("datos " + JSON.stringify(datesMail));
   if (mailErrorR == false) {
-    $(".CardSolicitudOne").hide();
-    $(".CardSolicitudTwo").hide();
-    $(".CardSolicitudThree").show();
+
+    datesMail.nameEmb = nameEmbarca;
+    datesMail.matricula = nameMatricula;
+    datesMail.propietario = nameOwner;
+    datesMail.rnpa = nameRNPA;
 
     //RNPA
     let rnVal = document.querySelector(".rnpaValueR");
@@ -1337,6 +1481,18 @@ $("#sendRNPAR").click(function () {
     //mail
     let emVal = document.querySelector(".emaValueR");
     emVal.innerHTML = datesMail.mail;
+
+    if(datesMail.estado && datesMail.localidad && datesMail.descripcion && datesMail.referencia && datesMail.fecha && datesMail.hora && datesMail.contacto && datesMail.telefono.length == 10 && datesMail.mail){
+      $(".CardSolicitudOne").hide();
+      $(".CardSolicitudTwo").hide();
+      $(".CardSolicitudThree").show();
+      console.log(datesMail);
+
+    }else{
+      //alert("Todos los campos son obligatorios")
+      console.log(datesMail);
+
+    }
 
     //saveInfo();
     //generatePDF();
