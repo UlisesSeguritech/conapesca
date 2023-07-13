@@ -1395,14 +1395,14 @@ $("#validateRNPAR").click(function () {
             $(".CardSolicitudTwo").show();
             return false;
           }else{
-            $("#usercheck").show();
-            $("#usercheck").html("El RNPA no existe.");
+            $("#usercheckR").show();
+            $("#usercheckR").html("El RNPA no existe.");
           }
         }
       },
       error: function (xhr, status, error) {
-        $("#usercheck").show();
-        $("#usercheck").html("El RNPA no existe.");
+        $("#usercheckR").show();
+        $("#usercheckR").html("El RNPA no existe.");
       }
     });
   }
