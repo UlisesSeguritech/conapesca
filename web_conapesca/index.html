@@ -1082,7 +1082,6 @@
                               >
                                 <h6>Hora</h6>
                                 <select class="form-control" id="hoursR">
-                                  <option value="00">00</option>
                                   <option value="01">01</option>
                                   <option value="02">02</option>
                                   <option value="03">03</option>
@@ -2341,15 +2340,7 @@
                                 >
                                   El formato de fecha es invalido.
                                 </p>
-                                <p
-                                id="dateerrorActual"
-                                style="
-                                  color: red;
-                                  text-align: left !important;
-                                "
-                              >
-                              la hora no puede ser menor a la actual.
-                              </p>
+
                               </div>
                             </div>
                             <div class="col-md-6">
@@ -2397,6 +2388,7 @@
                                 </select>
                                 <span>:</span>
                                 <select class="form-control" id="minutes">
+                                  <option value="00">00</option>
                                   <option value="01">01</option>
                                   <option value="02">02</option>
                                   <option value="03">03</option>
@@ -2471,6 +2463,15 @@
                               >
                                 Es necesario ingresar un horario.
                               </p>
+                              <p
+                              id="dateerrorActual"
+                              style="
+                                color: red;
+                                text-align: left !important;
+                              "
+                            >
+                            la hora no puede ser menor a la actual.
+                            </p>
                             </div>
                           </div>
 

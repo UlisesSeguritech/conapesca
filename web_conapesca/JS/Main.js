@@ -436,21 +436,21 @@ function validateDate() {
           console.log("el dia es hoy")
           if(horaInt <= now ){
             $("#dateerrorActual").show();
-            fechaError = true;
+            horaError = true;
 
           }else if( horaInt == 24){
             $("#dateerrorActual").show();
-            fechaError = true;
+            horaError = true;
 
           }else  if(horaInt >= now+2 && minutesInt > nowMinutes){
             $("#dateerrorActual").hide();
-            fechaError = false;
+            horaError = false;
           }else{
             console.log("hora modi",horaInt,now+2)
             console.log("mintos modi",minutesInt,nowMinutes)
             $("#dateerrorActual").show();
             $("#dateerrorActual").html("La hora para el dia de hoy, tiene que ser mayor a 2 horas.");
-            fechaError = true;
+            horaError = true;
           }
         }
 
@@ -559,8 +559,9 @@ $("#sendRNPA").click(function () {
   validateEmail();
   validateDate();
   validateTelLength();
+  console.log(mailError, fechaError, horaError)
   
-  if (mailError == false && fechaError == false) {
+  if (mailError == false && fechaError == false && horaError == false) {
 
     datesMail.nameEmb = nameEmbarca;
     datesMail.matricula = nameMatricula;
@@ -1315,21 +1316,21 @@ function validateDateR() {
           console.log("el dia es hoy")
           if(horaInt <= now ){
             $("#dateerrorActual").show();
-            fechaError = true;
+            horaError = true;
 
           }else if( horaInt == 24){
             $("#dateerrorActual").show();
-            fechaError = true;
+            horaError = true;
 
           }else  if(horaInt >= now+2 && minutesInt > nowMinutes){
             $("#dateerrorActual").hide();
-            fechaError = false;
+            horaError = false;
           }else{
             console.log("hora modi",horaInt,now+2)
             console.log("mintos modi",minutesInt,nowMinutes)
             $("#dateerrorActual").show();
             $("#dateerrorActual").html("La hora para el dia de hoy, tiene que ser mayor a 2 horas.");
-            fechaError = true;
+            horaError = true;
           }
         }
 
