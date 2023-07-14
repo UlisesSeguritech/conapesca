@@ -20,6 +20,9 @@ var month = today.getMonth() + 1;
 // `getFullYear()` devuelve el año completo
 var year = today.getFullYear();
 
+var now = today.getHours();
+
+var nowMinutes = today.getMinutes();
 /*var button = document.querySelector("#sendRNPA");
 button.disabled = true;*/
 
@@ -35,7 +38,7 @@ $("#validateRNPA").click(function () {
     $.ajax({
       type: "GET",
       url: "https://ss.seguritech.org/ConapescaPublicApi/api/public/GetVesselListBasic",
-      headers: {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2ODkzNTY4OTIsImlzcyI6IkJsdWVUcmFrZXIiLCJhdWQiOiJwdWJsaWMuYXBpLmNvbnN1bWVyIn0.H1TyTVfPlRyhB8acDVB1h4G-uKVeiwCqUw8kcEsMXWA'},
+      headers: {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2ODk0NDU4MTQsImlzcyI6IkJsdWVUcmFrZXIiLCJhdWQiOiJwdWJsaWMuYXBpLmNvbnN1bWVyIn0.RcdfjN9XLabIq1y1pNHklS5XVRal3EDMDIAIM0mj33w'},
       dataType: 'json',
       success: function (result, status, xhr) {
         for(i=0; i<=result.length; i++){
@@ -109,7 +112,7 @@ function getEstado(val) {
         $("#inputLoc").prop("disabled", false);
         $("#inputLoc").empty();
         $("#inputLoc").append('<option value="0">Localidad</option>');
-
+        $("#inputMue").val("");
         for (i = 0; i < data.length; i++) {
            nameState = data[0].nombreEstado.name;
 
@@ -140,7 +143,7 @@ function getEstadoR(val) {
         $("#inputLocR").prop("disabled", false);
         $("#inputLocR").empty();
         $("#inputLocR").append('<option value="0">Localidad</option>');
-
+        $("#inputMueR").val("");
         for (i = 0; i < data.length; i++) {
            nameState = data[0].nombreEstado.name;
 
@@ -236,6 +239,7 @@ $("#descerror").hide();
 $("#deserrorstart").hide();
 $("#deserrorend").hide();
 $("#dateerroryear").hide();
+$("#dateerrorActual").hide();
 
 let usernameError = true;
 let telError = true;
@@ -403,6 +407,8 @@ function soloLetras(e) {
 }
 
 function validateDate() {
+  let dateField = $("#timeForm").val();
+
   var d_reg = /^(0[1-9]|[1-2]\d|3[01])(\/)(0[1-9]|1[012])\2(\d{4})$/;
   var dateValue = $("#calendarYear").val();
   console.log("valor date value", dateValue);
@@ -410,9 +416,11 @@ function validateDate() {
   var dayIn = parseInt(dateValue.split("/")[0]);
   var monthIn = parseInt(dateValue.split("/")[1]);
   var yearIn = parseInt(dateValue.split("/")[2]);
+  var horaInput = dateField.substr(-20,2);
+  var horaInt = Math.floor(horaInput)
+  var minutesInput = dateField.slice(-2);
+  var minutesInt = Math.floor(minutesInput);
 
-  console.log("aqui", dayIn, monthIn, yearIn);
-  console.log("aqui2", day, month, year);
 
   if (dateValue) {
     if (d_reg.test(dateValue)) {
@@ -424,6 +432,28 @@ function validateDate() {
       }
 
       if (yearIn == year) {
+        if(monthIn == month && dayIn == day){
+          console.log("el dia es hoy")
+          if(horaInt <= now ){
+            $("#dateerrorActual").show();
+            fechaError = true;
+
+          }else if( horaInt == 24){
+            $("#dateerrorActual").show();
+            fechaError = true;
+
+          }else  if(horaInt >= now+2 && minutesInt > nowMinutes){
+            $("#dateerrorActual").hide();
+            fechaError = false;
+          }else{
+            console.log("hora modi",horaInt,now+2)
+            console.log("mintos modi",minutesInt,nowMinutes)
+            $("#dateerrorActual").show();
+            $("#dateerrorActual").html("La hora para el dia de hoy, tiene que ser mayor a 2 horas.");
+            fechaError = true;
+          }
+        }
+
         if (monthIn >= month && dayIn >= day) {
           $("#dateerroryear").hide();
           fechaError = false;
@@ -449,7 +479,7 @@ function validateDate() {
         }
       }
 
-      if (yearIn == year + 1 || yearIn == year + 2) {
+      if (yearIn == year + 1 || yearIn == year + 1) {
         $("#dateerroryear").hide();
         fechaError = false;
 
@@ -1261,6 +1291,10 @@ function validateDateR() {
   var dayIn = parseInt(dateValue.split("/")[0]);
   var monthIn = parseInt(dateValue.split("/")[1]);
   var yearIn = parseInt(dateValue.split("/")[2]);
+  var horaInput = dateField.substr(-20,2);
+  var horaInt = Math.floor(horaInput)
+  var minutesInput = dateField.slice(-2);
+  var minutesInt = Math.floor(minutesInput);
 
   console.log("aqui", dayIn, monthIn, yearIn);
   console.log("aqui2", day, month, year);
@@ -1276,6 +1310,31 @@ function validateDateR() {
       }
 
       if (yearIn == year) {
+
+        if(monthIn == month && dayIn == day){
+          console.log("el dia es hoy")
+          if(horaInt <= now ){
+            $("#dateerrorActual").show();
+            fechaError = true;
+
+          }else if( horaInt == 24){
+            $("#dateerrorActual").show();
+            fechaError = true;
+
+          }else  if(horaInt >= now+2 && minutesInt > nowMinutes){
+            $("#dateerrorActual").hide();
+            fechaError = false;
+          }else{
+            console.log("hora modi",horaInt,now+2)
+            console.log("mintos modi",minutesInt,nowMinutes)
+            $("#dateerrorActual").show();
+            $("#dateerrorActual").html("La hora para el dia de hoy, tiene que ser mayor a 2 horas.");
+            fechaError = true;
+          }
+        }
+
+
+
         if (monthIn >= month && dayIn >= day) {
           $("#dateerroryearR").hide();
           fechaError = false;
@@ -1378,7 +1437,7 @@ $("#validateRNPAR").click(function () {
     $.ajax({
       type: "GET",
       url: "https://ss.seguritech.org/ConapescaPublicApi/api/public/GetVesselListBasic",
-      headers: {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2ODkzNTY4OTIsImlzcyI6IkJsdWVUcmFrZXIiLCJhdWQiOiJwdWJsaWMuYXBpLmNvbnN1bWVyIn0.H1TyTVfPlRyhB8acDVB1h4G-uKVeiwCqUw8kcEsMXWA'},
+      headers: {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2ODk0NDU4MTQsImlzcyI6IkJsdWVUcmFrZXIiLCJhdWQiOiJwdWJsaWMuYXBpLmNvbnN1bWVyIn0.RcdfjN9XLabIq1y1pNHklS5XVRal3EDMDIAIM0mj33w'},
       dataType: 'json',
       success: function (result, status, xhr) {
         for(i=0; i<=result.length; i++){
