@@ -21,6 +21,7 @@ var month = today.getMonth() + 1;
 var year = today.getFullYear();
 
 var now = today.getHours();
+var nowMasDos = today.getHours()+2;
 
 var nowMinutes = today.getMinutes();
 /*var button = document.querySelector("#sendRNPA");
@@ -420,6 +421,7 @@ function validateDate() {
   var horaInt = Math.floor(horaInput)
   var minutesInput = dateField.slice(-2);
   var minutesInt = Math.floor(minutesInput);
+ 
 
 
   if (dateValue) {
@@ -432,26 +434,28 @@ function validateDate() {
       }
 
       if (yearIn == year) {
+        
         if(monthIn == month && dayIn == day){
           console.log("el dia es hoy")
-          if(horaInt <= now ){
-            $("#dateerrorActual").show();
-            horaError = true;
+          console.log(now, nowMasDos)
 
-          }else if( horaInt == 24){
+          if( horaInt == 24){
             $("#dateerrorActual").show();
+            console.log("yo 1", horaInt )
             horaError = true;
+          }
 
-          }else  if(horaInt >= now+2 && minutesInt > nowMinutes){
+          if(horaInt >= nowMasDos && minutesInt >= nowMinutes || horaInt > nowMasDos && minutesInt == 0){
             $("#dateerrorActual").hide();
             horaError = false;
           }else{
-            console.log("hora modi",horaInt,now+2)
+            console.log(" 1hora modi",horaInt,nowMasDos)
             console.log("mintos modi",minutesInt,nowMinutes)
+            $("#dateerrorActual").hide();
             $("#dateerrorActual").show();
             $("#dateerrorActual").html("La hora para el dia de hoy, tiene que ser mayor a 2 horas.");
             horaError = true;
-          }
+          } 
         }
 
         if (monthIn >= month && dayIn >= day) {
@@ -588,9 +592,7 @@ $("#sendRNPA").click(function () {
     let rnpVal = document.querySelector(".rnpropValue");
     rnpVal.innerHTML = datesMail.propietario;
 
-    //descripcion
-    let dsVal = document.querySelector(".desValue");
-    dsVal.innerHTML = datesMail.descripcion;
+
 
     //localidad
     let lcVal = document.querySelector(".locValue");
@@ -600,9 +602,7 @@ $("#sendRNPA").click(function () {
     let mueVal = document.querySelector(".mullValue");
     mueVal.innerHTML = datesMail.muelle;
 
-    //referencia
-    let refVal = document.querySelector(".refeValue");
-    refVal.innerHTML = datesMail.referencia;
+
 
     //fecha
     let dtVal = document.querySelector(".dteValue");
@@ -625,10 +625,40 @@ $("#sendRNPA").click(function () {
     emVal.innerHTML = datesMail.mail;
 
     if(datesMail.estado && datesMail.localidad && datesMail.descripcion && datesMail.referencia && datesMail.fecha && datesMail.hora && datesMail.contacto && datesMail.telefono.length == 10 && datesMail.mail){
+      
+      const descrip = datesMail.descripcion.split(". ");
+      const refer = datesMail.referencia.split(". ");
+      
+
+      console.log(descrip)
+      console.log(refer)
+
+      for (let i = 0; i < descrip.length; i++) {
+        descrip[i] = descrip[i][0].toUpperCase() + descrip[i].substr(1);
+
+      }
+
+      for (let i = 0; i < refer.length; i++) {
+        refer[i] = refer[i][0].toUpperCase() + refer[i].substr(1);
+
+      }
+      console.log("soy descrip",descrip)
+      console.log("soy descrip",refer)
+
+      //descripcion
+      let dsVal = document.querySelector(".desValue");
+      dsVal.innerHTML = datesMail.descripcion = descrip.toString().replace(/,/g,'. ');
+
+      //referencia
+      let refVal = document.querySelector(".refeValue");
+      refVal.innerHTML = datesMail.referencia = refer.toString().replace(/,/g,'. ');
+
+      console.log(datesMail);
+
+
       $(".CardSolicitudOne").hide();
       $(".CardSolicitudTwo").hide();
       $(".CardSolicitudThree").show();
-      console.log(datesMail);
 
     }else{
       //alert("Todos los campos son obligatorios")
