@@ -241,6 +241,7 @@ $("#deserrorstart").hide();
 $("#deserrorend").hide();
 $("#dateerroryear").hide();
 $("#dateerrorActual").hide();
+$("#dateerrorActualR").hide();
 
 let usernameError = true;
 let telError = true;
@@ -1315,6 +1316,8 @@ function soloLetras(e) {
 }
 
 function validateDateR() {
+  let dateFieldR = $("#timeFormR").val();
+
   var d_reg = /^(0[1-9]|[1-2]\d|3[01])(\/)(0[1-9]|1[012])\2(\d{4})$/;
   var dateValue = $("#calendarYearR").val();
   console.log("valor date value", dateValue);
@@ -1322,9 +1325,9 @@ function validateDateR() {
   var dayIn = parseInt(dateValue.split("/")[0]);
   var monthIn = parseInt(dateValue.split("/")[1]);
   var yearIn = parseInt(dateValue.split("/")[2]);
-  var horaInput = dateField.substr(-20,2);
+  var horaInput = dateFieldR.substr(-20,2);
   var horaInt = Math.floor(horaInput)
-  var minutesInput = dateField.slice(-2);
+  var minutesInput = dateFieldR.slice(-2);
   var minutesInt = Math.floor(minutesInput);
 
   console.log("aqui", dayIn, monthIn, yearIn);
@@ -1347,20 +1350,20 @@ function validateDateR() {
           console.log(now, nowMasDos)
 
           if( horaInt == 24){
-            $("#dateerrorActual").show();
+            $("#dateerrorActualR").show();
             console.log("yo 1", horaInt )
             horaError = true;
           }
 
           if(horaInt >= nowMasDos && minutesInt >= nowMinutes || horaInt > nowMasDos && minutesInt == 0){
-            $("#dateerrorActual").hide();
+            $("#dateerrorActualR").hide();
             horaError = false;
           }else{
             console.log(" 1hora modi",horaInt,nowMasDos)
             console.log("mintos modi",minutesInt,nowMinutes)
-            $("#dateerrorActual").hide();
-            $("#dateerrorActual").show();
-            $("#dateerrorActual").html("La hora para el dia de hoy, tiene que ser mayor a 2 horas.");
+            $("#dateerrorActualR").hide();
+            $("#dateerrorActualR").show();
+            $("#dateerrorActualR").html("La hora para el dia de hoy, tiene que ser mayor a 2 horas.");
             horaError = true;
           } 
         }
