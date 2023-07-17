@@ -455,9 +455,9 @@ function validateDate() {
           console.log("el dia es hoy")
           console.log(now, nowMasDos)
 
-          if( horaInt == 24){
+          if( horaInt == 0){
             $("#dateerrorActual").show();
-            console.log("yo 1", horaInt )
+            $("#dateerrorActual").html("Es necesario cambiar la fecha a un dia siguiente");
             horaError = true;
           }
 
@@ -476,6 +476,8 @@ function validateDate() {
 
         if (monthIn >= month && dayIn >= day) {
           $("#dateerroryear").hide();
+          horaError = false;
+
           fechaError = false;
 
         }
@@ -643,7 +645,7 @@ $("#sendRNPA").click(function () {
 
     if(datesMail.estado && datesMail.localidad && datesMail.descripcion && datesMail.referencia && datesMail.fecha && datesMail.hora && datesMail.contacto && datesMail.telefono.length == 10 && datesMail.mail){
       
-      const descrip = datesMail.descripcion.split(". ").join(',').split('\n').join(',').split(',');
+      const descrip = datesMail.descripcion.split(". ").join('-').split('\n').join('-').split('\n\n').join('-').split('-');
 
       var desWhite = descrip.filter(elements => {
         return (elements != null && elements !== undefined && elements !== '');
@@ -654,7 +656,7 @@ $("#sendRNPA").click(function () {
       }
        
       //var saltoLinDes = descrip.split("\n")
-      const refer = datesMail.referencia.split(". ").join('-').split('\n').join('-').split('-');
+      const refer = datesMail.referencia.split(". ").join('-').split('\n').join('-').split('\n\n').join('-').split('-');
 
       var refWhite = refer.filter(elements => {
         return (elements != null && elements !== undefined && elements !== '');
@@ -1387,9 +1389,9 @@ function validateDateR() {
           console.log("el dia es hoy")
           console.log(now, nowMasDos)
 
-          if( horaInt == 24){
-            $("#dateerrorActualR").show();
-            console.log("yo 1", horaInt )
+          if( horaInt == 0){
+            $("#dateerrorActual").show();
+            $("#dateerrorActual").html("Es necesario cambiar la fecha a un dia siguiente");
             horaError = true;
           }
 
@@ -1617,7 +1619,7 @@ $("#sendRNPAR").click(function () {
 
     if(datesMail.estado && datesMail.localidad && datesMail.descripcion && datesMail.referencia && datesMail.fecha && datesMail.hora && datesMail.contacto && datesMail.telefono.length == 10 && datesMail.mail){
       
-      const descrip = datesMail.descripcion.split(". ").join(',').split('\n').join(',').split(',');
+      const descrip = datesMail.descripcion.split(". ").join('-').split('\n').join('-').split('\n\n').join('-').split('-')
 
       var desWhite = descrip.filter(elements => {
         return (elements != null && elements !== undefined && elements !== '');
@@ -1628,7 +1630,7 @@ $("#sendRNPAR").click(function () {
       }
        
       //var saltoLinDes = descrip.split("\n")
-      const refer = datesMail.referencia.split(". ").join(',').split('\n').join(',').split(',');
+      const refer = datesMail.referencia.split(". ").join('-').split('\n').join('-').split('\n\n').join('-').split('-')
 
       var refWhite = refer.filter(elements => {
         return (elements != null && elements !== undefined && elements !== '');
@@ -1665,4 +1667,15 @@ $("#sendRNPAR").click(function () {
     //saveInfo();
     //generatePDF();
   }
+});
+
+let panelSolicitudVer = document.getElementById("panelSolicitudVer");
+
+panelSolicitudVer.addEventListener("click", () => {
+  console.log("click");
+  setTimeout(function () {
+    panelSolicitudVer.scrollIntoView({
+           /*behavior: 'smooth',*/ block: "center",
+    });
+  }, 250);
 });
