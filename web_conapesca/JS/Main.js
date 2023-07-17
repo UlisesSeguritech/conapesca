@@ -39,7 +39,7 @@ $("#validateRNPA").click(function () {
     $.ajax({
       type: "GET",
       url: "https://ss.seguritech.org/ConapescaPublicApi/api/public/GetVesselListBasic",
-      headers: {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2ODk0NDU4MTQsImlzcyI6IkJsdWVUcmFrZXIiLCJhdWQiOiJwdWJsaWMuYXBpLmNvbnN1bWVyIn0.RcdfjN9XLabIq1y1pNHklS5XVRal3EDMDIAIM0mj33w'},
+      headers: {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2ODk2ODk4MzEsImlzcyI6IkJsdWVUcmFrZXIiLCJhdWQiOiJwdWJsaWMuYXBpLmNvbnN1bWVyIn0.l6ykAzooQadhR8xCcmbVPPKWxE_uV_7-HGh9QQvEL3E'},
       dataType: 'json',
       success: function (result, status, xhr) {
         for(i=0; i<=result.length; i++){
@@ -276,28 +276,43 @@ function validateWhiteSpaces() {
   if (refField) {
     if (regex.test(refField)) {
       $("#referrorstart").show();
+      errorWhiteSpRef = true;
     } else {
       $("#referrorstart").hide();
+      errorWhiteSpRef = false;
+
     }
 
     if (regexFin.test(refField)) {
       $("#referrorstart").show();
+      errorWhiteSpRef = true;
+
     } else {
       $("#referrorstart").hide();
+      errorWhiteSpRef = false;
+
     }
   }
 
   if (desField) {
     if (regex.test(desField)) {
       $("#deserrorstart").show();
+      errorWhiteSpDes = true;
+      
     } else {
       $("#deserrorstart").hide();
+      errorWhiteSpDes = false;
+
     }
 
     if (regexFin.test(desField)) {
       $("#deserrorstart").show();
+      errorWhiteSpDes = true;
+
     } else {
       $("#deserrorstart").hide();
+      errorWhiteSpDes = false;
+
     }
   }
 
@@ -563,10 +578,11 @@ $("#sendRNPA").click(function () {
   validateInputs();
   validateEmail();
   validateDate();
+  validateWhiteSpaces();
   validateTelLength();
-  console.log(mailError, fechaError, horaError)
+  console.log(mailError, fechaError, horaError, errorWhiteSpRef, errorWhiteSpDes)
   
-  if (mailError == false && fechaError == false && horaError == false) {
+  if (mailError == false && fechaError == false && horaError == false &&  errorWhiteSpRef == false && errorWhiteSpDes == false) {
 
     datesMail.nameEmb = nameEmbarca;
     datesMail.matricula = nameMatricula;
@@ -648,11 +664,12 @@ $("#sendRNPA").click(function () {
 
       //descripcion
       let dsVal = document.querySelector(".desValue");
-      dsVal.innerHTML = datesMail.descripcion = descrip.toString().replace(/,/g,'. ');
-
+      datesMail.descripcion = descrip.toString().replace(/,/g,'. ').trim();
+      dsVal.innerHTML = datesMail.descripcion = datesMail.descripcion.charAt(0).toUpperCase() + datesMail.descripcion.slice(1);
       //referencia
       let refVal = document.querySelector(".refeValue");
-      refVal.innerHTML = datesMail.referencia = refer.toString().replace(/,/g,'. ');
+      datesMail.referencia = refer.toString().replace(/,/g,'. ').trim();
+      refVal.innerHTML = datesMail.referencia = datesMail.referencia.charAt(0).toUpperCase() + datesMail.referencia.slice(1);
 
       console.log(datesMail);
 
@@ -1150,28 +1167,44 @@ function validateWhiteSpacesR() {
   if (refFieldR) {
     if (regex.test(refFieldR)) {
       $("#referrorstartR").show();
+      errorWhiteSpRef = true;
+
     } else {
       $("#referrorstartR").hide();
+      errorWhiteSpRef = false;
+
     }
 
     if (regexFin.test(refFieldR)) {
       $("#referrorstartR").show();
+      errorWhiteSpRef = true;
+
     } else {
       $("#referrorstartR").hide();
+      errorWhiteSpRef = false;
+
     }
   }
 
   if (desField) {
     if (regex.test(desField)) {
       $("#deserrorstartR").show();
+      errorWhiteSpDes = true;
+
     } else {
       $("#deserrorstartR").hide();
+      errorWhiteSpDes = false;
+
     }
 
     if (regexFin.test(desField)) {
       $("#deserrorstartR").show();
+      errorWhiteSpDes = true;
+
     } else {
       $("#deserrorstartR").hide();
+      errorWhiteSpDes = false;
+
     }
   }
 
@@ -1472,7 +1505,7 @@ $("#validateRNPAR").click(function () {
     $.ajax({
       type: "GET",
       url: "https://ss.seguritech.org/ConapescaPublicApi/api/public/GetVesselListBasic",
-      headers: {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2ODk0NDU4MTQsImlzcyI6IkJsdWVUcmFrZXIiLCJhdWQiOiJwdWJsaWMuYXBpLmNvbnN1bWVyIn0.RcdfjN9XLabIq1y1pNHklS5XVRal3EDMDIAIM0mj33w'},
+      headers: {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2ODk2ODk4MzEsImlzcyI6IkJsdWVUcmFrZXIiLCJhdWQiOiJwdWJsaWMuYXBpLmNvbnN1bWVyIn0.l6ykAzooQadhR8xCcmbVPPKWxE_uV_7-HGh9QQvEL3E'},
       dataType: 'json',
       success: function (result, status, xhr) {
         for(i=0; i<=result.length; i++){
@@ -1508,12 +1541,15 @@ $("#sendRNPAR").click(function () {
   validateInputsR();
   validateEmailR();
   validateDateR();
+  validateWhiteSpacesR();
+
   validateTelLengthR();
+  console.log(mailError, fechaError, horaError, errorWhiteSpRef, errorWhiteSpDes)
 
   
   //saveIn();
   //console.log("datos " + JSON.stringify(datesMail));
-  if (mailErrorR == false) {
+  if (mailError == false && fechaError == false && horaError == false &&  errorWhiteSpRef == false && errorWhiteSpDes == false) {
 
     datesMail.nameEmb = nameEmbarca;
     datesMail.matricula = nameMatricula;
