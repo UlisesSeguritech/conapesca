@@ -643,33 +643,38 @@ $("#sendRNPA").click(function () {
 
     if(datesMail.estado && datesMail.localidad && datesMail.descripcion && datesMail.referencia && datesMail.fecha && datesMail.hora && datesMail.contacto && datesMail.telefono.length == 10 && datesMail.mail){
       
-      const descrip = datesMail.descripcion.split(". ");
-      const refer = datesMail.referencia.split(". ");
-      
+      const descrip = datesMail.descripcion.split(". ").join(',').split('\n').join(',').split(',');
 
-      console.log(descrip)
-      console.log(refer)
+      var desWhite = descrip.filter(elements => {
+        return (elements != null && elements !== undefined && elements !== '');
+       });
 
-      for (let i = 0; i < descrip.length; i++) {
-        descrip[i] = descrip[i][0].toUpperCase() + descrip[i].substr(1);
+      for (let i = 0; i < desWhite.length; i++) {
+        desWhite[i] = desWhite[i][0].toUpperCase() + desWhite[i].substr(1);
+      }
+       
+      //var saltoLinDes = descrip.split("\n")
+      const refer = datesMail.referencia.split(". ").join('-').split('\n').join('-').split('-');
+
+      var refWhite = refer.filter(elements => {
+        return (elements != null && elements !== undefined && elements !== '');
+       });
+
+      for (let i = 0; i < refWhite.length; i++) {
+        refWhite[i] = refWhite[i][0].toUpperCase() + refWhite[i].substr(1);
 
       }
-
-      for (let i = 0; i < refer.length; i++) {
-        refer[i] = refer[i][0].toUpperCase() + refer[i].substr(1);
-
-      }
-      console.log("soy descrip",descrip)
-      console.log("soy descrip",refer)
+      console.log("soy descrip",desWhite)
+      console.log("soy descrip",refWhite)
 
       //descripcion
       let dsVal = document.querySelector(".desValue");
-      datesMail.descripcion = descrip.toString().replace(/,/g,'. ').trim();
-      dsVal.innerHTML = datesMail.descripcion = datesMail.descripcion.charAt(0).toUpperCase() + datesMail.descripcion.slice(1);
+      datesMail.descripcion = desWhite.toString().replace(/,/g,'. ').trim().replace(/\.  /g,', ');
+      dsVal.innerHTML = datesMail.descripcion = datesMail.descripcion.charAt(0).toUpperCase() + datesMail.descripcion.slice(1).replace(/\.\./g,".");
       //referencia
       let refVal = document.querySelector(".refeValue");
-      datesMail.referencia = refer.toString().replace(/,/g,'. ').trim();
-      refVal.innerHTML = datesMail.referencia = datesMail.referencia.charAt(0).toUpperCase() + datesMail.referencia.slice(1);
+      datesMail.referencia = refWhite.toString().replace(/,/g,'. ').trim().replace(/\.  /g,', ');
+      refVal.innerHTML = datesMail.referencia = datesMail.referencia.charAt(0).toUpperCase() + datesMail.referencia.slice(1).replace(/\.\./g,".");
 
       console.log(datesMail);
 
@@ -1544,12 +1549,12 @@ $("#sendRNPAR").click(function () {
   validateWhiteSpacesR();
 
   validateTelLengthR();
-  console.log(mailError, fechaError, horaError, errorWhiteSpRef, errorWhiteSpDes)
+  console.log(mailErrorR, fechaError, horaError, errorWhiteSpRef, errorWhiteSpDes)
 
   
   //saveIn();
   //console.log("datos " + JSON.stringify(datesMail));
-  if (mailError == false && fechaError == false && horaError == false &&  errorWhiteSpRef == false && errorWhiteSpDes == false) {
+  if (mailErrorR == false && fechaError == false && horaError == false &&  errorWhiteSpRef == false && errorWhiteSpDes == false) {
 
     datesMail.nameEmb = nameEmbarca;
     datesMail.matricula = nameMatricula;
@@ -1612,33 +1617,39 @@ $("#sendRNPAR").click(function () {
 
     if(datesMail.estado && datesMail.localidad && datesMail.descripcion && datesMail.referencia && datesMail.fecha && datesMail.hora && datesMail.contacto && datesMail.telefono.length == 10 && datesMail.mail){
       
-      const descrip = datesMail.descripcion.split(". ");
-      const refer = datesMail.referencia.split(". ");
-      
+      const descrip = datesMail.descripcion.split(". ").join(',').split('\n').join(',').split(',');
 
-      console.log(descrip)
-      console.log(refer)
+      var desWhite = descrip.filter(elements => {
+        return (elements != null && elements !== undefined && elements !== '');
+       });
 
-      for (let i = 0; i < descrip.length; i++) {
-        descrip[i] = descrip[i][0].toUpperCase() + descrip[i].substr(1);
+      for (let i = 0; i < desWhite.length; i++) {
+        desWhite[i] = desWhite[i][0].toUpperCase() + desWhite[i].substr(1);
+      }
+       
+      //var saltoLinDes = descrip.split("\n")
+      const refer = datesMail.referencia.split(". ").join(',').split('\n').join(',').split(',');
+
+      var refWhite = refer.filter(elements => {
+        return (elements != null && elements !== undefined && elements !== '');
+       });
+
+      for (let i = 0; i < refWhite.length; i++) {
+        refWhite[i] = refWhite[i][0].toUpperCase() + refWhite[i].substr(1);
 
       }
+      console.log("soy descrip",desWhite)
+      console.log("soy descrip",refWhite)
 
-      for (let i = 0; i < refer.length; i++) {
-        refer[i] = refer[i][0].toUpperCase() + refer[i].substr(1);
-
-      }
-      console.log("soy descrip",descrip)
-      console.log("soy descrip",refer)
-
-      //descripcion
-      let dsVal = document.querySelector(".desValueR");
-      dsVal.innerHTML = datesMail.descripcion = descrip.toString().replace(/,/g,'. ');
-
-      //referencia
-      let refVal = document.querySelector(".refeValueR");
-      refVal.innerHTML = datesMail.referencia = refer.toString().replace(/,/g,'. ');
-
+       //descripcion
+       let dsVal = document.querySelector(".desValueR");
+       datesMail.descripcion = desWhite.toString().replace(/,/g,'. ').trim().replace(/\.  /g,', ');
+       dsVal.innerHTML = datesMail.descripcion = datesMail.descripcion.charAt(0).toUpperCase() + datesMail.descripcion.slice(1).replace(/\.\./g,".");;
+       //referencia
+       let refVal = document.querySelector(".refeValueR");
+       datesMail.referencia = refWhite.toString().replace(/,/g,'. ').trim().replace(/\.  /g,', ');
+       refVal.innerHTML = datesMail.referencia = datesMail.referencia.charAt(0).toUpperCase() + datesMail.referencia.slice(1).replace(/\.\./g,".");;
+ 
       console.log(datesMail);
 
       $(".CardSolicitudOne").hide();
