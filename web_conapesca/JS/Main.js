@@ -453,7 +453,7 @@ function validateDate() {
         
         if(monthIn == month && dayIn == day){
           console.log("el dia es hoy")
-          console.log(now, nowMasDos)
+          console.log(now, nowMasDos, minutesInt, nowMinutes)
 
           if( horaInt == 0){
             $("#dateerrorActual").show();
@@ -461,24 +461,27 @@ function validateDate() {
             horaError = true;
           }
 
-          if(horaInt >= nowMasDos && minutesInt >= nowMinutes || horaInt > nowMasDos && minutesInt == 0){
+          if( monthIn == month && dayIn == day && horaInt >= nowMasDos && minutesInt >= nowMinutes ){
             $("#dateerrorActual").hide();
             horaError = false;
+            fechaError = false;
+
           }else{
-            console.log(" 1hora modi",horaInt,nowMasDos)
-            console.log("mintos modi",minutesInt,nowMinutes)
             $("#dateerrorActual").hide();
             $("#dateerrorActual").show();
+            $("#dateerroryear").hide();
             $("#dateerrorActual").html("La hora para el dia de hoy, tiene que ser mayor a 2 horas.");
             horaError = true;
+            fechaError = true;
+
           } 
         }
 
-        if (monthIn >= month && dayIn >= day) {
+        if (monthIn >= month && dayIn > day) {
           $("#dateerroryear").hide();
-          horaError = false;
-
+          console.log("soy 1")
           fechaError = false;
+          horaError = false;
 
         }
 
@@ -1390,29 +1393,33 @@ function validateDateR() {
           console.log(now, nowMasDos)
 
           if( horaInt == 0){
-            $("#dateerrorActual").show();
-            $("#dateerrorActual").html("Es necesario cambiar la fecha a un dia siguiente");
+            $("#dateerrorActualR").show();
+            $("#dateerrorActualR").html("Es necesario cambiar la fecha a un dia siguiente");
             horaError = true;
           }
 
-          if(horaInt >= nowMasDos && minutesInt >= nowMinutes || horaInt > nowMasDos && minutesInt == 0){
+          if( monthIn == month && dayIn == day && horaInt >= nowMasDos && minutesInt >= nowMinutes ){
             $("#dateerrorActualR").hide();
             horaError = false;
+            fechaError = false;
+
           }else{
-            console.log(" 1hora modi",horaInt,nowMasDos)
-            console.log("mintos modi",minutesInt,nowMinutes)
             $("#dateerrorActualR").hide();
             $("#dateerrorActualR").show();
+            $("#dateerroryearR").hide();
             $("#dateerrorActualR").html("La hora para el dia de hoy, tiene que ser mayor a 2 horas.");
             horaError = true;
+            fechaError = true;
+
           } 
         }
 
 
-
-        if (monthIn >= month && dayIn >= day) {
+        if (monthIn >= month && dayIn > day) {
           $("#dateerroryearR").hide();
+          console.log("soy 1")
           fechaError = false;
+          horaError = false;
 
         }
 
