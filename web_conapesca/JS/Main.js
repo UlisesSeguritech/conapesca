@@ -504,9 +504,19 @@ function validateDate() {
         }
       }
 
-      if (yearIn == year + 1 || yearIn == year + 1) {
-        $("#dateerroryear").hide();
-        fechaError = false;
+      if (yearIn == year + 1 ) {
+
+        if(monthIn >= month && dayIn >= day){
+          $("#dateerroryear").hide();
+          fechaError = false;
+          horaError = false;
+        }else{
+          $("#dateerroryear").show();
+          $("#dateerroryear").html(
+            "La fecha tiene que ser mayor a un año."
+          );
+        }
+
 
       }
 
@@ -516,6 +526,7 @@ function validateDate() {
           "La fecha no puede superar 2 años del actual."
         );
         fechaError = true;
+        horaError = true;
 
       }
     } else {
@@ -1442,9 +1453,11 @@ function validateDateR() {
         }
       }
 
-      if (yearIn == year + 1 || yearIn == year + 2) {
+      if (yearIn == year + 1 || yearIn == year + 1) {
         $("#dateerroryearR").hide();
         fechaError = false;
+        horaError = false;
+
 
       }
 
@@ -1454,6 +1467,8 @@ function validateDateR() {
           "La fecha no puede superar 2 años del actual."
         );
         fechaError = true;
+        horaError = true;
+
 
       }
     } else {
