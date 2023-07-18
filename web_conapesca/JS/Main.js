@@ -920,6 +920,68 @@ function generatePDFRes(foli) {
 
 //
 
+
+
+
+
+
+
+
+
+
+
+
+
+let hideErrorInputR = () =>{
+  $("#usercheckR").hide();
+  $("#stateerrorR").hide();
+  $("#localerrorR").hide();
+  $("#muelleerrorR").hide();
+  $("#referrorR").hide();
+  $("#referrorstartR").hide();
+  $("#referrorendR").hide();
+  $("#dateerrorR").hide();
+  $("#timeerrorR").hide();
+  $("#phoneerrorR").hide();
+  $("#contacterrorR").hide();
+  $("#contacterrorstartR").hide();
+  $("#contacterrorendR").hide();
+  $("#mailerrorR").hide();
+  $("#descerrorR").hide();
+  $("#deserrorstartR").hide();
+  $("#deserrorendR").hide();
+  $("#dateerroryearR").hide();
+
+}
+let hideErrorInput = () =>{
+  $("#usercheck").hide();
+  $("#stateerror").hide();
+  $("#localerror").hide();
+  $("#muelleerror").hide();
+  $("#referror").hide();
+  $("#referrorstart").hide();
+  $("#referrorend").hide();
+  $("#dateerror").hide();
+  $("#timeerror").hide();
+  $("#phoneerror").hide();
+  $("#contacterror").hide();
+  $("#contacterrorstart").hide();
+  $("#contacterrorend").hide();
+  $("#mailerror").hide();
+  $("#descerror").hide();
+  $("#deserrorstart").hide();
+  $("#deserrorend").hide();
+  $("#dateerroryear").hide();
+  $("#dateerrorActual").hide();
+  $("#dateerrorActualR").hide();
+
+}
+myform = document.getElementById("myForm");
+//Previene el envio del formulario desktop 
+myform.addEventListener('submit', (e) => {
+  e.preventDefault();
+  
+});
 //funcion cancelarsolicitud regresa a la vista inicial de solicitud y limpia los inputs
 let cancelarSolicitud = () => {
   //Mostramos la card correcta de solicitud de verificacion
@@ -930,8 +992,51 @@ let cancelarSolicitud = () => {
   document.getElementById("usernames").value = "";
   $("#usercheck").hide();
   document.getElementById("myForm").reset();
-  document.location.href = "/";
+  //document.location.href = "/";
+  hideErrorInput();
 };
+
+myformR = document.getElementById("myFormR");
+//Previene el envio del formulario responsive
+myformR.addEventListener('submit', (e) => {
+  e.preventDefault();
+  
+});
+let cancelarSolicitudR = () => {
+  
+  //Mostramos la card correcta de solicitud de verificacion
+  $(".CardSolicitudOne").show();
+  $(".CardSolicitudTwo").hide();
+  $(".CardSolicitudThree").hide();
+  //Limpiamos los formularios
+  document.getElementById("usernames").value = "";
+  $("#usercheck").hide();
+ 
+  myformR.reset();
+  //document.location.href = "/";
+  hideErrorInputR();
+
+
+
+};
+
+$('.panel-collapse').on('shown.bs.collapse', function() {
+  // Aquí puedes ejecutar tu código cuando se muestra un panel del acordeón
+  cancelarSolicitudR();
+  console.log('Se mostró un panel del acordeón');
+});
+
+
+
+
+
+
+
+
+
+
+
+
 
 //Funcion del FRAMEWORK de gobienrno que se ejecuta cuando todas las dependencias se cargaron correctamente
 //INICIALIZAMOS LOS INPUTS TIPO CALENDAR
