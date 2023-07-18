@@ -23,7 +23,7 @@ var year = today.getFullYear();
 var now = today.getHours();
 var nowMasDos = today.getHours()+2;
 
-var nowMinutes = today.getMinutes();
+
 /*var button = document.querySelector("#sendRNPA");
 button.disabled = true;*/
 
@@ -39,7 +39,7 @@ $("#validateRNPA").click(function () {
     $.ajax({
       type: "GET",
       url: "https://ss.seguritech.org/ConapescaPublicApi/api/public/GetVesselListBasic",
-      headers: {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2ODk2ODk4MzEsImlzcyI6IkJsdWVUcmFrZXIiLCJhdWQiOiJwdWJsaWMuYXBpLmNvbnN1bWVyIn0.l6ykAzooQadhR8xCcmbVPPKWxE_uV_7-HGh9QQvEL3E'},
+      headers: {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2ODk3Nzg1OTQsImlzcyI6IkJsdWVUcmFrZXIiLCJhdWQiOiJwdWJsaWMuYXBpLmNvbnN1bWVyIn0.wxo-4hTwdunWxWqGpvGm0p1hXgPsNhHrQc74ZVJSPro'},
       dataType: 'json',
       success: function (result, status, xhr) {
         for(i=0; i<=result.length; i++){
@@ -424,6 +424,10 @@ function soloLetras(e) {
 }
 
 function validateDate() {
+var todayy = new Date();
+
+  var nowMinutes = todayy.getMinutes();
+  console.log(nowMinutes)
   let dateField = $("#timeForm").val();
 
   var d_reg = /^(0[1-9]|[1-2]\d|3[01])(\/)(0[1-9]|1[012])\2(\d{4})$/;
@@ -461,7 +465,7 @@ function validateDate() {
             horaError = true;
           }
 
-          if( monthIn == month && dayIn == day && horaInt >= nowMasDos && minutesInt > nowMinutes ){
+          if( monthIn == month && dayIn == day && horaInt >= nowMasDos && minutesInt >= nowMinutes ){
             $("#dateerrorActual").hide();
             console.log("hola soy min")
             horaError = false;
@@ -507,25 +511,29 @@ function validateDate() {
 
       if (yearIn == year + 1 ) {
 
-        if(monthIn >= month && dayIn >= day){
-          $("#dateerroryear").hide();
-          fechaError = false;
-          horaError = false;
-        }else{
+        if(monthIn >= month && dayIn > day){
           $("#dateerroryear").show();
           $("#dateerroryear").html(
-            "La fecha tiene que ser mayor a un año."
+            "La fecha no puede ser mayor a un año."
           );
+        }else{
+          $("#dateerroryear").hide();
+          $("#dateerrorActual").hide();
+          fechaError = false;
+          horaError = false;
+
         }
 
 
       }
 
-      if (yearIn > year + 2) {
+      if (yearIn > year + 1) {
         $("#dateerroryear").show();
         $("#dateerroryear").html(
-          "La fecha no puede superar 2 años del actual."
+          "La fecha maxima es de 1 año al actual."
         );
+        $("#dateerrorActual").hide();
+
         fechaError = true;
         horaError = true;
 
@@ -994,6 +1002,22 @@ let cancelarSolicitud = () => {
   document.getElementById("myForm").reset();
   //document.location.href = "/";
   hideErrorInput();
+  document.location.href = "/";
+
+};
+
+let cancelarVMS = () => {
+  //Mostramos la card correcta de solicitud de verificacion
+  $(".CardSolicitudOne").show();
+  $(".CardSolicitudTwo").hide();
+  $(".CardSolicitudThree").hide();
+  //Limpiamos los formularios
+  document.getElementById("usernames").value = "";
+  $("#usercheck").hide();
+  document.getElementById("myForm").reset();
+  //document.location.href = "/";
+  hideErrorInput();
+
 };
 
 myformR = document.getElementById("myFormR");
@@ -1015,6 +1039,7 @@ let cancelarSolicitudR = () => {
   myformR.reset();
   //document.location.href = "/";
   hideErrorInputR();
+  //document.location.href = "/";
 
 
 
@@ -1480,6 +1505,8 @@ function soloLetras(e) {
 }
 
 function validateDateR() {
+  var todayy = new Date();
+  var nowMinutes = todayy.getMinutes();
   let dateFieldR = $("#timeFormR").val();
 
   var d_reg = /^(0[1-9]|[1-2]\d|3[01])(\/)(0[1-9]|1[012])\2(\d{4})$/;
@@ -1519,7 +1546,7 @@ function validateDateR() {
             horaError = true;
           }
 
-          if( monthIn == month && dayIn == day && horaInt >= nowMasDos && minutesInt > nowMinutes ){
+          if( monthIn == month && dayIn == day && horaInt >= nowMasDos && minutesInt >= nowMinutes ){
             $("#dateerrorActualR").hide();
             horaError = false;
             fechaError = false;
@@ -1563,19 +1590,30 @@ function validateDateR() {
         }
       }
 
-      if (yearIn == year + 1 || yearIn == year + 1) {
-        $("#dateerroryearR").hide();
-        fechaError = false;
-        horaError = false;
+      if (yearIn == year + 1 ) {
+        if(monthIn >= month && dayIn > day){
+          $("#dateerroryearR").show();
+          $("#dateerroryearR").html(
+            "La fecha no puede ser mayor a un año."
+          );
+        }else{
+          $("#dateerroryearR").hide();
+          $("#dateerrorActualR").hide();
+          fechaError = false;
+          horaError = false;
+
+        }
 
 
       }
 
-      if (yearIn > year + 2) {
+      if (yearIn > year + 1) {
         $("#dateerroryearR").show();
         $("#dateerroryearR").html(
-          "La fecha no puede superar 2 años del actual."
+          "La fecha no puede superar 1 año del actual."
         );
+        $("#dateerrorActualR").hide();
+
         fechaError = true;
         horaError = true;
 
@@ -1644,7 +1682,7 @@ $("#validateRNPAR").click(function () {
     $.ajax({
       type: "GET",
       url: "https://ss.seguritech.org/ConapescaPublicApi/api/public/GetVesselListBasic",
-      headers: {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2ODk2ODk4MzEsImlzcyI6IkJsdWVUcmFrZXIiLCJhdWQiOiJwdWJsaWMuYXBpLmNvbnN1bWVyIn0.l6ykAzooQadhR8xCcmbVPPKWxE_uV_7-HGh9QQvEL3E'},
+      headers: {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2ODk3Nzg1OTQsImlzcyI6IkJsdWVUcmFrZXIiLCJhdWQiOiJwdWJsaWMuYXBpLmNvbnN1bWVyIn0.wxo-4hTwdunWxWqGpvGm0p1hXgPsNhHrQc74ZVJSPro'},
       dataType: 'json',
       success: function (result, status, xhr) {
         for(i=0; i<=result.length; i++){
