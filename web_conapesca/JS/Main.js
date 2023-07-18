@@ -461,8 +461,9 @@ function validateDate() {
             horaError = true;
           }
 
-          if( monthIn == month && dayIn == day && horaInt >= nowMasDos && minutesInt >= nowMinutes ){
+          if( monthIn == month && dayIn == day && horaInt >= nowMasDos && minutesInt > nowMinutes ){
             $("#dateerrorActual").hide();
+            console.log("hola soy min")
             horaError = false;
             fechaError = false;
 
@@ -1265,6 +1266,10 @@ function validateUsernameR() {
   }
 }
 
+function limpiarNumero(obj) {
+  /* El evento "change" sólo saltará si son diferentes */
+  obj.value = obj.value.replace(/\D/g, '');
+}
 //SET DE telefono
 function validateTelLengthR() {
   let telValue = $("#telFormR").val();
@@ -1409,7 +1414,7 @@ function validateDateR() {
             horaError = true;
           }
 
-          if( monthIn == month && dayIn == day && horaInt >= nowMasDos && minutesInt >= nowMinutes ){
+          if( monthIn == month && dayIn == day && horaInt >= nowMasDos && minutesInt > nowMinutes ){
             $("#dateerrorActualR").hide();
             horaError = false;
             fechaError = false;

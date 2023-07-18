@@ -1201,6 +1201,8 @@
                             <div class="col-md-6">
                               <input
                                 onkeypress="return event.charCode >= 48 && event.charCode <= 57"
+                                onkeyup="limpiarNumero(this)"
+                                onchange="limpiarNumero(this)"
                                 class="form-control"
                                 type="text"
                                 placeholder="Teléfono"
