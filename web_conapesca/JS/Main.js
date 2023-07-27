@@ -39,7 +39,7 @@ $("#validateRNPA").click(function () {
     $.ajax({
       type: "GET",
       url: "https://ss.seguritech.org/ConapescaPublicApi/api/public/GetVesselListBasic",
-      headers: {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2ODk3Nzg1OTQsImlzcyI6IkJsdWVUcmFrZXIiLCJhdWQiOiJwdWJsaWMuYXBpLmNvbnN1bWVyIn0.wxo-4hTwdunWxWqGpvGm0p1hXgPsNhHrQc74ZVJSPro'},
+      headers: {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2OTAwNDUxODYsImlzcyI6IkJsdWVUcmFrZXIiLCJhdWQiOiJwdWJsaWMuYXBpLmNvbnN1bWVyIn0.FXBwYbN_1tBGpVGoJ_9tuYB9G3q8NT3mr5G8p1lzmT4'},
       dataType: 'json',
       success: function (result, status, xhr) {
         for(i=0; i<=result.length; i++){
@@ -1558,37 +1558,37 @@ function validateDateR() {
           console.log(monthIn, month, dayIn, day, horaInt, nowMasDos, minutesInt, nowMinutes)
 
           if( horaInt == 0){
-            $("#dateerrorActual").show();
-            $("#dateerrorActual").html("Es necesario cambiar la fecha a un dia siguiente");
+            $("#dateerrorActualR").show();
+            $("#dateerrorActualR").html("Es necesario cambiar la fecha a un dia siguiente");
             horaError = true;
           }
 
           if( horaInt > nowMasDos  ){
-            $("#dateerrorActual").hide();
-            $("#dateerroryear").hide();
+            $("#dateerrorActualR").hide();
+            $("#dateerroryearR").hide();
             horaError = false;
             fechaError = false;
           }
 
           if( horaInt <= nowMasDos && minutesInt <= nowMinutes ){
-            $("#dateerroryear").hide();
-            $("#dateerrorActual").show();
-            $("#dateerrorActual").html("La hora para el dia de hoy, tiene que ser mayor a 2 horas.");
+            $("#dateerroryearR").hide();
+            $("#dateerrorActualR").show();
+            $("#dateerrorActualR").html("La hora para el dia de hoy, tiene que ser mayor a 2 horas.");
             horaError = true;
             fechaError = true;
           }
 
           if( horaInt <= nowMasDos && minutesInt >= nowMinutes ){
-            $("#dateerroryear").hide();
-            $("#dateerrorActual").show();
-            $("#dateerrorActual").html("La hora para el dia de hoy, tiene que ser mayor a 2 horas.");
+            $("#dateerroryearR").hide();
+            $("#dateerrorActualR").show();
+            $("#dateerrorActualR").html("La hora para el dia de hoy, tiene que ser mayor a 2 horas.");
             horaError = true;
             fechaError = true;
           }
 
           if( horaInt >= nowMasDos && minutesInt >= nowMinutes ){
-            $("#dateerrorActual").hide();
-            $("#dateerroryear").hide();
+            $("#dateerrorActualR").hide();
+            $("#dateerroryearR").hide();
             horaError = false;
             fechaError = false;
           }
@@ -1714,7 +1714,7 @@ $("#validateRNPAR").click(function () {
     $.ajax({
       type: "GET",
       url: "https://ss.seguritech.org/ConapescaPublicApi/api/public/GetVesselListBasic",
-      headers: {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2ODk3Nzg1OTQsImlzcyI6IkJsdWVUcmFrZXIiLCJhdWQiOiJwdWJsaWMuYXBpLmNvbnN1bWVyIn0.wxo-4hTwdunWxWqGpvGm0p1hXgPsNhHrQc74ZVJSPro'},
+      headers: {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2OTAwNDUxODYsImlzcyI6IkJsdWVUcmFrZXIiLCJhdWQiOiJwdWJsaWMuYXBpLmNvbnN1bWVyIn0.FXBwYbN_1tBGpVGoJ_9tuYB9G3q8NT3mr5G8p1lzmT4'},
       dataType: 'json',
       success: function (result, status, xhr) {
         for(i=0; i<=result.length; i++){
