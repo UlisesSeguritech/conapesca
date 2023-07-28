@@ -22,7 +22,7 @@ var year = today.getFullYear();
 
 var now = today.getHours();
 var nowMasDos = today.getHours()+2;
-
+var bearerToken = ""
 
 /*var button = document.querySelector("#sendRNPA");
 button.disabled = true;*/
@@ -35,35 +35,43 @@ $("#calendarYearR").attr("placeholder", setDay);
 $("#validateRNPA").click(function () {
   validateUsername();
 
-  if (datesMail.rnpa) {
-    $.ajax({
-      type: "GET",
-      url: "https://ss.seguritech.org/ConapescaPublicApi/api/public/GetVesselListBasic",
-      headers: {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2OTAwNDUxODYsImlzcyI6IkJsdWVUcmFrZXIiLCJhdWQiOiJwdWJsaWMuYXBpLmNvbnN1bWVyIn0.FXBwYbN_1tBGpVGoJ_9tuYB9G3q8NT3mr5G8p1lzmT4'},
-      dataType: 'json',
-      success: function (result, status, xhr) {
-        for(i=0; i<=result.length; i++){
-          if(datesMail.rnpa == result[i].vesselIdentification.rnpa){
-           
-            nameRNPA = result[i].vesselIdentification.rnpa;
-            nameEmbarca = result[i].vesselIdentification.vesselName;
-            nameMatricula = result[i].vesselIdentification.matricula;
-            nameOwner = result[i].vesselIdentification.rnpaTitular;
-            
-            $(".CardSolicitudOne").hide();
-            $(".CardSolicitudTwo").show();
-            return false;
-          }else{
+  if(usernameError==false){
+    $.post( "https://ss.seguritech.org/ConapescaPublicApi/api/authentication/getToken?userName=ConapescaUser&password=C0n4p3SCA.Mx91856-",
+    function(data, status){
+      bearerToken = data.substr(7)
+      console.log("bearerToken: " + bearerToken + "\nStatus: " + status);
+      if (bearerToken) {
+        $.ajax({
+          type: "GET",
+          url: "https://ss.seguritech.org/ConapescaPublicApi/api/public/GetVesselListBasic",
+          headers: {'Authorization': 'Bearer '+ bearerToken},
+          dataType: 'json',
+          success: function (result, status, xhr) {
+            for(i=0; i<=result.length; i++){
+              if(datesMail.rnpa == result[i].vesselIdentification.rnpa){
+               
+                nameRNPA = result[i].vesselIdentification.rnpa;
+                nameEmbarca = result[i].vesselIdentification.vesselName;
+                nameMatricula = result[i].vesselIdentification.matricula;
+                nameOwner = result[i].vesselIdentification.rnpaTitular;
+                
+                $(".CardSolicitudOne").hide();
+                $(".CardSolicitudTwo").show();
+                return false;
+              }else{
+                $("#usercheck").show();
+                $("#usercheck").html("El RNPA no existe.");
+              }
+            }
+          },
+          error: function (xhr, status, error) {
             $("#usercheck").show();
             $("#usercheck").html("El RNPA no existe.");
           }
-        }
-      },
-      error: function (xhr, status, error) {
-        $("#usercheck").show();
-        $("#usercheck").html("El RNPA no existe.");
+        });
       }
-    });
+    } );
+
   }
 
 });
@@ -1710,39 +1718,47 @@ function validateEmailR() {
 
 $("#validateRNPAR").click(function () {
   validateUsernameR();
-  if (datesMail.rnpa) {
-    $.ajax({
-      type: "GET",
-      url: "https://ss.seguritech.org/ConapescaPublicApi/api/public/GetVesselListBasic",
-      headers: {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2OTAwNDUxODYsImlzcyI6IkJsdWVUcmFrZXIiLCJhdWQiOiJwdWJsaWMuYXBpLmNvbnN1bWVyIn0.FXBwYbN_1tBGpVGoJ_9tuYB9G3q8NT3mr5G8p1lzmT4'},
-      dataType: 'json',
-      success: function (result, status, xhr) {
-        for(i=0; i<=result.length; i++){
 
-
-          
-          if(datesMail.rnpa == result[i].vesselIdentification.rnpa){
-            nameRNPA = result[i].vesselIdentification.rnpa;
-            nameEmbarca = result[i].vesselIdentification.vesselName;
-            nameMatricula = result[i].vesselIdentification.matricula;
-            nameOwner = result[i].vesselIdentification.rnpaTitular;
-            
-            $(".CardSolicitudOne").hide();
-            $(".CardSolicitudTwo").show();
-            return false;
-          }else{
+  if(usernameError==false){
+    $.post( "https://ss.seguritech.org/ConapescaPublicApi/api/authentication/getToken?userName=ConapescaUser&password=C0n4p3SCA.Mx91856-",
+    function(data, status){
+      bearerToken = data.substr(7)
+      console.log("bearerToken: " + bearerToken + "\nStatus: " + status);
+      if (bearerToken) {
+        $.ajax({
+          type: "GET",
+          url: "https://ss.seguritech.org/ConapescaPublicApi/api/public/GetVesselListBasic",
+          headers: {'Authorization': 'Bearer '+ bearerToken},
+          dataType: 'json',
+          success: function (result, status, xhr) {
+            for(i=0; i<=result.length; i++){
+              if(datesMail.rnpa == result[i].vesselIdentification.rnpa){
+               
+                nameRNPA = result[i].vesselIdentification.rnpa;
+                nameEmbarca = result[i].vesselIdentification.vesselName;
+                nameMatricula = result[i].vesselIdentification.matricula;
+                nameOwner = result[i].vesselIdentification.rnpaTitular;
+                
+                $(".CardSolicitudOne").hide();
+                $(".CardSolicitudTwo").show();
+                return false;
+              }else{
+                $("#usercheckR").show();
+                $("#usercheckR").html("El RNPA no existe.");
+              }
+            }
+          },
+          error: function (xhr, status, error) {
             $("#usercheckR").show();
             $("#usercheckR").html("El RNPA no existe.");
           }
-        }
-      },
-      error: function (xhr, status, error) {
-        $("#usercheckR").show();
-        $("#usercheckR").html("El RNPA no existe.");
+        });
       }
-    });
-  }
+    } );
 
+
+
+  }
 });
 
 $("#sendRNPAR").click(function () {
